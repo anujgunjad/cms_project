@@ -1,0 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.main-dash {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+}
+.navbar {
+  background-color: #004ba8;
+}
+
+.side-bar {
+  width: 400px;
+  height: 100vh;
+  background-color: #343a40;
+}
+.main-body {
+  width: 100%;
+}
+.insert-new {
+  background-color: #004ba8;
+  color: white;
+}
+.insert-new:hover {
+  color: white;
+}

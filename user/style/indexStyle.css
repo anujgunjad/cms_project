@@ -1,0 +1,18 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.main-wrapper {
+  margin-top: 300px;
+}
+
+.input-btn {
+  padding: 20px;
+}
+.button {
+  background-color: #004ba8;
+  color: white;
+}
+.button:hover {
+  color: white;
+}
