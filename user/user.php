@@ -1,5 +1,5 @@
 <?php
-include("includes/config.php");
+include("../includes/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +9,9 @@ include("includes/config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Semantic UI-->
-    <link rel="stylesheet" type="text/css" href="dependencies/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css">
     <!--Bootstrap-->
-    <link rel="stylesheet" type="text/css" href="dependencies/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../dependencies/bootstrap/dist/css/bootstrap.min.css">
     <!--External CSS-->
     <link rel="stylesheet" href="style/mainForm.css" />
     <title>CMS | USER</title>
@@ -22,6 +22,9 @@ include("includes/config.php");
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="navbar-brand text-white" href="#">Complaint Managment System | Complaint Form</a>
+            </li>
+            <li class="nav-item active">
+                <a class="navbar-brand text-white" href="user-dashboard.php">Dashboard</a>
             </li>
         </ul>
         <button type="button" class="btn btn-outline-light btn-lg">Log Out</button>

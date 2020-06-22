@@ -28,7 +28,7 @@
         </nav>
 
 <div class="container-fluid">
-    <h1 class="mt-4">Welcome To Dashboard Of CMS (Admin)</h1>
+    <h1 class="mt-4">Complaint Panel</h1>
     <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi atque inventore quia ipsum dolores ad. Maiores explicabo sequi optio inventore unde, quia minima saepe reprehenderit deserunt autem! Unde, magnam dolores.
     </p>
@@ -40,4 +40,3 @@
     
  <?php include("sidenav-footer.php")?>
  <?php include("footer.php")?>
-   
