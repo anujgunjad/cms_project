@@ -30,8 +30,8 @@
         private $suspect_website_table = "suspect_website_info";
 
         //Objects Properties
-        public $complaint_id = "101";
-        public $suspect_id = "1";
+        public $complaint_id;
+        public $suspect_id;
         public $number_id;
         public $account_id;
         public $ewallet_id;
