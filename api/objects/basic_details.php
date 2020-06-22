@@ -30,8 +30,8 @@
         private $suspect_website_table = "suspect_website_info";
 
         //Objects Properties
-        public $complaint_id;
-        public $suspect_id;
+        public $complaint_id = "101";
+        public $suspect_id = "1";
         public $number_id;
         public $account_id;
         public $ewallet_id;
@@ -183,9 +183,79 @@
                 return $stmt;
         }
         
+        function read_suspect_account_atm(){
+
+            //Select Query
+            $query = "SELECT c.complaint_no as complaint_number, p.suspect_id, p.acc_id, p.atm_footage_id, p.atm_footage, p.email_sent, p.email_received FROM $this->suspect_account_atm_table p INNER JOIN $this->suspect_account_table a ON a.acc_id = p.acc_id INNER JOIN $this->suspect_table s ON s.suspect_id = a.suspect_id INNER JOIN $this->complainee_table c on c.complaint_id = s.complaint_id WHERE c.complaint_id = ? AND s.suspect_id = ? AND a.acc_id = ?";
+              //Prepare query statement
+              $stmt = $this->conn->prepare($query);
+
+              //bind ids
+              $stmt->bindParam(1, $this->complaint_id);
+              $stmt->bindParam(2, $this->suspect_id);
+              $stmt->bindParam(3, $this->account_id);
+  
+              //Execution
+              $stmt->execute();
+  
+              return $stmt;
+         }
+
+        function read_suspect_account_iplogs(){
+
+            //Select Query
+            $query = "SELECT c.complaint_no as complaint_number, p.suspect_id, p.acc_id, p.iplog_id, p.iplog, p.email_sent, p.email_received FROM $this->suspect_account_iplogs_table p INNER JOIN $this->suspect_account_table a ON a.acc_id = p.acc_id INNER JOIN $this->suspect_table s ON s.suspect_id = a.suspect_id INNER JOIN $this->complainee_table c on c.complaint_id = s.complaint_id WHERE c.complaint_id = ? AND s.suspect_id = ? AND a.acc_id = ?";
+              //Prepare query statement
+              $stmt = $this->conn->prepare($query);
+
+              //bind ids
+              $stmt->bindParam(1, $this->complaint_id);
+              $stmt->bindParam(2, $this->suspect_id);
+              $stmt->bindParam(3, $this->account_id);
+  
+              //Execution
+              $stmt->execute();
+  
+              return $stmt;
+         }
+
+         function read_suspect_ewallet(){
+            //Select Query
+            $query = "SELECT c.complaint_no as complaint_number, e.suspect_id, e.suspect_ewallet_id, e.upi_name, e.mob_number, e.vpa_id, e.statement, e.email_sent, e.email_received, e.linked_account, e.ip_address, e.ip_add_number, e.device_id, e.merchandise, e.hold_amount, e.number FROM $this->suspect_ewallet_table e INNER JOIN $this->suspect_table s ON s.suspect_id = e.suspect_id INNER JOIN $this->complainee_table c on c.complaint_id = e.complaint_id WHERE c.complaint_id = ? AND s.suspect_id = ? ";
+
+            //Prepare query statement
+            $stmt = $this->conn->prepare($query);
+
+            //bind ids
+            $stmt->bindParam(1, $this->complaint_id);
+            $stmt->bindParam(2, $this->suspect_id);
+            
+            //Execution
+            $stmt->execute();
+  
+            return $stmt;
+            
+        }
+    
+        function read_suspect_website() {
+            //Select Query
+            $query = "SELECT c.complaint_no as complaint_number, w.suspect_id, w.website_id, w.website_name, w.website_domain, w.mail_id, w.website_mobile_number FROM $this->suspect_website_table w INNER JOIN $this->suspect_table s ON s.suspect_id = w.suspect_id INNER JOIN $this->complainee_table c on c.complaint_id = s.complaint_id WHERE c.complaint_id = ? AND s.suspect_id = ? ";
+
+             //Prepare query statement
+             $stmt = $this->conn->prepare($query);
+
+             //bind ids
+             $stmt->bindParam(1, $this->complaint_id);
+             $stmt->bindParam(2, $this->suspect_id);
+             
+             //Execution
+             $stmt->execute();
+   
+             return $stmt;
+        }
      }
 
-    
+       
     // $read_suspect = new Basic($db);
     // $stmt = $read_suspect->read_suspect();
     // echo $stmt->rowCount();
@@ -208,5 +278,17 @@
 
     // $read_suspect = new Basic($db);
     // $stmt = $read_suspect->read_suspect_account_pan();
+    // echo $stmt->rowCount();
+
+    // $read_suspect = new Basic($db);
+    // $stmt = $read_suspect->read_suspect_account_atm();
+    // echo $stmt->rowCount();
+
+    // $read_suspect = new Basic($db);
+    // $stmt = $read_suspect->read_suspect_ewallet();
+    // echo $stmt->rowCount();
+
+    // $read_suspect = new Basic($db);
+    // $stmt = $read_suspect->read_suspect_website();
     // echo $stmt->rowCount();
 ?>
