@@ -18,7 +18,7 @@
         <div class="ui form">
           <div class="two fields">
             <div class="fifteen wide field">
-              <input placeholder="Click on search for all complainee details" type="text">
+              <input placeholder="Click on search for all complaints details" type="text">
             </div>
             <div class="field">
               <div class="ui submit animated green button" onclick="renderComponent();"> 
