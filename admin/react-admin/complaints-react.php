@@ -42,7 +42,7 @@
                               <td>{complaint.ap_age}</td>
                               <td>{complaint.ap_mob}</td>
                               <td>{complaint.ap_address}</td>
-                              <td><button style={{color:"#fff"}} class="ui button mini navbar-admin-blue">View More</button></td>
+                              <td><a href="#">View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
                             </tr>
                         ))}
                 </tbody>
