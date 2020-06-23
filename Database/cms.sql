@@ -1,12 +1,4 @@
-﻿-- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jun 20, 2020 at 04:43 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
-
+﻿
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
