@@ -10,39 +10,35 @@
            
           </ul>
         </div>
-             <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" type="submit">Log Out</button>
+             <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" onclick="changeComponent();" type="submit">Log Out</button>
         </nav>
 
     <div id="mega-wrapper" class="container-fluid">
       <div class="ui blue segment admin-search-form">
         <div class="ui form">
           <div class="two fields">
-            <div class="field">
-              <input placeholder="Enter Complaint Id" type="text">
+            <div class="fifteen wide field">
+              <input placeholder="Click on search for all complainee details" type="text">
             </div>
             <div class="field">
-              <div class="ui submit animated green button"> 
+              <div class="ui submit animated green button" onclick="renderComponent();"> 
                 <div class="visible content">Search</div>
                 <div class="hidden content">
-                <i class="fa fa-search"></i>
+                  <i class="fa fa-search"></i>
                 </div>
               </div>
             </div>
           </div>      
         </div>
       </div>
+    
       <div id="render-container"> 
         <!-- React element -->
       </div>
     </div>
-    <script type="text/babel">
-      class Hello extends React.Component {
-        render() {
-          return <h1>Hello World!</h1>
-        }
-      }
+    <!-- 'include' for React File  -->
+    <?php include("react-admin/complaints-react.php")?>
 
-      ReactDOM.render(<Hello />, document.getElementById('render-container'))
-    </script>
+  <!-- End -->
  <?php include("sidenav-footer.php")?>
  <?php include("footer.php")?>

@@ -62,5 +62,12 @@
   color: #004ba8;
 }
 .admin-search-form {
-  padding-top: 3vh !important;
+  margin-top: 3vh !important;
+  width: auto;
+}
+.sidebar-heading {
+  color: #004ba8;
+}
+.bg-light > i {
+  color: #004ba8;
 }
