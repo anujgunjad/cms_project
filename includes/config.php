@@ -3,7 +3,8 @@ class Database{
     private $servername = "localhost"; 
     private $username = "root";
     private $password = "";
-    private $database = "cms";
+    // changind database name from 'cms' to 'cms_project'
+    private $database = "cms_project";
 
     public function getConnection(){
   
