@@ -13,18 +13,23 @@
             .catch(console.log)
         }
         render() {
+            const themeColor ={
+                color: "#fff",
+                backgroundColor: "#004ba8",
+                borderTop:"2px solid #004ba8",
+            };
           return (
             <table class="ui celled table">
                 <thead>
                     <tr>
-                        <th>Complaint ID</th>
-                        <th>Complaint No.</th>
-                        <th>Complaint Date</th>
-                        <th>Applicant Name</th>
-                        <th>Applicant Age</th>
-                        <th>Applicant Phone</th>
-                        <th>Applicant Address</th>
-                        <th>View</th>
+                        <th style={themeColor}>Complaint ID</th>
+                        <th style={themeColor}>Complaint No.</th>
+                        <th style={themeColor}>Complaint Date</th>
+                        <th style={themeColor}>Applicant Name</th>
+                        <th style={themeColor}>Applicant Age</th>
+                        <th style={themeColor}>Applicant Phone</th>
+                        <th style={themeColor}>Applicant Address</th>
+                        <th style={themeColor}>View More</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +42,7 @@
                               <td>{complaint.ap_age}</td>
                               <td>{complaint.ap_mob}</td>
                               <td>{complaint.ap_address}</td>
-                              <td><button class="ui button mini teal">View More</button></td>
+                              <td><button style={{color:"#fff"}} class="ui button mini navbar-admin-blue">View More</button></td>
                             </tr>
                         ))}
                 </tbody>
