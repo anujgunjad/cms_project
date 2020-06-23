@@ -3,7 +3,8 @@
     <script src="../dependencies/jquery/jquery.min.js"></script>
     <!--Bootstrap JS-->
     <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../dependencies/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!--External Script-->
-
+    <!--React JS-->
+    <script src="../dependencies/reactjs/react.production.min.js"></script>
+    <script src="../dependencies/reactjs/react-dom.production.min.js"></script>
+    <script src="../dependencies/reactjs/babel.min.js"></script>
 </html>
