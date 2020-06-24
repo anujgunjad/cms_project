@@ -632,9 +632,9 @@ include("../includes/config.php");
         <!--Jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!--Sementic JS-->
-        <script src="dependencies/semantic/dist/semantic.min.js"></script>
+        <script src="../dependencies/semantic/dist/semantic.min.js"></script>
         <!--Bootstrap JS-->
-        <script src="dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--External JS-->
         <script src="js/insertbasic.js"></script>
         <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
