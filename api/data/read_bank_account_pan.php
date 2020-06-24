@@ -18,7 +18,6 @@
        $data = new Basic($db);
 
        $data->account_id = isset($_GET['account_id']) ? $_GET['account_id'] : die();
-       $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
        $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
        //Query
        $stmt = $data->read_suspect_account_pan();
@@ -33,7 +32,6 @@
                extract($row);
                $data_items = array(
                    "complaint_number" => $complaint_number,
-                   "suspect_id" => $suspect_id,
                    "acc_id" => $acc_id,
                    "pan_info_id" => $pan_info_id,
                    "pan" => $pan,
@@ -43,7 +41,9 @@
                    "income_tax" => $income_tax,
                    "gst_in" => $gst_in,
                    "tin" => $tin,
-                   "sales_tax" => $sales_tax
+                   "sales_tax" => $sales_tax,
+                   "created_date" => $created_date,
+                   "last_updated" => $last_updated
                );
                array_push($data_arr["pan"], $data_items);
            }

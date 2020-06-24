@@ -21,7 +21,6 @@
 
 
      $data->number_id = isset($_GET['number_id']) ?  $_GET['number_id'] : die();
-     $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
      $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
     
      //Query
@@ -36,12 +35,13 @@
             extract($row);
             $data_items = array(
                 "complaint_number" => $complaint_number,
-                "suspect_id" => $suspect_id,
                 "number_id" => $number_id,
                 "upi_id" => $upi_id,
                 "upi" => $upi,
                 "upi_name" => $upi_name,
-                "upi_link" => $upi_link
+                "upi_link" => $upi_link,
+                "created_date" => $created_date,
+                "last_updated" => $last_updated
             );
             array_push($data_arr["upi"], $data_items);
         }
