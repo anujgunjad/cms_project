@@ -76,14 +76,14 @@
         function read_suspect_mobile(){
 
             //select Query
-            $query = "SELECT c.complaint_no as complaint_number, n.number_id, n.suspect_id, n.number_one, n.company, n.files, n.email_sent, n.email_received, n.suspect_name, n.suspect_address, n.city, n.state, n.retailer_name, n.uid_num, n.other_num, n.pdf, n.confirmation, n.remark, n.reminder, n.mail_id, n.caf_date from $this->suspect_number_table n INNER JOIN $this->suspect_table s ON s.suspect_id = n.suspect_id INNER JOIN $this->complainee_table c on c.complaint_id = s.complaint_id WHERE c.complaint_id = ? AND s.suspect_id = ? ";
+            $query = "SELECT c.complaint_no as complaint_number, n.number_id, n.number_one, n.company, n.files, n.email_sent, n.email_received, n.suspect_name, n.suspect_address, n.city, n.state, n.retailer_name, n.uid_num, n.other_num, n.pdf, n.confirmation, n.remark, n.reminder, n.mail_id, n.caf_date, n.created_date, n.update_date from $this->suspect_number_table n INNER JOIN $this->complainee_table c on c.complaint_id = n.complaint_id WHERE c.complaint_id = ?";
 
             //Prepare query statement
             $stmt = $this->conn->prepare($query);
 
             //bind ids
-            $stmt->bindParam(1, $this->complaint_id);
-            $stmt->bindParam(2, $this->suspect_id);
+            $stmt->bindParam(1, $this->complaint_id); 
+            
             //Execution
             $stmt->execute();
 
@@ -93,15 +93,14 @@
         function read_suspect_mobile_cdr(){
 
             //select Query
-            $query = "SELECT c.complaint_no as complaint_number, d.suspect_id, d.number_id, d.cdr_id, d.cdr, d.email_sent, d.email_received, d.imei, d.imsi, d.location, d.location_date, d.location_time, d.night_loc, d.service_name, d.suspect_number, d.cdr_pdf FROM $this->suspect_number_cdr_table d INNER JOIN $this->suspect_number_table n ON d.number_id = n.number_id INNER JOIN $this->suspect_table s ON s.suspect_id = n.suspect_id INNER JOIN $this->complainee_table c on c.complaint_id = s.complaint_id WHERE c.complaint_id = ? AND s.suspect_id = ? AND n.number_id = ?";
+            $query = "SELECT c.complaint_no as complaint_number, d.number_id, d.cdr_id, d.cdr, d.email_sent, d.email_received, d.imei, d.imsi, d.location, d.location_date, d.location_time, d.night_loc, d.service_name, d.suspect_number, d.cdr_pdf FROM $this->suspect_number_cdr_table d INNER JOIN $this->suspect_number_table n ON n.number_id = b.number_id INNER JOIN $this->complainee_table c on c.complaint_id = n.complaint_id WHERE c.complaint_id = ? AND n.number_id = ?";
             
-             //Prepare query statement
-             $stmt = $this->conn->prepare($query);
-
+            //Prepare query statement
+            $stmt = $this->conn->prepare($query);
+             
             //bind ids
             $stmt->bindParam(1, $this->complaint_id);
-            $stmt->bindParam(2, $this->suspect_id);
-            $stmt->bindParam(3, $this->number_id);
+            $stmt->bindParam(2, $this->number_id);
 
             //Execution
             $stmt->execute();

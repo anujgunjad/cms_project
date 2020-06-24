@@ -36,7 +36,9 @@ include("../includes/config.php");
                 <h1 class="main-head">आवेदक की जानकारी</h1>
             </div>
 
+            <!--------------------->
             <!--Basic detail form-->
+            <!--------------------->
 
             <div id="basicFormDiv">
                 <form id="basicForm" method="POST" action="insertFiles/insert_basicForm.php"
@@ -134,415 +136,34 @@ include("../includes/config.php");
                     </button>
                 </form>
             </div>
-            <div id="txt"></div>
-        </div>
 
-        <!--Suspect detail form-->
-
-        <div class="suspect-form-div">
-            <div class=" text-center">
-                <h1 class="main-head">संदेहियों की जानकारी </h1>
-            </div>
-            <div id="suspectFormDiv">
-                <form id="suspectform" class="suspect-form ui blue segment form" method="POST"
-                    action="insertFiles/insert_suspectForm.php">
-                    <div class="two fields">
-                        <div class="seven wide field">
-                            <label> संदिग्ध का नाम </label>
-                            <input type="text" name="suspect_name" placeholder="नाम" />
-                        </div>
-                        <div class="ten wide field">
-                            <label>संदिग्ध का पता</label>
-                            <input type="text" name="address" placeholder="संदिग्ध का पता" />
-                        </div>
-                    </div>
-
-                    <div class="three fields">
-                        <div class="six wide field">
-                            <label>आई टी ऐक्ट धारा</label>
-                            <input type="text" name="it_act" placeholder="आई टी ऐक्ट धारा" />
-                        </div>
-                        <div class="six wide field">
-                            <label>ईमेल आईडी</label>
-                            <input type="text" name="sus_emailid" placeholder="ईमेल आईडी" />
-                        </div>
-                        <div class="six wide field">
-                            <label>डोमेन नेम </label>
-                            <input type="text" name="domain_name" placeholder="डोमेन नेम" />
-                        </div>
-                    </div>
-
-                    <!--Add Mobile Number-->
-                    <div class="contact-list py-4">
-                        <div class=" text-center">
-                            <h1 class="sub-head">संदेही का नंबर की जानकारी</h1>
-                        </div>
-                        <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
-                            data-target=".modal-number">
-                            Add Number
-                        </button>
-
-                        <table class="table table-bordered p-0 m-0">
-                            <thead>
-                                <tr id="table-head">
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Phone numbers</th>
-                                    <th scope="col">Update/Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody id="old-row">
-                                <tr>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                </tr>
-                            </tbody>
-                            <tbody id="new-row"></tbody>
-                        </table>
-                    </div>
-
-                    <div class="contact-list py-4">
-                        <div class=" text-center">
-                            <h1 class="sub-head">खाते की जानकारी</h1>
-                        </div>
-                        <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
-                            data-target=".modal-account">
-                            Add Account Detail
-                        </button>
-
-                        <table class="table table-bordered p-0 m-0">
-                            <thead>
-                                <tr id="table-head">
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Account numbers</th>
-                                    <th scope="col">Update/Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody id="old-row">
-                                <tr>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                </tr>
-                            </tbody>
-                            <tbody id="new-row"></tbody>
-                        </table>
-                    </div>
+            <!------------------------->
+            <!--Basic detail form END-->
+            <!------------------------->
 
 
-                    <div class="contact-list py-4">
-                        <div class=" text-center">
-                            <h1 class="sub-head">ई-वॉलेट की जानकारी</h1>
-                        </div>
-                        <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
-                            data-target=".bd-example-modal-lg">
-                            Add E-Wallet Detail
-                        </button>
+            <!------------------------->
+            <!--Suspected detail div--->
+            <!------------------------->
 
-                        <table class="table table-bordered p-0 m-0">
-                            <thead>
-                                <tr id="table-head">
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">E-Wallet Name</th>
-                                    <th scope="col">Update/Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody id="old-row">
-                                <tr>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                </tr>
-                            </tbody>
-                            <tbody id="new-row"></tbody>
-                        </table>
-                    </div>
-
-
-
-                    <div class="contact-list py-4">
-                        <div class=" text-center">
-                            <h1 class="sub-head">वेबसाइट की जानकारी</h1>
-                        </div>
-                        <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
-                            data-target=".bd-example-modal-lg">
-                            Add Website Detail
-                        </button>
-
-                        <table class="table table-bordered p-0 m-0">
-                            <thead>
-                                <tr id="table-head">
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Website</th>
-                                    <th scope="col">Update/Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody id="old-row">
-                                <tr>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                </tr>
-                            </tbody>
-                            <tbody id="new-row"></tbody>
-                        </table>
-                    </div>
-                    <div class="two fields">
-                        <div class="eight wide field">
-                            <label>शिकायत में की गई कार्यवाही </label>
-                            <input type="text" name="com_action" placeholder="शिकायत में की गई कार्यवाही " />
-                        </div>
-                        <div class="eight wide field">
-                            <label>लंबित रहने का कारण </label>
-                            <input type="text" name="pen_reason" placeholder="लंबित रहने का कारण " />
-                        </div>
-                    </div>
-                    <div class="one fields">
-                        <div class="sixteen wide field">
-                            <label>रिमार्क </label>
-                            <input type="text" name="remark" placeholder="रिमार्क" />
-                        </div>
-                    </div>
-                    <button class="ui button form-btn" name="second_form" type="submit">
-                        Submit
-                    </button>
-                </form>
-            </div>
-            <div id="txttwo"></div>
-        </div>
-
-        <!--Modal Forms-->
-
-        <!--Number Modal-->
-
-        <div class="modal fade modal-number mt-4" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class=" text-center my-3">
-                        <h1 class="sub-head">संदेही का नंबर की जानकारी</h1>
-                    </div>
-                    <form class="modal-form ui blue segment form" method="post" action="mainForm.php">
-
-                        <div class="three fields">
-                            <div class="field">
-                                <label>संदेही का नंबर </label>
-                                <input type="number" name="number_one" placeholder="संदेही का नंबर ">
-                            </div>
-                            <div class="field">
-                                <label>कंपनी</label>
-                                <input type="text" name="company" placeholder="कंपनी">
-                            </div>
-                            <div class="field">
-                                <label>पहचान दस्तावेज़</label>
-                                <input type="text" name="files" placeholder="पहचान दस्तावेज़">
-                            </div>
-                        </div>
-
-                        <div class="three fields">
-                            <div class="four wide field">
-                                <label>ईमेल जावक</label>
-                                <input type="date" name="email_sent" placeholder="ईमेल जावक">
-                            </div>
-                            <div class="four wide field">
-                                <label>ईमेल आवक</label>
-                                <input type="date" name="email_received" placeholder="ईमेल आवक">
-                            </div>
-                            <div class="eight wide field">
-                                <label>नाम</label>
-                                <input type="text" name="suspect_name" placeholder="नाम">
-                            </div>
-                        </div>
-
-                        <div class="four fields">
-                            <div class="field">
-                                <label>पता</label>
-                                <input type="text" name="suspect_address" placeholder="पता">
-                            </div>
-                            <div class="field">
-                                <label>जिला</label>
-                                <input type="text" name="district" placeholder="जिला">
-                            </div>
-                            <div class="field">
-                                <label>प्रदेश</label>
-                                <input type="text" name="city" placeholder="प्रदेश">
-                            </div>
-                            <div class="field">
-                                <label>रिटेलर नाम</label>
-                                <input type="text" name="retailer_name" placeholder="रिटेलर नाम">
-                            </div>
-                        </div>
-
-                        <div class="four fields">
-                            <div class="fifteen wide field">
-                                <label>यू आई डी नंबर</label>
-                                <input type="number" name="uid_num" placeholder="यू आई डी नंबर">
-                            </div>
-                            <div class="fifteen wide field">
-                                <label>अन्य नंबर</label>
-                                <input type="number" name="other_num" placeholder="अन्य नंबर">
-                            </div>
-                            <div class="nine wide field">
-                                <label>पीडीएफ</label>
-                                <input type="text" name="pdf" placeholder="पीडीएफ">
-                            </div>
-                            <div class="field">
-                                <label>तस्दीक</label>
-                                <div class="fields">
-                                    <select name="crime_type" class="ui fluid dropdown">
-                                        <option value='' selected='' disabled=''>तस्दीक</option>
-                                        <option value='' id=''>हाँ</option>
-                                        <option value='' id=''>नही</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="four fields">
-                            <div class="nine wide field">
-                                <label>रिमार्क्स</label>
-                                <input type="text" name="remark" placeholder="रिमार्क्स">
-                            </div>
-                            <div class="three wide field">
-                                <label>रिमाइंडर</label>
-                                <input type="date" name="reminder" placeholder="रिमाइंडर">
-                            </div>
-                            <div class="nine wide field">
-                                <label>मेल आई डी</label>
-                                <input type="email" name="mail_id" placeholder="मेल आई डी">
-                            </div>
-                            <div class="three wide field">
-                                <label>कैफ दिनाक</label>
-                                <input type="date" name="caf_date" placeholder="कैफ दिनाक">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <button class="ui button form-btn" name="number_form" type="submit">Submit</button>
-                        </div>
-
-
-                    </form>
+            <div class="suspect-form-div">
+                <div class=" text-center">
+                    <h1 class="main-head">संदेहियों की जानकारी </h1>
                 </div>
-            </div>
-        </div>
+                <div id="suspectFormDiv">
+                    <form id="suspectform" class="suspect-form ui blue segment form" method="POST"
+                        action="insertFiles/insert_suspectForm.php">
 
+                        <!--Add Mobile Number-->
+                        <div class="contact-list py-4">
+                            <div class=" text-center">
+                                <h1 class="sub-head">संदेही का नंबर की जानकारी</h1>
+                            </div>
+                            <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
+                                data-target=".modal-number">
+                                Add Number
+                            </button>
 
-        <div class="modal fade modal-account mt-4" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class=" text-center my-3">
-                        <h1 class="sub-head">खाते की जानकारी</h1>
-                    </div>
-                    <form id="acc_detailform" class="modal-form ui blue segment form" method="POST"
-                        action="insertFiles/insert_accountForm.php">
-                        <div class="two fields">
-                            <div class="eight wide field">
-                                <label> खाता नंबर</label>
-                                <input type="text" name="acc_num" placeholder="खाता नंबर" />
-                            </div>
-                            <div class="eight wide field">
-                                <label>बैंक नाम </label>
-                                <input type="text" name="bank_name" placeholder="बैंक नाम" />
-                            </div>
-                        </div>
-                        <div class="four fields">
-                            <div class="six wide field">
-                                <label>राज्य </label>
-                                <input type="tel" name="state" placeholder="राज्य" />
-                            </div>
-                            <div class="six wide field">
-                                <label>ब्रांच नाम </label>
-                                <input type="tel" name="branch_name" placeholder="ब्रांच नाम" />
-                            </div>
-                            <div class="six wide field">
-                                <label>मेल दिनाक</label>
-                                <input type="date" name="mail_date" placeholder="ब्रांच नाम" />
-                            </div>
-                            <div class="six wide field">
-                                <label>मेल प्राप्त </label>
-                                <select name="mail_update" class="ui dropdown">
-                                    <option value="">मेल प्राप्त </option>
-                                    <option type="radio" value="हाँ" name="confirmation">हाँ</option>
-                                    <option type="radio" value="नही" name="confirmation">नही</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="two fields">
-                            <div class="eight wide field">
-                                <label>के वाय सी नाम </label>
-                                <input type="text" name="kyc_name" placeholder="के वाय सी नाम " />
-                            </div>
-                            <div class="eight wide field">
-                                <label>पता</label>
-                                <input type="text" name="address" placeholder="पता" />
-                            </div>
-                        </div>
-                        <div class="four fields">
-                            <div class="six wide field">
-                                <label>जिला </label>
-                                <input type="tel" name="city" placeholder="जिला " />
-                            </div>
-                            <div class="six wide field">
-                                <label>राज्य</label>
-                                <input type="text" name="state_twice" placeholder="राज्य" />
-                            </div>
-                            <div class="six wide field">
-                                <label>अल्टरनेट नंबर </label>
-                                <input type="text" name="alt_num" placeholder="अल्टरनेट नंबर " />
-                            </div>
-                            <div class="six wide field">
-                                <label>लाभार्थी खाता</label>
-                                <input type="text" name="profit_acc" placeholder="लाभार्थी खाता " />
-                            </div>
-                        </div>
-                        <div class="four fields">
-                            <div class="six wide field">
-                                <label>इन्टरनेट बैंकिंग चालू है </label>
-                                <select name="internet_info" class="ui dropdown">
-                                    <option value="">इन्टरनेट बैंकिंग चालू है </option>
-                                    <option type="radio" value="हाँ">हाँ</option>
-                                    <option type="radio" value="नही">नही</option>
-                                </select>
-                            </div>
-                            <div class="six wide field">
-                                <label>बैंक मेनेजर नाम </label>
-                                <input type="text" name="bank_man_name" placeholder="बैंक मेनेजर नाम  " />
-                            </div>
-                            <div class="six wide field">
-                                <label>बैंक मेनेजर नंबर</label>
-                                <input type="text" name="bank_man_num" placeholder="बैंक मेनेजर नंबर" />
-                            </div>
-                            <div class="six wide field">
-                                <label>के वाय सी पी डी ऍफ़</label>
-                                <input type="file" name="kyc_pdf" placeholder="के वाय सी पी डी ऍफ़" />
-                            </div>
-                        </div>
-                        <button class="ui button form-btn" name="fourth_form" type="submit">
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-        <div class="contact-number-info my-4">
-            <div class=" text-center">
-                <h1 class="main-head">संदेही का नंबर की जानकारी</h1>
-            </div>
-            <div class="contact-info-content ui blue segment">
-                <button type="button" class="add-number-btn ui button m-2" data-toggle="modal"
-                    data-target=".bd-example-modal-lg">
-                    Add Number
-                </button>
-
-
-                <div class="contact-list">
-                    <div class="card shadow my-4">
-                        <div class="card-body">
                             <table class="table table-bordered p-0 m-0">
                                 <thead>
                                     <tr id="table-head">
@@ -553,209 +174,470 @@ include("../includes/config.php");
                                 </thead>
                                 <tbody id="old-row">
                                     <tr>
-                                        <td>No Number Found</td>
-                                        <td>No Number Found</td>
-                                        <td>No Number Found</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
                                     </tr>
                                 </tbody>
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="acc-detail-form-div">
-            <div class=" text-center">
-                <h1 class="main-head">खाते की जानकारी </h1>
-            </div>
-            <form id="acc_detailform" class="acc-detail-form ui blue segment form" method="POST"
-                action="insertFiles/insert_accountForm.php">
-                <div class="two fields">
-                    <div class="eight wide field">
-                        <label> खाता नंबर</label>
-                        <input type="text" name="acc_num" placeholder="खाता नंबर" />
-                    </div>
-                    <div class="eight wide field">
-                        <label>बैंक नाम </label>
-                        <input type="text" name="bank_name" placeholder="बैंक नाम" />
-                    </div>
-                </div>
-                <div class="four fields">
-                    <div class="six wide field">
-                        <label>राज्य </label>
-                        <input type="tel" name="state" placeholder="राज्य" />
-                    </div>
-                    <div class="six wide field">
-                        <label>ब्रांच नाम </label>
-                        <input type="tel" name="branch_name" placeholder="ब्रांच नाम" />
-                    </div>
-                    <div class="six wide field">
-                        <label>मेल दिनाक</label>
-                        <input type="date" name="mail_date" placeholder="ब्रांच नाम" />
-                    </div>
-                    <div class="six wide field">
-                        <label>मेल प्राप्त </label>
-                        <select name="mail_update" class="ui dropdown">
-                            <option value="">मेल प्राप्त </option>
-                            <option type="radio" value="हाँ" name="confirmation">हाँ</option>
-                            <option type="radio" value="नही" name="confirmation">नही</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="eight wide field">
-                        <label>के वाय सी नाम </label>
-                        <input type="text" name="kyc_name" placeholder="के वाय सी नाम " />
-                    </div>
-                    <div class="eight wide field">
-                        <label>पता</label>
-                        <input type="text" name="address" placeholder="पता" />
-                    </div>
-                </div>
-                <div class="four fields">
-                    <div class="six wide field">
-                        <label>जिला </label>
-                        <input type="tel" name="city" placeholder="जिला " />
-                    </div>
-                    <div class="six wide field">
-                        <label>राज्य</label>
-                        <input type="text" name="state_twice" placeholder="राज्य" />
-                    </div>
-                    <div class="six wide field">
-                        <label>अल्टरनेट नंबर </label>
-                        <input type="text" name="alt_num" placeholder="अल्टरनेट नंबर " />
-                    </div>
-                    <div class="six wide field">
-                        <label>लाभार्थी खाता</label>
-                        <input type="text" name="profit_acc" placeholder="लाभार्थी खाता " />
-                    </div>
-                </div>
-                <div class="four fields">
-                    <div class="six wide field">
-                        <label>इन्टरनेट बैंकिंग चालू है </label>
-                        <select name="internet_info" class="ui dropdown">
-                            <option value="">इन्टरनेट बैंकिंग चालू है </option>
-                            <option type="radio" value="हाँ">हाँ</option>
-                            <option type="radio" value="नही">नही</option>
-                        </select>
-                    </div>
-                    <div class="six wide field">
-                        <label>बैंक मेनेजर नाम </label>
-                        <input type="text" name="bank_man_name" placeholder="बैंक मेनेजर नाम  " />
-                    </div>
-                    <div class="six wide field">
-                        <label>बैंक मेनेजर नंबर</label>
-                        <input type="text" name="bank_man_num" placeholder="बैंक मेनेजर नंबर" />
-                    </div>
-                    <div class="six wide field">
-                        <label>के वाय सी पी डी ऍफ़</label>
-                        <input type="file" name="kyc_pdf" placeholder="के वाय सी पी डी ऍफ़" />
-                    </div>
-                </div>
-                <button class="ui button form-btn" name="fourth_form" type="submit">
-                    Submit
-                </button>
-            </form>
-        </div>
 
-        <div class="wallet-details m-4">
-            <div class=" text-center">
-                <h1 class="main-head">ई-वॉलेट की जानकारी </h1>
-            </div>
-            <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
-                action="insertFiles/insert_suspectForm.php">
-                <div class="three fields">
-                    <div class="six wide field">
-                        <label>Mobile Number</label>
-                        <input type="text" name="mob_num" placeholder="Mobile Number" />
-                    </div>
-                    <div class="six wide field">
-                        <label>VPA ID</label>
-                        <input type="text" name="vpaID" placeholder="VPA ID" />
-                    </div>
-                    <div class="eight wide field">
-                        <label>Statement</label>
-                        <input type="text" name="pen_reason" placeholder="Statement" />
-                    </div>
-                </div>
-                <div class="four fields">
-                    <div class="four wide field">
-                        <label>Sent</label>
-                        <input type="text" name="sent" placeholder="Sent" />
-                    </div>
-                    <div class="four wide field">
-                        <label>Received</label>
-                        <input type="text" name="received" placeholder="VPA ID" />
-                    </div>
-                    <div class="four wide field">
-                        <label>Beneficiary Top 3</label>
-                        <input type="text" name="benificiar" placeholder="Beneficiary Top 3" />
-                    </div>
-                    <div class="four wide field">
-                        <label>IP Adreess</label>
-                        <input type="text" name="ip_adress" placeholder="IP Adreess" />
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="eight wide field">
-                        <label>Merchandise</label>
-                        <input type="text" name="merchandise" placeholder="Merchandise" />
-                    </div>
-                    <div class="eight wide field">
-                        <label>Number</label>
-                        <input type="text" name="number" placeholder="Number" />
-                    </div>
-                </div>
-                <button class="ui button form-btn" name="second_form" type="submit">
-                    Submit
-                </button>
-            </form>
-        </div>
-        <div class="website-details m-4">
-            <div class=" text-center">
-                <h1 class="main-head">वेबसाइट की जानकारी </h1>
-            </div>
-            <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
-                action="insertFiles/insert_suspectForm.php">
-                <div class="two fields">
-                    <div class="eight wide field">
-                        <label>वेबसाइट</label>
-                        <input type="text" name="web_name" placeholder="वेबसाइट" />
-                    </div>
-                    <div class="eight wide field">
-                        <label>डोमिन </label>
-                        <input type="text" name="domain" placeholder="डोमिन " />
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="eight wide field">
-                        <label>मेल आई डी </label>
-                        <input type="text" name="mail_id" placeholder="मेल आई डी" />
-                    </div>
-                    <div class="eight wide field">
-                        <label>संदिग्ध मोबाइल नंबर </label>
-                        <input type="text" name="suspect_number" placeholder="संदिग्ध मोबाइल नंबर " />
-                    </div>
-                </div>
-                <button class="ui button form-btn" name="second_form" type="submit">
-                    Submit
-                </button>
-            </form>
-        </div>
-    </div>
+                        <!--Add Account Number-->
 
-    <!--Sweet Alert-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!--Jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!--Sementic JS-->
-    <script src="dependencies/semantic/dist/semantic.min.js"></script>
-    <!--Bootstrap JS-->
-    <script src="dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--External JS-->
-    <script src="js/insertbasic.js"></script>
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+                        <div class="contact-list py-4">
+                            <div class=" text-center">
+                                <h1 class="sub-head">खाते की जानकारी</h1>
+                            </div>
+                            <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
+                                data-target=".modal-account">
+                                Add Account Detail
+                            </button>
+
+                            <table class="table table-bordered p-0 m-0">
+                                <thead>
+                                    <tr id="table-head">
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Account numbers</th>
+                                        <th scope="col">Update/Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="old-row">
+                                    <tr>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                    </tr>
+                                </tbody>
+                                <tbody id="new-row"></tbody>
+                            </table>
+                        </div>
+
+                        <!--Add Ewallet-->
+
+                        <div class="contact-list py-4">
+                            <div class=" text-center">
+                                <h1 class="sub-head">ई-वॉलेट की जानकारी</h1>
+                            </div>
+                            <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">
+                                Add E-Wallet Detail
+                            </button>
+
+                            <table class="table table-bordered p-0 m-0">
+                                <thead>
+                                    <tr id="table-head">
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">E-Wallet Name</th>
+                                        <th scope="col">Update/Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="old-row">
+                                    <tr>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                    </tr>
+                                </tbody>
+                                <tbody id="new-row"></tbody>
+                            </table>
+                        </div>
+
+
+                        <!--Add website details-->
+                        <div class="contact-list py-4">
+                            <div class=" text-center">
+                                <h1 class="sub-head">वेबसाइट की जानकारी</h1>
+                            </div>
+                            <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">
+                                Add Website Detail
+                            </button>
+
+                            <table class="table table-bordered p-0 m-0">
+                                <thead>
+                                    <tr id="table-head">
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Website</th>
+                                        <th scope="col">Update/Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="old-row">
+                                    <tr>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                    </tr>
+                                </tbody>
+                                <tbody id="new-row"></tbody>
+                            </table>
+                        </div>
+
+                        <!--Add suspect person details-->
+                        <div class="contact-list py-4">
+                            <div class=" text-center">
+                                <h1 class="sub-head">संदेही की जानकारी</h1>
+                            </div>
+                            <button type="button" class="add-number-btn ui button my-3" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">
+                                Add Suspect Detail
+                            </button>
+
+                            <table class="table table-bordered p-0 m-0">
+                                <thead>
+                                    <tr id="table-head">
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Website</th>
+                                        <th scope="col">Update/Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="old-row">
+                                    <tr>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                    </tr>
+                                </tbody>
+                                <tbody id="new-row"></tbody>
+                            </table>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <!------------------------------>
+            <!--Suspect Number detail form-->
+            <!------------------------------>
+
+            <div class="num-detail-form-div">
+                <div class=" text-center my-3">
+                    <h1 class="main-head">संदेही का नंबर की जानकारी</h1>
+                </div>
+                <form id="num_detailform" class="num-detail-form ui blue segment form" method="POST"
+                    action="insertFiles/insert_accountForm.php">
+                    <div class="three fields">
+                        <div class="field">
+                            <label>संदेही का नंबर </label>
+                            <input type="number" name="number_one" placeholder="संदेही का नंबर ">
+                        </div>
+                        <div class="field">
+                            <label>कंपनी</label>
+                            <input type="text" name="company" placeholder="कंपनी">
+                        </div>
+                        <div class="field">
+                            <label>पहचान दस्तावेज़</label>
+                            <input type="text" name="files" placeholder="पहचान दस्तावेज़">
+                        </div>
+                    </div>
+
+                    <div class="three fields">
+                        <div class="four wide field">
+                            <label>ईमेल जावक</label>
+                            <input type="date" name="email_sent" placeholder="ईमेल जावक">
+                        </div>
+                        <div class="four wide field">
+                            <label>ईमेल आवक</label>
+                            <input type="date" name="email_received" placeholder="ईमेल आवक">
+                        </div>
+                        <div class="eight wide field">
+                            <label>नाम</label>
+                            <input type="text" name="suspect_name" placeholder="नाम">
+                        </div>
+                    </div>
+
+                    <div class="four fields">
+                        <div class="field">
+                            <label>पता</label>
+                            <input type="text" name="suspect_address" placeholder="पता">
+                        </div>
+                        <div class="field">
+                            <label>जिला</label>
+                            <input type="text" name="district" placeholder="जिला">
+                        </div>
+                        <div class="field">
+                            <label>प्रदेश</label>
+                            <input type="text" name="city" placeholder="प्रदेश">
+                        </div>
+                        <div class="field">
+                            <label>रिटेलर नाम</label>
+                            <input type="text" name="retailer_name" placeholder="रिटेलर नाम">
+                        </div>
+                    </div>
+
+                    <div class="four fields">
+                        <div class="fifteen wide field">
+                            <label>यू आई डी नंबर</label>
+                            <input type="number" name="uid_num" placeholder="यू आई डी नंबर">
+                        </div>
+                        <div class="fifteen wide field">
+                            <label>अन्य नंबर</label>
+                            <input type="number" name="other_num" placeholder="अन्य नंबर">
+                        </div>
+                        <div class="nine wide field">
+                            <label>पीडीएफ</label>
+                            <input type="text" name="pdf" placeholder="पीडीएफ">
+                        </div>
+                        <div class="field">
+                            <label>तस्दीक</label>
+                            <div class="fields">
+                                <select name="crime_type" class="ui fluid dropdown">
+                                    <option value='' selected='' disabled=''>तस्दीक</option>
+                                    <option value='' id=''>हाँ</option>
+                                    <option value='' id=''>नही</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="four fields">
+                        <div class="nine wide field">
+                            <label>रिमार्क्स</label>
+                            <input type="text" name="remark" placeholder="रिमार्क्स">
+                        </div>
+                        <div class="three wide field">
+                            <label>रिमाइंडर</label>
+                            <input type="date" name="reminder" placeholder="रिमाइंडर">
+                        </div>
+                        <div class="nine wide field">
+                            <label>मेल आई डी</label>
+                            <input type="email" name="mail_id" placeholder="मेल आई डी">
+                        </div>
+                        <div class="three wide field">
+                            <label>कैफ दिनाक</label>
+                            <input type="date" name="caf_date" placeholder="कैफ दिनाक">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <button class="ui button form-btn" name="number_form" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!----------------------------------->
+            <!--Suspect Number Detail Form Ends-->
+            <!----------------------------------->
+
+
+
+            <!------------------------------->
+            <!--Suspect Account detail form-->
+            <!------------------------------->
+
+            <div class="acc-detail-form-div">
+                <div class=" text-center">
+                    <h1 class="main-head">खाते की जानकारी </h1>
+                </div>
+                <form id="acc_detailform" class="acc-detail-form ui blue segment form" method="POST"
+                    action="insertFiles/insert_accountForm.php">
+                    <div class="two fields">
+                        <div class="eight wide field">
+                            <label> खाता नंबर</label>
+                            <input type="text" name="acc_num" placeholder="खाता नंबर" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>बैंक नाम </label>
+                            <input type="text" name="bank_name" placeholder="बैंक नाम" />
+                        </div>
+                    </div>
+                    <div class="four fields">
+                        <div class="six wide field">
+                            <label>राज्य </label>
+                            <input type="tel" name="state" placeholder="राज्य" />
+                        </div>
+                        <div class="six wide field">
+                            <label>ब्रांच नाम </label>
+                            <input type="tel" name="branch_name" placeholder="ब्रांच नाम" />
+                        </div>
+                        <div class="six wide field">
+                            <label>मेल दिनाक</label>
+                            <input type="date" name="mail_date" placeholder="ब्रांच नाम" />
+                        </div>
+                        <div class="six wide field">
+                            <label>मेल प्राप्त </label>
+                            <select name="mail_update" class="ui dropdown">
+                                <option value="">मेल प्राप्त </option>
+                                <option type="radio" value="हाँ" name="confirmation">हाँ</option>
+                                <option type="radio" value="नही" name="confirmation">नही</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="eight wide field">
+                            <label>के वाय सी नाम </label>
+                            <input type="text" name="kyc_name" placeholder="के वाय सी नाम " />
+                        </div>
+                        <div class="eight wide field">
+                            <label>पता</label>
+                            <input type="text" name="address" placeholder="पता" />
+                        </div>
+                    </div>
+                    <div class="four fields">
+                        <div class="six wide field">
+                            <label>जिला </label>
+                            <input type="tel" name="city" placeholder="जिला " />
+                        </div>
+                        <div class="six wide field">
+                            <label>राज्य</label>
+                            <input type="text" name="state_twice" placeholder="राज्य" />
+                        </div>
+                        <div class="six wide field">
+                            <label>अल्टरनेट नंबर </label>
+                            <input type="text" name="alt_num" placeholder="अल्टरनेट नंबर " />
+                        </div>
+                        <div class="six wide field">
+                            <label>लाभार्थी खाता</label>
+                            <input type="text" name="profit_acc" placeholder="लाभार्थी खाता " />
+                        </div>
+                    </div>
+                    <div class="four fields">
+                        <div class="six wide field">
+                            <label>इन्टरनेट बैंकिंग चालू है </label>
+                            <select name="internet_info" class="ui dropdown">
+                                <option value="">इन्टरनेट बैंकिंग चालू है </option>
+                                <option type="radio" value="हाँ">हाँ</option>
+                                <option type="radio" value="नही">नही</option>
+                            </select>
+                        </div>
+                        <div class="six wide field">
+                            <label>बैंक मेनेजर नाम </label>
+                            <input type="text" name="bank_man_name" placeholder="बैंक मेनेजर नाम  " />
+                        </div>
+                        <div class="six wide field">
+                            <label>बैंक मेनेजर नंबर</label>
+                            <input type="text" name="bank_man_num" placeholder="बैंक मेनेजर नंबर" />
+                        </div>
+                        <div class="six wide field">
+                            <label>के वाय सी पी डी ऍफ़</label>
+                            <input type="file" name="kyc_pdf" placeholder="के वाय सी पी डी ऍफ़" />
+                        </div>
+                    </div>
+                    <button class="ui button form-btn" name="fourth_form" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <!----------------------------------->
+            <!--Suspect Account detail form End-->
+            <!----------------------------------->
+
+
+
+            <!------------------------------->
+            <!--Suspect Ewallet detail form-->
+            <!------------------------------->
+            <div class="wallet-details m-4">
+                <div class=" text-center">
+                    <h1 class="main-head">ई-वॉलेट की जानकारी </h1>
+                </div>
+                <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
+                    action="insertFiles/insert_suspectForm.php">
+                    <div class="three fields">
+                        <div class="six wide field">
+                            <label>Mobile Number</label>
+                            <input type="text" name="mob_num" placeholder="Mobile Number" />
+                        </div>
+                        <div class="six wide field">
+                            <label>VPA ID</label>
+                            <input type="text" name="vpaID" placeholder="VPA ID" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>Statement</label>
+                            <input type="text" name="pen_reason" placeholder="Statement" />
+                        </div>
+                    </div>
+                    <div class="four fields">
+                        <div class="four wide field">
+                            <label>Sent</label>
+                            <input type="text" name="sent" placeholder="Sent" />
+                        </div>
+                        <div class="four wide field">
+                            <label>Received</label>
+                            <input type="text" name="received" placeholder="VPA ID" />
+                        </div>
+                        <div class="four wide field">
+                            <label>Beneficiary Top 3</label>
+                            <input type="text" name="benificiar" placeholder="Beneficiary Top 3" />
+                        </div>
+                        <div class="four wide field">
+                            <label>IP Adreess</label>
+                            <input type="text" name="ip_adress" placeholder="IP Adreess" />
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="eight wide field">
+                            <label>Merchandise</label>
+                            <input type="text" name="merchandise" placeholder="Merchandise" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>Number</label>
+                            <input type="text" name="number" placeholder="Number" />
+                        </div>
+                    </div>
+                    <button class="ui button form-btn" name="second_form" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <!----------------------------------->
+            <!--Suspect ewallet detail form End-->
+            <!----------------------------------->
+
+
+            <!------------------------------->
+            <!--Suspect Website detail form-->
+            <!------------------------------->
+            <div class="website-details m-4">
+                <div class=" text-center">
+                    <h1 class="main-head">वेबसाइट की जानकारी </h1>
+                </div>
+                <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
+                    action="insertFiles/insert_suspectForm.php">
+                    <div class="two fields">
+                        <div class="eight wide field">
+                            <label>वेबसाइट</label>
+                            <input type="text" name="web_name" placeholder="वेबसाइट" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>डोमिन </label>
+                            <input type="text" name="domain" placeholder="डोमिन " />
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="eight wide field">
+                            <label>मेल आई डी </label>
+                            <input type="text" name="mail_id" placeholder="मेल आई डी" />
+                        </div>
+                        <div class="eight wide field">
+                            <label>संदिग्ध मोबाइल नंबर </label>
+                            <input type="text" name="suspect_number" placeholder="संदिग्ध मोबाइल नंबर " />
+                        </div>
+                    </div>
+                    <button class="ui button form-btn" name="second_form" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!----------------------------------->
+        <!--Suspect website detail form End-->
+        <!----------------------------------->
+
+
+        <!--Sweet Alert-->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!--Jquery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!--Sementic JS-->
+        <script src="dependencies/semantic/dist/semantic.min.js"></script>
+        <!--Bootstrap JS-->
+        <script src="dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--External JS-->
+        <script src="js/insertbasic.js"></script>
+        <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 </body>
 
 </html>
