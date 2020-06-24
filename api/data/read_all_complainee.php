@@ -44,7 +44,9 @@ if($num > 0) {
             "crime_date" => $crime_date,
             "crime_time" => $crime_time,
             "amount" => $amount,
-            "checker_name" => $checker_name
+            "checker_name" => $checker_name,
+            "created_date" => $created_date,
+            "last_update" => $last_update
         );
         array_push($data_arr["records"], $data_items);
     }

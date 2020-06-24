@@ -18,8 +18,8 @@
        $data = new Basic($db);
 
        $data->account_id = isset($_GET['account_id']) ? $_GET['account_id'] : die();
-       $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
        $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
+
        //Query
        $stmt = $data->read_suspect_account_atm();
    
@@ -33,12 +33,13 @@
                extract($row);
                $data_items = array(
                    "complaint_number" => $complaint_number,
-                   "suspect_id" => $suspect_id,
                    "acc_id" => $acc_id,
                    "atm_footage_id" => $atm_footage_id,
                    "atm_footage" => $atm_footage,
                    "email_sent" => $email_sent,
-                   "email_received" => $email_received
+                   "email_received" => $email_received,
+                   "created_date" => $created_date,
+                   "last_update" => $last_update
                );
                array_push($data_arr["atm"], $data_items);
            }
