@@ -1,4 +1,5 @@
 <?php
+/* jkchdkjh*/
 include("../includes/config.php");
 ?>
 <!DOCTYPE html>
