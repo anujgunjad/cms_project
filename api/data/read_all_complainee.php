@@ -20,7 +20,7 @@ $num = $stmt->rowCount();
   
 if($num > 0) {
     $data_arr = array(); 
-    $data_arr["records"] = array();
+    $data_arr["complainee"] = array();
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -46,9 +46,9 @@ if($num > 0) {
             "amount" => $amount,
             "checker_name" => $checker_name,
             "created_date" => $created_date,
-            "last_update" => $last_update
+            "last_updated" => $last_updated
         );
-        array_push($data_arr["records"], $data_items);
+        array_push($data_arr["complainee"], $data_items);
     }
       // set response code - 200 OK
       http_response_code(200);

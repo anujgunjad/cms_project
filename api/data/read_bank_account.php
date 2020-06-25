@@ -16,8 +16,6 @@
       
       //initialize Object
       $data = new Basic($db);
-  
-      $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
       $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
       //Query
       $stmt = $data->read_suspect_account();
@@ -32,7 +30,6 @@
               extract($row);
               $data_items = array(
                   "complaint_number" => $complaint_number,
-                  "suspect_id" => $suspect_id,
                   "acc_id" => $acc_id,
                   "acc_number" => $acc_number,
                   "bank_name" => $bank_name,
@@ -51,7 +48,9 @@
                   "bank_manager_name" => $bank_manager_name,
                   "bank_manager_number" => $bank_manager_number,
                   "kyc_pdf" => $kyc_pdf,
-                  "bank_statement_file" => $bank_statement_file
+                  "bank_statement_file" => $bank_statement_file,
+                  "created_date" => $created_date,
+                  "last_updated" => $last_updated
               );
               array_push($data_arr["accounts"], $data_items);
           }

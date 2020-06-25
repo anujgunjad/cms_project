@@ -16,8 +16,6 @@
     
     //initialize Object
     $data = new Basic($db);
-
-    $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
     $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
     //Query
     $stmt = $data->read_suspect_ewallet();
@@ -32,7 +30,6 @@
             extract($row);
             $data_items = array(
                 "complaint_number" => $complaint_number,
-                "suspect_id" => $suspect_id,
                 "suspect_ewallet_id" => $suspect_ewallet_id,
                 "upi_name" => $upi_name,
                 "mob_number" => $mob_number,
@@ -46,7 +43,9 @@
                 "device_id" => $device_id,
                 "merchandise" => $merchandise,
                 "hold_amount" => $hold_amount,
-                "number" =>$number
+                "number" =>$number,
+                "created_date" => $created_date,
+                "last_updated" => $last_updated
             );
             array_push($data_arr["ewallet"], $data_items);
         }

@@ -19,7 +19,6 @@
 
 
      $data->number_id = isset($_GET['number_id']) ?  $_GET['number_id'] : die();
-     $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
      $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
     
      //Query
@@ -36,7 +35,6 @@
             extract($row);
             $data_items = array(
                 "complaint_number" => $complaint_number,
-                "suspect_id" => $suspect_id,
                 "number_id" => $number_id,
                 "cdr_id" => $cdr_id,
                 "cdr" => $cdr,
@@ -49,7 +47,9 @@
                 "night_loc" => $night_loc,
                 "service_name" => $service_name,
                 "suspect_number" => $suspect_number,
-                "cdr_pdf" => $cdr_pdf
+                "cdr_pdf" => $cdr_pdf,
+                "created_date" => $created_date,
+                "last_updated" => $last_updated
             );
             array_push($data_arr["cdr"], $data_items);
         }

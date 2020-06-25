@@ -17,7 +17,6 @@
     //initialize Object
     $data = new Basic($db);
 
-    $data->suspect_id = isset($_GET['suspect_id']) ? $_GET['suspect_id'] : die();
     $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
     //Query
     $stmt = $data->read_suspect_mobile();
@@ -33,7 +32,6 @@
             $data_items = array(
                 "complaint_number" => $complaint_number,
                 "number_id" => $number_id,
-                "suspect_id" => $suspect_id,
                 "number" => $number_one,
                 "company" => $company,
                 "files" => $files,
@@ -51,7 +49,9 @@
                 "remark" => $remark,
                 "reminder" => $reminder,
                 "mail_id" => $mail_id,
-                "caf_date" => $caf_date
+                "caf_date" => $caf_date,
+                "created_date" => $created_date,
+                "last_updated" => $last_updated
             );
             array_push($data_arr["numbers"], $data_items);
         }
