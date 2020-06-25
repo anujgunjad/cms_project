@@ -39,7 +39,7 @@
                    "email_sent" => $email_sent,
                    "email_received" => $email_received,
                    "created_date" => $created_date,
-                   "last_update" => $last_update
+                   "last_updated" => $last_updated
                );
                array_push($data_arr["atm"], $data_items);
            }

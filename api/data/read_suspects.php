@@ -41,7 +41,9 @@
                 "software_name" => $software_name,
                 "complaint_action" => $complaint_action,
                 "pending_reason" => $pending_reason,
-                "remark" => $remark
+                "remark" => $remark,
+                "created_date" => $created_date,
+                "last_updated" => $last_updated
             );
             array_push($data_arr["suspects"], $data_items);
         }
