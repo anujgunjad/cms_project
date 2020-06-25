@@ -158,7 +158,7 @@ include("../includes/config.php");
                                 <div class=" text-center">
                                     <h1 class="sub-head">संदेही का नंबर की जानकारी</h1>
                                 </div>
-                                <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_details">
+                                <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_details" id="btn_addnum">
                                     Add Number
                                 </button>
                                 <!------------------------------>
@@ -263,66 +263,89 @@ include("../includes/config.php");
                                                 <!-------------------------->
                                                 <!--------CDR details------->
                                                 <!-------------------------->
-                                                <button type="button" class="add-number-cdr-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_cdr_details">
-                                                    Add CDR details
-                                                </button>
-                                                <div  class="collapse" id="suspect_no_cdr_details">
-                                                    <div class="card card-body">
-                                                        <div class="four fields">
-                                                            <div class="nine wide field">
-                                                                <label>सी डी आर नंबर </label>
-                                                                <input type="number" name="cdr_number" placeholder="सी डी आर नंबर">
+                                                <button type="button" id="btn_addcdr" class="add-number-cdr-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_cdr_details">
+                                                        Add CDR details
+                                                </button>                                                
+                                                    <div  class="collapse" id="suspect_no_cdr_details">
+                                                        <div id="cdr_details" class="card card-body"> <!--id--->
+                                                            <div class="four fields">
+                                                                <div class="nine wide field">
+                                                                    <label>सी डी आर नंबर </label>
+                                                                    <input type="number" name="cdr_number" placeholder="सी डी आर नंबर">
+                                                                </div>
+                                                                <div class="three wide field">
+                                                                    <label>इमेल जावक </label>
+                                                                    <input type="date" name="cdr_email_outgoing" placeholder="इमेल जावक">
+                                                                </div>
+                                                                <div class="three wide field">
+                                                                    <label>मेल प्राप्त </label>
+                                                                    <input type="date" name="cdr_mail_recieved" placeholder="मेल प्राप्त दिनाक">
+                                                                </div>
+                                                                <div class="nine wide field">
+                                                                    <label>IMEI</label>
+                                                                    <input type="number" name="imei_number" placeholder="IMEI number">
+                                                                </div>    
                                                             </div>
-                                                            <div class="three wide field">
-                                                                <label>इमेल जावक </label>
-                                                                <input type="date" name="cdr_email_outgoing" placeholder="इमेल जावक">
+                                                            <div class="four fields">
+                                                                <div class="six wide field">
+                                                                    <label>IMSI</label>
+                                                                    <input type="number" name="imsi_number" placeholder="IMSI number">
+                                                                </div>
+                                                                <div class="nine wide field">
+                                                                    <label>लोकेशन  </label>
+                                                                    <input type="text" name="cdr_location" placeholder="लोकेशन">
+                                                                </div>
+                                                                <div class="three wide field">
+                                                                    <label>लोकेशन दिनाक समय  </label>
+                                                                    <input type="datetime-local" name="cdr_location_datetime" placeholder="लोकेशन दिनाक समय">
+                                                                </div>
+                                                                <div class="six wide field">
+                                                                    <label>Frequent callers 5</label>
+                                                                    <input type="number" name="cdr_frequent_caller" placeholder="Frequent callers 5">
+                                                                </div>    
                                                             </div>
-                                                            <div class="three wide field">
-                                                                <label>मेल प्राप्त </label>
-                                                                <input type="date" name="cdr_mail_recieved" placeholder="मेल प्राप्त दिनाक">
+                                                            <div class="four fields">
+                                                                <div class="six wide field">
+                                                                    <label>night location</label>
+                                                                    <input type="text" name="cdr_night_location" placeholder="night location">
+                                                                </div>
+                                                                <div class="eight wide field">
+                                                                    <label>messages bank/UPI/wallet/services name  </label>
+                                                                    <input type="text" name="cdr_services_name" placeholder="messages bank/UPI/wallet/services name">
+                                                                </div>
+                                                                <div class="seven wide field">
+                                                                    <label>संदिग्ध नंबर </label>
+                                                                    <input type="number" name="cdr_suspect_number" placeholder="संदिग्ध नंबर">
+                                                                </div>
+                                                                <div class="six wide field">
+                                                                    <label>सी डी आर, पी डी ऍफ़ </label>
+                                                                    <input type="file" name="cdr_pdf" placeholder="सी डी आर, पी डी ऍफ़">
+                                                                </div>    
                                                             </div>
-                                                            <div class="nine wide field">
-                                                                <label>IMEI</label>
-                                                                <input type="number" name="imei_number" placeholder="IMEI number">
-                                                            </div>    
-                                                        </div>
-                                                        <div class="four fields">
-                                                            <div class="six wide field">
-                                                                <label>IMSI</label>
-                                                                <input type="number" name="imsi_number" placeholder="IMSI number">
+                                                            <div class="field">
+                                                                <button class="ui button form-btn" type="submit" id="btn_submit_cdr">submit cdr</button>
                                                             </div>
-                                                            <div class="nine wide field">
-                                                                <label>लोकेशन  </label>
-                                                                <input type="text" name="cdr_location" placeholder="लोकेशन">
-                                                            </div>
-                                                            <div class="three wide field">
-                                                                <label>लोकेशन दिनाक समय  </label>
-                                                                <input type="datetime-local" name="cdr_location_datetime" placeholder="लोकेशन दिनाक समय">
-                                                            </div>
-                                                            <div class="six wide field">
-                                                                <label>Frequent callers 5</label>
-                                                                <input type="number" name="cdr_frequent_caller" placeholder="Frequent callers 5">
-                                                            </div>    
-                                                        </div>
-                                                        <div class="four fields">
-                                                            <div class="six wide field">
-                                                                <label>night location</label>
-                                                                <input type="text" name="cdr_night_location" placeholder="night location">
-                                                            </div>
-                                                            <div class="eight wide field">
-                                                                <label>messages bank/UPI/wallet/services name  </label>
-                                                                <input type="text" name="cdr_services_name" placeholder="messages bank/UPI/wallet/services name">
-                                                            </div>
-                                                            <div class="seven wide field">
-                                                                <label>संदिग्ध नंबर </label>
-                                                                <input type="number" name="cdr_suspect_number" placeholder="संदिग्ध नंबर">
-                                                            </div>
-                                                            <div class="six wide field">
-                                                                <label>सी डी आर, पी डी ऍफ़ </label>
-                                                                <input type="file" name="cdr_pdf" placeholder="सी डी आर, पी डी ऍफ़">
-                                                            </div>    
                                                         </div>
                                                     </div>
+                                                <!-------------------------->
+                                                <div id="suspect_num_table_cdr">
+                                                    <table class="table table-bordered p-0 m-0">
+                                                        <thead>
+                                                            <tr id="table-head">
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">CDR numbers</th>
+                                                                <th scope="col">Update/Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="old-row">
+                                                            <tr>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="new-row"></tbody>
+                                                    </table>
                                                 </div>
                                                 <!-------------------------->
                                                 <!---CDR details ends------->
@@ -331,36 +354,107 @@ include("../includes/config.php");
                                                 <!----------------------------->
                                                 <!---------IPDR details-------->
                                                 <!----------------------------->
-                                                <button type="button" class="add-number-ipdr-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_ipdr_details">
-                                                                        Add IPDR details
+
+                                                <button type="button" id="btn_addipdr" class="add-number-ipdr-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_ipdr_details">
+                                                     Add IPDR details
                                                 </button>
                                                 <div  class="collapse" id="suspect_no_ipdr_details"> 
-                                                    <div class="five fields">
-                                                        <div class="six wide field">
-                                                            <label>आई पी डी आर </label>
-                                                            <input type="number" name="ipdr_number" placeholder="आई पी डी आर ">
+                                                    <div class="card card-body" id="ipdr_details"> <!----ipdr id--->
+                                                        <div class="five fields">
+                                                            <div class="six wide field">
+                                                                <label>आई पी डी आर </label>
+                                                                <input type="number" name="ipdr_number" placeholder="आई पी डी आर ">
+                                                            </div>
+                                                            <div class="three wide field">
+                                                                <label>इमेल जावक </label>
+                                                                <input type="date" name="ipdr_email_outgoing" placeholder="इमेल जावक">
+                                                            </div>
+                                                            <div class="three wide field">
+                                                                <label>मेल प्राप्त </label>
+                                                                <input type="date" name="ipdr_mail_recieved" placeholder="मेल प्राप्त दिनाक">
+                                                            </div>
+                                                            <div class="six wide field">
+                                                                <label>लोकेशन </label>
+                                                                <input type="text" name="ipdr_location" placeholder="लोकेशन">
+                                                            </div>
+                                                            <div class="six wide field">
+                                                                <label>Websites/apps </label>
+                                                                <input type="text" name="ipdr_websites" placeholder="Websites/apps">
+                                                            </div>
                                                         </div>
-                                                        <div class="three wide field">
-                                                            <label>इमेल जावक </label>
-                                                            <input type="date" name="ipdr_email_outgoing" placeholder="इमेल जावक">
-                                                        </div>
-                                                        <div class="three wide field">
-                                                            <label>मेल प्राप्त </label>
-                                                            <input type="date" name="ipdr_mail_recieved" placeholder="मेल प्राप्त दिनाक">
-                                                        </div>
-                                                        <div class="six wide field">
-                                                            <label>लोकेशन </label>
-                                                            <input type="text" name="ipdr_location" placeholder="लोकेशन">
-                                                        </div>
-                                                        <div class="six wide field">
-                                                            <label>Websites/apps </label>
-                                                            <input type="text" name="ipdr_websites" placeholder="Websites/apps">
-                                                        </div>    
+                                                        <div class="field">
+                                                            <button class="ui button form-btn" type="submit" id="btn_submit_ipdr">submit ipdr</button>
+                                                        </div>  
                                                     </div>
+                                                </div>
+                                                <!----------------------------->
+                                                <div id="suspect_num_table_ipdr">
+                                                    <table class="table table-bordered p-0 m-0">
+                                                        <thead>
+                                                            <tr id="table-head">
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">IPDR numbers</th>
+                                                                <th scope="col">Update/Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="old-row">
+                                                            <tr>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="new-row"></tbody>
+                                                    </table>
                                                 </div>
                                                 <!----------------------------->
                                                 <!------IPDR details ends------>
                                                 <!----------------------------->
+
+                                                <!----------------------------->
+                                                <!-------UPI Details----------->
+                                                <!----------------------------->
+                                                <button type="button" id="btn_addupi" class="add-number-ipdr-btn ui button my-3" data-toggle="collapse" data-target="#suspect_no_upi_details">
+                                                     Add UPI details
+                                                </button>
+                                                <div  class="collapse" id="suspect_no_upi_details"> 
+                                                    <div class="card card-body" id="upi_details"> <!----upi details id--->
+                                                        <div class="five fields">
+                                                            <div class="six wide field">
+                                                                <label>UPI</label>
+                                                                <input type="text" name="upi_id" placeholder="UPI id ">
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="field">
+                                                            <button class="ui button form-btn" type="submit" id="btn_submit_upi">submit upi details</button>
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                                <!--------------------------->
+                                                <div id="suspect_num_table_upi">
+                                                    <table class="table table-bordered p-0 m-0">
+                                                        <thead>
+                                                            <tr id="table-head">
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">UPI id's</th>
+                                                                <th scope="col">Update/Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="old-row">
+                                                            <tr>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="new-row"></tbody>
+                                                    </table>
+                                                </div>
+                                                <!----------------------------->
+                                                <!-------UPI Details ends ----------->
+                                                <!----------------------------->
+                                                <br>
                                                 <div class="field">
                                                     <button class="ui button form-btn" name="number_form" type="submit">
                                                         Submit
@@ -373,23 +467,25 @@ include("../includes/config.php");
                                 <!----------------------------------->
                                 <!--Suspect Number Detail Form Ends-->
                                 <!----------------------------------->
-                                <table class="table table-bordered p-0 m-0">
-                                    <thead>
-                                        <tr id="table-head">
-                                            <th scope="col">S.No</th>
-                                            <th scope="col">Phone numbers</th>
-                                            <th scope="col">Update/Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="old-row">
-                                        <tr>
-                                            <td>No Number Added Yet</td>
-                                            <td>No Number Added Yet</td>
-                                            <td>No Number Added Yet</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody id="new-row"></tbody>
-                                </table>
+                                <div id="suspect_num_table_main">
+                                    <table class="table table-bordered p-0 m-0">
+                                        <thead>
+                                            <tr id="table-head">
+                                                <th scope="col">S.No</th>
+                                                <th scope="col">Phone numbers</th>
+                                                <th scope="col">Update/Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="old-row">
+                                            <tr>
+                                                <td>No Number Added Yet</td>
+                                                <td>No Number Added Yet</td>
+                                                <td>No Number Added Yet</td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody id="new-row"></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         
@@ -740,6 +836,44 @@ include("../includes/config.php");
         <!--External JS-->
         <script src="js/insertbasic.js"></script>
         <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#btn_addnum").click(function(){
+                if($('#suspect_no_details').is('.collapse:not(.show)')) {
+                     $("#suspect_num_table_main").hide();
+                }
+                else {
+                    $("#suspect_num_table_main").show();
+                }
+            });
+            $("#btn_addcdr").click(function(){
+                if($("#suspect_no_cdr_details").is('.collapse:not(.show)')) {
+                    $("#suspect_num_table_cdr").hide();
+                }
+                else{
+                    $("#suspect_num_table_cdr").show();
+                }
+            });
+            $("#btn_addipdr").click(function(){
+                if($("#suspect_no_ipdr_details").is('.collapse:not(.show)')) {
+                    $("#suspect_num_table_ipdr").hide();
+                }
+                else{
+                    $("#suspect_num_table_ipdr").show();
+                }
+            });
+            $("#btn_addupi").click(function(){
+                if($("#suspect_no_upi_details").is('.collapse:not(.show)')) {
+                    $("#suspect_num_table_upi").hide();
+                }
+                else{
+                    $("#suspect_num_table_upi").show();
+                }
+            });
+        });
+
+        
+        </script>
 </body>
 
 </html>
