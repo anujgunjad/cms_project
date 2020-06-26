@@ -7,3 +7,7 @@
 #admin-cards {
   padding: 5vh 1vw;
 }
+.btn-primary:hover {
+  background: transparent !important;
+  color: #004ba8;
+}
