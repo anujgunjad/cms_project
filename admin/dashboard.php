@@ -2,6 +2,7 @@
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
+        <h1 class="nav-head">Dashboard</h1>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">

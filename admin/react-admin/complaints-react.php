@@ -7,7 +7,7 @@
           fetch('../api/data/read_all_complainee.php')
             .then(res => res.json())
             .then((data) => {
-              this.setState({ complaints: data.records })
+              this.setState({ complaints: data.complainee })
               console.log(this.state.complaints)
             })
             .catch(console.log)
