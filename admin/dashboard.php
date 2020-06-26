@@ -17,8 +17,6 @@
 <div class="container-fluid">
   <div id="admin-cards">
     <!-- react-component cards -->
-   
-    </div>
   </div>
 </div>
   <!-- 'include' for React File  -->
