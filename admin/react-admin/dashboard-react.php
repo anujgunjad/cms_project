@@ -1,4 +1,4 @@
-<script type="text/babel">
+<script type="text/babel">  
   class Card extends React.Component {
         render() {
             const cardButtonStyle ={
@@ -19,14 +19,16 @@
                 );
         }
     }
-    class CardsRow extends Card {
+
+    class CardsRow extends Card{
         state = {
             cardData: [],
             contentOne: [],
             contentTwo: "",
         }
         componentDidMount(){
-            const dateFormatter = (str) => {
+                // console.log(complaintData);
+                const dateFormatter = (str) => {
                 var splitString = str.split("-"); 
                 var reverseArray = splitString.reverse(); 
                 var realDate = reverseArray.join("-"); 
@@ -46,7 +48,7 @@
                 const titleOne = this.state.cardData.length;
             })
             .catch(console.log)
-
+           
         }
         render() {
             return(
@@ -57,6 +59,61 @@
             );
         }
     }
-  ReactDOM.render(<CardsRow />, document.getElementById('admin-cards'))
+
+  ReactDOM.render(<CardsRow />, document.getElementById('dashboard-cards'));
+
+  class ComplaintsTable extends React.Component{
+    state = {
+          complaints: []
+        }
+        componentDidMount(){
+          fetch('../api/data/read_all_complainee.php')
+            .then(res => res.json())
+            .then((data) => {
+              this.setState({ complaints: data.complainee })
+              console.log(this.state.complaints)
+            })
+            .catch(console.log)
+        }
+        render() {
+            const themeColor ={
+                color: "#fff",
+                backgroundColor: "#004ba8",
+                borderTop:"2px solid #004ba8",
+            };
+          return (
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th style={themeColor}>Complaint ID</th>
+                        <th style={themeColor}>Complaint No.</th>
+                        <th style={themeColor}>Complaint Date</th>
+                        <th style={themeColor}>Applicant Name</th>
+                        <th style={themeColor}>Applicant Age</th>
+                        <th style={themeColor}>Applicant Phone</th>
+                        <th style={themeColor}>Applicant Address</th>
+                        <th style={themeColor}>View More</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.complaints.slice(0,10).map((complaint) => (    
+                            <tr>
+                              <td>{complaint.complaint_id}</td>
+                              <td>{complaint.complaint_no}</td>
+                              <td>{complaint.complaint_date}</td>
+                              <td>{complaint.app_name}</td>
+                              <td>{complaint.ap_age}</td>
+                              <td>{complaint.ap_mob}</td>
+                              <td>{complaint.ap_address}</td>
+                              <td><a href="#">View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
+              
+              );
+        }
+  }
+  ReactDOM.render(<ComplaintsTable />, document.getElementById('dashboard-complaints'))
 
 </script>

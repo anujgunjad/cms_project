@@ -4,8 +4,8 @@
 }
 
 /* ADMIN DASHBOARD */
-#admin-cards {
-  padding: 5vh 1vw;
+#dashboard-cards {
+  padding: 4vh 1vw;
 }
 .btn-primary:hover {
   background: transparent !important;

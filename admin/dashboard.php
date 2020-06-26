@@ -11,12 +11,17 @@
            
           </ul>
         </div>
-             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Log Out</button>
+             <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" type="submit">Log Out</button>
         </nav>
 
 <div class="container-fluid">
-  <div id="admin-cards">
-    <!-- react-component cards -->
+  <div id="dashboard-cards">
+    <!-- react-components -->
+  </div>
+  <h1>Recently Added</h1>
+  <div id="dashboard-complaints">
+
+    <!-- react-components -->
   </div>
 </div>
   <!-- 'include' for React File  -->
