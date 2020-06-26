@@ -18,7 +18,7 @@
   <div id="dashboard-cards">
     <!-- react-components -->
   </div>
-  <h1>Recently Added</h1>
+  <h1>Recently Added Complaints</h1>
   <div id="dashboard-complaints">
 
     <!-- react-components -->
