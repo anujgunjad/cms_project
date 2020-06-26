@@ -1,5 +1,5 @@
 <script type="text/babel">
-      class Hello extends React.Component {
+      class Complaints extends React.Component {
         state = {
           complaints: []
         }
@@ -53,6 +53,6 @@
       }
 
 const renderComponent = () => {
-    ReactDOM.render(<Hello />, document.getElementById('render-container'))
+    ReactDOM.render(<Complaints />, document.getElementById('render-container'))
 }
 </script>

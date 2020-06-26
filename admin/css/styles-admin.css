@@ -2,3 +2,8 @@
   margin: 0px;
   padding: 0px;
 }
+
+/* ADMIN DASHBOARD */
+#admin-cards {
+  padding: 5vh 1vw;
+}

@@ -15,16 +15,14 @@
         </nav>
 
 <div class="container-fluid">
-    <h1 class="mt-4">Welcome To Dashboard Of CMS (Admin)</h1>
-    <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi atque inventore quia ipsum dolores ad. Maiores explicabo sequi optio inventore unde, quia minima saepe reprehenderit deserunt autem! Unde, magnam dolores.
-    </p>
-    <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque eius autem tempora sed accusamus nemo perspiciatis voluptatibus atque odit quas cum eligendi sit, vero enim porro consequatur ducimus eum fuga unde quasi placeat. Quasi, animi.
-    </p>
+  <div id="admin-cards">
+    <!-- react-component cards -->
+   
+    </div>
+  </div>
 </div>
-
-    
+  <!-- 'include' for React File  -->
+  <?php include("react-admin/dashboard-react.php")?>  
  <?php include("sidenav-footer.php")?>
  <?php include("footer.php")?>
    
