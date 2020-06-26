@@ -53,6 +53,6 @@
       }
 
 const renderComponent = () => {
-    ReactDOM.render(<Complaints />, document.getElementById('dashboard-container'));
+    ReactDOM.render(<Complaints />, document.getElementById('render-container'));
 }
 </script>

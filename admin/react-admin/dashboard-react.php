@@ -6,7 +6,7 @@
                 border: "2px solid #004ba8",
             };
             return ( 
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">{this.props.title}</h5>
@@ -55,6 +55,7 @@
                 <div id="cards-row" class="row">
                     <Card title="Last record added at" content={"Date : " + this.state.contentOne[0]} contentSec={"Time : " + this.state.contentOne[1]} />
                     <Card title="Total number of complaints" content={"Total : " + this.state.contentTwo + " Complaints"} contentSec="-"/>
+                    <Card title="Lorem ipsum amet consectetur." content={"lorem : " + this.state.contentTwo + " ipsum"} contentSec="amet consectetur"/>
                 </div>
             );
         }
