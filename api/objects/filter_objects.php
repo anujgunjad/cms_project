@@ -66,7 +66,7 @@
 
              if($category_id == 4){
                  //query
-                 $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name FROM $this->complainee_table c INNER JOIN $this->suspect_table s INNER JOIN $this->suspect_number_table n  INNER JOIN $this->suspect_account_table a WHERE s.suspect_name = ? OR n.suspect_name  = ? OR a.kyc_name = ?";
+                 $query = "SELECT c.complaint_id,c.complaint_no, c.ap_name FROM $this->complainee_table c INNER JOIN $this->suspect_number_table n ON n.complaint_id = c.complaint_id WHERE n.suspect_name LIKE ? UNION ALL SELECT c.complaint_id,c.complaint_no, c.ap_name FROM $this->complainee_table c INNER JOIN $this->suspect_table s ON s.complaint_id = c.complaint_id WHERE s.suspect_name LIKE ? UNION ALL SELECT c.complaint_id,c.complaint_no, c.ap_name FROM $this->complainee_table c INNER JOIN $this->suspect_account_table a ON a.complaint_id = c.complaint_id WHERE a.kyc_name LIKE ? ";
              }
 
              $stmt = $this->conn->prepare($query);

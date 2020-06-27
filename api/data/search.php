@@ -22,7 +22,7 @@
 
     //Applicant Search 
     
-    if($category_id == 1 || $category_id == 2 || $category_id == 3){
+    if($category_id <= 3){
 
     $stmt = $data->searchApplicant($keyword, $category_id); 
     $num = $stmt->rowCount();
@@ -91,7 +91,7 @@
             $data_items = array(
                 "complaint_id" => $complaint_id,
                 "complaint_no" => $complaint_no,
-                "app_name" => $ap_name
+                "applicant_name" => $ap_name
             );
             array_push($data_arr["applicant"], $data_items);
         }
