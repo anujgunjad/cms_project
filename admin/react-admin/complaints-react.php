@@ -64,7 +64,8 @@
                             </tr>
                         ))
                         : <tr>
-                             <td class="error center aligned" colspan="8"></td>
+                             <td class=" center aligned" colspan="8">
+                                <div class="alert alert-danger not-found-alert" role="alert">No records found  <i class="fa fa-exclamation-circle fa-fw" /></div></td>
                           </tr>
                         
                       }
@@ -74,11 +75,11 @@
         }
       }
 
-const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
 const filterTwo = () => {
-  var keyWord = document.getElementById("search-keyword").value;
-  var e = document.getElementById("search-category");
-  var categoryId = e.options[e.selectedIndex].value;
+  const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
+  let keyWord = document.getElementById("search-keyword").value,
+      e = document.getElementById("search-category"),
+      categoryId = e.options[e.selectedIndex].value;
    complaintsTable.filterComplaints(categoryId, keyWord);
 }
 </script>

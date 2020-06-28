@@ -27,7 +27,6 @@
             contentTwo: "",
         }
         componentDidMount(){
-                // console.log(complaintData);
                 const dateFormatter = (str) => {
                 var splitString = str.split("-"); 
                 var reverseArray = splitString.reverse(); 
@@ -97,7 +96,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.complaints.slice(0,10).map((complaint) => (    
+                    {this.state.complaints.slice(-10).map((complaint) => (    
                             <tr>
                               <td>{complaint.complaint_id}</td>
                               <td>{complaint.complaint_no}</td>
