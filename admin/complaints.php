@@ -17,27 +17,27 @@
       <div class="ui blue segment admin-search-form">
         <div class="ui form">
           <div class="fields">
-          <div class="five wide field dropdown-search-form">
-            <select>
-              <option value="">Search Category</option>
-              <option value="1">Applicant Name</option>
-              <option value="2">Complaint Number</option>
-              <option value="3">Applicant Phone Number</option>
-              <option value="4">Suspect Name</option>
-            </select>
-          </div>
+            <div class="five wide field dropdown-search-form">
+              <select id="search-category">
+                <option value="">Search Category</option>
+                <option value="1">Applicant Name</option>
+                <option value="2">Complaint Number</option>
+                <option value="3">Applicant Phone Number</option>
+                <option value="4">Suspect Name</option>
+              </select>
+            </div>
             <div class="fifteen wide field">
-              <input placeholder="Click on search for all complaints details" type="text">
+              <input id="search-keyword" placeholder="Enter text for search" type="text">
             </div>
             <div class="field">
-              <div class="ui submit animated green button" onclick="renderComponent();"> 
+              <div class="ui submit animated green button" onclick="filterTwo();"> 
                 <div class="visible content">Search</div>
                 <div class="hidden content">
                   <i class="fa fa-search"></i>
                 </div>
               </div>
             </div>
-          </div>      
+          </div>    
         </div>
       </div>
     
