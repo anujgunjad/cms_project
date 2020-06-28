@@ -16,7 +16,16 @@
     <div id="mega-wrapper" class="container-fluid">
       <div class="ui blue segment admin-search-form">
         <div class="ui form">
-          <div class="two fields">
+          <div class="fields">
+          <div class="five wide field dropdown-search-form">
+            <select>
+              <option value="">Search Category</option>
+              <option value="1">Applicant Name</option>
+              <option value="2">Complaint Number</option>
+              <option value="3">Applicant Phone Number</option>
+              <option value="4">Suspect Name</option>
+            </select>
+          </div>
             <div class="fifteen wide field">
               <input placeholder="Click on search for all complaints details" type="text">
             </div>

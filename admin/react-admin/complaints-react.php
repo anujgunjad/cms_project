@@ -52,7 +52,8 @@
         }
       }
 
-const renderComponent = () => {
     ReactDOM.render(<Complaints />, document.getElementById('render-container'));
-}
+// const renderComponent = () => {
+//     ReactDOM.render(<Complaints />, document.getElementById('render-container'));
+// }
 </script>
