@@ -74,7 +74,12 @@
               );
         }
       }
-
+let keywordInput = document.getElementById("search-keyword");
+keywordInput.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+        filterTwo();
+    }
+});
 const filterTwo = () => {
   const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
   let keyWord = document.getElementById("search-keyword").value,
