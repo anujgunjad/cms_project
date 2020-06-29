@@ -80,32 +80,30 @@
                 color: "#fff",
                 backgroundColor: "#004ba8",
                 borderTop:"2px solid #004ba8",
+                fontSize:"1.2rem",
             };
+            const textStyle = {
+                fontSize:"1.1rem",
+            }
           return (
             <table class="ui celled table">
                 <thead>
                     <tr>
-                        <th style={themeColor}>Complaint ID</th>
                         <th style={themeColor}>Complaint No.</th>
-                        <th style={themeColor}>Complaint Date</th>
                         <th style={themeColor}>Applicant Name</th>
-                        <th style={themeColor}>Applicant Age</th>
-                        <th style={themeColor}>Applicant Phone</th>
-                        <th style={themeColor}>Applicant Address</th>
+                        <th style={themeColor}>Applicant Phone Number</th>
+                        <th style={themeColor}>Complaint Date</th>
                         <th style={themeColor}>View More</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.state.complaints.slice(-10).map((complaint) => (    
                             <tr>
-                              <td>{complaint.complaint_id}</td>
-                              <td>{complaint.complaint_no}</td>
-                              <td>{complaint.complaint_date}</td>
-                              <td>{complaint.app_name}</td>
-                              <td>{complaint.ap_age}</td>
-                              <td>{complaint.ap_mob}</td>
-                              <td>{complaint.ap_address}</td>
-                              <td><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
+                              <td style={textStyle}>{complaint.complaint_no}</td>
+                              <td style={textStyle}>{complaint.app_name}</td>
+                              <td style={textStyle}>{complaint.ap_mob}</td>
+                              <td style={textStyle}>{complaint.complaint_date}</td>
+                              <td style={textStyle}><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
                             </tr>
                         ))}
                 </tbody>
