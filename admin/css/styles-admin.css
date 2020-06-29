@@ -32,7 +32,12 @@
   font-size: 3rem !important;
   color: #004ba8;
 }
+.h2-complaint {
+  font-family: nato-sans;
+  font-size: 2.5rem !important;
+  color: #004ba8;
+}
 
 .table-data {
-  background-color: #d6e9ff;
+  background-color: #004ba8;
 }
