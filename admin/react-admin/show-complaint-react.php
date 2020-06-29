@@ -5,6 +5,12 @@ const idFetcher = () => {
             id = locationAndId[1];
             return id;
 }
+const dateFormatter = (str) => {
+                var revdate = str.split("-"),
+                    reverseArray = revdate.reverse(),
+                    realDate = reverseArray.join("-"); 
+                return realDate;
+            }
 const timeDateFormatter = (arry) => {
                 let str = arry.split(" "),
                           date = str[0];
@@ -24,13 +30,6 @@ const timeDateFormatter = (arry) => {
         componentDidMount(){
             this.fetchApplicantData();
         }
-        
-        dateFormatter(str){
-                var revdate = str.split("-"),
-                    reverseArray = revdate.reverse(),
-                    realDate = reverseArray.join("-"); 
-                return realDate;
-            }
         fetchApplicantData(){
                 let id = idFetcher();               
                 fetch('../api/data/read_all_complainee.php')
@@ -43,12 +42,12 @@ const timeDateFormatter = (arry) => {
                 let createdDate = timeDateFormatter(applicant[0].created_date);
                 this.setState({ createdDate: createdDate});
                 let crimeDateRev = applicant[0].crime_date,
-                    crimeDate = this.dateFormatter(crimeDateRev);
+                    crimeDate = dateFormatter(crimeDateRev);
                 this.setState({ crimeDate: crimeDate});
                 let complaintDateRev = applicant[0].complaint_date,
-                    complaintDate = this.dateFormatter(complaintDateRev);
+                    complaintDate = dateFormatter(complaintDateRev);
                 this.setState({ complaintDate: complaintDate});
-                // console.log(applicant[0])
+                console.log(this.state.applicant.created_date)
                 })
                 .catch(console.log)
         }
@@ -56,12 +55,12 @@ const timeDateFormatter = (arry) => {
             return ( 
                 <div>
                 <center>
-                <div class="ui segment blue mt-4">
+                <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">शिकायत व आवेदक की जानकारी</h1>
                             <table class="ui celled table">
                             <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem",color:"#fff"}} class="table-data"><h4 style={{color:"#fff"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 style={{color:"red"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4>{this.state.applicant.app_name}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4>{this.state.applicant.ap_age} साल</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4>{this.state.applicant.ap_mob}</td>
@@ -89,6 +88,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की दिनांक</h4>{this.state.complaintDate}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate}</td>
+                                    
                                 </tr>
                             </tbody>
                             </table>
@@ -101,16 +101,16 @@ const timeDateFormatter = (arry) => {
 
     class Suspect extends React.Component {
         state = {
-
+            suspects: [],
         }
         componentDidMount(){
         }
         fetchApplicantData(){
                 let id = idFetcher();               
-                fetch(`/api/data/read_suspects.php?complaint_id=${id}`)
+                fetch(`../api/data/read_suspect_number.php?complaint_id =${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                    console.log(data);
+                   
                 })
                 .catch(console.log)
         }
@@ -122,24 +122,26 @@ const timeDateFormatter = (arry) => {
                 <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">संदेहियों की जानकारी</h1>
                             <table class="ui celled table">
-                            <tbody>
-                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4></td>
-                                </tr>
-                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4></td>
-                                </tr>
-                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4></td>
-                                </tr>
-                            </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
                             </table>
                             </div>
                         </center>                    
@@ -147,6 +149,358 @@ const timeDateFormatter = (arry) => {
             )
         }
     }
+    class Numbers extends React.Component {
+        state = {
+           numbers:[],
+        }
+        componentDidMount(){
+            this.fetchNumbers();
+        }
+        fetchNumbers(){
+                let id = idFetcher();               
+                fetch(`../api/data/read_suspect_number.php?complaint_id=${id}`)
+                .then(res => res.json())
+                .then((data) => {
+                    this.setState({numbers: data.numbers})
+                    console.log(this.state.numbers);
+                })
+                .catch(console.log)
+        }
+        
+        render(){
+            const pdfButtonStyle = {
+                background:"#C50202",
+                border: "2px solid #C50202",
+            }
+            const infoButtonStyle ={
+                backgroundColor: "#004ba8",
+                border: "2px solid #004ba8",
+                color:"#FFF",
+            };
+            return(
+                <div>
+                <center>
+                <div class="ui segment blue mt-4 mb-5">
+                <h1 class=" h1 h2-complaint">शिकायत संबंधी फोन नंबर</h1>
+                        {
+                            this.state.numbers ? this.state.numbers.map((number) => (    
+                            <table class="ui celled table">   
+                                <tbody>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{number.number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4>{number.company}</td>
+                                    <td class={dateFormatter(number.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(number.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(number.email_sent)!="00-00-000"?dateFormatter(number.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(number.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(number.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(number.email_received)!="00-00-000"?dateFormatter(number.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">दस्तावेज़</h4>{number.files}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4>{number.suspect_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{number.suspect_address}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{number.city}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{number.state}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4>{number.retailer_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4>{number.uid_num}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4>{number.other_num}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4>{number.confirmation}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{number.remark?number.remark : "खाली"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4>{number.mail_id?number.mail_id : "खाली"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4>{dateFormatter(number.caf_date)}</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">
+                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
+                                         <a style={{color:"#fff"}} class="info-button" href={"upi-info.php?num_id=" + number.number_id}>UPI Info</a> 
+                                        </div>
+                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
+                                        <a style={{color:"#fff"}} class="info-button" href={"ipdr-info.php?num_id=" + number.number_id}>IPDR Info</a> 
+                                        </div>
+                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
+                                        <a style={{color:"#fff"}} class="info-button" href={"cdr-info.php?num_id=" + number.number_id}>CDR Info</a> 
+                                        </div>
+                                        <div style={pdfButtonStyle} class="ui small button pdf-button">
+                                           <a style={{color:"#fff"}} href="#">Download PDF</a> 
+                                        </div>
+                                    </th>
+                                </tr>
+                           </tbody>
+                        </table>
+                        ))
+                        : <table class="ui celled table">   
+                            <tbody>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        }
+                           
+                            </div>
+                        </center>                    
+                    </div>          
+            )
+        }
+    }
+    
+    class BankAccounts extends React.Component {
+        state = {
+           accounts:[],
+        }
+        componentDidMount(){
+            this.fetchAccounts();
+        }
+        fetchAccounts(){
+                let id = idFetcher();               
+                fetch(`../api/data/read_bank_account.php?complaint_id=${id}`)
+                .then(res => res.json())
+                .then((data) => {
+                    this.setState({accounts: data.accounts})
+                    console.log(this.state.accounts);
+                })
+                .catch(console.log)
+        }
+        
+        render(){
+            const pdfButtonStyle = {
+                background:"#C50202",
+                border: "2px solid #C50202",
+            }
+            const infoButtonStyle ={
+                backgroundColor: "#004ba8",
+                border: "2px solid #004ba8",
+                color:"#FFF",
+            };
+            return(
+                <div>
+                <center>
+                <div class="ui segment blue mt-4 mb-5">
+                <h1 class=" h1 h2-complaint">शिकायत संबंधी बैंक खाते</h1>
+                        {
+                            this.state.accounts ? this.state.accounts.map((account) => (    
+                            <table class="ui celled table">   
+                                <tbody>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">खाता नंबर</h4>{account.acc_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4>{account.bank_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{account.state}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4>{account.branch_name}</td>
+                                </tr>
+                                <tr>
+                                    <td class={dateFormatter(account.mail_date)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(account.mail_date)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(account.mail_date)!="00-00-000"?dateFormatter(account.mail_date):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(account.mail_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(account.mail_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(account.mail_received)!="00-00-000"?dateFormatter(account.mail_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4>{account.freeze_amount}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4>{account.kyc_name}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4>{account.address}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{account.city}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4>{account.state_twice}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4>{account.alternate_number}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4>{account.profit_acc}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4>{account.internet_banking}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4>{account.bank_manager_name}</td>
+                                      <td></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">
+                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
+                                         <a style={{color:"#fff"}} class="info-button" href={"pan-info.php?acc_id=" + account.acc_id}>PAN Info</a> 
+                                        </div>
+                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
+                                        <a style={{color:"#fff"}} class="info-button" href={"atm-info.php?acc_id=" + account.acc_id}>ATM Info</a> 
+                                        </div>
+                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
+                                        <a style={{color:"#fff"}} class="info-button" href={"iplogs-info.php?acc_id=" + account.acc_id}>IPLOGs Info</a> 
+                                        </div>
+                                        <div style={pdfButtonStyle} class="ui small button pdf-button mr-2">
+                                           <a style={{color:"#fff"}} href="#">Download KYC PDF</a> 
+                                        </div>
+                                        <div style={pdfButtonStyle} class="ui small button pdf-button">
+                                           <a style={{color:"#fff"}} href="#">Bank Statement File</a> 
+                                        </div>
+                                    </th>
+                                </tr>
+                           </tbody>
+                        </table>
+                        ))
+                        : <table class="ui celled table">   
+                            <tbody>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        }
+                           
+                            </div>
+                        </center>                    
+                    </div>          
+            )
+        }
+    }
+    
+    class Ewallets extends React.Component {
+        state = {
+           ewallets:[],
+        }
+        componentDidMount(){
+            this.fetchEwallets();
+        }
+        fetchEwallets(){
+                let id = idFetcher();               
+                fetch(`../api/data/read_suspect_ewallet.php?complaint_id=${id}`)
+                .then(res => res.json())
+                .then((data) => {
+                    this.setState({ewallets: data.ewallet})
+                    console.log(this.state.ewallets);
+                })
+                .catch(console.log)
+        }
+        
+        render(){
+            return(
+                <div>
+                <center>
+                <div class="ui segment blue mt-4 mb-5">
+                <h1 class=" h1 h2-complaint">शिकायत संबंधी ई-वॉलेट</h1>
+                        {
+                            this.state.ewallets ? this.state.ewallets.map((ewallet) => (    
+                            <table class="ui celled table">   
+                                <tbody>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI का नाम</h4>{ewallet.upi_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement}</td>
+                                </tr>
+                                <tr>
+                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                               
+                           </tbody>
+                        </table>
+                        ))
+                        : <table class="ui celled table">   
+                            <tbody>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        }
+                           
+                            </div>
+                        </center>                    
+                    </div>          
+            )
+        }
+    }
+    
+    class Websites extends React.Component {
+        state = {
+           websites:[],
+        }
+        componentDidMount(){
+            this.fetchWebsites();
+        }
+        fetchWebsites(){
+                let id = idFetcher();               
+                fetch(`../api/data/read_suspect_ewallet.php?complaint_id=${id}`)
+                .then(res => res.json())
+                .then((data) => {
+                    this.setState({websites: data.ewallet})
+                    console.log(this.state.websites);
+                })
+                .catch(console.log)
+        }
+        
+        render(){
+            return(
+                <div>
+                <center>
+                <div class="ui segment blue mt-4 mb-5">
+                <h1 class=" h1 h2-complaint">शिकायत संबंधी ई-वॉलेट</h1>
+                        {
+                            this.state.ewallets ? this.state.ewallets.map((ewallet) => (    
+                            <table class="ui celled table">   
+                                <tbody>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI का नाम</h4>{ewallet.upi_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement}</td>
+                                </tr>
+                                <tr>
+                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount}</td>
+                                </tr>
+                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                               
+                           </tbody>
+                        </table>
+                        ))
+                        : <table class="ui celled table">   
+                            <tbody>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        }
+                           
+                            </div>
+                        </center>                    
+                    </div>          
+            )
+        }
+    }
+    
+
     class AllDetails extends React.Component {
         state = {
             applicant: {},
@@ -172,6 +526,9 @@ const timeDateFormatter = (arry) => {
                     <h1 class="h1 mt-3 h1-complaint">शिकायत क्रमांक <span style={{color:"red"}}>{this.state.applicant.complaint_no}</span> का पूरा विवरण</h1>
                     <Applicant />
                     <Suspect />
+                    <Numbers />
+                    <BankAccounts />
+                    <Ewallets />
                 </center>
             )
         }
