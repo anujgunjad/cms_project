@@ -232,7 +232,7 @@
     
         function read_suspect_website() {
             //Select Query
-            $query = "SELECT c.complaint_no as complaint_number, w.suspect_id, w.website_id, w.website_name, w.website_domain, w.mail_id, w.website_mobile_number, w.created_date, w.last_updated FROM $this->suspect_website_table w INNER JOIN $this->complainee_table c on c.complaint_id = w.complaint_id WHERE c.complaint_id = ?";
+            $query = "SELECT c.complaint_no as complaint_number, w.website_id, w.website_name, w.website_domain, w.mail_id, w.website_mobile_number, w.created_date, w.last_updated FROM $this->suspect_website_table w INNER JOIN $this->complainee_table c on c.complaint_id = w.complaint_id WHERE c.complaint_id = ?";
 
              //Prepare query statement
              $stmt = $this->conn->prepare($query);
