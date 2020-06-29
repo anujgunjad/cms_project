@@ -2,6 +2,8 @@
   class Applicant extends React.Component {
     state = {
           applicant: {},
+          crimeDate:"",
+          complaintDate:"",
           createdDate: "",
           updatedDate: "",
         }
@@ -32,7 +34,14 @@
                     conSec = timeDateCreate.split(" "),
                     dateSec = conSec[0],
                     createdDate = this.dateFormatter(dateSec);
-                this.setState({ createdDate: createdDate})
+                this.setState({ createdDate: createdDate});
+                let crimeDateRev = applicant[0].crime_date,
+                    crimeDate = this.dateFormatter(crimeDateRev);
+                this.setState({ crimeDate: crimeDate});
+                let complaintDateRev = applicant[0].complaint_date,
+                    complaintDate = this.dateFormatter(complaintDateRev);
+                this.setState({ complaintDate: complaintDate});
+
                 console.log(applicant[0])
                 })
                 .catch(console.log)
@@ -47,33 +56,33 @@
                             <tbody>
                                 <tr>
                                     <td><h5 class="ui header mb-1 mt-1">आवेदक का नाम</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की उम्र</h5>{this.state.applicant.app_name} साल</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का मोबाइल नंबर</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का पता</h5>{this.state.applicant.app_name}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की उम्र</h5>{this.state.applicant.ap_age} साल</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का मोबाइल नंबर</h5>{this.state.applicant.ap_mob}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का पता</h5>{this.state.applicant.ap_address}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का देश</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का राज्य</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का शहर</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">पिन कोड</h5>{this.state.applicant.app_name}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का देश</h5>{this.state.applicant.ap_country}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का राज्य</h5>{this.state.applicant.ap_state}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का शहर</h5>{this.state.applicant.ap_city}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">पिन कोड</h5>{this.state.applicant.ap_pin_code}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">आधार क्रमांक</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">अपराध का प्रकार</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आई टी ऐक्ट धारा</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">भा द वि धारा</h5>{this.state.applicant.app_name}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आधार क्रमांक</h5>{this.state.applicant.ap_adhar}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">अपराध का प्रकार</h5>{this.state.applicant.crime_type}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">अपराध का तरीका</h5>{this.state.applicant.way_of_crime}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आई टी ऐक्ट धारा</h5>{this.state.applicant.it_act}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">घटना की दिनांक</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">घटना का समय</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की राशि</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">जांचकर्ता का नाम</h5>{this.state.applicant.app_name}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">भा द वि धारा</h5>{this.state.applicant.bh_dv}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">घटना की दिनांक</h5>{this.state.crimeDate}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">घटना का समय</h5>{this.state.applicant.crime_time}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की राशि</h5>{this.state.applicant.amount}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">शिकायत की दिनांक</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की राशि</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">शिकायत की दिनांक</h5>{this.state.createdDate}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">अपडेट  की दिनांक</h5>{this.state.updatedDate}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">जांचकर्ता का नाम</h5>{this.state.applicant.checker_name}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">शिकायत की दिनांक</h5>{this.state.complaintDate}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">शिकायत क्रमांक</h5>{this.state.applicant.complaint_no}</td>
+                                    <td><h5 class="ui header mb-1 mt-1">शिकायत दर्ज की दिनांक</h5>{this.state.createdDate}</td>
                                 </tr>
                             </tbody>
                             </table>
