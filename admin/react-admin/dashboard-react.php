@@ -105,7 +105,7 @@
                               <td>{complaint.ap_age}</td>
                               <td>{complaint.ap_mob}</td>
                               <td>{complaint.ap_address}</td>
-                              <td><a href="#">View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
+                              <td><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
                             </tr>
                         ))}
                 </tbody>
