@@ -83,5 +83,26 @@
         
              return $stmt;
          }
+
+         function getMainFilter($max_amount, $min_amount,  $compalint_type, $sub_complaint_type,$applicant_gender,$applicant_age){
+            //query
+            $query = "SELECT * FROM $this->complainee_table c WHERE c.complaint_status = '1' AND c.amount BETWEEN ? AND ? AND c.complaint_type = ? AND c.sub_complaint_type = ? AND c.ap_gender = ? AND c.ap_age <= ?";
+
+            $stmt = $this->conn->prepare($query);
+
+            // bind
+
+            $stmt->bindParam(1, $min_amount);
+            $stmt->bindParam(2, $max_amount);
+            $stmt->bindParam(3, $compalint_type);
+            $stmt->bindParam(4, $sub_complaint_type);
+            $stmt->bindParam(5, $applicant_gender);
+            $stmt->bindParam(6, $applicant_age);
+            
+            // execute query
+            $stmt->execute();
+       
+            return $stmt;
+         }
     }
 ?>
