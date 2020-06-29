@@ -48,41 +48,41 @@
         }
         render() {    
             return ( 
-                    <div>
-                        <center>
-                        <div class="ui segment blue mt-4">
-                            <h1 class=" h1 h1-complaint">शिकायत व आवेदक की जानकारी</h1>
+                <div>
+                <center>
+                <div class="ui segment blue mt-4">
+                <h1 class=" h1 h1-complaint">शिकायत व आवेदक की जानकारी</h1>
                             <table class="ui celled table">
                             <tbody>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का नाम</h5>{this.state.applicant.app_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की उम्र</h5>{this.state.applicant.ap_age} साल</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का मोबाइल नंबर</h5>{this.state.applicant.ap_mob}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का पता</h5>{this.state.applicant.ap_address}</td>
+                                    <td style={{fontSize:"1.11rem"}} class="table-data"><h4 style={{color:"red"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4>{this.state.applicant.app_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4>{this.state.applicant.ap_age} साल</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4>{this.state.applicant.ap_mob}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का देश</h5>{this.state.applicant.ap_country}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का राज्य</h5>{this.state.applicant.ap_state}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक का शहर</h5>{this.state.applicant.ap_city}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">पिन कोड</h5>{this.state.applicant.ap_pin_code}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4>{this.state.applicant.ap_address}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>{this.state.applicant.ap_country}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>{this.state.applicant.ap_state}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4>{this.state.applicant.ap_city}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">आधार क्रमांक</h5>{this.state.applicant.ap_adhar}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">अपराध का प्रकार</h5>{this.state.applicant.crime_type}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">अपराध का तरीका</h5>{this.state.applicant.way_of_crime}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आई टी ऐक्ट धारा</h5>{this.state.applicant.it_act}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4>{this.state.applicant.ap_pin_code}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4>{this.state.applicant.ap_adhar}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>{this.state.applicant.crime_type}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>{this.state.applicant.way_of_crime}</td>
                                 </tr>
                                 <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">भा द वि धारा</h5>{this.state.applicant.bh_dv}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">घटना की दिनांक</h5>{this.state.crimeDate}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">घटना का समय</h5>{this.state.applicant.crime_time}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">आवेदक की राशि</h5>{this.state.applicant.amount}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आई टी ऐक्ट धारा</h4>{this.state.applicant.it_act}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">भा द वि धारा</h4>{this.state.applicant.bh_dv}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4>{this.state.crimeDate}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4>{this.state.applicant.crime_time}</td>
                                 </tr>
-                                <tr>
-                                    <td><h5 class="ui header mb-1 mt-1">जांचकर्ता का नाम</h5>{this.state.applicant.checker_name}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">शिकायत की दिनांक</h5>{this.state.complaintDate}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">शिकायत क्रमांक</h5>{this.state.applicant.complaint_no}</td>
-                                    <td><h5 class="ui header mb-1 mt-1">शिकायत दर्ज की दिनांक</h5>{this.state.createdDate}</td>
+                               <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4>{this.state.applicant.amount}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की दिनांक</h4>{this.state.complaintDate}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate}</td>
                                 </tr>
                             </tbody>
                             </table>
