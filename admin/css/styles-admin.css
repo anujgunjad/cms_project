@@ -1,8 +1,15 @@
+@font-face {
+  font-family: nato-sans;
+  src: url(../../dependencies/Noto_Sans/NotoSans-Bold.ttf);
+  font-weight: bold;
+}
 * {
   margin: 0px;
   padding: 0px;
 }
-
+.theme-color {
+  color: #004ba8 !important;
+}
 /* ADMIN DASHBOARD */
 #dashboard-cards {
   padding: 4vh 1vw;
@@ -17,4 +24,11 @@
   margin-bottom: 0;
   font-weight: bold;
   font-size: 20px;
+}
+
+/* SHOW COMPLAINT */
+.h1-complaint {
+  font-family: nato-sans;
+  font-size: 3rem !important;
+  color: #004ba8;
 }

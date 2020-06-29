@@ -40,8 +40,7 @@
           </div>    
         </div>
       </div>
-    
-      <div id="render-container"> 
+      <div id="render-container">
         <!-- React element -->
       </div>
     </div>
