@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2020 at 07:09 AM
+-- Generation Time: Jun 29, 2020 at 09:50 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -82,6 +82,7 @@ CREATE TABLE `basic_details` (
   `complaint_date` date NOT NULL,
   `ap_name` varchar(250) NOT NULL,
   `ap_age` varchar(100) NOT NULL,
+  `ap_gender` varchar(100) NOT NULL,
   `ap_mob` varchar(100) NOT NULL,
   `ap_address` varchar(350) NOT NULL,
   `ap_country` varchar(150) NOT NULL,
@@ -89,8 +90,8 @@ CREATE TABLE `basic_details` (
   `ap_city` varchar(150) NOT NULL,
   `ap_pin_code` varchar(150) NOT NULL,
   `ap_adhar` varchar(150) NOT NULL,
-  `crime_type` varchar(200) NOT NULL,
-  `way_of_crime` varchar(200) NOT NULL,
+  `complaint_type` varchar(200) NOT NULL,
+  `sub_complaint_type` varchar(200) NOT NULL,
   `it_act` varchar(150) NOT NULL,
   `bh_dv` varchar(200) NOT NULL,
   `crime_date` date NOT NULL,
@@ -98,18 +99,20 @@ CREATE TABLE `basic_details` (
   `amount` varchar(150) NOT NULL,
   `checker_name` varchar(200) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `last_updated` timestamp NOT NULL DEFAULT current_timestamp()
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp(),
+  `complaint_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `basic_details`
 --
 
-INSERT INTO `basic_details` (`complaint_id`, `complaint_no`, `complaint_date`, `ap_name`, `ap_age`, `ap_mob`, `ap_address`, `ap_country`, `ap_state`, `ap_city`, `ap_pin_code`, `ap_adhar`, `crime_type`, `way_of_crime`, `it_act`, `bh_dv`, `crime_date`, `crime_time`, `amount`, `checker_name`, `created_date`, `last_updated`) VALUES
-('101', '110/19', '2019-03-15', 'श्याम लाल ', '40', '7772863775', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', 'ऑनलाइन ठगी ', 'जॉब फ्रॉड ', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18'),
-('102', '110/20', '2019-03-15', 'श्याम लाल ', '40', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', 'ऑनलाइन ठगी ', 'जॉब फ्रॉड ', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18'),
-('103', '110/21', '2019-03-15', 'श्याम लाल ', '40', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', 'ऑनलाइन ठगी ', 'जॉब फ्रॉड ', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18'),
-('104', '110/24', '2019-03-15', 'राम लाल ', '40', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', 'ऑनलाइन ठगी ', 'जॉब फ्रॉड ', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18');
+INSERT INTO `basic_details` (`complaint_id`, `complaint_no`, `complaint_date`, `ap_name`, `ap_age`, `ap_gender`, `ap_mob`, `ap_address`, `ap_country`, `ap_state`, `ap_city`, `ap_pin_code`, `ap_adhar`, `complaint_type`, `sub_complaint_type`, `it_act`, `bh_dv`, `crime_date`, `crime_time`, `amount`, `checker_name`, `created_date`, `last_updated`, `complaint_status`) VALUES
+('101', '110/19', '2019-03-15', 'श्याम लाल ', '40', 'पुरुष', '7772863775', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', '2', '2', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18', '1'),
+('102', '110/20', '2019-03-15', 'ऐश्वर्या लाल ', '40', 'पुरुष', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', '2', '2', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18', '1'),
+('103', '110/21', '2019-03-15', 'श्याम लाल ', '40', 'पुरुष', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', '2', '2', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18', '1'),
+('104', '110/24', '2019-03-15', 'राम लाल ', '40', 'पुरुष', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', '1', '1', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18', '1'),
+('105', '110/25', '2019-03-15', 'राम लाल ', '16', 'पुरुष', '7200154601', 'गढ़ा ', 'भारत', 'मध्य प्रदेश', 'जबलपुर ', '482001', '11100025648', '1', '1', '66 डी ', '420', '2020-06-10', '10:06:47', '3,25,000', 'उ नि समीर ', '2020-06-23 17:53:34', '2020-06-23 17:54:18', '1');
 
 -- --------------------------------------------------------
 
@@ -128,7 +131,7 @@ CREATE TABLE `complaint_type` (
 
 INSERT INTO `complaint_type` (`type_id`, `type`) VALUES
 (1, 'सोशल मीडिया'),
-(2, 'सोशल मीडिया'),
+(2, 'ऑनलाइन ठगी '),
 (3, 'साइबर आतंकवाद'),
 (4, 'अन्य');
 
@@ -274,7 +277,7 @@ INSERT INTO `suspect_ewallet_info` (`complaint_id`, `suspect_ewallet_id`, `upi_n
 --
 
 CREATE TABLE `suspect_numbers` (
-  `complaint_id` varchar(200) NOT NULL,
+  `complaint_id` varchar(150) NOT NULL,
   `number_id` int(150) NOT NULL,
   `number_one` varchar(100) NOT NULL,
   `company` varchar(50) NOT NULL,
@@ -304,7 +307,8 @@ CREATE TABLE `suspect_numbers` (
 
 INSERT INTO `suspect_numbers` (`complaint_id`, `number_id`, `number_one`, `company`, `files`, `email_sent`, `email_received`, `suspect_name`, `suspect_address`, `city`, `state`, `retailer_name`, `uid_num`, `other_num`, `pdf`, `confirmation`, `remark`, `reminder`, `mail_id`, `caf_date`, `created_date`, `last_updated`) VALUES
 ('101', 1, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'सुरेन्द्र पाल ', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 15:01:49', '2020-06-24 15:16:10'),
-('101', 2, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'सुरेन्द्र पाल ', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 15:01:49', '2020-06-24 15:16:10');
+('101', 2, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'अभय', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 15:01:49', '2020-06-24 15:16:10'),
+('102', 3, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'अभय', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 15:01:49', '2020-06-24 15:16:10');
 
 -- --------------------------------------------------------
 
@@ -521,7 +525,7 @@ ALTER TABLE `suspect_bank_accounts`
 -- AUTO_INCREMENT for table `suspect_numbers`
 --
 ALTER TABLE `suspect_numbers`
-  MODIFY `number_id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `number_id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `suspect_website_info`
