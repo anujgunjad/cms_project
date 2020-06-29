@@ -232,10 +232,9 @@ const timeDateFormatter = (arry) => {
                         : <table class="ui celled table">   
                             <tbody>
                              <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                             <td class=" center aligned" colspan="8">
+                                <div class="alert alert-warning not-found-alert" role="alert">No phone numbers addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                             </td>
                             </tr>
                           </tbody>
                         </table>
@@ -334,10 +333,9 @@ const timeDateFormatter = (arry) => {
                         : <table class="ui celled table">   
                             <tbody>
                              <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                             <td class=" center aligned" colspan="8">
+                                <div class="alert alert-warning not-found-alert" role="alert">No bank accounts addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                             </td>
                             </tr>
                           </tbody>
                         </table>
@@ -409,10 +407,9 @@ const timeDateFormatter = (arry) => {
                         : <table class="ui celled table">   
                             <tbody>
                              <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                             <td class=" center aligned" colspan="8">
+                                <div class="alert alert-warning not-found-alert" role="alert">No ewallets addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                             </td>
                             </tr>
                           </tbody>
                         </table>
@@ -434,10 +431,10 @@ const timeDateFormatter = (arry) => {
         }
         fetchWebsites(){
                 let id = idFetcher();               
-                fetch(`../api/data/read_suspect_ewallet.php?complaint_id=${id}`)
+                fetch(`../api/data/read_suspect_website.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({websites: data.ewallet})
+                    this.setState({websites: data.website})
                     console.log(this.state.websites);
                 })
                 .catch(console.log)
@@ -450,44 +447,24 @@ const timeDateFormatter = (arry) => {
                 <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">शिकायत संबंधी ई-वॉलेट</h1>
                         {
-                            this.state.ewallets ? this.state.ewallets.map((ewallet) => (    
+                            this.state.websites ? this.state.websites.map((website) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI का नाम</h4>{ewallet.upi_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का नाम</h4>{website.website_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का डोमेन</h4>{website.website_domain}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल आईडी</h4>{website.mail_id}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4>{website.website_mobile_number}</td>
                                 </tr>
-                                <tr>
-                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address}</td>
-                                </tr>
-                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount}</td>
-                                </tr>
-                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                               
                            </tbody>
                         </table>
                         ))
                         : <table class="ui celled table">   
                             <tbody>
                              <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                             <td class=" center aligned" colspan="8">
+                                <div class="alert alert-warning not-found-alert" role="alert">No websites addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                             </td>
                             </tr>
                           </tbody>
                         </table>
@@ -529,6 +506,7 @@ const timeDateFormatter = (arry) => {
                     <Numbers />
                     <BankAccounts />
                     <Ewallets />
+                    <Websites />
                 </center>
             )
         }

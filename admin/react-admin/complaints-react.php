@@ -62,7 +62,8 @@
                         ))
                         : <tr>
                              <td class=" center aligned" colspan="8">
-                                <div class="alert alert-danger not-found-alert" role="alert">No records found  <i class="fa fa-exclamation-circle fa-fw" /></div></td>
+                                <div class="alert alert-danger not-found-alert" role="alert">No records found  <i class="fa fa-exclamation-circle fa-fw" /></div>
+                             </td>
                           </tr>
                         
                       }
