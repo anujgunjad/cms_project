@@ -424,6 +424,17 @@ include("../includes/config.php");
                                                                 <label>UPI</label>
                                                                 <input type="text" name="upi_id" placeholder="UPI id ">
                                                             </div>
+                                                            <div class="six wide field">
+                                                                <label>UPI Link</label>
+                                                                <select name="UPI Link" class="ui dropdown">
+                                                                    <option type="radio" value="हाँ" name="upi_link_confirm">हाँ</option>
+                                                                    <option type="radio" value="नही" name="upi_link_confirm">नही</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="six wide field">
+                                                                <label>UPI name</label>
+                                                                <input type="text" name="upi_name" placeholder="UPI name ">
+                                                            </div>
                                                             
                                                         </div>
                                                         <div class="field">
