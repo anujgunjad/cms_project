@@ -47,7 +47,6 @@ const timeDateFormatter = (arry) => {
                 let complaintDateRev = applicant[0].complaint_date,
                     complaintDate = dateFormatter(complaintDateRev);
                 this.setState({ complaintDate: complaintDate});
-                console.log(this.state.applicant);
                 })
                 .catch(console.log)
         }
@@ -167,7 +166,6 @@ const timeDateFormatter = (arry) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({numbers: data.numbers})
-                    console.log(this.state.numbers);
                 })
                 .catch(console.log)
         }
@@ -195,8 +193,8 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{number.number}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4>{number.company}</td>
-                                    <td class={dateFormatter(number.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(number.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(number.email_sent)!="00-00-000"?dateFormatter(number.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(number.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(number.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(number.email_received)!="00-00-000"?dateFormatter(number.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td class={dateFormatter(number.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(number.email_sent)!="00-00-0000"?dateFormatter(number.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(number.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(number.email_received)!="00-00-0000"?dateFormatter(number.email_received):"मेल अभी तक नहीं मिला "}</td>
                                 </tr>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">दस्तावेज़</h4>{number.files}</td>
@@ -255,8 +253,7 @@ const timeDateFormatter = (arry) => {
                 fetch(`../api/data/read_bank_account.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({accounts: data.accounts})
-                    console.log(this.state.accounts);
+                    this.setState({accounts: data.accounts});
                 })
                 .catch(console.log)
         }
@@ -288,8 +285,8 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4>{account.branch_name}</td>
                                 </tr>
                                 <tr>
-                                    <td class={dateFormatter(account.mail_date)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(account.mail_date)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(account.mail_date)!="00-00-000"?dateFormatter(account.mail_date):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(account.mail_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(account.mail_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(account.mail_received)!="00-00-000"?dateFormatter(account.mail_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td class={dateFormatter(account.mail_date)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_date)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(account.mail_date)!="00-00-0000"?dateFormatter(account.mail_date):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(account.mail_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(account.mail_received)!="00-00-0000"?dateFormatter(account.mail_received):"मेल अभी तक नहीं मिला "}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4>{account.freeze_amount}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4>{account.kyc_name}</td>
                                 </tr>
@@ -346,8 +343,7 @@ const timeDateFormatter = (arry) => {
                 fetch(`../api/data/read_suspect_ewallet.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({ewallets: data.ewallet})
-                    console.log(this.state.ewallets);
+                    this.setState({ewallets: data.ewallet});
                 })
                 .catch(console.log)
         }
@@ -369,8 +365,8 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement}</td>
                                 </tr>
                                 <tr>
-                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ewallet.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-0000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(ewallet.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-0000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address}</td>
                                 </tr>
@@ -420,8 +416,7 @@ const timeDateFormatter = (arry) => {
                 fetch(`../api/data/read_suspect_website.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({websites: data.website})
-                    console.log(this.state.websites);
+                    this.setState({websites: data.website});
                 })
                 .catch(console.log)
         }

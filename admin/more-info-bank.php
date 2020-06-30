@@ -16,7 +16,7 @@
         </nav>
 
 <div class="container-fluid">
-  <div id="show-number-cdr-info">
+  <div id="show-bank-account-info">
     <!-- react-components -->
   </div>
 </div> 
@@ -47,25 +47,22 @@ const timeDateFormatter = (arry) => {
             }
 
     
-    class CallDetailRecords extends React.Component {
+    class PAN extends React.Component {
         state = {
-           cdr:[],
-           num: "",
+           pans:[],
         }
         componentDidMount(){
-            this.fetchCdr();
+            this.fetchPan();
         }
-        fetchCdr(){
+        fetchPan(){
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
                       
-                fetch(`../api/data/read_suspect_number_cdr.php?number_id=${numId}&complaint_id=${comId}`)
+                fetch(`../api/data/read_bank_account_pan.php?account_id=${numId}&complaint_id=${comId}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({cdr: data.cdr});
-                    this.setState({num: data.cdr[0].cdr})
-                    // console.log(this.state.cdr);
+                    this.setState({pans: data.pan});
                 })
                 .catch(console.log)
         }
@@ -74,32 +71,25 @@ const timeDateFormatter = (arry) => {
             return(
                 <div>
                 <center>
-                <h1 class="mt-3 h1-complaint">इस नंबर <span style={{color:"red"}}>{ this.state.num}</span> की अधिक जानकारी</h1>
+                <h1 class="mt-3 h1-complaint">बैंक खाते <span style={{color:"red"}}></span>की अधिक जानकारी</h1>
                 <div class="ui segment blue mt-4 mb-5">
-                <h1 class=" h1 h2-complaint">Call Detail Records</h1>                
+                <h1 class=" h1 h2-complaint">Permanent account number [PAN]</h1>                
                         {
-                            this.state.cdr ? this.state.cdr.map((cdr) => (    
+                            this.state.pans ? this.state.pans.map((pan) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{cdr.cdr}</td>
-                                    <td class={dateFormatter(cdr.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(cdr.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(cdr.email_sent)!="00-00-000"?dateFormatter(cdr.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(cdr.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(cdr.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(cdr.email_received)!="00-00-000"?dateFormatter(cdr.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMEI नंबर</h4>{cdr.imei}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Permanent account number</h4>{pan.pan}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">PAN Verified</h4>{pan.pan_verified}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">PAN Username</h4>{pan.pan_username}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Aadhaar Number</h4>{pan.adhar_number}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMSI नंबर</h4>{cdr.imsi}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान (Location)</h4>{cdr.location}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान तारीख (Location Date)</h4>{cdr.location_date}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रात्रि स्थान (Night Location)</h4>{cdr.night_loc}</td>
-                                </tr>
-                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सर्विस का नाम</h4>{cdr.service_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध नंबर</h4>{cdr.suspect_number}</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                                               
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Income Tax</h4>{pan.income_tax}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">GST</h4>{pan.gst_in}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">TIN</h4>{pan.tin}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Sales Tax</h4>{pan.sales_tax}</td>
+                                </tr>                   
                            </tbody>
                         </table>
                         ))
@@ -107,7 +97,7 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                              <tr>
                              <td class=" center aligned" colspan="8">
-                                <div class="alert alert-warning not-found-alert" role="alert">No CDR addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                                <div class="alert alert-warning not-found-alert" role="alert">No PAN Info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
                              </td>
                             </tr>
                           </tbody>
@@ -120,23 +110,22 @@ const timeDateFormatter = (arry) => {
             )
         }
     }
-    class IpDetailRecords extends React.Component {
+    class ATM extends React.Component {
         state = {
-           ipdr:[],
+           atms:[],
         }
         componentDidMount(){
-            this.fetchIpdr();
+            this.fetchAtm();
         }
-        fetchIpdr(){
+        fetchAtm(){
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
-                      
-                fetch(`../api/data/read_suspect_number_ipdr.php?number_id=${numId}&complaint_id=${comId}`)
+                fetch(`../api/data/read_bank_account_atm.php?account_id=${numId}&complaint_id=${comId}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({ipdr: data.ipdr});
-                    // console.log(this.state.ipdr);
+                    this.setState({atms: data.atm});
+                    // console.log(this.state.atm);
                 })
         }
         
@@ -145,22 +134,18 @@ const timeDateFormatter = (arry) => {
                 <div>
                 <center>
                 <div class="ui segment blue mt-4 mb-5">
-                <h1 class=" h1 h2-complaint">IP Detail Records</h1>                
+                <h1 class=" h1 h2-complaint">ATM Information</h1>                
                              
                         {
-                            this.state.ipdr ? this.state.ipdr.map((ipdr) => (    
+                            this.state.atms ? this.state.atms.map((atm) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Adress</h4>{ipdr.ipdr}</td>
-                                    <td class={dateFormatter(ipdr.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header " + dateFormatter(ipdr.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ipdr.email_sent)!="00-00-000"?dateFormatter(ipdr.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ipdr.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ipdr.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ipdr.email_received)!="00-00-000"?dateFormatter(ipdr.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Location</h4>{ipdr.location}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट</h4>{ipdr.website}</td>
-                                </tr>
-                               
-                                    
-                                                               
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Complaint Number</h4>{atm.complaint_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ATM Footage</h4>{atm.atm_footage}</td>
+                                    <td class={dateFormatter(atm.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(atm.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(atm.email_sent)!="00-00-0000"?dateFormatter(atm.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(atm.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(atm.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(atm.email_received)!="00-00-0000"?dateFormatter(atm.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                </tr>                                   
                            </tbody>
                         </table>
                         ))
@@ -168,35 +153,34 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                              <tr>
                              <td class=" center aligned" colspan="8">
-                                <div class="alert alert-warning not-found-alert" role="alert">No IPDR info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                                <div class="alert alert-warning not-found-alert" role="alert">No ATM info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
                              </td>
                             </tr>
                           </tbody>
                         </table>
                         }
-                           
                             </div>
                         </center>                    
                     </div>          
             )
         }
     }
-    class UpiRecords extends React.Component {
+    class IPLOGS extends React.Component {
         state = {
-           upi:[],
+           iplogs:[],
         }
         componentDidMount(){
-            this.fetchIpdr();
+            this.fetchIplogs();
         }
-        fetchIpdr(){
+        fetchIplogs(){
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
                       
-                fetch(`../api/data/read_suspect_number_upi.php?number_id=${numId}&complaint_id=${comId}`)
+                fetch(`../api/data/read_bank_account_iplogs.php?account_id=${numId}&complaint_id=${comId}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({upi: data.upi});
+                    this.setState({iplogs: data.iplogs});
                     // console.log(this.state.upi);
                 })
         }
@@ -206,18 +190,18 @@ const timeDateFormatter = (arry) => {
                 <div>
                 <center>
                 <div class="ui segment blue mt-4 mb-5">
-                <h1 class=" h1 h2-complaint">UPI Information</h1>                
+                <h1 class=" h1 h2-complaint">IP Logs</h1>                
                              
-                        {
-                            this.state.upi ? this.state.upi.map((upi) => (    
+                {
+                            this.state.iplogs ? this.state.iplogs.map((iplog) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI</h4>{upi.upi}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI ID</h4>{upi.upi_id}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Link</h4>{upi.upi_link}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Name</h4>{upi.upi_name}</td>
-                                </tr>                                 
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Complaint Number</h4>{iplog.complaint_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">iplog </h4>{iplog.iplog}</td>
+                                    <td class={dateFormatter(iplog.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(iplog.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(iplog.email_sent)!="00-00-0000"?dateFormatter(iplog.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(iplog.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(iplog.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(iplog.email_received)!="00-00-0000"?dateFormatter(iplog.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                </tr>                                   
                            </tbody>
                         </table>
                         ))
@@ -225,7 +209,7 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                              <tr>
                              <td class=" center aligned" colspan="8">
-                                <div class="alert alert-warning not-found-alert" role="alert">No UPI info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                                <div class="alert alert-warning not-found-alert" role="alert">No IP Logs info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
                              </td>
                             </tr>
                           </tbody>
@@ -243,14 +227,14 @@ const timeDateFormatter = (arry) => {
 
             return(
                 <center>
-                    <CallDetailRecords />
-                    <IpDetailRecords />
-                    <UpiRecords />
+                    <PAN />
+                    <ATM />
+                    <IPLOGS />
                 </center>
             )
         }
     }
-  ReactDOM.render(<MoreDetailsBank />, document.getElementById('show-number-cdr-info'))
+  ReactDOM.render(<MoreDetailsBank />, document.getElementById('show-bank-account-info'))
 
 </script>
  <?php include("footer.php")?>

@@ -83,8 +83,8 @@ const timeDateFormatter = (arry) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{cdr.cdr}</td>
-                                    <td class={dateFormatter(cdr.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(cdr.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(cdr.email_sent)!="00-00-000"?dateFormatter(cdr.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(cdr.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(cdr.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(cdr.email_received)!="00-00-000"?dateFormatter(cdr.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td class={dateFormatter(cdr.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(cdr.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(cdr.email_sent)!="00-00-0000"?dateFormatter(cdr.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(cdr.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(cdr.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(cdr.email_received)!="00-00-0000"?dateFormatter(cdr.email_received):"मेल अभी तक नहीं मिला "}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMEI नंबर</h4>{cdr.imei}</td>
                                 </tr>
                                 <tr>
@@ -153,8 +153,8 @@ const timeDateFormatter = (arry) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Adress</h4>{ipdr.ipdr}</td>
-                                    <td class={dateFormatter(ipdr.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header " + dateFormatter(ipdr.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ipdr.email_sent)!="00-00-000"?dateFormatter(ipdr.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ipdr.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ipdr.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ipdr.email_received)!="00-00-000"?dateFormatter(ipdr.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td class={dateFormatter(ipdr.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ipdr.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ipdr.email_sent)!="00-00-0000"?dateFormatter(ipdr.email_sent):"मेल नहीं भेजा गया"}</td>
+                                    <td class={dateFormatter(ipdr.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ipdr.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ipdr.email_received)!="00-00-0000"?dateFormatter(ipdr.email_received):"मेल अभी तक नहीं मिला "}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Location</h4>{ipdr.location}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट</h4>{ipdr.website}</td>
                                 </tr>
@@ -186,9 +186,9 @@ const timeDateFormatter = (arry) => {
            upi:[],
         }
         componentDidMount(){
-            this.fetchIpdr();
+            this.fetchUpi();
         }
-        fetchIpdr(){
+        fetchUpi(){
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
