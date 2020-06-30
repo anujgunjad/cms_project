@@ -59,13 +59,13 @@ const timeDateFormatter = (arry) => {
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
-                    console.log(ids[0],ids[1])    
+                      
                 fetch(`../api/data/read_suspect_number_cdr.php?number_id=${numId}&complaint_id=${comId}`)
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({cdr: data.cdr});
                     this.setState({num: data.cdr[0].cdr})
-                    console.log(this.state.cdr);
+                    // console.log(this.state.cdr);
                 })
                 .catch(console.log)
         }
@@ -107,7 +107,7 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                              <tr>
                              <td class=" center aligned" colspan="8">
-                                <div class="alert alert-warning not-found-alert" role="alert">No cdr addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                                <div class="alert alert-warning not-found-alert" role="alert">No CDR addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
                              </td>
                             </tr>
                           </tbody>
@@ -131,20 +131,13 @@ const timeDateFormatter = (arry) => {
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
-                    console.log(ids[0],ids[1])    
+                      
                 fetch(`../api/data/read_suspect_number_ipdr.php?number_id=${numId}&complaint_id=${comId}`)
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({ipdr: data.ipdr});
-                    console.log(this.state.ipdr);
+                    // console.log(this.state.ipdr);
                 })
-                .catch(console.log)
-                fetch(`../api/data/read_suspect_number_cdr.php?number_id=${numId}&complaint_id=${comId}`)
-                .then(res => res.json())
-                .then((data) => {
-                    this.setState({num: data.cdr[0].cdr})
-                })
-                .catch(console.log)
         }
         
         render(){
@@ -199,20 +192,13 @@ const timeDateFormatter = (arry) => {
                 let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];          
-                    console.log(ids[0],ids[1])    
-                fetch(`../api/data/read_suspect_number_ipdr.php?number_id=${numId}&complaint_id=${comId}`)
+                      
+                fetch(`../api/data/read_suspect_number_upi.php?number_id=${numId}&complaint_id=${comId}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({ipdr: data.ipdr});
-                    console.log(this.state.ipdr);
+                    this.setState({upi: data.upi});
+                    // console.log(this.state.upi);
                 })
-                .catch(console.log)
-                fetch(`../api/data/read_suspect_number_cdr.php?number_id=${numId}&complaint_id=${comId}`)
-                .then(res => res.json())
-                .then((data) => {
-                    this.setState({num: data.cdr[0].cdr})
-                })
-                .catch(console.log)
         }
         
         render(){
@@ -220,22 +206,18 @@ const timeDateFormatter = (arry) => {
                 <div>
                 <center>
                 <div class="ui segment blue mt-4 mb-5">
-                <h1 class=" h1 h2-complaint">IP Detail Records</h1>                
+                <h1 class=" h1 h2-complaint">UPI Information</h1>                
                              
                         {
-                            this.state.ipdr ? this.state.ipdr.map((ipdr) => (    
+                            this.state.upi ? this.state.upi.map((upi) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Adress</h4>{ipdr.ipdr}</td>
-                                    <td class={dateFormatter(ipdr.email_sent)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header " + dateFormatter(ipdr.email_sent)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ipdr.email_sent)!="00-00-000"?dateFormatter(ipdr.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ipdr.email_received)!="00-00-000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={"ui header" + dateFormatter(ipdr.email_received)!="00-00-000"?"success-text":"danger-text" + "mb-1 mt-1"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ipdr.email_received)!="00-00-000"?dateFormatter(ipdr.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Location</h4>{ipdr.location}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट</h4>{ipdr.website}</td>
-                                </tr>
-                               
-                                    
-                                                               
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI</h4>{upi.upi}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI ID</h4>{upi.upi_id}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Link</h4>{upi.upi_link}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Name</h4>{upi.upi_name}</td>
+                                </tr>                                 
                            </tbody>
                         </table>
                         ))
@@ -243,7 +225,7 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                              <tr>
                              <td class=" center aligned" colspan="8">
-                                <div class="alert alert-warning not-found-alert" role="alert">No IPDR info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                                <div class="alert alert-warning not-found-alert" role="alert">No UPI info addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
                              </td>
                             </tr>
                           </tbody>
@@ -263,6 +245,7 @@ const timeDateFormatter = (arry) => {
                 <center>
                     <CallDetailRecords />
                     <IpDetailRecords />
+                    <UpiRecords />
                 </center>
             )
         }
