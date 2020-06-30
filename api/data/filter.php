@@ -26,7 +26,7 @@
     $data = new Filter($db);
 
     
-    $stmt = $data->getMainFilter($max_amount, $min_amount,$complaint_type, $sub_complaint_type ,$applicant_gender, $applicant_age); 
+    $stmt = $data->getMainFilter($min_amount,$max_amount,$complaint_type, $sub_complaint_type ,$applicant_gender, $applicant_age); 
     $num = $stmt->rowCount();
     if($num > 0){
     $data_arr = array(); 
@@ -37,8 +37,7 @@
         $data_items = array(
             "complaint_id" => $complaint_id,
             "complaint_no" => $complaint_no,
-            "complaint_date" => $complaint_date,
-            "app_name" => $ap_name,
+            "ap_name" => $ap_name,
             "ap_age" => $ap_age,
             "ap_gender" => $ap_gender,
             "ap_mob" => $ap_mob,

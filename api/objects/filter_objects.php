@@ -84,7 +84,7 @@
              return $stmt;
          }
 
-         function getMainFilter($max_amount, $min_amount,  $compalint_type, $sub_complaint_type,$applicant_gender,$applicant_age){
+         function getMainFilter($min_amount, $max_amount, $compalint_type, $sub_complaint_type,$applicant_gender,$applicant_age){
             //query
             $query = "SELECT * FROM $this->complainee_table c WHERE c.complaint_status = '1' AND c.amount BETWEEN ? AND ? AND c.complaint_type = ? AND c.sub_complaint_type = ? AND c.ap_gender = ? AND c.ap_age <= ?";
 
@@ -105,4 +105,7 @@
             return $stmt;
          }
     }
+    // $read_suspect = new Filter($db);
+    // $stmt = $read_suspect->getMainFilter(500000, 1000,  2, 2,'पुरुष',40);
+    // echo $stmt->rowCount();
 ?>
