@@ -1,6 +1,17 @@
 <!---user---->
 <?php
 include("../includes/config.php");
+$database = new Database();
+$db = $database->getConnection();
+$stmt = $db->query("SELECT * from countries");
+$num = $stmt->rowCount();
+$country="<option value=''>Select Country</option>";
+if($num > 0)
+{   
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $country.= "<option value=".$row['id'].">".$row['name']."</option>";
+    }   
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,28 +63,59 @@ include("../includes/config.php");
                         </div>
                     </div>
                     <hr>
-                    <div class="three fields">
-                        <div class="seven wide field">
+                    <div class="four fields">
+                        <div class="six wide field">
                             <label>आवेदक का नाम </label>
                             <input type="text" name="ap_name" placeholder="नाम" />
                         </div>
-                        <div class="four wide field">
+                        <div class="three wide field">
                             <label>उम्र</label>
                             <input type="number" name="ap_age" placeholder="उम्र" />
                         </div>
-                        <div class="five wide field">
+                        <div class="three wide field">
+                            <label>लिंग</label>
+                            <select id="ap_gender" name="ap_gender" class="ui dropdown">
+                                <option value=""></option>
+                                <option value="female">महिला</option>
+                                <option value="male">पुरुष</option>
+                                <option value="other">अन्य</option>
+                            </select>
+                        </div>
+                        <div class="four wide field">
                             <label>मोबाइल नंबर</label>
                             <input type="tel" name="ap_mob" placeholder="मोबाइल नंबर" />
                         </div>
                     </div>
-                    <div class="two fields">
-                        <div class="ten wide field">
+                    <div class="three fields">
+                        <div class="eight wide field">
                             <label>आवेदक का पता</label>
                             <input type="text" name="ap_add" placeholder="आवेदक का पता" />
                         </div>
-                        <div class="six wide field">
+                        <div class="four wide field">
                             <label>आधार क्रमांक</label>
                             <input type="number" name="ap_adhar" placeholder="आधार क्रमांक" />
+                        </div>
+                        <div class="four wide field">
+                            <label>पिन कोड</label>
+                            <input type="number" name="ap_pincode" placeholder="पिन कोड" />
+                        </div>
+                    </div>
+                    <div class="three fields">
+                        <div class="six wide field">
+                            <label>Country</label>
+                            <select id="ap_country" name="ap_country" class="ui dropdown">
+                            <?php echo $country;?>
+                            </select>
+                        </div>
+                        <div class="five wide field">
+                            <label>State</label>
+                            <select id="ap_state" name="ap_state" class="ui dropdown">
+                            </select>
+                        </div>
+                        <div class="five wide field">
+                        <label>City</label>
+                            <select id="ap_city" name="ap_city">
+                            </select>
                         </div>
                     </div>
                     <div class="three fields">
@@ -167,6 +209,9 @@ include("../includes/config.php");
                                 <!------------------------------>
                                 <div class="collapse" id="suspect_no_details">
                                     <div class="card card-body">
+                                    <button type="button" class="close ml-auto" aria-label="Close" id="suspect_no_details_close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                         <div class="num-detail-form-div">
                                             <form id="num_detailform" class="num-detail-form ui blue segment form" method="POST"
                                                                 action="insertFiles/insert_accountForm.php">
@@ -269,6 +314,9 @@ include("../includes/config.php");
                                                 </button>                                                
                                                     <div  class="collapse" id="suspect_no_cdr_details">
                                                         <div id="cdr_details" class="card card-body"> <!--id--->
+                                                        <button type="button" class="close ml-auto" aria-label="Close" id="suspect_no_cdr_details_close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                             <div class="four fields">
                                                                 <div class="nine wide field">
                                                                     <label>सी डी आर नंबर </label>
@@ -361,6 +409,9 @@ include("../includes/config.php");
                                                 </button>
                                                 <div  class="collapse" id="suspect_no_ipdr_details"> 
                                                     <div class="card card-body" id="ipdr_details"> <!----ipdr id--->
+                                                    <button type="button" class="close ml-auto" aria-label="Close" id="suspect_no_ipdr_details_close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                         <div class="five fields">
                                                             <div class="six wide field">
                                                                 <label>आई पी डी आर </label>
@@ -420,6 +471,9 @@ include("../includes/config.php");
                                                 </button>
                                                 <div  class="collapse" id="suspect_no_upi_details"> 
                                                     <div class="card card-body" id="upi_details"> <!----upi details id--->
+                                                    <button type="button" class="close ml-auto" aria-label="Close" id="suspect_no_upi_details_close">
+                                                         <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                         <div class="five fields">
                                                             <div class="six wide field">
                                                                 <label>UPI</label>
@@ -518,6 +572,9 @@ include("../includes/config.php");
                                 
                                 <div class="collapse" id="suspect_acc_details">
                                     <div class="card card-body">
+                                    <button type="button" class="close ml-auto" aria-label="Close" id="suspect_acc_details_close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                     <div class="acc-detail-form-div">
                                         
                                         <form id="acc_detailform" class="acc-detail-form" method="POST"
@@ -612,6 +669,9 @@ include("../includes/config.php");
                                             </button>                                                
                                                     <div  class="collapse" id="suspect_acc_pan_details">
                                                         <div id="pan_details" class="card card-body"> <!--id--->
+                                                        <button type="button" class="close ml-auto" aria-label="Close" id="suspect_acc_pan_details_close">
+                                                             <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                             <div class="four fields">
                                                                 <div class="six wide field">
                                                                     <label>PAN </label>
@@ -700,6 +760,9 @@ include("../includes/config.php");
                                             </button>                                                
                                                     <div  class="collapse" id="suspect_acc_atm_details">
                                                         <div id="atm_details" class="card card-body"> <!--id--->
+                                                        <button type="button" class="close ml-auto" aria-label="Close" id="suspect_acc_atm_details_close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                             <div class="four fields">
                                                                 <div class="nine wide field">
                                                                     <label>ATM footage </label>
@@ -756,6 +819,9 @@ include("../includes/config.php");
                                             </button>                                                
                                                     <div  class="collapse" id="suspect_acc_iplog_details">
                                                         <div id="iplog_details" class="card card-body"> <!--id--->
+                                                        <button type="button" class="close ml-auto" aria-label="Close" id="suspect_acc_iplog_details_close">
+                                                             <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                             <div class="four fields">
                                                                 <div class="nine wide field">
                                                                     <label>IPlog </label>
@@ -851,6 +917,9 @@ include("../includes/config.php");
                                 </button>
                                 <div class="collapse" id="suspect_ewallet_details">
                                     <div class="card card-body">
+                                    <button type="button" class="close ml-auto" aria-label="Close" id="suspect_ewallet_details_close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                             <!------------------------------->
                                             <!--Suspect Ewallet detail form-->
                                             <!------------------------------->
@@ -945,6 +1014,9 @@ include("../includes/config.php");
                                 </button>
                                     <div class="collapse" id="suspect_website_details">
                                         <div class="card card-body">
+                                        <button type="button" class="close ml-auto" aria-label="Close" id="suspect_website_details_close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
                                                 <!------------------------------->
                                                 <!--Suspect Website detail form-->
                                                 <!------------------------------->
@@ -1091,6 +1163,26 @@ include("../includes/config.php");
                     $("#suspect_num_table_upi").show();
                 }
             });
+                //close buttons
+                $("#suspect_no_details_close").click(function(){
+                    $("#suspect_no_details").collapse('hide');
+                    $("#suspect_num_table_main").show();
+                });
+                $("#suspect_no_cdr_details_close").click(function(){
+                    $("#suspect_no_cdr_details").collapse('hide');
+                    $("#suspect_num_table_cdr").show();
+                });
+                $("#suspect_no_ipdr_details_close").click(function(){
+                    $("#suspect_no_ipdr_details").collapse('hide');
+                    $("#suspect_num_table_ipdr").show();
+                });
+                $("#suspect_no_upi_details_close").click(function(){
+                    $("#suspect_no_upi_details").collapse('hide');
+                    $("#suspect_num_table_upi").show();
+                });
+                //close button ends
+
+                
             //suspect number details ends
             //suspect account details 
             $("#btn_addacc").click(function(){
@@ -1125,8 +1217,25 @@ include("../includes/config.php");
                     $("#suspect_acc_table_iplog").show();
                 }
             });
-
-        
+            //close buttons
+            $("#suspect_acc_details_close").click(function(){
+                    $("#suspect_acc_details").collapse('hide');
+                    $("#suspect_acc_table_main").show();
+                });
+                $("#suspect_acc_pan_details_close").click(function(){
+                    $("#suspect_acc_pan_details").collapse('hide');
+                    $("#suspect_acc_table_pan").show();
+                });
+                $("#suspect_acc_atm_details_close").click(function(){
+                    $("#suspect_acc_atm_details").collapse('hide');
+                    $("#suspect_acc_table_atm").show();
+                });
+                $("#suspect_acc_iplog_details_close").click(function(){
+                    $("#suspect_acc_iplog_details").collapse('hide');
+                    $("#suspect_acc_table_iplog").show();
+                });
+            //close button ends
+        //suspect account details ends
         //suspect ewallet details
         $("#btn_addewallet").click(function(){
                 if($('#suspect_ewallet_details').is('.collapse:not(.show)')) {
@@ -1136,6 +1245,12 @@ include("../includes/config.php");
                     $("#suspect_ewallet_table_main").show();
                 }
             });
+            //close button
+            $("#suspect_ewallet_details_close").click(function(){
+                    $("#suspect_ewallet_details").collapse('hide');
+                    $("#suspect_ewallet_table_main").show();
+                });
+            //close button ends
         //suspect ewallet details ends
         //suspect website details
         $("#btn_addwebsite").click(function(){
@@ -1146,10 +1261,43 @@ include("../includes/config.php");
                     $("#suspect_website_table_main").show();
                 }
             });
+              //close button
+              $("#suspect_website_details_close").click(function(){
+                    $("#suspect_website_details").collapse('hide');
+                    $("#suspect_website_table_main").show();
+                });
+            //close button ends
         //suspect website details ends
+        //ajax to load state
+        $("#ap_country").change(function()
+        {    
+            var country = $("#ap_country").val();
+            $.ajax({
+                url: "user_fetch.php",
+                method:"POST",
+                data:{country:country},               
+                success:function(data)
+                {
+                    $("#ap_state").html(data);
+                }
+            });
+        });
+        $("#ap_state").change(function()
+        {    
+            var state = $("#ap_state").val();
+            $.ajax({
+                url: "user_fetch.php",
+                method:"POST",
+                data:{state:state},               
+                success:function(data)
+                {
+                    $("#ap_city").html(data);
+                }
+            });
+        });
 
-        });    
-        </script>
+    });    
+    </script>
 </body>
 
 </html>
