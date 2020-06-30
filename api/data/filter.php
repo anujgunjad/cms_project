@@ -40,6 +40,7 @@
             "complaint_date" => $complaint_date,
             "app_name" => $ap_name,
             "ap_age" => $ap_age,
+            "ap_gender" => $ap_gender,
             "ap_mob" => $ap_mob,
             "ap_address" => $ap_address,
             "ap_country" => $ap_country,
@@ -56,7 +57,8 @@
             "amount" => $amount,
             "checker_name" => $checker_name,
             "created_date" => $created_date,
-            "last_updated" => $last_updated
+            "last_updated" => $last_updated,
+            "complaint_status" => $complaint_status	
         );
         array_push($data_arr["applicant"], $data_items);
     }
