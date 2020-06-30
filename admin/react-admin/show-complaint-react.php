@@ -218,13 +218,7 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <th colspan="4">
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                         <a style={{color:"#fff"}} class="info-button" href={"upi-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>UPI Info</a> 
-                                        </div>
-                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"ipdr-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>IPDR Info</a> 
-                                        </div>
-                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"cdr-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>CDR Info</a> 
+                                        <a style={{color:"#fff"}} class="info-button" href={"more-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>More Info</a> 
                                         </div>
                                         <div style={pdfButtonStyle} class="ui small button pdf-button">
                                            <a style={{color:"#fff"}} href="#">Download PDF</a> 
