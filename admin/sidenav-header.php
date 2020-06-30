@@ -9,7 +9,7 @@
           <a href="#" id="dropdown-complaint" onclick="showDropdown();" class="list-group-item list-group-item-action bg-light">Complaints <i class="fa fa-clipboard fa-fw" aria-hidden="true"></i> <i style="float:right; margin-top:3px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></a>
           <div class="dropdown-sidenav">
             <a href="complaints.php" id="first-a-sub-dropdown" class="list-group-item list-group-item-action bg-light">Search By Keyword <i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
-            <a href="#" id="second-a-sub-dropdown" class="list-group-item list-group-item-action bg-light">Search By Category <i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+            <a href="#" id="second-a-sub-dropdown" class="list-group-item list-group-item-action bg-light">Filter By Category <i class="fa fa-filter fa-fw" aria-hidden="true"></i></a>
           </div>
           <a href="#" id="admin-panel-a" style="border-top:none" class="list-group-item list-group-item-action bg-light">Admins Panel <i class="fa fa-cogs fa-fw" aria-hidden="true"></i></a>
           <a href="#" class="list-group-item list-group-item-action bg-light">Users Panel <i class="fa fa-cog fa-fw" aria-hidden="true"></i></a>
