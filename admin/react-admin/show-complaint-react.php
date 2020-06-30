@@ -218,13 +218,13 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <th colspan="4">
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                         <a style={{color:"#fff"}} class="info-button" href={"upi-info.php?num_id=" + number.number_id}>UPI Info</a> 
+                                         <a style={{color:"#fff"}} class="info-button" href={"upi-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>UPI Info</a> 
                                         </div>
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"ipdr-info.php?num_id=" + number.number_id}>IPDR Info</a> 
+                                        <a style={{color:"#fff"}} class="info-button" href={"ipdr-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>IPDR Info</a> 
                                         </div>
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"cdr-info.php?num_id=" + number.number_id}>CDR Info</a> 
+                                        <a style={{color:"#fff"}} class="info-button" href={"cdr-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>CDR Info</a> 
                                         </div>
                                         <div style={pdfButtonStyle} class="ui small button pdf-button">
                                            <a style={{color:"#fff"}} href="#">Download PDF</a> 
@@ -316,13 +316,13 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <th colspan="4">
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                         <a style={{color:"#fff"}} class="info-button" href={"pan-info.php?acc_id=" + account.acc_id}>PAN Info</a> 
+                                         <a style={{color:"#fff"}} class="info-button" href={"pan-info.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>PAN Info</a> 
                                         </div>
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"atm-info.php?acc_id=" + account.acc_id}>ATM Info</a> 
+                                        <a style={{color:"#fff"}} class="info-button" href={"atm-info.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>ATM Info</a> 
                                         </div>
                                         <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"iplogs-info.php?acc_id=" + account.acc_id}>IPLOGs Info</a> 
+                                        <a style={{color:"#fff"}} class="info-button" href={"iplogs-info.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>IPLOGs Info</a> 
                                         </div>
                                         <div style={pdfButtonStyle} class="ui small button pdf-button mr-2">
                                            <a style={{color:"#fff"}} href="#">Download KYC PDF</a> 
