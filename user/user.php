@@ -53,7 +53,7 @@ if($num > 0)
             <!--------------------->
 
             <div id="basicFormDiv">
-                <form id="basicForm" method="POST" action="insertFiles/insert_basicForm.php"
+                <form id="basicForm" method="POST" action="../insertFiles/insert_basicForm.php"
                     class="basic-form ui blue segment form">
                     <div class="one fields">
                         <div class="four wide field">
@@ -75,10 +75,10 @@ if($num > 0)
                         <div class="three wide field">
                             <label>लिंग</label>
                             <select id="ap_gender" name="ap_gender" class="ui dropdown">
-                                <option value=""></option>
-                                <option value="female">महिला</option>
-                                <option value="male">पुरुष</option>
-                                <option value="other">अन्य</option>
+                                <option value='' selected='' disabled=''>लिंग</option>
+                                <option value="महिला">महिला</option>
+                                <option value="पुरुष">पुरुष</option>
+                                <option value="अन्य">अन्य</option>
                             </select>
                         </div>
                         <div class="four wide field">
@@ -89,56 +89,72 @@ if($num > 0)
                     <div class="three fields">
                         <div class="eight wide field">
                             <label>आवेदक का पता</label>
-                            <input type="text" name="ap_add" placeholder="आवेदक का पता" />
+                            <input type="text" name="ap_address" placeholder="आवेदक का पता" />
                         </div>
                         <div class="four wide field">
-                            <label>आधार क्रमांक</label>
-                            <input type="number" name="ap_adhar" placeholder="आधार क्रमांक" />
-                        </div>
-                        <div class="four wide field">
-                            <label>पिन कोड</label>
-                            <input type="number" name="ap_pincode" placeholder="पिन कोड" />
-                        </div>
-                    </div>
-                    <div class="three fields">
-                        <div class="six wide field">
                             <label>Country</label>
                             <select id="ap_country" name="ap_country" class="ui dropdown">
                                 <?php echo $country;?>
                             </select>
                         </div>
-                        <div class="five wide field">
+                        <div class="four wide field">
                             <label>State</label>
                             <select id="ap_state" name="ap_state" class="ui dropdown">
+                                <option value='' selected='' disabled=''>Select State</option>
                             </select>
                         </div>
-                        <div class="five wide field">
+
+                    </div>
+                    <div class="three fields">
+                        <div class="six wide field">
                             <label>City</label>
                             <select id="ap_city" name="ap_city">
+                                <option value='' selected='' disabled=''>Select City</option>
                             </select>
+                        </div>
+                        <div class="six wide field">
+                            <label>पिन कोड</label>
+                            <input type="number" name="ap_pin_code" placeholder="पिन कोड" />
+                        </div>
+                        <div class="six wide field">
+                            <label>आधार क्रमांक</label>
+                            <input type="number" name="ap_adhar" placeholder="आधार क्रमांक" />
                         </div>
                     </div>
                     <div class="three fields">
                         <div class="six wide field">
                             <label>प्रकार</label>
-                            <select name="crime_type" class="ui fluid dropdown">
+                            <select id="complaint_type" name="complaint_type" class="ui fluid dropdown">
                                 <option value='' selected='' disabled=''>प्रकार</option>
                                 <?php
-                                    global $conn;
-                                    $query = "select * from complaint_type";
-                                    $run_query = mysqli_query($conn, $query);
-                                    while($row_type = mysqli_fetch_array($run_query))
+                                    $complaint_type_query = $db->query("SELECT * from complaint_type");
+                                    $complaint_type_query_num = $complaint_type_query->rowCount();
+                                    if($complaint_type_query_num > 0)
                                     {
-                                        $type_id = $row_type["complaint_type_id"];
-                                        $type = $row_type["type"];
-                                        echo "<option value = '$type' id = '$type_id' >$type</option>"; 
+                                    while($rownum =  $complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
+                                        $complaint_type.= "<option value=".$rownum['type_id'].">".$rownum['type']."</option>";
                                     }
+                                    }
+                                    echo $complaint_type;
                                 ?>
                             </select>
                         </div>
                         <div class="six wide field">
-                            <label>अपराध का तरीका</label>
-                            <input type="text" name="way_of_crime" placeholder="अपराध का तरीका" />
+                            <label>उप-प्रकार</label>
+                            <select id="sub_complaint_type" name="sub_complaint_type" class="ui fluid dropdown">
+                                <option value='' selected='' disabled=''>उप-प्रकार</option>
+                                <?php
+                                    $sub_complaint_type_query = $db->query("SELECT * from sub_complaint_type");
+                                    $sub_complaint_type_query_num = $sub_complaint_type_query->rowCount();
+                                    if($sub_complaint_type_query_num > 0)
+                                    {
+                                    while($rownumtwo =  $sub_complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
+                                        $sub_complaint_type.= "<option value=".$rownumtwo['sub_complaint_type_id'].">".$rownumtwo['sub_type']."</option>";
+                                    }
+                                    }
+                                    echo $sub_complaint_type;
+                                ?>
+                            </select>
                         </div>
                         <div class="six wide field">
                             <label>आई टी ऐक्ट धारा</label>
@@ -161,17 +177,13 @@ if($num > 0)
                     </div>
 
                     <div class="three fields">
-                        <div class="six wide field">
+                        <div class="eight wide field">
                             <label>आवेदक की राशि</label>
                             <input type="text" name="amount" placeholder="राशि" />
                         </div>
-                        <div class="six wide field">
+                        <div class="eight wide field">
                             <label>जांचकर्ता का नाम</label>
                             <input type="text" name="checker_name" placeholder="जांचकर्ता का नाम" />
-                        </div>
-                        <div class="six wide field">
-                            <label>शिकायत की दिनांक</label>
-                            <input type="date" name="com_date" placeholder="शिकायत की दिनांक" />
                         </div>
                     </div>
                     <button class="ui button form-btn" id="result-basic" type="submit" name="result" value="Submit">
@@ -1169,19 +1181,14 @@ if($num > 0)
                 </form>
             </div>
 
-
-
-
-
-
-
             <!--Sweet Alert-->
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
             <!--Jquery-->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="../dependencies/jquery/jquery.min.js"></script>
             <!--Sementic JS-->
             <script src="../dependencies/semantic/dist/semantic.min.js"></script>
             <!--Bootstrap JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
             <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
             <!--External JS-->
             <script src="js/insertbasic.js"></script>
@@ -1267,7 +1274,33 @@ if($num > 0)
                     }
                 });
                 //suspect website details ends
-
+                //ajax to load state
+                $("#ap_country").change(function() {
+                    var country = $("#ap_country").val();
+                    $.ajax({
+                        url: "user_fetch.php",
+                        method: "POST",
+                        data: {
+                            country: country
+                        },
+                        success: function(data) {
+                            $("#ap_state").html(data);
+                        }
+                    });
+                });
+                $("#ap_state").change(function() {
+                    var state = $("#ap_state").val();
+                    $.ajax({
+                        url: "user_fetch.php",
+                        method: "POST",
+                        data: {
+                            state: state
+                        },
+                        success: function(data) {
+                            $("#ap_city").html(data);
+                        }
+                    });
+                });
             });
             </script>
 </body>
