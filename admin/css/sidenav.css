@@ -84,10 +84,10 @@
 }
 
 #first-a-sub-dropdown {
-  border-radius: 5px 5px 0 0;
+  border-radius: 2px 2px 0 0;
 }
 #second-a-sub-dropdown {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 2px 2px;
 }
 
 .dropdown-show {

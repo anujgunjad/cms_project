@@ -450,7 +450,7 @@ const timeDateFormatter = (arry) => {
                 <div>
                 <center>
                 <div class="ui segment blue mt-4 mb-5">
-                <h1 class=" h1 h2-complaint">शिकायत संबंधी ई-वॉलेट</h1>
+                <h1 class=" h1 h2-complaint">शिकायत संबंधी वेबसाइट</h1>
                         {
                             this.state.websites ? this.state.websites.map((website) => (    
                             <table class="ui celled table">   
