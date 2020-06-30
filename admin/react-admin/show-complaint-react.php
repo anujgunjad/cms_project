@@ -175,6 +175,7 @@ const timeDateFormatter = (arry) => {
         render(){
             const pdfButtonStyle = {
                 background:"#C50202",
+                color:"#fff",
                 border: "2px solid #C50202",
             }
             const infoButtonStyle ={
@@ -217,12 +218,8 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"more-info.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>More Info</a> 
-                                        </div>
-                                        <div style={pdfButtonStyle} class="ui small button pdf-button">
-                                           <a style={{color:"#fff"}} href="#">Download PDF</a> 
-                                        </div>
+                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>More Info</a> 
+                                        <a style={{color:"#fff"},pdfButtonStyle} class="ui small button pdf-button" href="#">Download PDF</a> 
                                     </th>
                                 </tr>
                            </tbody>
@@ -268,6 +265,7 @@ const timeDateFormatter = (arry) => {
             const pdfButtonStyle = {
                 background:"#C50202",
                 border: "2px solid #C50202",
+                color:"#fff",
             }
             const infoButtonStyle ={
                 backgroundColor: "#004ba8",
@@ -309,21 +307,10 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                         <a style={{color:"#fff"}} class="info-button" href={"pan-info.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>PAN Info</a> 
-                                        </div>
-                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"atm-info.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>ATM Info</a> 
-                                        </div>
-                                        <div style={infoButtonStyle} class="ui right floated small btn btn-primary button ml-2">
-                                        <a style={{color:"#fff"}} class="info-button" href={"iplogs-info.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>IPLOGs Info</a> 
-                                        </div>
-                                        <div style={pdfButtonStyle} class="ui small button pdf-button mr-2">
-                                           <a style={{color:"#fff"}} href="#">Download KYC PDF</a> 
-                                        </div>
-                                        <div style={pdfButtonStyle} class="ui small button pdf-button">
-                                           <a style={{color:"#fff"}} href="#">Bank Statement File</a> 
-                                        </div>
+                                        
+                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>More Info</a> 
+                                           <a style={{color:"#fff"},pdfButtonStyle}  class="ui small button pdf-button mr-2" href="#">Download KYC PDF</a> 
+                                           <a style={{color:"#fff"},pdfButtonStyle} class="ui small button pdf-button" href="#">Bank Statement File</a> 
                                     </th>
                                 </tr>
                            </tbody>

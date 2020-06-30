@@ -48,7 +48,7 @@
 .pdf-button:hover {
   background: transparent !important;
 }
-.pdf-button:hover a {
+.pdf-button:hover {
   color: #c50202 !important;
 }
 .danger-text {
