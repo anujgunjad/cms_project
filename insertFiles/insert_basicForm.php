@@ -3,26 +3,36 @@
     include("../includes/config.php");
     global $conn;
 
-    $stmt = $conn->prepare("INSERT INTO basic_details (complaint_key, ap_name, ap_age, ap_mob, ap_address, ap_adhar, crime_type, way_of_crime, it_act, bh_dv, crime_date, crime_time, amount, checker_name, complaint_no,com_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("ssssssssssssssss",$complaintKey, $apName, $apAge, $apMob, $apAdd, $apAdhar, $crimeType, $wayOfCrime, $itAct, $bhDv, $crimeDate, $crimeTime, $amount, $checkerName, $complaintNo,$com_date);
+    $stmt = $conn->prepare("INSERT INTO basic_details(`complaint_id`, `complaint_no`, `ap_name`, `ap_age`, `ap_gender`, `ap_mob`, `ap_address`, `ap_country`, `ap_state`, `ap_city`, `ap_pin_code`, `ap_adhar`, `complaint_type`, `sub_complaint_type`, `it_act`, `bh_dv`, `crime_date`, `crime_time`, `amount`, `checker_name`, `created_date`, `last_updated`, `complaint_status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssssssssssssssssssss", $complaintKey, $complaintNo , $apName, $apAge, $apGender, $apMob, $apAdd, $country, $state, $city, $pinCode, $apAdhar, $complaintType, $subComplaintType, $itAct, $bhDv, $crimeDate, $crimeTime, $amount, $checkerName, $createDate, $lastUpdate, $comStatus);
 
     $complaintKey = uniqid();
+
+    //FORM FIELDS FROM HERE
+    $complaintNo = $_POST["complaint_no"];
     $apName = $_POST["ap_name"];
     $apAge = $_POST["ap_age"];
+    $apGender = $_POST["ap_gender"];
     $apMob = $_POST["ap_mob"];
-    $apAdd = $_POST["ap_add"];
+    $apAdd = $_POST["ap_address"];
+    $country = $_POST["ap_country"];
+    $state = $_POST["ap_state"];
+    $city = $_POST["ap_city"];
+    $pinCode = $_POST["ap_pin_code"];
     $apAdhar = $_POST["ap_adhar"];
-    $crimeType = $_POST["crime_type"];
-    $wayOfCrime = $_POST["way_of_crime"];
+    $complaintType = $_POST["complaint_type"]; 
+    $subComplaintType = $_POST["sub_complaint_type"];
     $itAct = $_POST["it_act"];
     $bhDv = $_POST["bh_dv"];
     $crimeDate = $_POST["crime_date"];
     $crimeTime = $_POST["crime_time"];
     $amount = $_POST["amount"];
     $checkerName = $_POST["checker_name"];
-    $complaintNo = $_POST["complaint_no"];
-    $com_date = $_POST["com_date"];
+    //TO HERE
     
+    $createDate = "";
+    $lastUpdate = "";
+    $comStatus  = "1";
     $execution = $stmt->execute();
     if($execution == true){
         echo "Inserted Successfully!!!";
