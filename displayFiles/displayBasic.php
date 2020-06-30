@@ -3,7 +3,7 @@ session_start();
 include("../includes/config.php");
 global $conn;
     $query = "select * from basic_details where 	
-    complaint_key = '".$_SESSION['key']."'";
+    complaint_id = '".$_SESSION['key']."'";
     $result = $conn->query($query);
 
     if($result ->num_rows > 0){
