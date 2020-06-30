@@ -73,3 +73,27 @@
 .bg-light > i {
   color: #004ba8;
 }
+.dropdown-sidenav {
+  border-radius: 55px !important;
+  height: 0;
+  padding: 0;
+  transition: 0.3s ease-in-out;
+}
+.dropdown-sidenav > a {
+  background: #e7ebee !important;
+}
+
+#first-a-sub-dropdown {
+  border-radius: 5px 5px 0 0;
+}
+#second-a-sub-dropdown {
+  border-radius: 0 0 5px 5px;
+}
+
+.dropdown-show {
+  padding: 4px;
+  height: 15vh;
+}
+.border-top-a {
+  border-top: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
