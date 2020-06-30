@@ -238,7 +238,7 @@ const timeDateFormatter = (arry) => {
             )
         }
     }
-    class MoreDetailsNumber extends React.Component {
+    class MoreDetailsBank extends React.Component {
         render(){
 
             return(
@@ -250,7 +250,7 @@ const timeDateFormatter = (arry) => {
             )
         }
     }
-  ReactDOM.render(<MoreDetailsNumber />, document.getElementById('show-number-cdr-info'))
+  ReactDOM.render(<MoreDetailsBank />, document.getElementById('show-number-cdr-info'))
 
 </script>
  <?php include("footer.php")?>
