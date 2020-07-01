@@ -70,10 +70,9 @@
             <div class="two wide field dropdown-search-form">
                 <label>Age</label>
                 <select id="age" onchange="valueChange();">
-                <option value="40">Age</option>
-                <option value="17">less than 18</option>
-                <option value="18">Equals to 18</option>
-                <option value="19">More than 18</option>
+                <option value="1">Age</option>
+                <option value="2">less than 18</option>
+                <option value="3">More than 18</option>
                 </select>
             </div>
             
@@ -91,3 +90,30 @@
   <!-- End -->
  <?php include("sidenav-footer.php")?>
  <?php include("footer.php")?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -104,13 +104,15 @@ const timeDateFormatter = (arry) => {
             suspects: [],
         }
         componentDidMount(){
+            this.fetchSuspectsData();
+
         }
-        fetchApplicantData(){
+        fetchSuspectsData(){
                 let id = idFetcher();               
-                fetch(`../api/data/read_suspect_number.php?complaint_id =${id}`)
+                fetch(`../api/data/read_suspects.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                   
+                    this.setState({suspects: data.suspects});
                 })
                 .catch(console.log)
         }
@@ -121,7 +123,9 @@ const timeDateFormatter = (arry) => {
                 <center>
                 <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">संदेहियों की जानकारी</h1>
-                            <table class="ui celled table">
+                {
+                            !this.state.suspects ? this.state.suspects.map((suspect) => (    
+                                <table class="ui celled table">
                                 <tbody>
                                     <tr>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4></td>
@@ -143,6 +147,18 @@ const timeDateFormatter = (arry) => {
                                     </tr>
                                 </tbody>
                             </table>
+                        ))
+                        : <table class="ui celled table">   
+                            <tbody>
+                             <tr>
+                             <td class=" center aligned" colspan="8">
+                                <div class="alert alert-warning not-found-alert" role="alert">No Suspects addded yet <i class="fa fa-exclamation-circle fa-fw" /></div>
+                             </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        }
+                           
                             </div>
                         </center>                    
                     </div>          
