@@ -18,6 +18,15 @@ $(document).ready(function () {
           button: 'Next',
         }).then(() => {
           console.log('DONE');
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById('txt').innerHTML = this.responseText;
+            }
+            $('#basicForm').replaceWith($('#txt'));
+          };
+          xmlhttp.open('GET', '../displayFiles/displayBasic.php', true);
+          xmlhttp.send();
         });
       },
       error: function () {},

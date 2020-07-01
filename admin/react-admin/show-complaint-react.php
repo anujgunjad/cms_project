@@ -1,5 +1,5 @@
 <script type="text/babel">
-const idFetcher = () => {
+    const idFetcher = () => {
             const location = window.location.href,
             locationAndId = location.split("="),
             id = locationAndId[1];
@@ -56,7 +56,7 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 style={{color:"red"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4>{this.state.applicant.app_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4>{this.state.applicant.ap_name}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4>{this.state.applicant.ap_age} साल</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4>{this.state.applicant.ap_mob}</td>
                                 </tr>

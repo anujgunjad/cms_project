@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once "../includes/connection.php";
     //$query = "INSERT INTO basic_details (complaint_id, complaint_no, ap_name, ap_age, ap_gender, ap_mob, ap_address, ap_country, ap_state, ap_city, ap_pin_code, ap_adhar, complaint_type, sub_complaint_type, it_act, bh_dv, crime_date, crime_time, amount, checker_name, created_date, last_updated, complaint_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 

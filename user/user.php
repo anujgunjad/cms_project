@@ -76,9 +76,9 @@ if($num > 0)
                             <label>लिंग</label>
                             <select id="ap_gender" name="ap_gender" class="ui dropdown">
                                 <option value='' selected='' disabled=''>लिंग</option>
-                                <option value="महिला">महिला</option>
-                                <option value="पुरुष">पुरुष</option>
-                                <option value="अन्य">अन्य</option>
+                                <option value="female">महिला</option>
+                                <option value="male">पुरुष</option>
+                                <option value="other">अन्य</option>
                             </select>
                         </div>
                         <div class="four wide field">
@@ -336,109 +336,115 @@ if($num > 0)
                                                     </button>
                                                     <!-- Modal -->
                                                     <div id="suspect_no_cdr_details" class="modal fade" role="dialog">
-                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-dialog modal-lg">
 
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h4 class="modal-title">Add CDR details</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                           
-                                                        </div>
-                                                        <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-sm">
-                                                            <label>सी डी आर नंबर </label>
-                                                                    <input type="number" name="cdr_number"
-                                                                        placeholder="सी डी आर नंबर">
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Add CDR details</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>सी डी आर नंबर </label>
+                                                                            <input type="number" name="cdr_number"
+                                                                                placeholder="सी डी आर नंबर">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>सी डी आर नंबर </label>
+                                                                            <input type="number" name="cdr_number"
+                                                                                placeholder="सी डी आर नंबर">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>इमेल जावक </label>
+                                                                            <input type="date" name="cdr_email_outgoing"
+                                                                                placeholder="इमेल जावक">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>मेल प्राप्त </label>
+                                                                            <input type="date" name="cdr_mail_recieved"
+                                                                                placeholder="मेल प्राप्त दिनाक">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>IMEI</label>
+                                                                            <input type="number" name="imei_number"
+                                                                                placeholder="IMEI number">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>IMSI</label>
+                                                                            <input type="number" name="imsi_number"
+                                                                                placeholder="IMSI number">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>लोकेशन </label>
+                                                                            <input type="text" name="cdr_location"
+                                                                                placeholder="लोकेशन">
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>लोकेशन दिनाक समय </label>
+                                                                            <input type="datetime-local"
+                                                                                name="cdr_location_datetime"
+                                                                                placeholder="लोकेशन दिनाक समय">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Frequent callers 5</label>
+                                                                            <input type="number"
+                                                                                name="cdr_frequent_caller"
+                                                                                placeholder="Frequent callers 5">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>night location</label>
+                                                                            <input type="text" name="cdr_night_location"
+                                                                                placeholder="night location">
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>messages bank/UPI/wallet/services
+                                                                                name
+                                                                            </label>
+                                                                            <input type="text" name="cdr_services_name"
+                                                                                placeholder="messages bank/UPI/wallet/services name">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>संदिग्ध नंबर </label>
+                                                                            <input type="number"
+                                                                                name="cdr_suspect_number"
+                                                                                placeholder="संदिग्ध नंबर">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>सी डी आर, पी डी ऍफ़ </label>
+                                                                            <input type="file" name="cdr_pdf"
+                                                                                placeholder="सी डी आर, पी डी ऍफ़">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="ui button form-btn" type="submit"
+                                                                        id="btn_submit_cdr" data-dismiss="modal">submit
+                                                                        cdr</button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-sm">
-                                                            <label>सी डी आर नंबर </label>
-                                                                    <input type="number" name="cdr_number"
-                                                                        placeholder="सी डी आर नंबर">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>इमेल जावक </label>
-                                                                    <input type="date" name="cdr_email_outgoing"
-                                                                        placeholder="इमेल जावक">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>मेल प्राप्त </label>
-                                                                    <input type="date" name="cdr_mail_recieved"
-                                                                        placeholder="मेल प्राप्त दिनाक">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm">
-                                                            <label>IMEI</label>
-                                                                    <input type="number" name="imei_number"
-                                                                        placeholder="IMEI number">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>IMSI</label>
-                                                                    <input type="number" name="imsi_number"
-                                                                        placeholder="IMSI number">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>लोकेशन </label>
-                                                                    <input type="text" name="cdr_location"
-                                                                        placeholder="लोकेशन">
-                                                           </div>
-                                                           
 
                                                         </div>
-                                                        <div class="row">
-                                                        <div class="col-sm">
-                                                           <label>लोकेशन दिनाक समय </label>
-                                                                    <input type="datetime-local"
-                                                                        name="cdr_location_datetime"
-                                                                        placeholder="लोकेशन दिनाक समय">
-                                                           </div>
-                                                            <div class="col-sm">
-                                                            <label>Frequent callers 5</label>
-                                                                    <input type="number" name="cdr_frequent_caller"
-                                                                        placeholder="Frequent callers 5">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>night location</label>
-                                                                    <input type="text" name="cdr_night_location"
-                                                                        placeholder="night location">
-                                                            </div>
-                                                          
-                                                            
-                                                        </div>
-                                                        <div class="row">
-                                                        <div class="col-sm">
-                                                            <label>messages bank/UPI/wallet/services name
-                                                                    </label>
-                                                                    <input type="text" name="cdr_services_name"
-                                                                        placeholder="messages bank/UPI/wallet/services name">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>संदिग्ध नंबर </label>
-                                                                    <input type="number" name="cdr_suspect_number"
-                                                                        placeholder="संदिग्ध नंबर">
-                                                            </div>
-                                                            <div class="col-sm">
-                                                            <label>सी डी आर, पी डी ऍफ़ </label>
-                                                                    <input type="file" name="cdr_pdf"
-                                                                        placeholder="सी डी आर, पी डी ऍफ़">
-                                                            </div>
-                                                        </div>
-                                            
-                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button class="ui button form-btn" type="submit"
-                                                                    id="btn_submit_cdr" data-dismiss="modal">submit cdr</button>
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                     </div>
-                                                </div>
 
-                                                </div>
-                                                </div>
 
-                                                    
-                                                    
+
                                                     <!-------------------------->
                                                     <div id="suspect_num_table_cdr">
                                                         <table class="table table-bordered p-0 m-0">
@@ -472,61 +478,65 @@ if($num > 0)
                                                         data-toggle="modal" data-target="#suspect_no_ipdr_details">
                                                         Add IPDR details
                                                     </button>
-                                                     <!-- Modal -->
+                                                    <!-- Modal -->
                                                     <div class="modal fade" id="suspect_no_ipdr_details" role="dialog">
                                                         <div class="modal-dialog">
-                                                        
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                            <h4 class="modal-title"> Add IPDR details</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            
-                                                            </div>
-                                                            <div class="modal-body">
-                                                            <div class="row">
-                                                                    <div class="col-sm">
-                                                                    <label>आई पी डी आर </label>
-                                                                    <input type="number" name="ipdr_number"
-                                                                        placeholder="आई पी डी आर ">
-                                                                    </div>
-                                                            </div>
-                                                                <div class="row">
-                                                                    <div class="col-sm">
-                                                                    <label>इमेल जावक </label>
-                                                                    <input type="date" name="ipdr_email_outgoing"
-                                                                        placeholder="इमेल जावक">
-                                                                    </div>
-                                                                    <div class="col-sm">
-                                                                    <label>मेल प्राप्त </label>
-                                                                    <input type="date" name="ipdr_mail_recieved"
-                                                                        placeholder="मेल प्राप्त दिनाक">
-                                                                    </div>
-                                                                    
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title"> Add IPDR details</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+
                                                                 </div>
-                                                                <div class="row">
-                                                                    <div class="col-sm">
-                                                                    <label>लोकेशन </label>
-                                                                    <input type="text" name="ipdr_location"
-                                                                        placeholder="लोकेशन">
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>आई पी डी आर </label>
+                                                                            <input type="number" name="ipdr_number"
+                                                                                placeholder="आई पी डी आर ">
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-sm">
-                                                                    <label>Websites/apps </label>
-                                                                    <input type="text" name="ipdr_websites"
-                                                                        placeholder="Websites/apps">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>इमेल जावक </label>
+                                                                            <input type="date"
+                                                                                name="ipdr_email_outgoing"
+                                                                                placeholder="इमेल जावक">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>मेल प्राप्त </label>
+                                                                            <input type="date" name="ipdr_mail_recieved"
+                                                                                placeholder="मेल प्राप्त दिनाक">
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>लोकेशन </label>
+                                                                            <input type="text" name="ipdr_location"
+                                                                                placeholder="लोकेशन">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Websites/apps </label>
+                                                                            <input type="text" name="ipdr_websites"
+                                                                                placeholder="Websites/apps">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="ui button form-btn" type="submit"
+                                                                        id="btn_submit_ipdr" data-dismiss="modal">submit
+                                                                        ipdr</button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
                                                             </div>
-                                                            <div class="modal-footer">
-                                                            <button class="ui button form-btn" type="submit"
-                                                                    id="btn_submit_ipdr" data-dismiss="modal">submit ipdr</button>
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                        
+
                                                         </div>
                                                     </div>
-  
+
                                                     <!----------------------------->
                                                     <div id="suspect_num_table_ipdr">
                                                         <table class="table table-bordered p-0 m-0">
@@ -561,52 +571,55 @@ if($num > 0)
                                                     </button>
                                                     <!-- Modal -->
                                                     <div id="suspect_no_upi_details" class="modal fade" role="dialog">
-                                                    <div class="modal-dialog">
+                                                        <div class="modal-dialog">
 
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h4 class="modal-title"> Add UPI details</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                       
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>UPI</label>
-                                                                    <input type="text" name="upi_id"
-                                                                        placeholder="UPI id ">
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title"> Add UPI details</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>UPI</label>
+                                                                            <input type="text" name="upi_id"
+                                                                                placeholder="UPI id ">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>UPI Link</label>
+                                                                            <select name="UPI Link" class="ui dropdown">
+                                                                                <option type="radio" value="हाँ"
+                                                                                    name="upi_link_confirm">हाँ</option>
+                                                                                <option type="radio" value="नही"
+                                                                                    name="upi_link_confirm">नही</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>UPI name</label>
+                                                                            <input type="text" name="upi_name"
+                                                                                placeholder="UPI name ">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="ui button form-btn" type="submit"
+                                                                        id="btn_submit_upi" data-dismiss="modal">submit
+                                                                        upi details</button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>UPI Link</label>
-                                                                    <select name="UPI Link" class="ui dropdown">
-                                                                        <option type="radio" value="हाँ"
-                                                                            name="upi_link_confirm">हाँ</option>
-                                                                        <option type="radio" value="नही"
-                                                                            name="upi_link_confirm">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>UPI name</label>
-                                                                    <input type="text" name="upi_name"
-                                                                        placeholder="UPI name ">
-                                                                </div>
-                                                            </div>
-                                                
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                        <button class="ui button form-btn" type="submit"
-                                                                    id="btn_submit_upi" data-dismiss="modal">submit upi details</button>
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                        </div>
 
-                                                    </div>
+                                                        </div>
                                                     </div>
 
-                                                    
+
                                                     <!--------------------------->
                                                     <div id="suspect_num_table_upi">
                                                         <table class="table table-bordered p-0 m-0">
@@ -790,92 +803,106 @@ if($num > 0)
                                                     </button>
                                                     <!-- Modal -->
                                                     <div id="suspect_acc_pan_details" class="modal fade" role="dialog">
-                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-dialog modal-lg">
 
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h4 class="modal-title">Add PAN details</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>PAN </label>
-                                                                    <input type="text" name="pan_number"
-                                                                        placeholder="PAN number">
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>PAN Verified </label>
-                                                                    <select class="ui dropdown" id="pan_verified"
-                                                                        name="pan_verified">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <div class="row">
-                                                            <div class="col-sm">
-                                                                <label>PAN Username </label>
-                                                                    <input type="text" name="Pan_username"
-                                                                        placeholder="PAN username">
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>Aadhar number</label>
-                                                                    <input type="number" name="Aadhar_number"
-                                                                        placeholder="aadhar number">
-                                                                </div>
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="row">
-                                                            <div class="col-sm">
-                                                                <label>Income Tax </label>
-                                                                    <select class="ui dropdown" id="incometax"
-                                                                        name="incometax">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>GST In </label>
-                                                                    <select class="ui dropdown" id="gst_in"
-                                                                        name="gst_in">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>Tin </label>
-                                                                    <select class="ui dropdown" id="Tin" name="Tin">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>Sales Tax </label>
-                                                                    <select class="ui dropdown" id="salestax"
-                                                                        name="salestax">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                        <button class="ui button form-btn" type="submit"
-                                                                    id="btn_submit_pan" data-dismiss="modal">Submit PAN details</button>
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                        </div>
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Add PAN details</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
 
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>PAN </label>
+                                                                            <input type="text" name="pan_number"
+                                                                                placeholder="PAN number">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>PAN Verified </label>
+                                                                            <select class="ui dropdown"
+                                                                                id="pan_verified" name="pan_verified">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>PAN Username </label>
+                                                                            <input type="text" name="Pan_username"
+                                                                                placeholder="PAN username">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Aadhar number</label>
+                                                                            <input type="number" name="Aadhar_number"
+                                                                                placeholder="aadhar number">
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>Income Tax </label>
+                                                                            <select class="ui dropdown" id="incometax"
+                                                                                name="incometax">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>GST In </label>
+                                                                            <select class="ui dropdown" id="gst_in"
+                                                                                name="gst_in">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Tin </label>
+                                                                            <select class="ui dropdown" id="Tin"
+                                                                                name="Tin">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Sales Tax </label>
+                                                                            <select class="ui dropdown" id="salestax"
+                                                                                name="salestax">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="ui button form-btn" type="submit"
+                                                                        id="btn_submit_pan" data-dismiss="modal">Submit
+                                                                        PAN details</button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
-                                                    </div>
 
-                                                    
+
                                                     <!-------------------------->
                                                     <div id="suspect_acc_table_pan">
                                                         <table class="table table-bordered p-0 m-0">
@@ -909,51 +936,57 @@ if($num > 0)
                                                     </button>
                                                     <!-- Modal -->
                                                     <div id="suspect_acc_atm_details" class="modal fade" role="dialog">
-                                                    <div class="modal-dialog">
+                                                        <div class="modal-dialog">
 
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h4 class="modal-title"> Add Bank Account Atm details</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            
-                                                        </div>
-                                                        <div class="modal-body">
-                                                           <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>ATM footage </label>
-                                                                    <select class="ui dropdown" id="atm_footage"
-                                                                        name="atm_footage">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title"> Add Bank Account Atm
+                                                                        details</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>ATM footage </label>
+                                                                            <select class="ui dropdown" id="atm_footage"
+                                                                                name="atm_footage">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>Email Sent </label>
+                                                                            <input type="date" name="atm_email_sent"
+                                                                                id="atm_email_sent">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Email Recieved</label>
+                                                                            <input type="date" name="atm_email_recieved"
+                                                                                id="atm_email_recieved">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="ui button form-btn" type="submit"
+                                                                        id="btn_submit_pan" data-dismiss="modal">Submit
+                                                                        Atm details</button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>Email Sent </label>
-                                                                    <input type="date" name="atm_email_sent"
-                                                                        id="atm_email_sent">
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>Email Recieved</label>
-                                                                    <input type="date" name="atm_email_recieved"
-                                                                        id="atm_email_recieved">
-                                                                </div>
-                                                           </div>
-                                                
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                        <button class="ui button form-btn" type="submit"
-                                                                    id="btn_submit_pan" data-dismiss="modal">Submit Atm details</button>
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                        </div>
 
-                                                    </div>
+                                                        </div>
                                                     </div>
 
-                                                    
+
                                                     <!-------------------------->
                                                     <div id="suspect_acc_table_atm">
                                                         <table class="table table-bordered p-0 m-0">
@@ -987,50 +1020,59 @@ if($num > 0)
                                                         Add Bank Account iplog details
                                                     </button>
                                                     <!-- Modal -->
-                                                    <div id="suspect_acc_iplog_details" class="modal fade" role="dialog">
-                                                    <div class="modal-dialog">
+                                                    <div id="suspect_acc_iplog_details" class="modal fade"
+                                                        role="dialog">
+                                                        <div class="modal-dialog">
 
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h4 class="modal-title"> Add Bank Account iplog details</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            
-                                                        </div>
-                                                        <div class="modal-body">
-                                                           <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>IPlog </label>
-                                                                    <select class="ui dropdown" id="iplog" name="iplog">
-                                                                        <option type="radio" value="हाँ">हाँ</option>
-                                                                        <option type="radio" value="नही">नही</option>
-                                                                    </select>
-                                                                </div>
-                                                           </div>
-                                                           <div class="row">
-                                                                <div class="col-sm">
-                                                                <label>Email Sent </label>
-                                                                    <input type="date" name="iplog_email_sent"
-                                                                        id="iplog_email_sent">
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                <label>Email Recieved</label>
-                                                                    <input type="date" name="iplog_email_recieved"
-                                                                        id="iplog_email_recieved">
-                                                                </div>
-                                                           </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                        <button class="ui button form-btn" type="submit"
-                                                                    id="btn_submit_pan" data-dismiss="modal">Submit IPlog details</button>
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                        </div>
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title"> Add Bank Account iplog
+                                                                        details</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
 
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>IPlog </label>
+                                                                            <select class="ui dropdown" id="iplog"
+                                                                                name="iplog">
+                                                                                <option type="radio" value="हाँ">हाँ
+                                                                                </option>
+                                                                                <option type="radio" value="नही">नही
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm">
+                                                                            <label>Email Sent </label>
+                                                                            <input type="date" name="iplog_email_sent"
+                                                                                id="iplog_email_sent">
+                                                                        </div>
+                                                                        <div class="col-sm">
+                                                                            <label>Email Recieved</label>
+                                                                            <input type="date"
+                                                                                name="iplog_email_recieved"
+                                                                                id="iplog_email_recieved">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="ui button form-btn" type="submit"
+                                                                        id="btn_submit_pan" data-dismiss="modal">Submit
+                                                                        IPlog details</button>
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
-                                                    </div>
 
-                                                    
+
                                                     <!-------------------------->
                                                     <div id="suspect_acc_table_iplog">
                                                         <table class="table table-bordered p-0 m-0">
@@ -1318,7 +1360,7 @@ if($num > 0)
                         $("#suspect_num_table_main").show();
                     }
                 });
-                
+
                 //suspect number details ends
                 //suspect account details 
                 $("#btn_addacc").click(function() {
@@ -1328,7 +1370,7 @@ if($num > 0)
                         $("#suspect_acc_table_main").show();
                     }
                 });
-               
+
 
 
                 //suspect ewallet details

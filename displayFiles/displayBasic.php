@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../includes/config.php");
+include_once "../includes/connection.php";
 global $conn;
     $query = "select * from basic_details where 	
     complaint_id = '".$_SESSION['key']."'";
@@ -37,11 +37,11 @@ global $conn;
                 <div class='three fields'>
                     <div class='six wide field'>
                         <label>प्रकार</label>
-                        <span class='form-text'>".$row['crime_type']."</span>
+                        <span class='form-text'>".$row['complaint_type']."</span>
                     </div>
                     <div class='six wide field'>
                         <label>अपराध का तरीका</label>
-                        <span class='form-text'>".$row['way_of_crime']."</span>
+                        <span class='form-text'>".$row['sub_complaint_type']."</span>
                     </div>
                     <div class='six wide field'>
                         <label>आई टी ऐक्ट धारा</label>
@@ -78,7 +78,7 @@ global $conn;
                     </div>
                     <div class='four wide field'>
                         <label>शिकायत की दिनांक</label>
-                        <span class='form-text'>".$row['com_date']."</span>
+                        <span class='form-text'>".$row['created_date']."</span>
                     </div>
                 </div>
                 <button class='ui button update-btn' id='update-display' type='submit' name='update' value='Update'>
