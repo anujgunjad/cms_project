@@ -43,11 +43,6 @@ const timeDateFormatter = (arry) => {
             hrefTwo:"complaints-category.php",
         }
         componentDidMount(){
-                const dateFormatter = (str) => {
-                var splitString = str.split("-"); 
-                var reverseArray = splitString.reverse(); 
-                var realDate = reverseArray.join("-"); 
-                return realDate;
             }
             fetch('../api/data/read_all_complainee.php')
             .then(res => res.json())

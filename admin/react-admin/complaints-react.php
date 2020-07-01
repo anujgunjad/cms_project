@@ -1,4 +1,18 @@
 <script type="text/babel">
+const dateFormatter = (str) => {
+                var revdate = str.split("-"),
+                    reverseArray = revdate.reverse(),
+                    realDate = reverseArray.join("-"); 
+                return realDate;
+            }
+const timeDateFormatter = (arry) => {
+                let str = arry.split(" "),
+                          date = str[0];
+                var revdate = date.split("-"),
+                    reverseArray = revdate.reverse(),
+                    realDate = reverseArray.join("-"); 
+                return realDate;
+            }
      class Complaints extends React.Component {
         state = {
           complaints: [],
@@ -18,9 +32,9 @@
                   .catch(console.log)
           }
         filterComplaints = (categoryId, keyWord) => {
-           let category_id = categoryId,
-               keyword = keyWord;
-          fetch(`../api/data/search.php?category_id=${category_id}&keyword=${keyword}`)
+          //  let category_id = categoryId,
+          //      keyword = keyWord;
+          fetch(`../api/data/search.php?category_id=${categoryId}&keyword=${keyWord}`)
                   .then(res => res.json())
                   .then((data) => {
                     this.setState({ complaints:data.applicant})
@@ -56,7 +70,7 @@
                             <td style={textStyle}>{complaint.complaint_no}</td>
                               <td style={textStyle}>{complaint.app_name}</td>
                               <td style={textStyle}>{complaint.ap_mob}</td>
-                              <td style={textStyle}>{complaint.complaint_date}</td>
+                              <td style={textStyle}>{timeDateFormatter(complaint.created_date)}</td>
                               <td><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
                             </tr>
                         ))
