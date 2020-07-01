@@ -104,7 +104,7 @@
                               <td style={textStyle}>{complaint.complaint_no}</td>
                               <td style={textStyle}>{complaint.app_name}</td>
                               <td style={textStyle}>{complaint.ap_mob}</td>
-                              <td style={textStyle}>{complaint.complaint_date}</td>
+                              <td style={textStyle}>{complaint.created_date}</td>
                               <td style={textStyle}><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
                             </tr>
                         ))}
