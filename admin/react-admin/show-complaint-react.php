@@ -23,7 +23,6 @@ const timeDateFormatter = (arry) => {
     state = {
           applicant: {},
           crimeDate:"",
-          complaintDate:"",
           createdDate: "",
           updatedDate: "",
         }
@@ -44,9 +43,6 @@ const timeDateFormatter = (arry) => {
                 let crimeDateRev = applicant[0].crime_date,
                     crimeDate = dateFormatter(crimeDateRev);
                 this.setState({ crimeDate: crimeDate});
-                let complaintDateRev = applicant[0].complaint_date,
-                    complaintDate = dateFormatter(complaintDateRev);
-                this.setState({ complaintDate: complaintDate});
                 })
                 .catch(console.log)
         }
@@ -86,11 +82,11 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4>{this.state.applicant.crime_time}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4>{this.state.applicant.amount}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की दिनांक</h4>{this.state.complaintDate}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate}</td> 
                                 </tr>
                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate}</td> 
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की स्थिति</h4>{this.state.applicant.complaint_status==0?"नहीं":"हाँ"}</td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
