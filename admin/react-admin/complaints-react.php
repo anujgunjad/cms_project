@@ -68,7 +68,7 @@ const timeDateFormatter = (arry) => {
                       this.state.complaints ? this.state.complaints.slice(-10).map((complaint) => (    
                             <tr>
                             <td style={textStyle}>{complaint.complaint_no}</td>
-                              <td style={textStyle}>{complaint.app_name}</td>
+                              <td style={textStyle}>{complaint.ap_name}</td>
                               <td style={textStyle}>{complaint.ap_mob}</td>
                               <td style={textStyle}>{timeDateFormatter(complaint.created_date)}</td>
                               <td><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>

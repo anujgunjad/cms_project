@@ -19,7 +19,7 @@
           <div class="fields">
             <div class="three wide field dropdown-search-form">
               <select id="min-amount" onchange="valueChange();" >
-                <option value="0">Min-Amount</option>
+                <option value="1000">Min-Amount</option>
                 <option value="1000">₹ 1000</option>
                 <option value="2000">₹ 2000</option>
                 <option value="3000">₹ 3000</option>
@@ -34,7 +34,7 @@
             </div>
             <div class="three wide field dropdown-search-form">
                 <select id="max-amount" onchange="valueChange();">
-                    <option value="100000000">Max-Amount</option>
+                    <option value="9000000">Max-Amount</option>
                     <option value="100000">1 lakhs</option>
                     <option value="200000">2 Lakhs</option>
                     <option value="300000">3 Lakhs</option>
@@ -80,10 +80,10 @@
             </div>
             <div class="two wide field dropdown-search-form">
                 <select id="gender" onchange="valueChange();">
-                    <option value="">Gender</option>
-                    <option value="पुरुष">पुरुष</option>
-                    <option value="महिला">महिला</option>
-                    <option value="अन्य">अन्य</option>
+                    <option value="male">Gender</option>
+                    <option value="male">पुरुष</option>
+                    <option value="female">महिला</option>
+                    <option value="other">अन्य</option>
                 </select>
             </div>
             <div class="two wide field dropdown-search-form">
