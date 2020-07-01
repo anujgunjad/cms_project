@@ -1,5 +1,4 @@
 <script type="text/babel">
-console.log(roots);
 
 const dateFormatter = (str) => {
                 var revdate = str.split("-"),
@@ -90,18 +89,16 @@ const timeDateFormatter = (arry) => {
 const valueChange = () => {
   const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
 
-    let  minAmt = document.getElementById("min-amount"),
-         selectedMinAmt = minAmt.options[minAmt.selectedIndex].value,
-         maxAmt = document.getElementById("max-amount"),
-         selectedMaxAmt = maxAmt.options[maxAmt.selectedIndex].value,
-         complaintType = document.getElementById("complaint-type"),
-         selectedComplaintType = complaintType.options[complaintType.selectedIndex].value,
-         subComplaintType = document.getElementById("sub-complaint-type"),
-         selectedSubComplaintType = subComplaintType.options[subComplaintType.selectedIndex].value,
-         gender = document.getElementById("gender"),
-         selectedGender = gender.options[gender.selectedIndex].value,
-         age = document.getElementById("age"),
-         selectedAge = age.options[age.selectedIndex].value;
+      let selectedMinAmt = document.getElementById("min-amount").value?document.getElementById("min-amount").value:1000,
+          selectedMaxAmt = document.getElementById("max-amount").value?document.getElementById("max-amount").value:9000000,
+          complaintType = document.getElementById("complaint-type"),
+          selectedComplaintType = complaintType.options[complaintType.selectedIndex].value,
+          subComplaintType = document.getElementById("sub-complaint-type"),
+          selectedSubComplaintType = subComplaintType.options[subComplaintType.selectedIndex].value,
+          gender = document.getElementById("gender"),
+          selectedGender = gender.options[gender.selectedIndex].value,
+          age = document.getElementById("age"),
+          selectedAge = age.options[age.selectedIndex].value;
     complaintsTable.filterComplaints(selectedMinAmt, selectedMaxAmt,selectedComplaintType,selectedSubComplaintType,selectedGender,selectedAge);
  
     console.log(` ==============START===========`);

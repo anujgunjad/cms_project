@@ -17,40 +17,16 @@
       <div class="ui blue segment admin-search-form">
       <div class="ui form">
           <div class="fields">
-            <div class="six wide field dropdown-search-form">
-              <div class="my-js-slider"></div>
+            <div class="field">
+              <label>Minimum Value</label>
+              <input type="number" id="min-amount" placeholder="Min Value" onkeyup="valueChange()" >
             </div>
-            <!-- <div class="three wide field dropdown-search-form">
-              <select id="min-amount" onchange="valueChange();" >
-                <option value="1000">Min-Amount</option>
-                <option value="1000">₹ 1000</option>
-                <option value="2000">₹ 2000</option>
-                <option value="3000">₹ 3000</option>
-                <option value="4000">₹ 4000</option>
-                <option value="5000">₹ 5000</option>
-                <option value="6000">₹ 6000</option>
-                <option value="7000">₹ 7000</option>
-                <option value="8000">₹ 8000</option>
-                <option value="9000">₹ 9000</option>
-                <option value="10000">₹ 10000</option>
-              </select>
+            <div class="field">
+              <label>Maximum Value</label>
+              <input type="number" id="max-amount" placeholder="Max Value" onkeyup="valueChange()">
             </div>
             <div class="three wide field dropdown-search-form">
-                <select id="max-amount" onchange="valueChange();">
-                    <option value="9000000">Max-Amount</option>
-                    <option value="100000">1 lakhs</option>
-                    <option value="200000">2 Lakhs</option>
-                    <option value="300000">3 Lakhs</option>
-                    <option value="400000">4 Lakhs</option>
-                    <option value="500000">5 Lakhs</option>
-                    <option value="600000">6 Lakhs</option>
-                    <option value="700000">7 Lakhs</option>
-                    <option value="800000">8 Lakhs</option>
-                    <option value="900000">9 Lakhs</option>
-                    <option value="1000000">10 Lakhs</option>
-                </select>
-            </div> -->
-            <div class="three wide field dropdown-search-form pt-3">
+                <label>Complaint Type</label>
                 <select id="complaint-type" onchange="valueChange();">
                     <option value="2">Complaint Type</option>
                     <option value="1">सोशल मीडिया</option>
@@ -59,7 +35,8 @@
                     <option value="4">अन्य</option>
                 </select>
             </div>
-            <div class="three wide field dropdown-search-form pt-3">
+            <div class="three wide field dropdown-search-form">
+                <label>Sub Complaint Type</label>
                 <select id="sub-complaint-type" onchange="valueChange();">
                     <option value="2">Sub-Complaint Type</option>
                     <option value="1">Online Bank Fraud</option>
@@ -81,7 +58,8 @@
                     <option value="17">Other</option>
                 </select>
             </div>
-            <div class="two wide field dropdown-search-form pt-3">
+            <div class="two wide field dropdown-search-form">
+                <label>Gender</label>
                 <select id="gender" onchange="valueChange();">
                     <option value="male">Gender</option>
                     <option value="male">पुरुष</option>
@@ -89,7 +67,8 @@
                     <option value="other">अन्य</option>
                 </select>
             </div>
-            <div class="two wide field dropdown-search-form pt-3">
+            <div class="two wide field dropdown-search-form">
+                <label>Age</label>
                 <select id="age" onchange="valueChange();">
                 <option value="40">Age</option>
                 <option value="17">less than 18</option>
