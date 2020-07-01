@@ -57,7 +57,7 @@
                 </select>
             </div>
             <div class="three wide field dropdown-search-form">
-                <select id="sub-complaint-type">
+                <select id="sub-complaint-type" onchange="valueChange();">
                     <option value="2">Sub-Complaint Type</option>
                     <option value="1">Online Bank Fraud</option>
                     <option value="2">Job Fraud</option>
@@ -87,14 +87,11 @@
                 </select>
             </div>
             <div class="two wide field dropdown-search-form">
-                <select id="search-category" onchange="valueChange();">
+                <select id="age" onchange="valueChange();">
                 <option value="40">Age</option>
-
-                <?php
-                for($i = 1; $i <= 100; $i += 1){
-                  echo("<option value='{$i}'>{$i}</option>");
-                    }
-                  ?>
+                <option value="17">less than 18</option>
+                <option value="18">Equals to 18</option>
+                <option value="19">More than 18</option>
                 </select>
             </div>
             
