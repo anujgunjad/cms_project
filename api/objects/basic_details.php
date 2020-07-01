@@ -45,7 +45,7 @@
         function readAll_complainee(){
 
             //Select All Query
-            $query = "Select * from $this->complainee_table";
+            $query = "SELECT `c.complaint_id`, `c.complaint_no`, `c.ap_name`, `c.ap_age`, `c.ap_gender`, `c.ap_mob`, `c.ap_address`, `countries.ap_country`, `states.ap_state`, `cities.ap_city`, `c.ap_pin_code`, `c.ap_adhar`, `.complaint_type`, `c.sub_complaint_type`, `it_act`, `bh_dv`, `crime_date`, `crime_time`, `amount`, `checker_name`, `created_date`, `last_updated`, `complaint_status` from $this->complainee_table";
 
             // prepare query statement
             $stmt = $this->conn->prepare($query);
