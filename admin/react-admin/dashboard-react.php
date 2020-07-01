@@ -1,4 +1,18 @@
 <script type="text/babel">  
+const dateFormatter = (str) => {
+                var revdate = str.split("-"),
+                    reverseArray = revdate.reverse(),
+                    realDate = reverseArray.join("-"); 
+                return realDate;
+            }
+const timeDateFormatter = (arry) => {
+                let str = arry.split(" "),
+                          date = str[0];
+                var revdate = date.split("-"),
+                    reverseArray = revdate.reverse(),
+                    realDate = reverseArray.join("-"); 
+                return realDate;
+            }
   class Card extends React.Component {
         render() {
             const cardButtonStyle ={
@@ -102,9 +116,9 @@
                     {this.state.complaints.slice(-10).map((complaint) => (    
                             <tr>
                               <td style={textStyle}>{complaint.complaint_no}</td>
-                              <td style={textStyle}>{complaint.app_name}</td>
+                              <td style={textStyle}>{complaint.ap_name}</td>
                               <td style={textStyle}>{complaint.ap_mob}</td>
-                              <td style={textStyle}>{complaint.created_date}</td>
+                              <td style={textStyle}>{timeDateFormatter(complaint.created_date)}</td>
                               <td style={textStyle}><a href={"show-complaint.php?id=" + complaint.complaint_id}>View More <i class="fa fa-share fa-fw" aria-hidden="true"></i></a></td>
                             </tr>
                         ))}
