@@ -1,10 +1,6 @@
 <script type="text/babel">
-var setting = {
-    roots: document.querySelector('.my-js-slider'),
-    type: 'range',
-    step: 1,
-    }
-var slider = wRunner(setting);
+console.log(roots);
+
 const dateFormatter = (str) => {
                 var revdate = str.split("-"),
                     reverseArray = revdate.reverse(),

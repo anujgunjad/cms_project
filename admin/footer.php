@@ -9,6 +9,4 @@
     <script src="../dependencies/reactjs/babel.min.js"></script>
     <!-- script.js -->
     <script src="script/script.js"></script>
-    <!-- Slider -->
-    <script src="../dependencies/slider/js/wrunner-native.js"></script>
 </html>

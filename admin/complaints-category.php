@@ -50,7 +50,7 @@
                     <option value="1000000">10 Lakhs</option>
                 </select>
             </div> -->
-            <div class="three wide field dropdown-search-form pt-5">
+            <div class="three wide field dropdown-search-form pt-3">
                 <select id="complaint-type" onchange="valueChange();">
                     <option value="2">Complaint Type</option>
                     <option value="1">सोशल मीडिया</option>
@@ -59,7 +59,7 @@
                     <option value="4">अन्य</option>
                 </select>
             </div>
-            <div class="three wide field dropdown-search-form">
+            <div class="three wide field dropdown-search-form pt-3">
                 <select id="sub-complaint-type" onchange="valueChange();">
                     <option value="2">Sub-Complaint Type</option>
                     <option value="1">Online Bank Fraud</option>
@@ -81,7 +81,7 @@
                     <option value="17">Other</option>
                 </select>
             </div>
-            <div class="two wide field dropdown-search-form">
+            <div class="two wide field dropdown-search-form pt-3">
                 <select id="gender" onchange="valueChange();">
                     <option value="male">Gender</option>
                     <option value="male">पुरुष</option>
@@ -89,7 +89,7 @@
                     <option value="other">अन्य</option>
                 </select>
             </div>
-            <div class="two wide field dropdown-search-form">
+            <div class="two wide field dropdown-search-form pt-3">
                 <select id="age" onchange="valueChange();">
                 <option value="40">Age</option>
                 <option value="17">less than 18</option>
