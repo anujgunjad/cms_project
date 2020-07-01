@@ -35,7 +35,6 @@
         $data_items = array(
             "complaint_id" => $complaint_id,
             "complaint_no" => $complaint_no,
-            "complaint_date" => $complaint_date,
             "app_name" => $ap_name,
             "ap_age" => $ap_age,
             "ap_gender" => $ap_gender,
