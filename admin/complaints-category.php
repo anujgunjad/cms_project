@@ -17,7 +17,10 @@
       <div class="ui blue segment admin-search-form">
       <div class="ui form">
           <div class="fields">
-            <div class="three wide field dropdown-search-form">
+            <div class="six wide field dropdown-search-form">
+              <div class="my-js-slider"></div>
+            </div>
+            <!-- <div class="three wide field dropdown-search-form">
               <select id="min-amount" onchange="valueChange();" >
                 <option value="1000">Min-Amount</option>
                 <option value="1000">₹ 1000</option>
@@ -46,8 +49,8 @@
                     <option value="900000">9 Lakhs</option>
                     <option value="1000000">10 Lakhs</option>
                 </select>
-            </div>
-            <div class="three wide field dropdown-search-form">
+            </div> -->
+            <div class="three wide field dropdown-search-form pt-5">
                 <select id="complaint-type" onchange="valueChange();">
                     <option value="2">Complaint Type</option>
                     <option value="1">सोशल मीडिया</option>

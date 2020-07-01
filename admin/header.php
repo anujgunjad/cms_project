@@ -7,6 +7,7 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../dependencies/bootstrap/dist/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="../dependencies/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="../dependencies/slider/css/wrunner-default-theme.css">
     <link rel="stylesheet" href="css/styles-admin.css">
     <link rel="stylesheet" href="../dependencies/fontawesome/css/all.min.css">
     <!--Montserrat Font-->
