@@ -70,7 +70,7 @@ if($num > 0)
                         </div>
                         <div class="three wide field">
                             <label>उम्र</label>
-                            <input type="number" name="ap_age" placeholder="उम्र" />
+                            <input type="text" name="ap_age" placeholder="उम्र" />
                         </div>
                         <div class="three wide field">
                             <label>लिंग</label>
@@ -114,11 +114,11 @@ if($num > 0)
                         </div>
                         <div class="six wide field">
                             <label>पिन कोड</label>
-                            <input type="number" name="ap_pin_code" placeholder="पिन कोड" />
+                            <input type="text" name="ap_pin_code" placeholder="पिन कोड" />
                         </div>
                         <div class="six wide field">
                             <label>आधार क्रमांक</label>
-                            <input type="number" name="ap_adhar" placeholder="आधार क्रमांक" />
+                            <input type="text" name="ap_adhar" placeholder="आधार क्रमांक" />
                         </div>
                     </div>
                     <div class="three fields">

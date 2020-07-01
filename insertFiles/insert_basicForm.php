@@ -1,17 +1,5 @@
 <?php
-   $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $dbname = "cms_project";
-   
-   // Create connection
-   $conn = new mysqli($servername, $username, $password, $dbname);
-   
-   // Check connection
-   if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-   }
-
+    include_once "../includes/connection.php";
     //$query = "INSERT INTO basic_details (complaint_id, complaint_no, ap_name, ap_age, ap_gender, ap_mob, ap_address, ap_country, ap_state, ap_city, ap_pin_code, ap_adhar, complaint_type, sub_complaint_type, it_act, bh_dv, crime_date, crime_time, amount, checker_name, created_date, last_updated, complaint_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     $stmt = $conn->prepare("INSERT INTO basic_details (complaint_id, complaint_no, ap_name, ap_age, ap_gender, ap_mob, ap_address, ap_country, ap_state, ap_city, ap_pin_code, ap_adhar, complaint_type, sub_complaint_type, it_act, bh_dv, crime_date, crime_time, amount, checker_name, created_date, last_updated, complaint_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -33,16 +21,15 @@
     $apAdhar = htmlspecialchars(strip_tags($_POST["complaint_type"]));
     $complaintType = htmlspecialchars(strip_tags($_POST["sub_complaint_type"]));
     $subComplaintType = htmlspecialchars(strip_tags($_POST["it_act"]));
-    $itAct = htmlspecialchars(strip_tags($_POST["ap_gender"]));
+    $itAct = htmlspecialchars(strip_tags($_POST["it_act"]));
     $bhDv = htmlspecialchars(strip_tags($_POST["bh_dv"]));
     $crimeDate = htmlspecialchars(strip_tags($_POST["crime_date"]));
     $crimeTime = htmlspecialchars(strip_tags($_POST["crime_time"]));
     $amount = htmlspecialchars(strip_tags($_POST["amount"]));
     $checkerName = htmlspecialchars(strip_tags($_POST["checker_name"]));
-    //TO HERE
     
-    $createDate = "";
-    $lastUpdate = "";
+    $createDate; 
+    $lastUpdate; 
     $comStatus  = "1";
     
     $execution = $stmt->execute();
