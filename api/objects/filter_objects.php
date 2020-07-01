@@ -29,6 +29,14 @@
             //Suspect Website table
         private $suspect_website_table = "suspect_website_info";
 
+        
+        //addree tables
+        private $country = "countries";
+        private $state = "states";
+        private $city = "cities";
+
+        private $complaint_sub_type_table = "sub_complaint_type";
+        private $complaint_type_table = "complaint_type";
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -38,15 +46,15 @@
 
             if($category_id == 1){
                  //query
-                 $query = "SELECT * FROM $this->complainee_table WHERE ap_name LIKE ?";
+                 $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, c.ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from $this->complainee_table c INNER JOIN $this->country co  ON co.id = c.ap_country INNER JOIN $this->state s  ON s.id = c.ap_state INNER JOIN $this->city ci ON ci.id = c.ap_city INNER JOIN $this->complaint_type_table ct ON ct.type_id = c.complaint_type INNER JOIN $this->complaint_sub_type_table cst ON cst.sub_complaint_type_id = c.sub_complaint_type WHERE c.ap_name LIKE ?";
             }
             else if($category_id == 2){
                 //query
-                $query = "SELECT * FROM $this->complainee_table WHERE complaint_no LIKE ?";
+                $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, c.ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from $this->complainee_table c INNER JOIN $this->country co  ON co.id = c.ap_country INNER JOIN $this->state s  ON s.id = c.ap_state INNER JOIN $this->city ci ON ci.id = c.ap_city INNER JOIN $this->complaint_type_table ct ON ct.type_id = c.complaint_type INNER JOIN $this->complaint_sub_type_table cst ON cst.sub_complaint_type_id = c.sub_complaint_type  WHERE c.complaint_no LIKE ?";
             }
             else if($category_id == 3){
                 //query
-                $query = "SELECT * FROM $this->complainee_table WHERE ap_mob LIKE ?";
+                $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, c.ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from $this->complainee_table c INNER JOIN $this->country co  ON co.id = c.ap_country INNER JOIN $this->state s  ON s.id = c.ap_state INNER JOIN $this->city ci ON ci.id = c.ap_city INNER JOIN $this->complaint_type_table ct ON ct.type_id = c.complaint_type INNER JOIN $this->complaint_sub_type_table cst ON cst.sub_complaint_type_id = c.sub_complaint_type  WHERE c.ap_mob LIKE ?";
             }
           
             $stmt = $this->conn->prepare($query);
@@ -85,8 +93,10 @@
          }
 
          function getMainFilter($min_amount, $max_amount, $compalint_type, $sub_complaint_type,$applicant_gender,$applicant_age){
+            
+            if(!empty($min_amount) && !empty($max_amount) && !empty($compalint_type) && !empty($sub_complaint_type) && !empty($applicant_gender) )
             //query
-            $query = "SELECT * FROM $this->complainee_table c WHERE c.complaint_status = '1' AND c.amount BETWEEN ? AND ? AND c.complaint_type = ? AND c.sub_complaint_type = ? AND c.ap_gender = ? AND c.ap_age <= ?";
+            $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, c.ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from $this->complainee_table c INNER JOIN $this->country co  ON co.id = c.ap_country INNER JOIN $this->state s  ON s.id = c.ap_state INNER JOIN $this->city ci ON ci.id = c.ap_city INNER JOIN $this->complaint_type_table ct ON ct.type_id = c.complaint_type INNER JOIN $this->complaint_sub_type_table cst ON cst.sub_complaint_type_id = c.sub_complaint_type WHERE c.complaint_status = '1' AND c.amount BETWEEN ? AND ? AND complaint_type = ? AND sub_complaint_type = ? AND c.ap_gender = ? AND c.ap_age <= ?";
 
             $stmt = $this->conn->prepare($query);
 

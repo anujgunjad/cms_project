@@ -25,7 +25,6 @@
     //initialize  Object
     $data = new Filter($db);
 
-    
     $stmt = $data->getMainFilter($min_amount,$max_amount,$complaint_type, $sub_complaint_type ,$applicant_gender, $applicant_age); 
     $num = $stmt->rowCount();
     if($num > 0){
@@ -68,9 +67,10 @@
     }
     else{
         // set response code - 404 Not found
-        http_response_code(404);
+        http_response_code(503);
         // tell the user no products found
         echo json_encode(
             array("message" => "No applicant found.")
         );
     }
+?>

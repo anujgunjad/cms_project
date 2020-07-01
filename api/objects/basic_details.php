@@ -37,6 +37,13 @@
         public $ewallet_id;
         public $website_id;
         
+        //addree tables
+        private $country = "countries";
+        private $state = "states";
+        private $city = "cities";
+
+        private $complaint_sub_type_table = "sub_complaint_type";
+        private $complaint_type_table = "complaint_type";
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -45,7 +52,7 @@
         function readAll_complainee(){
 
             //Select All Query
-            $query = "SELECT `c.complaint_id`, `c.complaint_no`, `c.ap_name`, `c.ap_age`, `c.ap_gender`, `c.ap_mob`, `c.ap_address`, `countries.ap_country`, `states.ap_state`, `cities.ap_city`, `c.ap_pin_code`, `c.ap_adhar`, `.complaint_type`, `c.sub_complaint_type`, `it_act`, `bh_dv`, `crime_date`, `crime_time`, `amount`, `checker_name`, `created_date`, `last_updated`, `complaint_status` from $this->complainee_table";
+            $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, c.ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from $this->complainee_table c INNER JOIN $this->country co  ON co.id = c.ap_country INNER JOIN $this->state s  ON s.id = c.ap_state INNER JOIN $this->city ci ON ci.id = c.ap_city INNER JOIN $this->complaint_type_table ct ON ct.type_id = c.complaint_type INNER JOIN $this->complaint_sub_type_table cst ON cst.sub_complaint_type_id = c.sub_complaint_type";
 
             // prepare query statement
             $stmt = $this->conn->prepare($query);
