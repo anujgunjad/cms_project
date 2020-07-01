@@ -1,8 +1,12 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 form {
   margin-top: 5vh !important;
   margin-left: 3vw !important;
   margin-right: 3vw !important;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2rem !important;
 }
 input {
@@ -38,13 +42,7 @@ select {
 .navbar ul li a {
   font-size: 20px;
 }
-.contact-info-content {
-  margin-top: 5vh !important;
-  margin-left: 4vw !important;
-  margin-right: 4vw !important;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.1rem !important;
-}
+
 .add-number-btn {
   background-color: rgb(221, 0, 0) !important;
   color: #fff !important;
@@ -67,7 +65,7 @@ select {
 }
 .modal-form {
   margin: 0px !important;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.1rem !important;
 }
 
