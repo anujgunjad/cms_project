@@ -55,34 +55,34 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">
                             <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 style={{color:"red"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4>{this.state.applicant.ap_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4>{this.state.applicant.ap_age} साल</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4>{this.state.applicant.ap_mob}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 style={{color:"red"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no?this.state.applicant.complaint_no:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4>{this.state.applicant.ap_name?this.state.applicant.ap_name:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4>{this.state.applicant.ap_age?this.state.applicant.ap_age:"अभी तक दर्ज नहीं है"} साल</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4>{this.state.applicant.ap_mob?this.state.applicant.ap_mob:"अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4>{this.state.applicant.ap_address}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4>{this.state.applicant.ap_gender}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>{this.state.applicant.ap_country}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>{this.state.applicant.ap_state}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4>{this.state.applicant.ap_address?this.state.applicant.ap_address:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4>{this.state.applicant.ap_gender?this.state.applicant.ap_gender:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>{this.state.applicant.ap_country?this.state.applicant.ap_country:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>{this.state.applicant.ap_state?this.state.applicant.ap_state:"अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4>{this.state.applicant.ap_city}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4>{this.state.applicant.ap_pin_code}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4>{this.state.applicant.ap_adhar}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>{this.state.applicant.complaint_type}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4>{this.state.applicant.ap_city?this.state.applicant.ap_city:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4>{this.state.applicant.ap_pin_code?this.state.applicant.ap_pin_code:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4>{this.state.applicant.ap_adhar?this.state.applicant.ap_adhar:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>{this.state.applicant.complaint_type?this.state.applicant.complaint_type:"अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>{this.state.applicant.sub_complaint_type}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आई टी ऐक्ट धारा</h4>{this.state.applicant.it_act}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">भा द वि धारा</h4>{this.state.applicant.bh_dv}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4>{this.state.crimeDate}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>{this.state.applicant.sub_complaint_type?this.state.applicant.sub_complaint_type:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आई टी ऐक्ट धारा</h4>{this.state.applicant.it_act?this.state.applicant.it_act:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">भा द वि धारा</h4>{this.state.applicant.bh_dv?this.state.applicant.bh_dv:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4>{this.state.crimeDate?this.state.crimeDate:"अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4>{this.state.applicant.crime_time}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4>{this.state.applicant.amount}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate}</td> 
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4>{this.state.applicant.crime_time?this.state.applicant.crime_time:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4>{this.state.applicant.amount?this.state.applicant.amount:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name?this.state.applicant.checker_name:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate?this.state.createdDate:"अभी तक दर्ज नहीं है"}</td> 
                                 </tr>
                                <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की स्थिति</h4>{this.state.applicant.complaint_status==0?"नहीं":"हाँ"}</td>
@@ -124,24 +124,24 @@ const timeDateFormatter = (arry) => {
                 <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">संदेहियों की जानकारी</h1>
                 {
-                            !this.state.suspects ? this.state.suspects.map((suspect) => (    
+                            this.state.suspects ? this.state.suspects.map((suspect) => (    
                                 <table class="ui celled table">
                                 <tbody>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{suspect.suspect_address?suspect.suspect_address:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4>{suspect.email_id?suspect.email_id:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4>{suspect.domin_name?suspect.domin_name:"अभी तक दर्ज नहीं है"}</td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
                                         <td></td>
                                         <td></td>
                                     </tr>
@@ -203,28 +203,28 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{number.number}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4>{number.company}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{number.number?number.number:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4>{number.company?number.company:"अभी तक दर्ज नहीं है"}</td>
                                     <td class={dateFormatter(number.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(number.email_sent)!="00-00-0000"?dateFormatter(number.email_sent):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(number.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(number.email_received)!="00-00-0000"?dateFormatter(number.email_received):"मेल अभी तक नहीं मिला "}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">दस्तावेज़</h4>{number.files}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4>{number.suspect_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{number.suspect_address}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{number.city}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">दस्तावेज़</h4>{number.files?number.files:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4>{number.suspect_name?number.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{number.suspect_address?number.number:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{number.city?number.city:"अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{number.state}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4>{number.retailer_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4>{number.uid_num}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4>{number.other_num}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{number.state?number.state:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4>{number.retailer_name?number.retailer_name:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4>{number.uid_num?number.uid_num:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4>{number.other_num?number.other_num:"अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4>{number.confirmation}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{number.remark?number.remark : "खाली"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4>{number.mail_id?number.mail_id : "खाली"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4>{dateFormatter(number.caf_date)}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4>{number.confirmation?number.confirmation:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{number.remark?number.remark : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4>{number.mail_id?number.mail_id : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4>{dateFormatter(number.caf_date)?dateFormatter(number.caf_date) : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
                                     <th colspan="4">
@@ -291,27 +291,27 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">खाता नंबर</h4>{account.acc_number}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4>{account.bank_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{account.state}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4>{account.branch_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">खाता नंबर</h4>{account.acc_number?account.acc_number : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4>{account.bank_name?account.bank_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{account.state?account.state : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4>{account.branch_name?account.branch_name : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
                                     <td class={dateFormatter(account.mail_date)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_date)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(account.mail_date)!="00-00-0000"?dateFormatter(account.mail_date):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(account.mail_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(account.mail_received)!="00-00-0000"?dateFormatter(account.mail_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4>{account.freeze_amount}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4>{account.kyc_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4>{account.freeze_amount?account.freeze_amount : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4>{account.kyc_name?account.kyc_name : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4>{account.address}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{account.city}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4>{account.state_twice}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4>{account.alternate_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4>{account.address?account.address : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{account.city?account.city : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4>{account.state_twice?account.state_twice : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4>{account.alternate_number?account.alternate_number : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4>{account.profit_acc}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4>{account.internet_banking}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4>{account.bank_manager_name}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4>{account.profit_acc?account.profit_acc : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4>{account.internet_banking?account.internet_banking : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4>{account.bank_manager_name?account.bank_manager_name : "अभी तक दर्ज नहीं है"}</td>
                                       <td></td>
                                 </tr>
                                 <tr>
@@ -371,25 +371,25 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI का नाम</h4>{ewallet.upi_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI का नाम</h4>{ewallet.upi_name?ewallet.upi_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number?ewallet.mob_number : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id?ewallet.vpa_id : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement?ewallet.statement : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
                                     <td class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-0000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(ewallet.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-0000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account?ewallet.linked_account : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address?ewallet.ip_address : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number?ewallet.ip_add_number : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id?ewallet.device_id : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise?ewallet.merchandise : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount?ewallet.hold_amount : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number?ewallet.number : "अभी तक दर्ज नहीं है"}</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -444,10 +444,10 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का नाम</h4>{website.website_name}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का डोमेन</h4>{website.website_domain}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल आईडी</h4>{website.mail_id}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4>{website.website_mobile_number}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का नाम</h4>{website.website_name?website.website_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का डोमेन</h4>{website.website_domain?website.website_domain : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल आईडी</h4>{website.mail_id?website.mail_id : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4>{website.website_mobile_number?website.website_mobile_number : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                            </tbody>
                         </table>
