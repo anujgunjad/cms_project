@@ -29,7 +29,7 @@
                     <div class="three wide field dropdown-search-form">
                         <label>Complaint Type</label>
                         <select id="complaint-type" onchange="valueChange();">
-                            <option value="2">Complaint Type</option>
+                            <option value="0">Complaint Type</option>
                             <option value="1">सोशल मीडिया</option>
                             <option value="2">ऑनलाइन ठगी</option>
                             <option value="3">साइबर आतंकवाद</option>
@@ -39,7 +39,7 @@
                     <div class="three wide field dropdown-search-form">
                         <label>Sub Complaint Type</label>
                         <select id="sub-complaint-type" onchange="valueChange();">
-                            <option value="2">Sub-Complaint Type</option>
+                            <option value="0">Sub-Complaint Type</option>
                             <option value="1">Online Bank Fraud</option>
                             <option value="2">Job Fraud</option>
                             <option value="3">OLX Fraud</option>
@@ -62,7 +62,7 @@
                     <div class="two wide field dropdown-search-form">
                         <label>Gender</label>
                         <select id="gender" onchange="valueChange();">
-                            <option value="male">Gender</option>
+                            <option value="0">Gender</option>
                             <option value="male">पुरुष</option>
                             <option value="female">महिला</option>
                             <option value="other">अन्य</option>

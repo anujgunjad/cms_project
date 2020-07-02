@@ -21,7 +21,7 @@ const timeDateFormatter = (arry) => {
         }
         componentDidMount(){
           // this.allComplainee();
-          // this.filterComplaints();
+            this.valueChange();
         }
         allComplainee = () => {
           fetch('../api/data/read_all_complainee.php')
@@ -86,11 +86,11 @@ const timeDateFormatter = (arry) => {
         }
       }
 
-const valueChange = () => {
   const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
+const valueChange = () => {
 
-      let selectedMinAmt = document.getElementById("min-amount").value?document.getElementById("min-amount").value:1000,
-          selectedMaxAmt = document.getElementById("max-amount").value?document.getElementById("max-amount").value:9000000,
+      let selectedMinAmt = document.getElementById("min-amount").value?document.getElementById("min-amount").value:0,
+          selectedMaxAmt = document.getElementById("max-amount").value?document.getElementById("max-amount").value:0,
           complaintType = document.getElementById("complaint-type"),
           selectedComplaintType = complaintType.options[complaintType.selectedIndex].value,
           subComplaintType = document.getElementById("sub-complaint-type"),
