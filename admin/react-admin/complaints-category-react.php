@@ -21,7 +21,7 @@ const timeDateFormatter = (arry) => {
         }
         componentDidMount(){
           // this.allComplainee();
-            this.valueChange();
+            // this.valueChange();
         }
         allComplainee = () => {
           fetch('../api/data/read_all_complainee.php')
@@ -86,8 +86,8 @@ const timeDateFormatter = (arry) => {
         }
       }
 
-  const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
-const valueChange = () => {
+      const valueChange = () => {
+        const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
 
       let selectedMinAmt = document.getElementById("min-amount").value?document.getElementById("min-amount").value:0,
           selectedMaxAmt = document.getElementById("max-amount").value?document.getElementById("max-amount").value:0,
