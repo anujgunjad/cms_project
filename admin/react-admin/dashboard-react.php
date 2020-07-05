@@ -52,6 +52,7 @@ const timeDateFormatter = (arry) => {
             fetch('../api/data/read_all_complainee.php')
             .then(res => res.json())
             .then((data) => {
+                console.log(data);
                 this.setState({ cardData: data.complainee})
                 this.setState({ contentTwo: this.state.cardData.length})
                 this.setState({hrefOne:`show-complaint.php?id=${this.state.cardData[this.state.cardData.length - 1].complaint_id}`}) 
