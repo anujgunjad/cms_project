@@ -60,71 +60,71 @@
                             </div>
                             <div id="sub-complaint-type" class="category-dropdown">                            
                                 <div style="border-radius: 5px 5px 0 0" class="category-dropdown__item pl-2 pt-1">
-                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="1" tabindex="0" class="mt-1">
                                         <label class="ml-1">Online Bank Fraud</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="2" tabindex="0" class="mt-1">
                                         <label class="ml-1">Job Fraud</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="3" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="3" tabindex="0" class="mt-1">
                                         <label class="ml-1">Olx Fraud</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="4" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="4" tabindex="0" class="mt-1">
                                         <label class="ml-1">KYC Fraud</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="5" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="5" tabindex="0" class="mt-1">
                                         <label class="ml-1">Link Fraud</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="6" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="6" tabindex="0" class="mt-1">
                                         <label class="ml-1">Screen App Sharing</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="7" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type"  type="checkbox" value="7" tabindex="0" class="mt-1">
                                         <label class="ml-1">Fake Facebook</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="8" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="8" tabindex="0" class="mt-1">
                                         <label class="ml-1">Fake Instagram</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="9" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="9" tabindex="0" class="mt-1">
                                         <label class="ml-1">Facebook Hack</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="10" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="10" tabindex="0" class="mt-1">
                                         <label class="ml-1">Instagram Hack</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="11" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="11" tabindex="0" class="mt-1">
                                         <label class="ml-1">Gmail Hack</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="12" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="12" tabindex="0" class="mt-1">
                                         <label class="ml-1">Social Media Harassment</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="13" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="13" tabindex="0" class="mt-1">
                                         <label class="ml-1">Whatsapp Harassment</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="14" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="14" tabindex="0" class="mt-1">
                                         <label class="ml-1">Whatsapp Hack</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="15" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="15" tabindex="0" class="mt-1">
                                         <label class="ml-1">Metrimonial Fraud</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="16" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="16" tabindex="0" class="mt-1">
                                         <label class="ml-1">Custom Fraud</label>
                                 </div>
                                 <div style="" class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="17" tabindex="0" class="mt-1">
+                                        <input name="sub-complaint-type" type="checkbox" value="17" tabindex="0" class="mt-1">
                                         <label class="ml-1">Other</label>
                                 </div>
                             </div>
@@ -138,15 +138,15 @@
                             </div>
                             <div id="gender" class="category-dropdown">                            
                                 <div style="border-radius: 5px 5px 0 0"  class="category-dropdown__item pl-2 pt-1">
-                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <input name="gender" type="checkbox" value="1" tabindex="0" class="mt-1">
                                         <label class="ml-1">Male</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <input name="gender" type="checkbox" value="2" tabindex="0" class="mt-1">
                                         <label class="ml-1">Female</label>
                                 </div>
                                 <div style="border-radius:0 0 5px 5px; border-bottom: 1px solid #d6d6d6;" class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="3" tabindex="0" class="mt-1">
+                                        <input name="gender" type="checkbox" value="3" tabindex="0" class="mt-1">
                                         <label class="ml-1">Other</label>
                                 </div>
                             </div>
@@ -160,11 +160,11 @@
                             </div>
                             <div id="age" class="category-dropdown">                            
                                 <div style="border-radius: 5px 5px 0 0"  class="category-dropdown__item pl-2 pt-1">
-                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <input name="age" type="radio" value="1" tabindex="0" class="mt-1">
                                         <label class="ml-1">18 से कम</label>
                                 </div>
                                 <div style="border-radius:0 0 5px 5px; border-bottom: 1px solid #d6d6d6;" class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <input name="age" type="radio" value="2" tabindex="0" class="mt-1">
                                         <label class="ml-1">18 से ज्यादा</label>
                                 </div>
                             </div>
