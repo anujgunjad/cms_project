@@ -104,24 +104,24 @@
             $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, g.gender as ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from $this->complainee_table c  INNER JOIN $this->gender_table as g ON g.id = c.ap_gender  INNER JOIN $this->country co  ON co.id = c.ap_country INNER JOIN $this->state s  ON s.id = c.ap_state INNER JOIN $this->city ci ON ci.id = c.ap_city INNER JOIN $this->complaint_type_table ct ON ct.type_id = c.complaint_type INNER JOIN $this->complaint_sub_type_table cst ON cst.sub_complaint_type_id = c.sub_complaint_type WHERE c.complaint_status = '1'";
             
             if(isset($min_amount, $max_amount) && !empty($min_amount) && !empty($max_amount)){
-                $query .= "AND c.amount BETWEEN $min_amount AND $max_amount";
+                $query .= "AND c.amount >= $min_amount AND c.amount <= $max_amount ";
             }
             if(!empty($compalint_type)){
                 
-                $query .= "AND complaint_type IN($compalint_type)";
+                $query .= " AND complaint_type IN($compalint_type)";
             }
             if(!empty($sub_complaint_type)){
-                $query .= "AND sub_complaint_type IN($sub_complaint_type)";
+                $query .= " AND sub_complaint_type IN($sub_complaint_type) ";
             }
             if(!empty($applicant_gender)){
-                $query .= "AND ap_gender IN($applicant_gender)";
+                $query .= " AND ap_gender IN($applicant_gender) ";
             }
             if(!empty($applicant_age)){
                if($applicant_age ==  1) {
-                   $query .= "AND c.ap_age <= '18'";
+                   $query .= " AND c.ap_age <= '18' ";
                }
                else if($applicant_age == 2) {
-                $query .= "AND c.ap_age > '18'";
+                $query .= " AND c.ap_age > '18' ";
                }
             }
             

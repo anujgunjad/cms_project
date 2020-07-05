@@ -80,21 +80,7 @@ $(document).ready(function () {
           icon: 'success',
           button: 'Next',
         }).then(() => {
-          $('#numModel').modal('hide');
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('new-row').innerHTML = this.responseText;
-            }
-            $('#old-row').replaceWith($('#new-row'));
-          };
-          xmlhttp.open('GET', '../displayFiles/displayNumber.php', true);
-          xmlhttp.send();
-          $('#insertNumber')
-            .find('input')
-            .each((i, el) => {
-              $(el).val('');
-            });
+          console.log('DONE');
         });
       },
       error: function () {},

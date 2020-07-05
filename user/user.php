@@ -226,11 +226,11 @@ if($num > 0)
                                         <div class="card card-body">
                                             <div class="num-detail-form-div m-4 ">
                                                 <form id="num_detailform" class="num-detail-form ui blue segment form"
-                                                    method="POST" action="insertFiles/insert_accountForm.php">
+                                                    method="POST" action="insertFiles/insertNumber.php">
                                                     <div class="three fields">
                                                         <div class="field">
                                                             <label>संदेही का नंबर </label>
-                                                            <input type="number" name="number_one"
+                                                            <input type="text" name="number_one"
                                                                 placeholder="संदेही का नंबर ">
                                                         </div>
                                                         <div class="field">
@@ -268,11 +268,11 @@ if($num > 0)
                                                         </div>
                                                         <div class="field">
                                                             <label>जिला</label>
-                                                            <input type="text" name="district" placeholder="जिला">
+                                                            <input type="text" name="city" placeholder="जिला">
                                                         </div>
                                                         <div class="field">
                                                             <label>प्रदेश</label>
-                                                            <input type="text" name="city" placeholder="प्रदेश">
+                                                            <input type="text" name="state" placeholder="प्रदेश">
                                                         </div>
                                                         <div class="field">
                                                             <label>रिटेलर नाम</label>
@@ -284,26 +284,25 @@ if($num > 0)
                                                     <div class="four fields">
                                                         <div class="fifteen wide field">
                                                             <label>यू आई डी नंबर</label>
-                                                            <input type="number" name="uid_num"
+                                                            <input type="text" name="uid_num"
                                                                 placeholder="यू आई डी नंबर">
                                                         </div>
                                                         <div class="fifteen wide field">
                                                             <label>अन्य नंबर</label>
-                                                            <input type="number" name="other_num"
-                                                                placeholder="अन्य नंबर">
+                                                            <input type="text" name="other_num" placeholder="अन्य नंबर">
                                                         </div>
                                                         <div class="nine wide field">
                                                             <label>पीडीएफ</label>
-                                                            <input type="text" name="pdf" placeholder="पीडीएफ">
+                                                            <input type="file" name="pdf" placeholder="पीडीएफ">
                                                         </div>
                                                         <div class="field">
                                                             <label>तस्दीक</label>
                                                             <div class="fields">
-                                                                <select name="crime_type" class="ui fluid dropdown">
+                                                                <select name="confirmation" class="ui fluid dropdown">
                                                                     <option value='' selected='' disabled=''>तस्दीक
                                                                     </option>
-                                                                    <option value='' id=''>हाँ</option>
-                                                                    <option value='' id=''>नही</option>
+                                                                    <option value='हाँ' id=''>हाँ</option>
+                                                                    <option value='नही' id=''>नही</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -326,324 +325,6 @@ if($num > 0)
                                                             <input type="date" name="caf_date" placeholder="कैफ दिनाक">
                                                         </div>
                                                     </div>
-                                                    <!-------------------------->
-                                                    <!--------CDR details------->
-                                                    <!-------------------------->
-                                                    <button type="button" id="btn_addcdr"
-                                                        class="add-number-cdr-btn ui orange button my-3"
-                                                        data-toggle="modal" data-target="#suspect_no_cdr_details">
-                                                        Add CDR details
-                                                    </button>
-                                                    <!-- Modal -->
-                                                    <div id="suspect_no_cdr_details" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog modal-lg">
-
-                                                            <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Add CDR details</h4>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal">&times;</button>
-
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>सी डी आर नंबर </label>
-                                                                            <input type="number" name="cdr_number"
-                                                                                placeholder="सी डी आर नंबर">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>सी डी आर नंबर </label>
-                                                                            <input type="number" name="cdr_number"
-                                                                                placeholder="सी डी आर नंबर">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>इमेल जावक </label>
-                                                                            <input type="date" name="cdr_email_outgoing"
-                                                                                placeholder="इमेल जावक">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>मेल प्राप्त </label>
-                                                                            <input type="date" name="cdr_mail_recieved"
-                                                                                placeholder="मेल प्राप्त दिनाक">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>IMEI</label>
-                                                                            <input type="number" name="imei_number"
-                                                                                placeholder="IMEI number">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>IMSI</label>
-                                                                            <input type="number" name="imsi_number"
-                                                                                placeholder="IMSI number">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>लोकेशन </label>
-                                                                            <input type="text" name="cdr_location"
-                                                                                placeholder="लोकेशन">
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>लोकेशन दिनाक समय </label>
-                                                                            <input type="datetime-local"
-                                                                                name="cdr_location_datetime"
-                                                                                placeholder="लोकेशन दिनाक समय">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>Frequent callers 5</label>
-                                                                            <input type="number"
-                                                                                name="cdr_frequent_caller"
-                                                                                placeholder="Frequent callers 5">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>night location</label>
-                                                                            <input type="text" name="cdr_night_location"
-                                                                                placeholder="night location">
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>messages bank/UPI/wallet/services
-                                                                                name
-                                                                            </label>
-                                                                            <input type="text" name="cdr_services_name"
-                                                                                placeholder="messages bank/UPI/wallet/services name">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>संदिग्ध नंबर </label>
-                                                                            <input type="number"
-                                                                                name="cdr_suspect_number"
-                                                                                placeholder="संदिग्ध नंबर">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>सी डी आर, पी डी ऍफ़ </label>
-                                                                            <input type="file" name="cdr_pdf"
-                                                                                placeholder="सी डी आर, पी डी ऍफ़">
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="ui button form-btn" type="submit"
-                                                                        id="btn_submit_cdr" data-dismiss="modal">submit
-                                                                        cdr</button>
-                                                                    <button type="button" class="btn btn-default"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <!-------------------------->
-                                                    <div id="suspect_num_table_cdr">
-                                                        <table class="table table-bordered p-0 m-0">
-                                                            <thead>
-                                                                <tr id="table-head">
-                                                                    <th scope="col">S.No</th>
-                                                                    <th scope="col">CDR numbers</th>
-                                                                    <th scope="col">Update/Delete</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="old-row">
-                                                                <tr>
-                                                                    <td>No Number Added Yet</td>
-                                                                    <td>No Number Added Yet</td>
-                                                                    <td>No Number Added Yet</td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody id="new-row"></tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-------------------------->
-                                                    <!---CDR details ends------->
-                                                    <!-------------------------->
-
-                                                    <!----------------------------->
-                                                    <!---------IPDR details-------->
-                                                    <!----------------------------->
-
-                                                    <button type="button" id="btn_addipdr"
-                                                        class="add-number-ipdr-btn ui orange button my-3"
-                                                        data-toggle="modal" data-target="#suspect_no_ipdr_details">
-                                                        Add IPDR details
-                                                    </button>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="suspect_no_ipdr_details" role="dialog">
-                                                        <div class="modal-dialog">
-
-                                                            <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title"> Add IPDR details</h4>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal">&times;</button>
-
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>आई पी डी आर </label>
-                                                                            <input type="number" name="ipdr_number"
-                                                                                placeholder="आई पी डी आर ">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>इमेल जावक </label>
-                                                                            <input type="date"
-                                                                                name="ipdr_email_outgoing"
-                                                                                placeholder="इमेल जावक">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>मेल प्राप्त </label>
-                                                                            <input type="date" name="ipdr_mail_recieved"
-                                                                                placeholder="मेल प्राप्त दिनाक">
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>लोकेशन </label>
-                                                                            <input type="text" name="ipdr_location"
-                                                                                placeholder="लोकेशन">
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>Websites/apps </label>
-                                                                            <input type="text" name="ipdr_websites"
-                                                                                placeholder="Websites/apps">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="ui button form-btn" type="submit"
-                                                                        id="btn_submit_ipdr" data-dismiss="modal">submit
-                                                                        ipdr</button>
-                                                                    <button type="button" class="btn btn-default"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <!----------------------------->
-                                                    <div id="suspect_num_table_ipdr">
-                                                        <table class="table table-bordered p-0 m-0">
-                                                            <thead>
-                                                                <tr id="table-head">
-                                                                    <th scope="col">S.No</th>
-                                                                    <th scope="col">IPDR numbers</th>
-                                                                    <th scope="col">Update/Delete</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="old-row">
-                                                                <tr>
-                                                                    <td>No Number Added Yet</td>
-                                                                    <td>No Number Added Yet</td>
-                                                                    <td>No Number Added Yet</td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody id="new-row"></tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!----------------------------->
-                                                    <!------IPDR details ends------>
-                                                    <!----------------------------->
-
-                                                    <!----------------------------->
-                                                    <!-------UPI Details----------->
-                                                    <!----------------------------->
-                                                    <button type="button" id="btn_addupi"
-                                                        class="add-number-ipdr-btn ui orange button my-3"
-                                                        data-toggle="modal" data-target="#suspect_no_upi_details">
-                                                        Add UPI details
-                                                    </button>
-                                                    <!-- Modal -->
-                                                    <div id="suspect_no_upi_details" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-
-                                                            <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title"> Add UPI details</h4>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal">&times;</button>
-
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>UPI</label>
-                                                                            <input type="text" name="upi_id"
-                                                                                placeholder="UPI id ">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <label>UPI Link</label>
-                                                                            <select name="UPI Link" class="ui dropdown">
-                                                                                <option type="radio" value="हाँ"
-                                                                                    name="upi_link_confirm">हाँ</option>
-                                                                                <option type="radio" value="नही"
-                                                                                    name="upi_link_confirm">नही</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-sm">
-                                                                            <label>UPI name</label>
-                                                                            <input type="text" name="upi_name"
-                                                                                placeholder="UPI name ">
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="ui button form-btn" type="submit"
-                                                                        id="btn_submit_upi" data-dismiss="modal">submit
-                                                                        upi details</button>
-                                                                    <button type="button" class="btn btn-default"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-
-                                                    <!--------------------------->
-                                                    <div id="suspect_num_table_upi">
-                                                        <table class="table table-bordered p-0 m-0">
-                                                            <thead>
-                                                                <tr id="table-head">
-                                                                    <th scope="col">S.No</th>
-                                                                    <th scope="col">UPI id's</th>
-                                                                    <th scope="col">Update/Delete</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="old-row">
-                                                                <tr>
-                                                                    <td>No Number Added Yet</td>
-                                                                    <td>No Number Added Yet</td>
-                                                                    <td>No Number Added Yet</td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody id="new-row"></tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!----------------------------->
-                                                    <!-------UPI Details ends ----------->
-                                                    <!----------------------------->
-                                                    <br>
                                                     <div class="field">
                                                         <button class="ui button form-btn" name="number_form"
                                                             type="submit">
@@ -651,6 +332,325 @@ if($num > 0)
                                                         </button>
                                                     </div>
                                                 </form>
+                                                <!-------------------------->
+                                                <!--------CDR details------->
+                                                <!-------------------------->
+                                                <button type="button" id="btn_addcdr"
+                                                    class="add-number-cdr-btn ui orange button my-3" data-toggle="modal"
+                                                    data-target="#suspect_no_cdr_details">
+                                                    Add CDR details
+                                                </button>
+                                                <!-- Modal -->
+                                                <div id="suspect_no_cdr_details" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog modal-xl">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Add CDR details</h4>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal">&times;</button>
+
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>सी डी आर नंबर </label>
+                                                                        <input type="number" name="cdr_number"
+                                                                            placeholder="सी डी आर नंबर">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>सी डी आर नंबर </label>
+                                                                        <input type="number" name="cdr_number"
+                                                                            placeholder="सी डी आर नंबर">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>इमेल जावक </label>
+                                                                        <input type="date" name="cdr_email_outgoing"
+                                                                            placeholder="इमेल जावक">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>मेल प्राप्त </label>
+                                                                        <input type="date" name="cdr_mail_recieved"
+                                                                            placeholder="मेल प्राप्त दिनाक">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>IMEI</label>
+                                                                        <input type="number" name="imei_number"
+                                                                            placeholder="IMEI number">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>IMSI</label>
+                                                                        <input type="number" name="imsi_number"
+                                                                            placeholder="IMSI number">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>लोकेशन </label>
+                                                                        <input type="text" name="cdr_location"
+                                                                            placeholder="लोकेशन">
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>लोकेशन दिनाक समय </label>
+                                                                        <input type="datetime-local"
+                                                                            name="cdr_location_datetime"
+                                                                            placeholder="लोकेशन दिनाक समय">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>Frequent callers 5</label>
+                                                                        <input type="number" name="cdr_frequent_caller"
+                                                                            placeholder="Frequent callers 5">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>night location</label>
+                                                                        <input type="text" name="cdr_night_location"
+                                                                            placeholder="night location">
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>messages bank/UPI/wallet/services
+                                                                            name
+                                                                        </label>
+                                                                        <input type="text" name="cdr_services_name"
+                                                                            placeholder="messages bank/UPI/wallet/services name">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>संदिग्ध नंबर </label>
+                                                                        <input type="number" name="cdr_suspect_number"
+                                                                            placeholder="संदिग्ध नंबर">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>सी डी आर, पी डी ऍफ़ </label>
+                                                                        <input type="file" name="cdr_pdf"
+                                                                            placeholder="सी डी आर, पी डी ऍफ़">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button class="ui button form-btn" type="submit"
+                                                                    id="btn_submit_cdr" data-dismiss="modal">Submit
+                                                                    CDR</button>
+                                                                <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                                <!-------------------------->
+                                                <div id="suspect_num_table_cdr">
+                                                    <table class="table table-bordered p-0 m-0">
+                                                        <thead>
+                                                            <tr id="table-head">
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">CDR numbers</th>
+                                                                <th scope="col">Update/Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="old-row">
+                                                            <tr>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="new-row"></tbody>
+                                                    </table>
+                                                </div>
+                                                <!-------------------------->
+                                                <!---CDR details ends------->
+                                                <!-------------------------->
+
+                                                <!----------------------------->
+                                                <!---------IPDR details-------->
+                                                <!----------------------------->
+
+                                                <button type="button" id="btn_addipdr"
+                                                    class="add-number-ipdr-btn ui orange button my-3"
+                                                    data-toggle="modal" data-target="#suspect_no_ipdr_details">
+                                                    Add IPDR details
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="suspect_no_ipdr_details" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title"> Add IPDR details</h4>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal">&times;</button>
+
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>आई पी डी आर </label>
+                                                                        <input type="number" name="ipdr_number"
+                                                                            placeholder="आई पी डी आर ">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>इमेल जावक </label>
+                                                                        <input type="date" name="ipdr_email_outgoing"
+                                                                            placeholder="इमेल जावक">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>मेल प्राप्त </label>
+                                                                        <input type="date" name="ipdr_mail_recieved"
+                                                                            placeholder="मेल प्राप्त दिनाक">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>लोकेशन </label>
+                                                                        <input type="text" name="ipdr_location"
+                                                                            placeholder="लोकेशन">
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>Websites/apps </label>
+                                                                        <input type="text" name="ipdr_websites"
+                                                                            placeholder="Websites/apps">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button class="ui button form-btn" type="submit"
+                                                                    id="btn_submit_ipdr" data-dismiss="modal">submit
+                                                                    ipdr</button>
+                                                                <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <!----------------------------->
+                                                <div id="suspect_num_table_ipdr">
+                                                    <table class="table table-bordered p-0 m-0">
+                                                        <thead>
+                                                            <tr id="table-head">
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">IPDR numbers</th>
+                                                                <th scope="col">Update/Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="old-row">
+                                                            <tr>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="new-row"></tbody>
+                                                    </table>
+                                                </div>
+                                                <!----------------------------->
+                                                <!------IPDR details ends------>
+                                                <!----------------------------->
+
+                                                <!----------------------------->
+                                                <!-------UPI Details----------->
+                                                <!----------------------------->
+                                                <button type="button" id="btn_addupi"
+                                                    class="add-number-ipdr-btn ui orange button my-3"
+                                                    data-toggle="modal" data-target="#suspect_no_upi_details">
+                                                    Add UPI details
+                                                </button>
+                                                <!-- Modal -->
+                                                <div id="suspect_no_upi_details" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title"> Add UPI details</h4>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal">&times;</button>
+
+                                                            </div>
+
+                                                            <div class="modal-body">
+
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>UPI</label>
+                                                                        <input type="text" name="upi_id"
+                                                                            placeholder="UPI id ">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm">
+                                                                        <label>UPI Link</label>
+                                                                        <select name="UPI Link" class="ui dropdown">
+                                                                            <option type="radio" value="हाँ"
+                                                                                name="upi_link_confirm">हाँ</option>
+                                                                            <option type="radio" value="नही"
+                                                                                name="upi_link_confirm">नही</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm">
+                                                                        <label>UPI name</label>
+                                                                        <input type="text" name="upi_name"
+                                                                            placeholder="UPI name ">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button class="ui button form-btn" type="submit"
+                                                                    id="btn_submit_upi" data-dismiss="modal">Submit
+                                                                    UPI</button>
+                                                                <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <!--------------------------->
+                                                <div id="suspect_num_table_upi">
+                                                    <table class="table table-bordered p-0 m-0">
+                                                        <thead>
+                                                            <tr id="table-head">
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">UPI id's</th>
+                                                                <th scope="col">Update/Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="old-row">
+                                                            <tr>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                                <td>No Number Added Yet</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="new-row"></tbody>
+                                                    </table>
+                                                </div>
+                                                <!----------------------------->
+                                                <!-------UPI Details ends ----------->
+                                                <!----------------------------->
+                                                <br>
+
+
                                             </div>
                                         </div>
                                     </div>
