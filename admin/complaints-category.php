@@ -59,7 +59,7 @@
                                 <label>Sub Complaint Type <i style="float:right; margin-top:5px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></label>
                             </div>
                             <div id="sub-complaint-type" class="category-dropdown">                            
-                                <div class="category-dropdown__item pl-2 pt-1">
+                                <div style="border-radius: 5px 5px 0 0" class="category-dropdown__item pl-2 pt-1">
                                         <input  type="checkbox" value="1" tabindex="0" class="mt-1">
                                         <label class="ml-1">Online Bank Fraud</label>
                                 </div>
@@ -130,7 +130,49 @@
                             </div>
                         </div>
                     </div>
+                    <div class="field">
+                        <label>Gender</label>
+                        <div class="category-dropdown-wrapper">
+                            <div class="showing-item" onclick="showGenderDropdown();">
+                                <label>Gender <i style="float:right; margin-top:5px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></label>
+                            </div>
+                            <div id="gender" class="category-dropdown">                            
+                                <div style="border-radius: 5px 5px 0 0"  class="category-dropdown__item pl-2 pt-1">
+                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Male</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Female</label>
+                                </div>
+                                <div style="border-radius:0 0 5px 5px; border-bottom: 1px solid #d6d6d6;" class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="3" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Age</label>
+                        <div class="category-dropdown-wrapper">
+                            <div class="showing-item" onclick="showAgeDropdown();">
+                                <label>Age <i style="float:right; margin-top:5px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></label>
+                            </div>
+                            <div id="age" class="category-dropdown">                            
+                                <div style="border-radius: 5px 5px 0 0"  class="category-dropdown__item pl-2 pt-1">
+                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <label class="ml-1">18 से कम</label>
+                                </div>
+                                <div style="border-radius:0 0 5px 5px; border-bottom: 1px solid #d6d6d6;" class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <label class="ml-1">18 से ज्यादा</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
             </div>
+        </div>
         </div>
         <div id="render-container">
             <!-- React element -->

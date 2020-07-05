@@ -12,3 +12,11 @@ const showSubComplaintTypeDropdown = () => {
   let element = document.querySelector("#sub-complaint-type");
   element.classList.toggle("show-category-dropdown");
 };
+const showGenderDropdown = () => {
+  let element = document.querySelector("#gender");
+  element.classList.toggle("show-category-dropdown");
+};
+const showAgeDropdown = () => {
+  let element = document.querySelector("#age");
+  element.classList.toggle("show-category-dropdown");
+};
