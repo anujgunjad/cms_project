@@ -34,19 +34,19 @@
                             </div>
                             <div id="complaint-type" class="category-dropdown">                            
                                 <div style="border-radius: 5px 5px 0 0"  class="category-dropdown__item pl-2 pt-1">
-                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <input name="complaint-type"  type="checkbox" value="1" tabindex="0" class="mt-1">
                                         <label class="ml-1">सोशल मीडिया</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <input name="complaint-type" type="checkbox" value="2" tabindex="0" class="mt-1">
                                         <label class="ml-1">ऑनलाइन ठगी</label>
                                 </div>
                                 <div class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="3" tabindex="0" class="mt-1">
+                                        <input name="complaint-type" type="checkbox" value="3" tabindex="0" class="mt-1">
                                         <label class="ml-1">साइबर आतंकवाद</label>
                                 </div>
                                 <div style="border-radius:0 0 5px 5px; border-bottom: 1px solid #d6d6d6;" class="category-dropdown__item pl-2">
-                                        <input  type="checkbox" value="4" tabindex="0" class="mt-1">
+                                        <input name="complaint-type" type="checkbox" value="4" tabindex="0" class="mt-1">
                                         <label class="ml-1">अन्य</label>
                                 </div>
                             </div>
