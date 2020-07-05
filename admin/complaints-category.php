@@ -28,32 +28,26 @@
                     </div>
                     <div class="field">
                         <label>Complaint Type</label>
-                        <div class="category-dropdown">
-                            <div class="category-dropdown__item">
-                                    <label>Complaint Type</label>
+                        <div class="category-dropdown-wrapper">
+                            <div class="showing-item">
+                                <label>Complaint Type <i style="float:right; margin-top:5px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></label>
                             </div>
-                            <div class="category-dropdown__item">
-                                <div class="ui checkbox">
-                                    <input type="checkbox" value="1" tabindex="0" class="hidden">
-                                    <label>सोशल मीडिया</label>
+                            <div class="category-dropdown">                            
+                                <div class="category-dropdown__item pl-2 pt-1">
+                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <label class="ml-1">सोशल मीडिया</label>
                                 </div>
-                            </div>
-                            <div class="category-dropdown__item">
-                                <div class="ui checkbox">
-                                    <input type="checkbox" value="2" tabindex="0" class="hidden">
-                                    <label>ऑनलाइन ठगी</label>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <label class="ml-1">ऑनलाइन ठगी</label>
                                 </div>
-                            </div>
-                            <div class="category-dropdown__item">
-                                <div class="ui checkbox">
-                                    <input type="checkbox" value="3" tabindex="0" class="hidden">
-                                    <label>साइबर आतंकवाद</label>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="3" tabindex="0" class="mt-1">
+                                        <label class="ml-1">साइबर आतंकवाद</label>
                                 </div>
-                            </div>
-                            <div class="category-dropdown__item">
-                                <div class="ui checkbox">
-                                    <input type="checkbox" value="4" tabindex="0" class="hidden">
-                                    <label>अन्य</label>
+                                <div style="border-radius:0 0 5px 5px" class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="4" tabindex="0" class="mt-1">
+                                        <label class="ml-1">अन्य</label>
                                 </div>
                             </div>
                         </div>
