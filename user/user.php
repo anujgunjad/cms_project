@@ -1345,8 +1345,9 @@ if($num > 0)
             <!--Sementic JS-->
             <script src="../dependencies/semantic/dist/semantic.min.js"></script>
             <!--Bootstrap JS-->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
-            <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- Commented bootstrap cdns (Shivang) -->
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+            <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script> -->
             <!--External JS-->
             <script src="js/insertbasic.js"></script>
             <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
