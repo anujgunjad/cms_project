@@ -17,23 +17,26 @@ const timeDateFormatter = (arry) => {
      class Complaints extends React.Component {
         state = {
           complaints: [],
-          message:"",
+          maxAmount:"",
         }
         componentDidMount(){
-          // this.allComplainee();
+           this.allComplainee();
             // this.valueChange();
         }
         allComplainee = () => {
           fetch('../api/data/read_all_complainee.php')
                   .then(res => res.json())
                   .then((data) => {
-                    this.setState({ complaints: data.complainee })
-                    console.log(this.state.complaints)
+                    this.setState({ complaints: data.complainee})
+                    this.setState({ maxAmount: data.more_data[0].max_amount })
+                    console.log(this.state.maxAmount)
                   })
                   .catch(console.log)
           }
         filterComplaints = (minAmount,maxAmount,complaintType,subComplaintType,gender,age) => {
-          fetch(`../api/data/filter.php?min_amount=${minAmount}&max_amount=${maxAmount}&complaint_type=${complaintType}&sub_complaint_type=${subComplaintType}&applicant_gender=${gender}&applicant_age=${age}`)
+             let maxNewAmount = maxAmount == 0 ?this.state.maxAmount:maxAmount;
+             console.log(maxNewAmount);
+          fetch(`../api/data/filter.php?min_amount=${minAmount}&max_amount=${maxNewAmount}&complaint_type=${complaintType}&sub_complaint_type=${subComplaintType}&applicant_gender=${gender}&applicant_age=${age}`)
                   .then(res => res.json())
                   .then((data) => {
                     this.setState({ complaints:data.applicant})
@@ -86,28 +89,38 @@ const timeDateFormatter = (arry) => {
         }
       }
 
+      const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
       const valueChange = () => {
-        const complaintsTable =  ReactDOM.render(<Complaints />, document.getElementById('render-container'));
-
       let selectedMinAmt = document.getElementById("min-amount").value?document.getElementById("min-amount").value:0,
-          selectedMaxAmt = document.getElementById("max-amount").value?document.getElementById("max-amount").value:0,
-          complaintType = document.getElementById("complaint-type"),
-          selectedComplaintType = complaintType.options[complaintType.selectedIndex].value,
-          subComplaintType = document.getElementById("sub-complaint-type"),
-          selectedSubComplaintType = subComplaintType.options[subComplaintType.selectedIndex].value,
-          gender = document.getElementById("gender"),
-          selectedGender = gender.options[gender.selectedIndex].value,
-          age = document.getElementById("age"),
-          selectedAge = age.options[age.selectedIndex].value;
-    complaintsTable.filterComplaints(selectedMinAmt, selectedMaxAmt,selectedComplaintType,selectedSubComplaintType,selectedGender,selectedAge);
- 
+       selectedMaxAmt = document.getElementById("max-amount").value?document.getElementById("max-amount").value:0;
+       var complaintTypeArray = [];
+       $.each($("input[name='complaint-type']:checked"), function(){
+         complaintTypeArray.push($(this).val());
+            });
+            var argComplaintType = complaintTypeArray.join();
+            var subComplaintTypeArray = [];
+            $.each($("input[name='sub-complaint-type']:checked"), function(){
+                subComplaintTypeArray.push($(this).val());
+              });
+    var argSubComplaintType = subComplaintTypeArray.join();
+    var genderArray = [];
+            $.each($("input[name='gender']:checked"), function(){
+                genderArray.push($(this).val());
+              });
+              var argGender = genderArray.join();
+    var ageArray = [];
+            $.each($("input[name='age']:checked"), function(){
+              ageArray.push($(this).val());
+            });
+            var argAge = ageArray.join();
     console.log(` ==============START===========`);
     console.log(` Min-Amount : ${selectedMinAmt}`);
     console.log(` Max-amount : ${selectedMaxAmt}`);
-    console.log(` Complaint-type : ${selectedComplaintType}`);
-    console.log(` Sub-complaint-type : ${selectedSubComplaintType}`);
-    console.log(` Gender : ${selectedGender}`);
-    console.log(` Age : ${selectedAge}`);
+    console.log(` Complaint-type : ${argComplaintType}`);
+    console.log(` Sub-complaint-type : ${argSubComplaintType}`);
+    console.log(` Gender : ${argGender}`);
+    console.log(` Age : ${argAge}`);
     console.log(` ==============END===========`);
-}
+    complaintsTable.filterComplaints(selectedMinAmt, selectedMaxAmt,argComplaintType,argSubComplaintType,argGender,argAge);
+  }
 </script>
