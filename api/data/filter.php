@@ -10,6 +10,10 @@
     include_once '../../includes/config.php';
     include_once '../objects/filter_objects.php';
 
+    $complaint_type = [];
+    $sub_complaint_type = [];
+    $applicant_gender = [];
+    
      // get keywords
      $min_amount = isset($_GET["min_amount"]) ? $_GET["min_amount"] : die();
      $max_amount = isset($_GET["max_amount"]) ? $_GET["max_amount"] : die();

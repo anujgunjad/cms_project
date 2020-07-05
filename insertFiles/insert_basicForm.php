@@ -19,9 +19,9 @@
     $state = htmlspecialchars(strip_tags($_POST["ap_state"]));
     $city = htmlspecialchars(strip_tags($_POST["ap_city"]));
     $pinCode = htmlspecialchars(strip_tags($_POST["ap_pin_code"]));
-    $apAdhar = htmlspecialchars(strip_tags($_POST["complaint_type"]));
-    $complaintType = htmlspecialchars(strip_tags($_POST["sub_complaint_type"]));
-    $subComplaintType = htmlspecialchars(strip_tags($_POST["it_act"]));
+    $apAdhar = htmlspecialchars(strip_tags($_POST["ap_adhar"]));
+    $complaintType = htmlspecialchars(strip_tags($_POST["complaint_type"]));
+    $subComplaintType = htmlspecialchars(strip_tags($_POST["sub_complaint_type"]));
     $itAct = htmlspecialchars(strip_tags($_POST["it_act"]));
     $bhDv = htmlspecialchars(strip_tags($_POST["bh_dv"]));
     $crimeDate = htmlspecialchars(strip_tags($_POST["crime_date"]));

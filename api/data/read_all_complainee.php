@@ -14,14 +14,25 @@ $db = $database->getConnection();
 $data = new Basic($db);
   
 // query products
-$stmt = $data->readAll_complainee(); //Return stmt
-  
+$stmt = $data->readAll_complainee(); //Return stmt 
 $num = $stmt->rowCount();
-  
-if($num > 0) {
+
+$stmttwo = $data->readMax_Amount();
+$numtwo = $stmttwo->rowCount();
+if($num > 0 && $numtwo > 0) { 
+    
     $data_arr = array(); 
     $data_arr["complainee"] = array();
+    $data_arr["more_data"] = array();
 
+    while($rowtwo = $stmttwo->fetch(PDO::FETCH_ASSOC)){
+        extract($rowtwo);
+        $more_data_items = array(
+           "max_amount" => $max_amount
+        );
+        array_push($data_arr["more_data"] , $more_data_items);
+    }
+    
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $data_items = array(
