@@ -18,6 +18,9 @@
   <div id="dashboard-cards">
     <!-- react-components -->
   </div>
+  <!-- <div id="charts-row">
+  <canvas id="myChart"></canvas>
+  </div> -->
   <h1>Recently Added Complaints</h1>
   <div id="dashboard-complaints">
 
