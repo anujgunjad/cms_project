@@ -29,11 +29,11 @@
                     <div class="field">
                         <label>Complaint Type</label>
                         <div class="category-dropdown-wrapper">
-                            <div class="showing-item">
+                            <div class="showing-item" onclick="showComplaintTypeDropdown();">
                                 <label>Complaint Type <i style="float:right; margin-top:5px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></label>
                             </div>
-                            <div class="category-dropdown">                            
-                                <div class="category-dropdown__item pl-2 pt-1">
+                            <div id="complaint-type" class="category-dropdown">                            
+                                <div style="border-radius: 5px 5px 0 0"  class="category-dropdown__item pl-2 pt-1">
                                         <input  type="checkbox" value="1" tabindex="0" class="mt-1">
                                         <label class="ml-1">सोशल मीडिया</label>
                                 </div>
@@ -45,9 +45,87 @@
                                         <input  type="checkbox" value="3" tabindex="0" class="mt-1">
                                         <label class="ml-1">साइबर आतंकवाद</label>
                                 </div>
-                                <div style="border-radius:0 0 5px 5px" class="category-dropdown__item pl-2">
+                                <div style="border-radius:0 0 5px 5px; border-bottom: 1px solid #d6d6d6;" class="category-dropdown__item pl-2">
                                         <input  type="checkbox" value="4" tabindex="0" class="mt-1">
                                         <label class="ml-1">अन्य</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Sub Complaint Type</label>
+                        <div class="category-dropdown-wrapper">
+                            <div class="showing-item" onclick="showSubComplaintTypeDropdown();">
+                                <label>Sub Complaint Type <i style="float:right; margin-top:5px" class="fa fa-chevron-down fa-fw" aria-hidden="true"></i></label>
+                            </div>
+                            <div id="sub-complaint-type" class="category-dropdown">                            
+                                <div class="category-dropdown__item pl-2 pt-1">
+                                        <input  type="checkbox" value="1" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Online Bank Fraud</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="2" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Job Fraud</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="3" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Olx Fraud</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="4" tabindex="0" class="mt-1">
+                                        <label class="ml-1">KYC Fraud</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="5" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Link Fraud</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="6" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Screen App Sharing</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="7" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Fake Facebook</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="8" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Fake Instagram</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="9" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Facebook Hack</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="10" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Instagram Hack</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="11" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Gmail Hack</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="12" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Social Media Harassment</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="13" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Whatsapp Harassment</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="14" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Whatsapp Hack</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="15" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Metrimonial Fraud</label>
+                                </div>
+                                <div class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="16" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Custom Fraud</label>
+                                </div>
+                                <div style="" class="category-dropdown__item pl-2">
+                                        <input  type="checkbox" value="17" tabindex="0" class="mt-1">
+                                        <label class="ml-1">Other</label>
                                 </div>
                             </div>
                         </div>
