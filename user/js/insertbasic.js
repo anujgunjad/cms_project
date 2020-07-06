@@ -33,38 +33,38 @@ $(document).ready(function () {
     });
   });
 
-  $('#suspectform').on('submit', function (e) {
-    e.preventDefault();
-    $.ajax({
-      url: '../insertFiles/insert_suspectForm.php',
-      type: 'POST',
-      data: new FormData(this),
-      contentType: false,
-      cache: false,
-      processData: false,
-      success: function (data) {
-        console.log(data);
-        swal({
-          title: 'Inserted Successfuly',
-          icon: 'success',
-          button: 'Next',
-        }).then(() => {
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txttwo').innerHTML = this.responseText;
-            }
-            $('#suspectFormDiv').replaceWith($('#txttwo'));
-          };
-          xmlhttp.open('GET', '../displayFiles/displaySuspect.php', true);
-          xmlhttp.send();
-        });
-      },
-      error: function () {},
-    });
-  });
+  // $('#suspectform').on('submit', function (e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //     url: '../insertFiles/insert_suspectForm.php',
+  //     type: 'POST',
+  //     data: new FormData(this),
+  //     contentType: false,
+  //     cache: false,
+  //     processData: false,
+  //     success: function (data) {
+  //       console.log(data);
+  //       swal({
+  //         title: 'Inserted Successfuly',
+  //         icon: 'success',
+  //         button: 'Next',
+  //       }).then(() => {
+  //         var xmlhttp = new XMLHttpRequest();
+  //         xmlhttp.onreadystatechange = function () {
+  //           if (this.readyState == 4 && this.status == 200) {
+  //             document.getElementById('txttwo').innerHTML = this.responseText;
+  //           }
+  //           $('#suspectFormDiv').replaceWith($('#txttwo'));
+  //         };
+  //         xmlhttp.open('GET', '../displayFiles/displaySuspect.php', true);
+  //         xmlhttp.send();
+  //       });
+  //     },
+  //     error: function () {},
+  //   });
+  // });
 
-  $('#insertNumber').on('submit', function (e) {
+  $('#num_detailform').on('submit', function (e) {
     e.preventDefault();
     $.ajax({
       url: '../insertFiles/insertNumber.php',

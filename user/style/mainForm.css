@@ -4,8 +4,6 @@
 }
 form {
   margin-top: 5vh !important;
-  margin-left: 3vw !important;
-  margin-right: 3vw !important;
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem !important;
 }
@@ -32,21 +30,17 @@ select {
   background-color: #004ba8 !important;
   color: #fff !important;
 }
-.sec-form {
-  margin-bottom: 20vh !important;
+.sub-head {
+  color: #004ba8;
 }
-.navbar {
-  background-color: #004ba8;
-  height: 80px;
-}
-.navbar ul li a {
-  font-size: 20px;
-}
-
-.add-number-btn {
-  background-color: rgb(221, 0, 0) !important;
+.update-btn {
+  background-color: #ad0000 !important;
   color: #fff !important;
-  width: 170px;
+}
+.modal-form {
+  margin: 0px !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem !important;
 }
 .form-text {
   font-size: 16px;
@@ -59,16 +53,15 @@ select {
   background-color: rgb(197, 198, 255);
   border-radius: 4px;
 }
+.sub-head {
+  color: #004ba8;
+}
 .update-btn {
   background-color: #ad0000 !important;
   color: #fff !important;
 }
-.modal-form {
-  margin: 0px !important;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem !important;
-}
-
-.sub-head {
-  color: #004ba8;
+.add-number-btn {
+  background-color: rgb(221, 0, 0) !important;
+  color: #fff !important;
+  width: 190px;
 }
