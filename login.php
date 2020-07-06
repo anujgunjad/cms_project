@@ -15,9 +15,10 @@
 <h2 class="head-one">Log In</h2>
 	
   <form class="ui form my-form" method="post" action="login.php">
+  	<?php include('errors.php'); ?>
   	<div class="field">
-  		<label class="labels">Username</label>
-  		<input type="text" name="username" required>
+  		<label class="labels">User ID</label>
+  		<input type="text" name="user_id" required>
   	</div>
   	<div class="field">
   		<label class="labels">Password</label>
