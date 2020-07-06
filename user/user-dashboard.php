@@ -1,6 +1,6 @@
+<?php include('../server.php')?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="style/userDashStyle.css" />
     <title>CMS | User Dashboard</title>
 </head>
-
 <body>
 
 
@@ -28,6 +27,7 @@
                         <a class="navbar-brand text-white" href="#">Complaint Managment System | USER Dashboard</a>
                     </li>
                 </ul>
+                <p style="color:#fff" class="pr-2">WELCOME <?php echo $_SESSION['name']?></p>
                 <button type="button" class="btn btn-outline-light">Log Out</button>
             </nav>
             <div class="complaint-box p-4">
