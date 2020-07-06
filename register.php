@@ -1,5 +1,5 @@
 <?php include('server.php') ?>
-<link rel="stylesheet" href="CSS/register.css">
+<link rel="stylesheet" href="style/login.css">
 
 <?php include('header.php') ?>
 <div class="overlay">
@@ -9,17 +9,21 @@
   <form method="post" action="register.php" class="ui form my-form">
 	  <?php include('errors.php'); ?>
   	<div class="field">
-  	  <label class="labels">EmpID*</label>
-  	  <input type="text" name="eid" required>
+  	  <label class="labels">User ID*</label>
+  	  <input type="text" name="user_id" required>
     </div>
     <div class="field">
         <label class="labels">Full Name*</label>
         <input type="text" name="name" required>
   	</div>
-  	<div class="field">
-  	  <label class="labels">Username*</label>
-  	  <input type="text" name="username" >
-  	</div>
+    <div class="field">
+      <label>User Role</label>
+      <select class="ui fluid dropdown">
+        <option value="">User Role</option>
+		<option value="Admin">Admin</option>
+		<option value="User">User</option>
+      </select>
+    </div>
 	<div class="fields">
   	<div class="fifteen wide field">
   	  <label class="labels">Password*</label>

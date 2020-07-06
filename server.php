@@ -20,12 +20,13 @@ if ($conn->connect_error) {
 //REGISTER USER
 if (isset($_POST['reg_user'])) {
     $name = $_POST['name'];
-    $eid = $_POST['eid'];
+    $user_id = $_POST['user_id'];
+    $role = $_POST['role'];
     $password_1 = $_POST['password_1'];
     $password_2 = $_POST['password_2'];
 
-    if (empty($username)) { array_push($errors, "Username is required"); }
-    if (empty($eid)) { array_push($errors, "Employ ID is required"); }
+    if (empty($user_id)) { array_push($errors, "User ID is required"); }
+    if (empty($role)) { array_push($errors, "User Role is required"); }
     if (empty($password_1)) { array_push($errors, "Password is required"); }
     if ($password_1 != $password_2) {
       array_push($errors, "The two passwords do not match");
@@ -33,11 +34,10 @@ if (isset($_POST['reg_user'])) {
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
   
-        $query = "INSERT INTO users (`name`, `eid`, `username`,`password`) 
-                  VALUES('$name', '$eid', '$username', '$password')";
+        $query = "INSERT INTO users (`name`, `userid`, `role`,`password`) 
+                  VALUES('$name', '$user_id', '$role', '$password')";
         mysqli_query($conn, $query);
-        $_SESSION['username'] = $username;
-        header('location: mainForm.php');
+        header('location: login.php');
     }
 }
 // LOGIN USER
@@ -61,7 +61,7 @@ if (isset($_POST['login_user'])) {
           $name = $row['name'];
           $_SESSION['user_id'] = $row['userid'];
           $_SESSION['name'] = strtoupper($name);
-          $_SESSION['role'] = $role['role'];
+          $_SESSION['role'] = $row['role'];
           if($_SESSION['role']=="Admin")
             {
               header('location: admin/dashboard.php');
