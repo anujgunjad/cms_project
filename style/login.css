@@ -1,0 +1,24 @@
+body {
+  background-color: #004ba8 !important;
+}
+.head-one {
+  margin-top: 3vh !important;
+  margin-left: 37vw;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+.form {
+  background: #fff;
+  margin-left: 25vw !important;
+  margin-top: -0.5vh !important;
+  padding: 4vh 4vw 4vh 4vw;
+  width: 38vw;
+}
+.form-btn-one {
+  background-color: #004ba8 !important;
+  color: #fff !important;
+  margin-top: 1vh !important;
+  height: 7vh;
+  width: 100% !important;
+}
