@@ -18,7 +18,7 @@
   	</div>
     <div class="field">
       <label>User Role</label>
-      <select class="ui fluid dropdown">
+      <select class="ui fluid dropdown" name="role">
         <option value="">User Role</option>
 		<option value="Admin">Admin</option>
 		<option value="User">User</option>
