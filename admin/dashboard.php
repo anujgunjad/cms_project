@@ -1,3 +1,4 @@
+<?php include('../server.php')?>
 <?php include("header.php")?>
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
@@ -6,7 +7,7 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link admin-name" href="#">Welcome xyz<span class="sr-only">(current)</span></a>
+              <a class="nav-link admin-name" href="#">WELCOME <?php echo $_SESSION['name']?><span class="sr-only">(current)</span></a>
             </li>
            
           </ul>

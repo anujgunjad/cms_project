@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2020 at 07:27 AM
+-- Generation Time: Jul 08, 2020 at 11:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -44,8 +44,8 @@ CREATE TABLE `bank_accounts_atm` (
 --
 
 INSERT INTO `bank_accounts_atm` (`complaint_id`, `acc_id`, `atm_footage_id`, `atm_footage`, `email_sent`, `email_received`, `created_date`, `last_updated`) VALUES
-('101', '1', '1', 'No', '0000-00-00', '0000-00-00', '2020-06-23 13:05:58', '2020-06-23 13:06:31'),
-('101', '1', '1', 'No', '0000-00-00', '0000-00-00', '2020-06-23 13:05:58', '2020-06-23 13:06:31');
+('101', '1', '1', '', '0000-00-00', '0000-00-00', '2020-07-07 20:16:57', '2020-07-07 20:16:57'),
+('5f049224d0423', '5f04d551f0659', '5f04d7ba9277c', 'हाँ', '0000-00-00', '0000-00-00', '2020-07-07 20:14:50', '2020-07-07 20:14:50');
 
 -- --------------------------------------------------------
 
@@ -69,8 +69,8 @@ CREATE TABLE `bank_accounts_iplogs` (
 --
 
 INSERT INTO `bank_accounts_iplogs` (`complaint_id`, `acc_id`, `iplog_id`, `iplog`, `email_sent`, `email_received`, `created_date`, `last_updated`) VALUES
-('101', '1', '1', 'No', '0000-00-00', '0000-00-00', '2020-06-23 13:07:05', '2020-06-23 13:07:34'),
-('101', '1', '1', 'No', '0000-00-00', '0000-00-00', '2020-06-23 13:07:05', '2020-06-23 13:07:34');
+('101', '1', '1', '', '0000-00-00', '0000-00-00', '2020-07-07 20:23:49', '2020-07-07 20:23:49'),
+('5f049224d0423', '5f04d551f0659', '5f04d991c2dc3', 'हाँ', '0000-00-00', '0000-00-00', '2020-07-07 20:22:41', '2020-07-07 20:22:41');
 
 -- --------------------------------------------------------
 
@@ -112,8 +112,10 @@ INSERT INTO `basic_details` (`complaint_id`, `complaint_no`, `ap_name`, `ap_age`
 ('101', '110/19', 'श्याम लाल ', '40', '1', '7772863775', 'गढ़ा ', '101', '21', '2232', '482001', '11100025648', '2', 2, '66 डी ', '420', '2020-06-10', '10:06:47', '10000', 'उ नि समीर ', '2020-06-23 12:23:34.000000', '2020-06-23 12:24:18.000000', '1'),
 ('102', '110/20', 'ऐश्वर्या लाल ', '40', '1', '7200154601', 'गढ़ा ', '101', '21', '2232', '482001', '11100025648', '2', 2, '66 डी ', '420', '2020-06-10', '10:06:47', '10000', 'उ नि समीर ', '2020-06-23 12:23:34.000000', '2020-06-23 12:24:18.000000', '1'),
 ('103', '110/21', 'श्याम लाल ', '40', '1', '7200154601', 'गढ़ा ', '101', '21', '2232', '482001', '11100025648', '2', 2, '66 डी ', '420', '2020-06-10', '10:06:47', '325000', 'उ नि समीर ', '2020-06-23 12:23:34.000000', '2020-06-23 12:24:18.000000', '1'),
-('104', '110/24', 'राम लाल ', '40', '1', '7200154601', 'गढ़ा ', '101', '21', '2232', '482001', '11100025648', '1', 1, '66 डी ', '420', '2020-06-10', '10:06:47', '325000', 'उ नि समीर ', '2020-06-23 12:23:34.000000', '2020-06-23 12:24:18.000000', '1'),
-('105', '110/25', 'राम लाल ', '16', '1', '7200154601', 'गढ़ा ', '101', '21', '2232', '482001', '11100025648', '1', 1, '66 डी ', '420', '2020-06-10', '10:06:47', '325000', 'उ नि समीर ', '2020-06-23 12:23:34.000000', '2020-06-23 12:24:18.000000', '1');
+('105', '110/25', 'राम लाल ', '16', '1', '7200154601', 'गढ़ा ', '101', '21', '2232', '482001', '11100025648', '1', 1, '66 डी ', '420', '2020-06-10', '10:06:47', '325000', 'उ नि समीर ', '2020-06-23 12:23:34.000000', '2020-06-23 12:24:18.000000', '1'),
+('5f0361b164a02', 's123ewqsdasd', '', '', 'male', '', '', '4', '165', '6433', '', '', '4', 4, '', '', '0000-00-00', '00:00:00', '', '', '2020-07-06 17:38:57.495049', '2020-07-06 17:38:57.495049', '1'),
+('5f049224d0423', 'WE1QE12EWE', '', '', 'female', '', '', '5', '169', '6449', '', '', '1', 2, '', '', '2020-07-02', '00:00:00', '', '', '2020-07-07 15:17:56.853157', '2020-07-07 15:17:56.853157', '1'),
+('5f056f152b852', 'asdasdasd', '', '', 'female', '', '', '5', '169', '6449', '', '', '2', 2, '', '', '0000-00-00', '00:00:00', '', '', '2020-07-08 07:00:37.178359', '2020-07-08 07:00:37.178359', '1');
 
 -- --------------------------------------------------------
 
@@ -52555,7 +52557,7 @@ INSERT INTO `sub_complaint_type` (`sub_complaint_type_id`, `sub_type`) VALUES
 
 CREATE TABLE `suspect_bank_accounts` (
   `complaint_id` varchar(150) NOT NULL,
-  `acc_id` int(200) NOT NULL,
+  `acc_id` varchar(200) NOT NULL,
   `acc_number` varchar(200) NOT NULL,
   `bank_name` varchar(250) NOT NULL,
   `state` varchar(150) NOT NULL,
@@ -52583,7 +52585,7 @@ CREATE TABLE `suspect_bank_accounts` (
 --
 
 INSERT INTO `suspect_bank_accounts` (`complaint_id`, `acc_id`, `acc_number`, `bank_name`, `state`, `branch_name`, `mail_date`, `mail_received`, `freeze_amount`, `kyc_name`, `address`, `city`, `state_twice`, `alternate_number`, `profit_acc`, `internet_banking`, `bank_manager_name`, `bank_manager_number`, `kyc_pdf`, `bank_statement_file`, `created_date`, `last_updated`) VALUES
-('101', 1, '1012000456', 'sbi', 'झारखण्ड ', 'देवघर ', '2019-04-05', '2019-04-15', '50000', 'सुरेश सिंग ', 'सेक्टर 5 ', 'जामतारा ', 'झारखण्ड ', '8824460011', '', 'नही ', 'रामकुमार ', '7588242000', '', '', '2020-06-23 13:01:38', '2020-06-23 13:03:26');
+('101', '1', '1012000456', 'sbi', 'झारखण्ड ', 'देवघर ', '2019-04-05', '2019-04-15', '50000', 'सुरेश सिंग ', 'सेक्टर 5 ', 'जामतारा ', 'झारखण्ड ', '8824460011', '', 'नही ', 'रामकुमार ', '7588242000', '', '', '2020-06-23 13:01:38', '2020-06-23 13:03:26');
 
 -- --------------------------------------------------------
 
@@ -52631,6 +52633,7 @@ CREATE TABLE `suspect_ewallet_info` (
   `email_sent` date NOT NULL,
   `email_received` date NOT NULL,
   `linked_account` varchar(250) NOT NULL,
+  `beneficiary` varchar(350) NOT NULL,
   `ip_address` varchar(200) NOT NULL,
   `ip_add_number` varchar(250) NOT NULL,
   `device_id` varchar(250) NOT NULL,
@@ -52645,8 +52648,8 @@ CREATE TABLE `suspect_ewallet_info` (
 -- Dumping data for table `suspect_ewallet_info`
 --
 
-INSERT INTO `suspect_ewallet_info` (`complaint_id`, `suspect_ewallet_id`, `upi_name`, `mob_number`, `vpa_id`, `statement`, `email_sent`, `email_received`, `linked_account`, `ip_address`, `ip_add_number`, `device_id`, `merchandise`, `hold_amount`, `number`, `created_date`, `last_updated`) VALUES
-('101', '1', 'hdfc', '7942765824', '', 'प्राप्त ', '2019-02-02', '2019-02-16', 'sbi 12558340001 ', '116.144.16.6 ', ' ', 'vivo - 869845789001 ', '', '50000', '', '2020-06-23 13:08:49', '2020-06-23 13:09:43');
+INSERT INTO `suspect_ewallet_info` (`complaint_id`, `suspect_ewallet_id`, `upi_name`, `mob_number`, `vpa_id`, `statement`, `email_sent`, `email_received`, `linked_account`, `beneficiary`, `ip_address`, `ip_add_number`, `device_id`, `merchandise`, `hold_amount`, `number`, `created_date`, `last_updated`) VALUES
+('101', '1', 'hdfc', '7942765824', '', 'प्राप्त ', '2019-02-02', '2019-02-16', 'sbi 12558340001 ', '', '116.144.16.6 ', ' ', 'vivo - 869845789001 ', '', '50000', '', '2020-06-23 13:08:49', '2020-06-23 13:09:43');
 
 -- --------------------------------------------------------
 
@@ -52656,7 +52659,7 @@ INSERT INTO `suspect_ewallet_info` (`complaint_id`, `suspect_ewallet_id`, `upi_n
 
 CREATE TABLE `suspect_numbers` (
   `complaint_id` varchar(150) NOT NULL,
-  `number_id` int(150) NOT NULL,
+  `number_id` varchar(150) NOT NULL,
   `number_one` varchar(100) NOT NULL,
   `company` varchar(50) NOT NULL,
   `files` varchar(50) NOT NULL,
@@ -52684,9 +52687,9 @@ CREATE TABLE `suspect_numbers` (
 --
 
 INSERT INTO `suspect_numbers` (`complaint_id`, `number_id`, `number_one`, `company`, `files`, `email_sent`, `email_received`, `suspect_name`, `suspect_address`, `city`, `state`, `retailer_name`, `uid_num`, `other_num`, `pdf`, `confirmation`, `remark`, `reminder`, `mail_id`, `caf_date`, `created_date`, `last_updated`) VALUES
-('101', 1, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'सुरेन्द्र पाल ', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 09:31:49', '2020-06-24 09:46:10'),
-('101', 2, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'अभय', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 09:31:49', '2020-06-24 09:46:10'),
-('102', 3, '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'अभय', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 09:31:49', '2020-06-24 09:46:10');
+('101', '1', '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'सुरेन्द्र पाल ', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 09:31:49', '2020-06-24 09:46:10'),
+('101', '2', '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'अभय', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 09:31:49', '2020-06-24 09:46:10'),
+('102', '3', '8842005824		', 'idea', 'आधार कार्ड ', '2019-03-15', '2019-03-20', 'अभय', 'नीम वाडा ', '24 परगना ', 'पश्चिम बंगाल ', 'स्याम  मोबाइल ', '12005466758', '7742102783', '', 'नही ', '', '0000-00-00', '', '2018-09-05', '2020-06-24 09:31:49', '2020-06-24 09:46:10');
 
 -- --------------------------------------------------------
 
@@ -52760,7 +52763,7 @@ CREATE TABLE `suspect_number_upi_info` (
   `upi` varchar(150) NOT NULL,
   `upi_name` varchar(200) NOT NULL,
   `upi_link` varchar(200) NOT NULL,
-  `created_date` timestamp NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `last_updated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -52808,7 +52811,7 @@ INSERT INTO `suspect_pan_info` (`complaint_id`, `acc_id`, `pan_info_id`, `pan`, 
 
 CREATE TABLE `suspect_website_info` (
   `complaint_id` varchar(150) NOT NULL,
-  `website_id` int(150) NOT NULL,
+  `website_id` varchar(200) NOT NULL,
   `website_name` varchar(250) NOT NULL,
   `website_domain` varchar(250) NOT NULL,
   `mail_id` varchar(250) NOT NULL,
@@ -52822,11 +52825,23 @@ CREATE TABLE `suspect_website_info` (
 --
 
 INSERT INTO `suspect_website_info` (`complaint_id`, `website_id`, `website_name`, `website_domain`, `mail_id`, `website_mobile_number`, `created_date`, `last_updated`) VALUES
-('101', 1, 'moneybank@account.com', 'Godaddy', 'moneybank@account.com', '7942765824', '2020-06-23 13:18:23', '2020-06-23 13:18:52');
+('101', '1', '', '', '', '', '2020-07-08 07:24:44', '2020-07-08 07:24:44');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bank_accounts_atm`
+--
+ALTER TABLE `bank_accounts_atm`
+  ADD PRIMARY KEY (`atm_footage_id`);
+
+--
+-- Indexes for table `bank_accounts_iplogs`
+--
+ALTER TABLE `bank_accounts_iplogs`
+  ADD PRIMARY KEY (`iplog_id`);
 
 --
 -- Indexes for table `basic_details`
@@ -52872,10 +52887,34 @@ ALTER TABLE `suspect_bank_accounts`
   ADD PRIMARY KEY (`acc_id`);
 
 --
+-- Indexes for table `suspect_ewallet_info`
+--
+ALTER TABLE `suspect_ewallet_info`
+  ADD PRIMARY KEY (`suspect_ewallet_id`);
+
+--
 -- Indexes for table `suspect_numbers`
 --
 ALTER TABLE `suspect_numbers`
   ADD PRIMARY KEY (`number_id`);
+
+--
+-- Indexes for table `suspect_number_cdr_info`
+--
+ALTER TABLE `suspect_number_cdr_info`
+  ADD PRIMARY KEY (`cdr_id`);
+
+--
+-- Indexes for table `suspect_number_ipdr_info`
+--
+ALTER TABLE `suspect_number_ipdr_info`
+  ADD PRIMARY KEY (`ipdr_id`);
+
+--
+-- Indexes for table `suspect_number_upi_info`
+--
+ALTER TABLE `suspect_number_upi_info`
+  ADD PRIMARY KEY (`upi_id`);
 
 --
 -- Indexes for table `suspect_pan_info`
@@ -52922,24 +52961,6 @@ ALTER TABLE `states`
 --
 ALTER TABLE `sub_complaint_type`
   MODIFY `sub_complaint_type_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `suspect_bank_accounts`
---
-ALTER TABLE `suspect_bank_accounts`
-  MODIFY `acc_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `suspect_numbers`
---
-ALTER TABLE `suspect_numbers`
-  MODIFY `number_id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `suspect_website_info`
---
-ALTER TABLE `suspect_website_info`
-  MODIFY `website_id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

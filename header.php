@@ -13,6 +13,6 @@
     <link rel="stylesheet" href="../dependencies/fontawesome/css/all.css">
     <!--External CSS-->
     <link rel="stylesheet" href="style/indexStyle.css" />
-    <title>CMS</title>
+    <title>Complaint Management System </title>
 </head>
 <body>
