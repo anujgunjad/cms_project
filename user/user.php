@@ -61,7 +61,7 @@ if($num > 0)
                         <div class="four wide field">
                             <label><span class="complaint-field">शिकायत क्रमांक *</span></label>
                             <input class="complaint-num-box" type="text" name="complaint_no"
-                                placeholder="शिकायत क्रमांक" />
+                                placeholder="शिकायत क्रमांक" required />
                         </div>
                     </div>
                     <hr />
@@ -76,8 +76,8 @@ if($num > 0)
                         </div>
                         <div class="three wide field">
                             <label>लिंग</label>
-                            <select id="ap_gender" name="ap_gender" class="ui dropdown">
-                                <option value="" selected="" disabled="">लिंग</option>
+                            <select id="ap_gender" name="ap_gender" class="ui dropdown" required>
+                                <option value="">लिंग</option>
                                 <option value="female">महिला</option>
                                 <option value="male">पुरुष</option>
                                 <option value="other">अन्य</option>
@@ -95,21 +95,24 @@ if($num > 0)
                         </div>
                         <div class="four wide field">
                             <label>Country</label>
-                            <select id="ap_country" name="ap_country" class="ui dropdown">
+                            <select id="ap_country" name="ap_country" class="ui dropdown" required>
+                                <?php 
+                                    echo $country;
+                                ?>
                             </select>
                         </div>
                         <div class="four wide field">
                             <label>State</label>
-                            <select id="ap_state" name="ap_state" class="ui dropdown">
-                                <option value="" selected="" disabled="">Select State</option>
+                            <select id="ap_state" name="ap_state" class="ui dropdown" required>
+                                <option value="">Select State</option>
                             </select>
                         </div>
                     </div>
                     <div class="three fields">
                         <div class="six wide field">
                             <label>City</label>
-                            <select id="ap_city" name="ap_city">
-                                <option value="" selected="" disabled="">Select City</option>
+                            <select id="ap_city" name="ap_city" required>
+                                <option value="">Select City</option>
                             </select>
                         </div>
                         <div class="six wide field">
@@ -124,33 +127,35 @@ if($num > 0)
                     <div class="three fields">
                         <div class="six wide field">
                             <label>प्रकार</label>
-                            <select id="complaint_type" name="complaint_type" class="ui fluid dropdown">
-                                <option value="" selected="" disabled="">प्रकार</option>
+                            <select id="complaint_type" name="complaint_type" class="ui fluid dropdown" required>
+                                <option value="">प्रकार</option>
                                 <?php
-                  $complaint_type_query = $db->query("SELECT * from
-                  complaint_type"); $complaint_type_query_num =
-                  $complaint_type_query->rowCount();
-                  if($complaint_type_query_num > 0) { while($rownum =
-                  $complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
-                  $complaint_type.= "<option value=".$rownum['type_id']."
-                    >".$rownum['type']."</option
-                  >"; } } echo $complaint_type; ?>
+                                    $complaint_type_query = $db->query("SELECT * from complaint_type"); 
+                                    $complaint_type_query_num = $complaint_type_query->rowCount();
+                                    if($complaint_type_query_num > 0) { 
+                                        while($rownum = $complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
+                                            $complaint_type.= "<option value=".$rownum['type_id'].">".$rownum['type']."</option>"; 
+                                        } 
+                                    } 
+                                    echo $complaint_type;
+                                ?>
                             </select>
                         </div>
                         <div class="six wide field">
                             <label>उप-प्रकार</label>
-                            <select id="sub_complaint_type" name="sub_complaint_type" class="ui fluid dropdown">
-                                <option value="" selected="" disabled="">उप-प्रकार</option>
+                            <select id="sub_complaint_type" name="sub_complaint_type" class="ui fluid dropdown"
+                                required>
+                                <option value="">उप-प्रकार</option>
                                 <?php
-                  $sub_complaint_type_query = $db->query("SELECT * from
-                  sub_complaint_type"); $sub_complaint_type_query_num =
-                  $sub_complaint_type_query->rowCount();
-                  if($sub_complaint_type_query_num > 0) { while($rownumtwo =
-                  $sub_complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
-                  $sub_complaint_type.= "<option
-                    value=".$rownumtwo['sub_complaint_type_id']."
-                    >".$rownumtwo['sub_type']."</option
-                  >"; } } echo $sub_complaint_type; ?>
+                                    $sub_complaint_type_query = $db->query("SELECT * from sub_complaint_type"); 
+                                    $sub_complaint_type_query_num = $sub_complaint_type_query->rowCount();
+                                        if($sub_complaint_type_query_num > 0) { 
+                                            while($rownumtwo = $sub_complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
+                                             $sub_complaint_type.= "<option value=".$rownumtwo['sub_complaint_type_id'].">".$rownumtwo['sub_type']."</option>"; 
+                                        } 
+                                    } 
+                                    echo $sub_complaint_type; 
+                                ?>
                             </select>
                         </div>
                         <div class="six wide field">
@@ -342,18 +347,12 @@ if($num > 0)
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form id="num_detailform" class="num-detail-form ui blue segment form"
-                                            method="POST" action="insertFiles/insertNumber.php">
+                                        <form id="cdr_detailform" class="cdr-detail-form ui blue segment form"
+                                            method="POST" action="insertFiles/insertCDR.php">
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <label>सी डी आर नंबर </label>
-                                                    <input type="number" name="cdr_number"
-                                                        placeholder="सी डी आर नंबर" />
-                                                </div>
-                                                <div class="col-sm">
-                                                    <label>सी डी आर नंबर </label>
-                                                    <input type="number" name="cdr_number"
-                                                        placeholder="सी डी आर नंबर" />
+                                                    <input type="text" name="cdr_number" placeholder="सी डी आर नंबर" />
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>इमेल जावक </label>
@@ -366,14 +365,14 @@ if($num > 0)
                                                         placeholder="मेल प्राप्त दिनाक" />
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row my-4">
                                                 <div class="col-sm">
                                                     <label>IMEI</label>
-                                                    <input type="number" name="imei_number" placeholder="IMEI number" />
+                                                    <input type="text" name="imei_number" placeholder="IMEI number" />
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>IMSI</label>
-                                                    <input type="number" name="imsi_number" placeholder="IMSI number" />
+                                                    <input type="text" name="imsi_number" placeholder="IMSI number" />
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>लोकेशन </label>
@@ -382,31 +381,31 @@ if($num > 0)
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm">
-                                                    <label>लोकेशन दिनाक समय </label>
-                                                    <input type="datetime-local" name="cdr_location_datetime"
-                                                        placeholder="लोकेशन दिनाक समय" />
+                                                    <label>लोकेशन दिनाक </label>
+                                                    <input type="date" name="cdr_location_date"
+                                                        placeholder="लोकेशन दिनाक" />
                                                 </div>
                                                 <div class="col-sm">
-                                                    <label>Frequent callers 5</label>
-                                                    <input type="number" name="cdr_frequent_caller"
-                                                        placeholder="Frequent callers 5" />
+                                                    <label>लोकेशन समय </label>
+                                                    <input type="time" name="cdr_location_time"
+                                                        placeholder="लोकेशन समय" />
                                                 </div>
                                                 <div class="col-sm">
-                                                    <label>night location</label>
+                                                    <label>Night Location</label>
                                                     <input type="text" name="cdr_night_location"
                                                         placeholder="night location" />
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row my-4">
                                                 <div class="col-sm">
-                                                    <label>messages bank/UPI/wallet/services name
+                                                    <label>Bank/UPI/Wallet/Services name
                                                     </label>
                                                     <input type="text" name="cdr_services_name"
-                                                        placeholder="messages bank/UPI/wallet/services name" />
+                                                        placeholder="Bank/UPI/Wallet/Services name" />
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>संदिग्ध नंबर </label>
-                                                    <input type="number" name="cdr_suspect_number"
+                                                    <input type="text" name="cdr_suspect_number"
                                                         placeholder="संदिग्ध नंबर" />
                                                 </div>
                                                 <div class="col-sm">
@@ -416,8 +415,7 @@ if($num > 0)
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button class="ui button form-btn" type="submit" id="btn_submit_cdr"
-                                                    data-dismiss="modal">
+                                                <button class="ui button form-btn" type="submit" id="btn_submit_cdr">
                                                     Submit CDR
                                                 </button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -471,14 +469,13 @@ if($num > 0)
                                             &times;
                                         </button>
                                     </div>
-                                    <form id="num_detailform" class="num-detail-form ui blue segment form" method="POST"
-                                        action="insertFiles/insertNumber.php">
+                                    <form id="ipdr_detailform" class="ipdr-detail-form ui blue segment form"
+                                        method="POST" action="insertFiles/insertPDR.php">
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <label>आई पी डी आर </label>
-                                                    <input type="number" name="ipdr_number"
-                                                        placeholder="आई पी डी आर " />
+                                                    <input type="text" name="ipdr_number" placeholder="आई पी डी आर " />
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -506,8 +503,7 @@ if($num > 0)
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="ui button form-btn" type="submit" id="btn_submit_ipdr"
-                                                data-dismiss="modal">
+                                            <button class="ui button form-btn" type="submit" id="btn_submit_ipdr">
                                                 Submit IPDR
                                             </button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -558,8 +554,8 @@ if($num > 0)
                                             &times;
                                         </button>
                                     </div>
-                                    <form id="num_detailform" class="num-detail-form ui blue segment form" method="POST"
-                                        action="insertFiles/insertNumber.php">
+                                    <form id="upi_detailform" class="upi-detail-form ui blue segment form" method="POST"
+                                        action="insertFiles/insertUPI.php">
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-sm">
@@ -570,7 +566,9 @@ if($num > 0)
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <label>UPI Link</label>
-                                                    <select name="UPI Link" class="ui dropdown">
+                                                    <select name="upi_link" class="ui dropdown" required>
+                                                        <option type="radio" value="" name="upi_link_confirm">UPI Link
+                                                        </option>
                                                         <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
                                                         </option>
                                                         <option type="radio" value="नही" name="upi_link_confirm">नही
@@ -584,8 +582,7 @@ if($num > 0)
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="ui button form-btn" type="submit" id="btn_submit_upi"
-                                                data-dismiss="modal">
+                                            <button class="ui button form-btn" type="submit" id="btn_submit_upi">
                                                 Submit UPI
                                             </button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -684,20 +681,18 @@ if($num > 0)
                                 </div>
                                 <div class="six wide field">
                                     <label>मेल दिनाक</label>
-                                    <input type="date" name="mail_date" placeholder="ब्रांच नाम" />
+                                    <input type="date" name="mail_date" placeholder="मेल दिनाक" />
                                 </div>
                                 <div class="six wide field">
                                     <label>मेल प्राप्त </label>
-                                    <select name="mail_update" class="ui dropdown">
-                                        <option value="">मेल प्राप्त </option>
-                                        <option type="radio" value="हाँ" name="confirmation">हाँ
-                                        </option>
-                                        <option type="radio" value="नही" name="confirmation">नही
-                                        </option>
-                                    </select>
+                                    <input type="date" name="mail_received" placeholder="मेल प्राप्त " />
                                 </div>
                             </div>
-                            <div class="two fields">
+                            <div class="three fields">
+                                <div class="eight wide field">
+                                    <label>Freeze Amount</label>
+                                    <input type="text" name="freeze_amount" placeholder="Freeze Amount" />
+                                </div>
                                 <div class="eight wide field">
                                     <label>के वाय सी नाम </label>
                                     <input type="text" name="kyc_name" placeholder="के वाय सी नाम " />
@@ -725,10 +720,10 @@ if($num > 0)
                                     <input type="text" name="profit_acc" placeholder="लाभार्थी खाता " />
                                 </div>
                             </div>
-                            <div class="four fields">
+                            <div class="five fields">
                                 <div class="six wide field">
                                     <label>इन्टरनेट बैंकिंग चालू है </label>
-                                    <select name="internet_info" class="ui dropdown">
+                                    <select name="internet_info" class="ui dropdown" required>
                                         <option value="">इन्टरनेट बैंकिंग चालू है </option>
                                         <option type="radio" value="हाँ">हाँ</option>
                                         <option type="radio" value="नही">नही</option>
@@ -745,6 +740,10 @@ if($num > 0)
                                 <div class="six wide field">
                                     <label>के वाय सी पी डी ऍफ़</label>
                                     <input type="file" name="kyc_pdf" placeholder="के वाय सी पी डी ऍफ़" />
+                                </div>
+                                <div class="six wide field">
+                                    <label>Bank Statement File</label>
+                                    <input type="file" name="bank_statement" placeholder="Bank Statement" />
                                 </div>
                             </div>
                             <br />
@@ -772,7 +771,7 @@ if($num > 0)
                                         </button>
                                     </div>
                                     <form id="acc_panform" class="acc-pan-form ui blue segment form" method="POST"
-                                        action="insertFiles/insert_accountForm.php">
+                                        action="insertFiles/insertPAN.php">
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-sm">
@@ -781,7 +780,9 @@ if($num > 0)
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>PAN Verified </label>
-                                                    <select class="ui dropdown" id="pan_verified" name="pan_verified">
+                                                    <select class="ui dropdown" id="pan_verified" name="pan_verified"
+                                                        required>
+                                                        <option type="radio" value="">Pan Verification</option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
@@ -794,14 +795,16 @@ if($num > 0)
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>Aadhar number</label>
-                                                    <input type="number" name="Aadhar_number"
+                                                    <input type="number" name="aadhar_number"
                                                         placeholder="aadhar number" />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <label>Income Tax </label>
-                                                    <select class="ui dropdown" id="incometax" name="incometax">
+                                                    <select class="ui dropdown" id="incometax" name="incometax"
+                                                        required>
+                                                        <option type="radio" value="">Income Tax</option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
@@ -809,20 +812,23 @@ if($num > 0)
                                                 <div class="col-sm">
                                                     <label>GST In </label>
                                                     <select class="ui dropdown" id="gst_in" name="gst_in">
+                                                        <option type="radio" value="">GST In</option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
                                                 </div>
                                                 <div class="col-sm">
-                                                    <label>Tin </label>
-                                                    <select class="ui dropdown" id="Tin" name="Tin">
+                                                    <label>TIN</label>
+                                                    <select class="ui dropdown" id="Tin" name="Tin" required>
+                                                        <option type="radio" value="">TIN</option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
                                                 </div>
                                                 <div class="col-sm">
                                                     <label>Sales Tax </label>
-                                                    <select class="ui dropdown" id="salestax" name="salestax">
+                                                    <select class="ui dropdown" id="salestax" name="salestax" required>
+                                                        <option type="radio" value="">Sales Tax</option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
@@ -830,8 +836,7 @@ if($num > 0)
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="ui button form-btn" type="submit" id="btn_submit_pan"
-                                                data-dismiss="modal">
+                                            <button class="ui button form-btn" type="submit" id="btn_submit_pan">
                                                 Submit PAN details
                                             </button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -886,12 +891,14 @@ if($num > 0)
                                         </button>
                                     </div>
                                     <form id="acc_atmform" class="acc-atm-form ui blue segment form" method="POST"
-                                        action="insertFiles/insert_accountForm.php">
+                                        action="insertFiles/insertATM.php">
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <label>ATM footage </label>
-                                                    <select class="ui dropdown" id="atm_footage" name="atm_footage">
+                                                    <select class="ui dropdown" id="atm_footage" name="atm_footage"
+                                                        required>
+                                                        <option type="radio" value="">ATM Footage</option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
@@ -910,8 +917,7 @@ if($num > 0)
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="ui button form-btn" type="submit" id="btn_submit_pan"
-                                                data-dismiss="modal">
+                                            <button class="ui button form-btn" type="submit" id="btn_submit_pan">
                                                 Submit Atm details
                                             </button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -968,12 +974,13 @@ if($num > 0)
                                         </button>
                                     </div>
                                     <form id="acc_iplogform" class="acc-iplog-form ui blue segment form" method="POST"
-                                        action="insertFiles/insert_accountForm.php">
+                                        action="insertFiles/insertIPLOG.php">
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <label>IPlog </label>
-                                                    <select class="ui dropdown" id="iplog" name="iplog">
+                                                    <select class="ui dropdown" id="iplog" name="iplog" required>
+                                                        <option type="radio" value="">IPLOG </option>
                                                         <option type="radio" value="हाँ">हाँ </option>
                                                         <option type="radio" value="नही">नही </option>
                                                     </select>
@@ -992,9 +999,8 @@ if($num > 0)
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="ui button form-btn" type="submit" id="btn_submit_pan"
-                                                data-dismiss="modal">
-                                                Submit IPlog details
+                                            <button class="ui button form-btn" type="submit" id="btn_submit_pan">
+                                                Submit IPlOG Details
                                             </button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">
                                                 Close
@@ -1073,43 +1079,65 @@ if($num > 0)
                             <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
                                 action="insertFiles/insert_suspectForm.php">
                                 <div class="three fields">
-                                    <div class="six wide field">
+                                    <div class="eight wide field">
+                                        <label>UPI Name</label>
+                                        <input type="text" name="upi_name" placeholder="Mobile Number" />
+                                    </div>
+                                    <div class="eight wide field">
                                         <label>Mobile Number</label>
                                         <input type="text" name="mob_num" placeholder="Mobile Number" />
                                     </div>
-                                    <div class="six wide field">
+                                    <div class="eight wide field">
                                         <label>VPA ID</label>
                                         <input type="text" name="vpaID" placeholder="VPA ID" />
                                     </div>
+                                </div>
+                                <div class="three fields">
                                     <div class="eight wide field">
                                         <label>Statement</label>
-                                        <input type="text" name="pen_reason" placeholder="Statement" />
+                                        <input type="text" name="statement" placeholder="Statement" />
+                                    </div>
+                                    <div class="six wide field">
+                                        <label>Sent</label>
+                                        <input type="date" name="sent" placeholder="Sent" />
+                                    </div>
+                                    <div class="six wide field">
+                                        <label>Received</label>
+                                        <input type="date" name="received" placeholder="VPA ID" />
                                     </div>
                                 </div>
-                                <div class="four fields">
-                                    <div class="four wide field">
-                                        <label>Sent</label>
-                                        <input type="text" name="sent" placeholder="Sent" />
+                                <div class="three fields">
+                                    <div class="six wide field">
+                                        <label>Linked Account</label>
+                                        <input type="text" name="linked_acc" placeholder="Merchandise" />
                                     </div>
-                                    <div class="four wide field">
-                                        <label>Received</label>
-                                        <input type="text" name="received" placeholder="VPA ID" />
-                                    </div>
-                                    <div class="four wide field">
+                                    <div class="six wide field">
                                         <label>Beneficiary Top 3</label>
                                         <input type="text" name="benificiar" placeholder="Beneficiary Top 3" />
                                     </div>
-                                    <div class="four wide field">
+                                    <div class="six wide field">
                                         <label>IP Adreess</label>
                                         <input type="text" name="ip_adress" placeholder="IP Adreess" />
                                     </div>
                                 </div>
-                                <div class="two fields">
-                                    <div class="eight wide field">
+                                <div class="four fields">
+                                    <div class="six wide field">
+                                        <label>IP Address Number</label>
+                                        <input type="text" name="ip_address_num" placeholder="IP Address Number" />
+                                    </div>
+                                    <div class="six wide field">
+                                        <label>Device ID</label>
+                                        <input type="text" name="device_id" placeholder="Device ID" />
+                                    </div>
+                                    <div class="six wide field">
                                         <label>Merchandise</label>
                                         <input type="text" name="merchandise" placeholder="Merchandise" />
                                     </div>
-                                    <div class="eight wide field">
+                                    <div class="six wide field">
+                                        <label>Hold Amount</label>
+                                        <input type="text" name="hold_amount" placeholder="Hold Amount" />
+                                    </div>
+                                    <div class="six wide field">
                                         <label>Number</label>
                                         <input type="text" name="number" placeholder="Number" />
                                     </div>
@@ -1162,8 +1190,8 @@ if($num > 0)
                         <!--Suspect Website detail form-->
                         <!------------------------------->
                         <div class="website-details">
-                            <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
-                                action="insertFiles/insert_suspectForm.php">
+                            <form id="website_detailform" class="wallet-detail-form ui blue segment form" method="POST"
+                                action="insertFiles/insertWEB.php">
                                 <div class="two fields">
                                     <div class="eight wide field">
                                         <label>वेबसाइट</label>
@@ -1184,7 +1212,7 @@ if($num > 0)
                                         <input type="text" name="suspect_number" placeholder="संदिग्ध मोबाइल नंबर " />
                                     </div>
                                 </div>
-                                <button class="ui button form-btn" name="second_form" type="submit">
+                                <button class="ui button form-btn" name="final_form" type="submit">
                                     Submit
                                 </button>
                             </form>
@@ -1225,7 +1253,7 @@ if($num > 0)
     <!--Container Fluid-->
 
     <!--Sweet Alert-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../dependencies/sweetalert/sweetalert.min.js"></script>
     <!--Jquery-->
     <script src="../dependencies/jquery/jquery.min.js"></script>
     <!--Sementic JS-->
@@ -1235,6 +1263,8 @@ if($num > 0)
     <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+    <script src="js/insertbasic.js"></script>
     <script>
     $(document).ready(function() {
         //suspect number details
