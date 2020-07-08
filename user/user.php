@@ -1,4 +1,5 @@
 <!---user---->
+<?php include('../server.php')?>
 <?php
 include("../includes/config.php");
 $database = new Database();
@@ -39,6 +40,7 @@ if($num > 0)
                 <a class="navbar-brand text-white" href="user-dashboard.php">Dashboard</a>
             </li>
         </ul>
+        <p style="color:#fff" class="pr-2">WELCOME <?php echo $_SESSION['name']?></p>
         <button type="button" class="btn btn-outline-light btn-lg">
             Log Out
         </button>
