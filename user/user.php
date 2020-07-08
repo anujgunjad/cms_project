@@ -634,14 +634,21 @@ if($num > 0)
                                     <th scope="col">Update/Delete</th>
                                 </tr>
                             </thead>
-                            <tbody id="old-row">
-                                <tr>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                    <td>No Number Added Yet</td>
-                                </tr>
+                            <tbody >
+                                    <tr id="suspect_num_table_old_row">
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                    </tr>
+                                    <tr id="suspect_num_table_new_row">
+                                      
+                                    </tr>
+
+
+            
+                                
                             </tbody>
-                            <tbody id="new-row"></tbody>
+                            
                         </table>
                     </div>
                 </div>
@@ -1275,7 +1282,10 @@ if($num > 0)
                 $('#suspect_num_table_main').show();
             }
         });
-
+        $(document).on('click','button[name="number_form"]',function(){
+                $('#suspect_no_details').collapse('hide');
+                $('#suspect_num_table_main').show();
+        });
         //suspect number details ends
         //suspect account details
         $('#btn_addacc').click(function() {
