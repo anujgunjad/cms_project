@@ -1,19 +1,34 @@
 <script type="text/babel"> 
+const jsonToArray = (object) =>{
+    var result = [];
+    for(var i in object)
+     result.push(object [i]);
+     return result;
+}
 // Chart data fecth
 const fetchChartData = () => {
-    fetch('../api/data/count.php')
-            .then(res => res.json())
-            .then((data) => {
-                let genderArray = data.gender;
-                let complaintTypeArray = data.complaint_type;
-                let subComplaintTypeArray = data.sub_complaint_type;
-                console.log(genderArray);
-                console.log(complaintTypeArray);
-                console.log(subComplaintTypeArray);
-            })
-            .catch(console.log)
+  let totalData =  fetch('../api/data/count.php')
+                    .then(res => res.json())
+                    .then((data) => {
+                        let genderData = jsonToArray(data.gender[0]);
+                        let complaintTypeData = jsonToArray(data.complaint_type[0]);
+                        let subComplaintTypeData = jsonToArray(data.sub_complaint_type[0]);   
+                        var totalData = [genderData,complaintTypeData,subComplaintTypeData];
+                        return totalData;
+                        // console.log(genderData);
+                        // console.log(complaintTypeData);
+                        // console.log(subComplaintTypeData);
+                    })
+                    .catch(console.log)  
+        return  totalData;
 }
-fetchChartData();
+let totalData = fetchChartData();
+totalData.then((data) => {
+    let gender = data[0];
+    let ct = data[1];
+    let sct = data[2];
+    console.log(`gender : ${gender},${ct},${sct}`);
+});
 // Gender graph
 var ctx = document.getElementById("genderChart").getContext('2d');
  let genderData = [12, 19, 3];
@@ -170,7 +185,7 @@ const timeDateFormatter = (arry) => {
             fetch('../api/data/read_all_complainee.php')
             .then(res => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 this.setState({ cardData: data.complainee})
                 this.setState({ contentTwo: this.state.cardData.length})
                 this.setState({hrefOne:`show-complaint.php?id=${this.state.cardData[this.state.cardData.length - 1].complaint_id}`}) 
@@ -206,7 +221,7 @@ const timeDateFormatter = (arry) => {
             .then(res => res.json())
             .then((data) => {
               this.setState({ complaints: data.complainee })
-              console.log(this.state.complaints)
+            //   console.log(this.state.complaints)
             })
             .catch(console.log)
         }
