@@ -19,9 +19,16 @@
   <div id="dashboard-cards">
     <!-- react-components -->
   </div>
-  <!-- <div id="charts-row">
-  <canvas id="myChart"></canvas>
-  </div> -->
+  <div id="charts-row">
+    <div class="two-charts">
+      <h1 class="chart-header">Pie Chart Representation Based On Gender</h1>
+      <canvas id="genderChart"></canvas>
+    </div>
+    <div class="two-charts">
+      <h1 class="chart-header">Pie Chart Representation Based On Gender</h1>
+      <canvas id="complaintType"></canvas>
+    </div>
+  </div>
   <h1>Recently Added Complaints</h1>
   <div id="dashboard-complaints">
 

@@ -1,4 +1,37 @@
-<script type="text/babel">  
+<script type="text/babel"> 
+var ctx = document.getElementById("genderChart").getContext('2d');
+ let genderData = [12, 19, 3];
+var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Male", "Female", "Other"],
+    datasets: [{
+      backgroundColor: [
+        "#FFCD56",
+        "#FF6384",
+        "#36A2EB",
+      ],
+      data: genderData
+    }]
+  }
+});
+var ctx = document.getElementById("genderChart").getContext('2d');
+ let genderData = [12, 19, 3];
+var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Male", "Female", "Other"],
+    datasets: [{
+      backgroundColor: [
+        "#FFCD56",
+        "#FF6384",
+        "#36A2EB",
+      ],
+      data: genderData
+    }]
+  }
+});
+
 const dateFormatter = (str) => {
                 var revdate = str.split("-"),
                     reverseArray = revdate.reverse(),

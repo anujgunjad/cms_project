@@ -22,6 +22,11 @@
   background: transparent !important;
   color: #004ba8 !important;
 }
+.chart-header {
+  color: #004ba8 !important;
+}
+.two-charts {
+}
 
 /* ADMIN COMPLAINTS PAGE */
 .not-found-alert {
