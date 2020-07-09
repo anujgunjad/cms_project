@@ -24,8 +24,12 @@
 }
 .chart-header {
   color: #004ba8 !important;
+  text-align: center;
+  text-transform: uppercase;
 }
 .two-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 /* ADMIN COMPLAINTS PAGE */
