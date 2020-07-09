@@ -20,7 +20,7 @@
     <!-- react-components -->
   </div>
   <div id="charts-row">
-    <div class="two-charts">
+    <div class="two-charts mb-5">
       <div class="chart">
         <h1 class="chart-header">Gender Type</h1>
         <canvas id="genderChart"></canvas>
@@ -30,6 +30,12 @@
         <canvas id="complaintType"></canvas>
       </div>
     </div>
+    <div class="chart">
+        <h1 style="color:#004ba8" class="pl-5 ml-5 pt-5 mt-5">Sub Complaint Type</h1>
+       <center>
+        <canvas id="myChart" width="900" height="450"></canvas>
+       </center> 
+      </div>
   </div>
   <h1 style="color:#004ba8">Recently Added Complaints</h1>
   <div id="dashboard-complaints">
