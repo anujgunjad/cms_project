@@ -14,9 +14,6 @@ const fetchChartData = () => {
                         let complaintTypeData = jsonToArray(data.complaint_type[0]);
                         let subComplaintTypeData = jsonToArray(data.sub_complaint_type[0]);   
                         var totalData = [genderData,complaintTypeData,subComplaintTypeData];
-                        console.log(genderData);
-                        console.log(complaintTypeData);
-                        console.log(subComplaintTypeData);
                         return totalData;
                        
                     })

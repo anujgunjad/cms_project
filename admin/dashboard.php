@@ -22,12 +22,12 @@
   <div id="charts-row">
     <div class="two-charts mb-5">
       <div class="chart">
-        <h1 class="chart-header">Gender Type</h1>
-        <canvas id="genderChart"></canvas>
-      </div>
-      <div class="chart">
         <h1 class="chart-header">Complaint Type</h1>
         <canvas id="complaintType"></canvas>
+      </div>
+      <div class="chart">
+        <h1 class="chart-header">Gender Type</h1>
+        <canvas id="genderChart"></canvas>
       </div>
     </div>
     <div class="chart">
