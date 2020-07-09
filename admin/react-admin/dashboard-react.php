@@ -14,10 +14,11 @@ const fetchChartData = () => {
                         let complaintTypeData = jsonToArray(data.complaint_type[0]);
                         let subComplaintTypeData = jsonToArray(data.sub_complaint_type[0]);   
                         var totalData = [genderData,complaintTypeData,subComplaintTypeData];
+                        console.log(genderData);
+                        console.log(complaintTypeData);
+                        console.log(subComplaintTypeData);
                         return totalData;
-                        // console.log(genderData);
-                        // console.log(complaintTypeData);
-                        // console.log(subComplaintTypeData);
+                       
                     })
                     .catch(console.log)  
         return  totalData;
@@ -25,113 +26,115 @@ const fetchChartData = () => {
 let totalData = fetchChartData();
 totalData.then((data) => {
     let gender = data[0];
+    // Gender graph
+    var ctx = document.getElementById("genderChart").getContext('2d');
+    let genderData = gender;
+        var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Male", "Female", "Other"],
+            datasets: [{
+            backgroundColor: [
+                "#FFCD56",
+                "#FF6384",
+                "#36A2EB",
+            ],
+            data: genderData
+            }]
+        }
+    });
     let ct = data[1];
-    let sct = data[2];
-    console.log(`gender : ${gender},${ct},${sct}`);
-});
-// Gender graph
-var ctx = document.getElementById("genderChart").getContext('2d');
- let genderData = [12, 19, 3];
-var myChart = new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ["Male", "Female", "Other"],
-    datasets: [{
-      backgroundColor: [
-        "#FFCD56",
-        "#FF6384",
-        "#36A2EB",
-      ],
-      data: genderData
-    }]
-  }
-});
-// Complaint graph
-var ctx = document.getElementById("complaintType").getContext('2d');
- let complaintTypeData = [10, 12, 6, 7];
-var myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["सोशल मीडिया", "ऑनलाइन ठगी", "साइबर आतंकवाद","अन्य"],
-    datasets: [{
-      backgroundColor: [
-        "#6DD3CE",
-        "#FBF774",
-        "#F7A278",
-        "#A96DA3",
-      ],
-      data: complaintTypeData
-    }]
-  }
-});
-// Sub complaint Graph
-var ctx = document.getElementById("myChart");
-let subComplaintData = [12, 19, 3, 5, 2, 3, 20, 3, 5, 6, 2, 1, 3, 13, 7, 2, 16]
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["Online Bank Fraud", "Job Fraud", "OLX Fraud", "KYC Fraud", "Link Fraud", "Screen Sharing App", "Fake Facebook", "Fake Instagram", "Facebook Hack", "Instagram Hack", "Gmail Hack", "Social Media Harassment","Whatsapp Harassment","Whatsapp Hack","Metrimonial Fraud","Custom Fraud","Other"],
-    datasets: [{
-      label: 'Total Sub Complaint',
-      data: subComplaintData,
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: false,
-    scales: {
-      xAxes: [{
-        ticks: {
-          maxRotation: 90,
-          minRotation: 80
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
+    // Complaint graph
+    var ctx = document.getElementById("complaintType").getContext('2d');
+    let complaintTypeData = ct;
+    var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ["सोशल मीडिया", "ऑनलाइन ठगी", "साइबर आतंकवाद","अन्य"],
+        datasets: [{
+        backgroundColor: [
+            "#6DD3CE",
+            "#FBF774",
+            "#F7A278",
+            "#A96DA3",
+        ],
+        data: complaintTypeData
+        }]
     }
-  }
+    });
+    let sct = data[2];
+    // Sub complaint Graph
+    var ctx = document.getElementById("myChart");
+    let subComplaintData = sct;
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Online Bank Fraud", "Job Fraud", "OLX Fraud", "KYC Fraud", "Link Fraud", "Screen Sharing App", "Fake Facebook", "Fake Instagram", "Facebook Hack", "Instagram Hack", "Gmail Hack", "Social Media Harassment","Whatsapp Harassment","Whatsapp Hack","Metrimonial Fraud","Custom Fraud","Other"],
+        datasets: [{
+        label: 'Total Sub Complaint',
+        data: subComplaintData,
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: false,
+        scales: {
+        xAxes: [{
+            ticks: {
+            maxRotation: 90,
+            minRotation: 80
+            }
+        }],
+        yAxes: [{
+            ticks: {
+            beginAtZero: true
+            }
+        }]
+        }
+    }
+    });
 });
+
+
+
 const dateFormatter = (str) => {
                 var revdate = str.split("-"),
                     reverseArray = revdate.reverse(),
