@@ -83,9 +83,13 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt').innerHTML = this.responseText;
+              document.getElementById(
+                'suspect_num_table_new_row'
+              ).innerHTML = this.responseText;
             }
-            $('#suspect_num_table_main').replaceWith($('#txt'));
+            $('#suspect_num_table_old_row').replaceWith(
+              $('#suspect_num_table_new_row')
+            );
           };
           xmlhttp.open('GET', '../displayFiles/displayNumber.php', true);
           xmlhttp.send();

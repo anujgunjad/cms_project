@@ -18,6 +18,7 @@ $db = $database->getConnection();
     <link rel="stylesheet" href="style/mainForm.css" />
     <title>CMS | USER</title>
 </head>
+
 <body>
     <!---NAVIGATION BAR------->
     <nav class="navbar navbar-expand-lg">
@@ -33,13 +34,13 @@ $db = $database->getConnection();
             Log Out
         </button>
     </nav>
-     <!---NAVIGATION BAR ENDS------->
-     <!---FORM START----------->
-     <div class="container-fluid">
+    <!---NAVIGATION BAR ENDS------->
+    <!---FORM START----------->
+    <div class="container-fluid">
         <!--------------------->
         <!--Basic detail form-->
         <!--------------------->
-        <div class="basic-form-div">
+        <div class="basic-form-div mb-4">
             <div id="basicFormDiv">
                 <div class="text-center">
                     <h1 class="main-head">आवेदक की जानकारी</h1>
@@ -190,16 +191,18 @@ $db = $database->getConnection();
                             <input type="text" name="checker_name" placeholder="जांचकर्ता का नाम" />
                         </div>
                     </div>
-                    <div class="field text-center"> 
-                        <button class="ui button  form-btn "  id="result-basic" type="submit" name="result" value="Submit">
+                    <div class="field text-center">
+                        <button class="ui button  form-btn " id="result-basic" type="submit" name="result"
+                            value="Submit">
                             Submit
                         </button>
                     </div>
-                    
+
                 </form>
                 <div id="txt"></div>
             </div>
-        </div>  <!---basic-form-div end---->
+        </div>
+        <!---basic-form-div end---->
         <!------------------------->
         <!--Basic detail form END-->
         <!------------------------->
@@ -225,112 +228,112 @@ $db = $database->getConnection();
                             Add Number
                         </button>
                         <div class="collapse" id="suspect_no_details" class="suspect details">
-                        <!------------------------------>
-                        <!--Suspect number detail form-->
-                        <!------------------------------>
-                        <form id="num_detailform" class="num-detail-form ui blue segment form" method="POST"
-                            action="insertFiles/insertNumber.php">
-                            <div class="three fields">
-                                <div class="field">
-                                    <label>संदेही का नंबर </label>
-                                    <input type="text" name="number_one" placeholder="संदेही का नंबर " />
-                                </div>
-                                <div class="field">
-                                    <label>कंपनी</label>
-                                    <input type="text" name="company" placeholder="कंपनी" />
-                                </div>
-                                <div class="field">
-                                    <label>पहचान दस्तावेज़</label>
-                                    <input type="text" name="files" placeholder="पहचान दस्तावेज़" />
-                                </div>
-                            </div>
-
-                            <div class="three fields">
-                                <div class="four wide field">
-                                    <label>ईमेल जावक</label>
-                                    <input type="date" name="email_sent" placeholder="ईमेल जावक" />
-                                </div>
-                                <div class="four wide field">
-                                    <label>ईमेल आवक</label>
-                                    <input type="date" name="email_received" placeholder="ईमेल आवक" />
-                                </div>
-                                <div class="eight wide field">
-                                    <label>नाम</label>
-                                    <input type="text" name="suspect_name" placeholder="नाम" />
-                                </div>
-                            </div>
-
-                            <div class="four fields">
-                                <div class="field">
-                                    <label>पता</label>
-                                    <input type="text" name="suspect_address" placeholder="पता" />
-                                </div>
-                                <div class="field">
-                                    <label>जिला</label>
-                                    <input type="text" name="city" placeholder="जिला" />
-                                </div>
-                                <div class="field">
-                                    <label>प्रदेश</label>
-                                    <input type="text" name="state" placeholder="प्रदेश" />
-                                </div>
-                                <div class="field">
-                                    <label>रिटेलर नाम</label>
-                                    <input type="text" name="retailer_name" placeholder="रिटेलर नाम" />
-                                </div>
-                            </div>
-
-                            <div class="four fields">
-                                <div class="fifteen wide field">
-                                    <label>यू आई डी नंबर</label>
-                                    <input type="text" name="uid_num" placeholder="यू आई डी नंबर" />
-                                </div>
-                                <div class="fifteen wide field">
-                                    <label>अन्य नंबर</label>
-                                    <input type="text" name="other_num" placeholder="अन्य नंबर" />
-                                </div>
-                                <div class="nine wide field">
-                                    <label>पीडीएफ</label>
-                                    <input type="file" name="pdf" placeholder="पीडीएफ" />
-                                </div>
-                                <div class="field">
-                                    <label>तस्दीक</label>
-                                    <div class="fields">
-                                        <select name="confirmation" class="ui fluid dropdown">
-                                            <option value="" selected="" disabled="">तस्दीक
-                                            </option>
-                                            <option value="हाँ" id="">हाँ</option>
-                                            <option value="नही" id="">नही</option>
-                                        </select>
+                            <!------------------------------>
+                            <!--Suspect number detail form-->
+                            <!------------------------------>
+                            <form id="num_detailform" class="num-detail-form ui blue segment form" method="POST"
+                                action="insertFiles/insertNumber.php">
+                                <div class="three fields">
+                                    <div class="field">
+                                        <label>संदेही का नंबर </label>
+                                        <input type="text" name="number_one" placeholder="संदेही का नंबर " />
+                                    </div>
+                                    <div class="field">
+                                        <label>कंपनी</label>
+                                        <input type="text" name="company" placeholder="कंपनी" />
+                                    </div>
+                                    <div class="field">
+                                        <label>पहचान दस्तावेज़</label>
+                                        <input type="text" name="files" placeholder="पहचान दस्तावेज़" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="four fields">
-                                <div class="nine wide field">
-                                    <label>रिमार्क्स</label>
-                                    <input type="text" name="remark" placeholder="रिमार्क्स" />
+
+                                <div class="three fields">
+                                    <div class="four wide field">
+                                        <label>ईमेल जावक</label>
+                                        <input type="date" name="email_sent" placeholder="ईमेल जावक" />
+                                    </div>
+                                    <div class="four wide field">
+                                        <label>ईमेल आवक</label>
+                                        <input type="date" name="email_received" placeholder="ईमेल आवक" />
+                                    </div>
+                                    <div class="eight wide field">
+                                        <label>नाम</label>
+                                        <input type="text" name="suspect_name" placeholder="नाम" />
+                                    </div>
                                 </div>
-                                <div class="three wide field">
-                                    <label>रिमाइंडर</label>
-                                    <input type="date" name="reminder" placeholder="रिमाइंडर" />
+
+                                <div class="four fields">
+                                    <div class="field">
+                                        <label>पता</label>
+                                        <input type="text" name="suspect_address" placeholder="पता" />
+                                    </div>
+                                    <div class="field">
+                                        <label>जिला</label>
+                                        <input type="text" name="city" placeholder="जिला" />
+                                    </div>
+                                    <div class="field">
+                                        <label>प्रदेश</label>
+                                        <input type="text" name="state" placeholder="प्रदेश" />
+                                    </div>
+                                    <div class="field">
+                                        <label>रिटेलर नाम</label>
+                                        <input type="text" name="retailer_name" placeholder="रिटेलर नाम" />
+                                    </div>
                                 </div>
-                                <div class="nine wide field">
-                                    <label>मेल आई डी</label>
-                                    <input type="email" name="mail_id" placeholder="मेल आई डी" />
+
+                                <div class="four fields">
+                                    <div class="fifteen wide field">
+                                        <label>यू आई डी नंबर</label>
+                                        <input type="text" name="uid_num" placeholder="यू आई डी नंबर" />
+                                    </div>
+                                    <div class="fifteen wide field">
+                                        <label>अन्य नंबर</label>
+                                        <input type="text" name="other_num" placeholder="अन्य नंबर" />
+                                    </div>
+                                    <div class="nine wide field">
+                                        <label>पीडीएफ</label>
+                                        <input type="file" name="pdf" placeholder="पीडीएफ" />
+                                    </div>
+                                    <div class="field">
+                                        <label>तस्दीक</label>
+                                        <div class="fields">
+                                            <select name="confirmation" class="ui fluid dropdown">
+                                                <option value="" selected="" disabled="">तस्दीक
+                                                </option>
+                                                <option value="हाँ" id="">हाँ</option>
+                                                <option value="नही" id="">नही</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="three wide field">
-                                    <label>कैफ दिनाक</label>
-                                    <input type="date" name="caf_date" placeholder="कैफ दिनाक" />
+                                <div class="four fields">
+                                    <div class="nine wide field">
+                                        <label>रिमार्क्स</label>
+                                        <input type="text" name="remark" placeholder="रिमार्क्स" />
+                                    </div>
+                                    <div class="three wide field">
+                                        <label>रिमाइंडर</label>
+                                        <input type="date" name="reminder" placeholder="रिमाइंडर" />
+                                    </div>
+                                    <div class="nine wide field">
+                                        <label>मेल आई डी</label>
+                                        <input type="email" name="mail_id" placeholder="मेल आई डी" />
+                                    </div>
+                                    <div class="three wide field">
+                                        <label>कैफ दिनाक</label>
+                                        <input type="date" name="caf_date" placeholder="कैफ दिनाक" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="field">
-                                <button class="ui button form-btn" name="number_form" type="submit">
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
-                        <!---------------------------------->
-                        <!--Suspect number detail form end-->
-                        <!---------------------------------->
+                                <div class="field">
+                                    <button class="ui button form-btn" name="number_form" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                            <!---------------------------------->
+                            <!--Suspect number detail form end-->
+                            <!---------------------------------->
                             <!-------------------------->
                             <!--------CDR details------->
                             <!-------------------------->
@@ -355,7 +358,8 @@ $db = $database->getConnection();
                                                 <div class="row">
                                                     <div class="col-sm">
                                                         <label>सी डी आर नंबर </label>
-                                                        <input type="text" name="cdr_number" placeholder="सी डी आर नंबर" />
+                                                        <input type="text" name="cdr_number"
+                                                            placeholder="सी डी आर नंबर" />
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>इमेल जावक </label>
@@ -371,11 +375,13 @@ $db = $database->getConnection();
                                                 <div class="row my-4">
                                                     <div class="col-sm">
                                                         <label>IMEI</label>
-                                                        <input type="text" name="imei_number" placeholder="IMEI number" />
+                                                        <input type="text" name="imei_number"
+                                                            placeholder="IMEI number" />
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>IMSI</label>
-                                                        <input type="text" name="imsi_number" placeholder="IMSI number" />
+                                                        <input type="text" name="imsi_number"
+                                                            placeholder="IMSI number" />
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>लोकेशन </label>
@@ -418,7 +424,8 @@ $db = $database->getConnection();
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="ui button form-btn" type="submit" id="btn_submit_cdr">
+                                                    <button class="ui button form-btn" type="submit"
+                                                        id="btn_submit_cdr">
                                                         Submit CDR
                                                     </button>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -478,7 +485,8 @@ $db = $database->getConnection();
                                                 <div class="row">
                                                     <div class="col-sm">
                                                         <label>आई पी डी आर </label>
-                                                        <input type="text" name="ipdr_number" placeholder="आई पी डी आर " />
+                                                        <input type="text" name="ipdr_number"
+                                                            placeholder="आई पी डी आर " />
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -541,94 +549,96 @@ $db = $database->getConnection();
                             <!----------------------------->
                             <!------IPDR details ends------>
                             <!----------------------------->
-                              <!----------------------------->
-                        <!------UPI details----------->
-                        <!----------------------------->
+                            <!----------------------------->
+                            <!------UPI details----------->
+                            <!----------------------------->
 
-                        <button type="button" id="btn_addupi" class="add-number-ipdr-btn ui orange button my-3"
-                            data-toggle="modal" data-target="#suspect_no_upi_details">
-                            Add UPI details
-                        </button>
-                        <!-- Modal -->
-                        <div id="suspect_no_upi_details" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Add UPI details</h4>
-                                        <button type="button" class="close" data-dismiss="modal">
-                                            &times;
-                                        </button>
+                            <button type="button" id="btn_addupi" class="add-number-ipdr-btn ui orange button my-3"
+                                data-toggle="modal" data-target="#suspect_no_upi_details">
+                                Add UPI details
+                            </button>
+                            <!-- Modal -->
+                            <div id="suspect_no_upi_details" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Add UPI details</h4>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                &times;
+                                            </button>
+                                        </div>
+                                        <form id="upi_detailform" class="upi-detail-form ui blue segment form"
+                                            method="POST" action="insertFiles/insertUPI.php">
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>UPI</label>
+                                                        <input type="text" name="upi_id" placeholder="UPI id " />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>UPI Link</label>
+                                                        <select name="upi_link" class="ui dropdown" required>
+                                                            <option type="radio" value="" name="upi_link_confirm">UPI
+                                                                Link
+                                                            </option>
+                                                            <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
+                                                            </option>
+                                                            <option type="radio" value="नही" name="upi_link_confirm">नही
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>UPI name</label>
+                                                        <input type="text" name="upi_name" placeholder="UPI name " />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="ui button form-btn" type="submit" id="btn_submit_upi">
+                                                    Submit UPI
+                                                </button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <form id="upi_detailform" class="upi-detail-form ui blue segment form" method="POST"
-                                        action="insertFiles/insertUPI.php">
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-sm">
-                                                    <label>UPI</label>
-                                                    <input type="text" name="upi_id" placeholder="UPI id " />
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm">
-                                                    <label>UPI Link</label>
-                                                    <select name="upi_link" class="ui dropdown" required>
-                                                        <option type="radio" value="" name="upi_link_confirm">UPI Link
-                                                        </option>
-                                                        <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
-                                                        </option>
-                                                        <option type="radio" value="नही" name="upi_link_confirm">नही
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <label>UPI name</label>
-                                                    <input type="text" name="upi_name" placeholder="UPI name " />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="ui button form-btn" type="submit" id="btn_submit_upi">
-                                                Submit UPI
-                                            </button>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
-                        </div>
 
-                        <!--------------------------->
-                        <div id="suspect_num_table_upi">
-                            <table class="table table-bordered p-0 m-0">
-                                <thead>
-                                    <tr id="table-head">
-                                        <th scope="col">S.No</th>
-                                        <th scope="col">UPI id's</th>
-                                        <th scope="col">Update/Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="old-row">
-                                    <tr>
-                                        <td>No Number Added Yet</td>
-                                        <td>No Number Added Yet</td>
-                                        <td>No Number Added Yet</td>
-                                    </tr>
-                                </tbody>
-                                <tbody id="new-row"></tbody>
-                            </table>
+                            <!--------------------------->
+                            <div id="suspect_num_table_upi">
+                                <table class="table table-bordered p-0 m-0">
+                                    <thead>
+                                        <tr id="table-head">
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">UPI id's</th>
+                                            <th scope="col">Update/Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="old-row">
+                                        <tr>
+                                            <td>No Number Added Yet</td>
+                                            <td>No Number Added Yet</td>
+                                            <td>No Number Added Yet</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody id="new-row"></tbody>
+                                </table>
+                            </div>
+                            <!---------------------------------->
+                            <!-------UPI Details ends ----------->
+                            <!----------------------------------->
+                            <div class="field mt-4">
+                                <button class="ui button form-btn" name="number_form" type="submit">
+                                    Done
+                                </button>
+                            </div>
                         </div>
-                        <!---------------------------------->
-                        <!-------UPI Details ends ----------->
-                        <!----------------------------------->
-                        <div class="field mt-4">
-                            <button class="ui button form-btn" name="number_form" type="submit">
-                                Done
-                            </button>
-                        </div>
-                        </div><!---collapse class end-->
+                        <!---collapse class end-->
                         <!--------------TABLE----------->
                         <div id="suspect_num_table_main">
                             <table class="table table-bordered p-0 m-0">
@@ -639,24 +649,26 @@ $db = $database->getConnection();
                                         <th scope="col">Update/Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody >
-                                        <tr id="suspect_num_table_old_row">
-                                            <td>No Number Added Yet</td>
-                                            <td>No Number Added Yet</td>
-                                            <td>No Number Added Yet</td>
-                                        </tr>
-                                        <tr id="suspect_num_table_new_row">
-                                        
-                                        </tr>                               
-                                </tbody>                            
+                                <tbody>
+                                    <tr id="suspect_num_table_old_row">
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                        <td>No Number Added Yet</td>
+                                    </tr>
+                                    <tr id="suspect_num_table_new_row">
+
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         <!-----TABLE ENDS-->
-                            
 
-                    </div> <!--card body end-->
-                   
-                </div> <!--- card end-->
+
+                    </div>
+                    <!--card body end-->
+
+                </div>
+                <!--- card end-->
                 <!---------ADD NUMBER ENDS------->
                 <!--------ADD ACCOUNT------------>
                 <div class="card my-4">
@@ -664,7 +676,7 @@ $db = $database->getConnection();
                         <div class="text-center">
                             <h1 class="sub-head">खाते की जानकारी</h1>
                         </div>
-                    </div> 
+                    </div>
                     <div class="card-body">
                         <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse"
                             data-target="#suspect_acc_details" id="btn_addacc">
@@ -792,8 +804,8 @@ $db = $database->getConnection();
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>PAN Verified </label>
-                                                        <select class="ui dropdown" id="pan_verified" name="pan_verified"
-                                                            required>
+                                                        <select class="ui dropdown" id="pan_verified"
+                                                            name="pan_verified" required>
                                                             <option type="radio" value="">Pan Verification</option>
                                                             <option type="radio" value="हाँ">हाँ </option>
                                                             <option type="radio" value="नही">नही </option>
@@ -803,7 +815,8 @@ $db = $database->getConnection();
                                                 <div class="row">
                                                     <div class="col-sm">
                                                         <label>PAN Username </label>
-                                                        <input type="text" name="Pan_username" placeholder="PAN username" />
+                                                        <input type="text" name="Pan_username"
+                                                            placeholder="PAN username" />
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>Aadhar number</label>
@@ -839,7 +852,8 @@ $db = $database->getConnection();
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>Sales Tax </label>
-                                                        <select class="ui dropdown" id="salestax" name="salestax" required>
+                                                        <select class="ui dropdown" id="salestax" name="salestax"
+                                                            required>
                                                             <option type="radio" value="">Sales Tax</option>
                                                             <option type="radio" value="हाँ">हाँ </option>
                                                             <option type="radio" value="नही">नही </option>
@@ -985,8 +999,8 @@ $db = $database->getConnection();
                                                 &times;
                                             </button>
                                         </div>
-                                        <form id="acc_iplogform" class="acc-iplog-form ui blue segment form" method="POST"
-                                            action="insertFiles/insertIPLOG.php">
+                                        <form id="acc_iplogform" class="acc-iplog-form ui blue segment form"
+                                            method="POST" action="insertFiles/insertIPLOG.php">
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-sm">
@@ -1001,7 +1015,8 @@ $db = $database->getConnection();
                                                 <div class="row">
                                                     <div class="col-sm">
                                                         <label>Email Sent </label>
-                                                        <input type="date" name="iplog_email_sent" id="iplog_email_sent" />
+                                                        <input type="date" name="iplog_email_sent"
+                                                            id="iplog_email_sent" />
                                                     </div>
                                                     <div class="col-sm">
                                                         <label>Email Recieved</label>
@@ -1046,7 +1061,8 @@ $db = $database->getConnection();
                             <!--------------------------------->
                             <!---------iplogs details end--------->
                             <!--------------------------------->
-                        </div> <!--collapse end-->
+                        </div>
+                        <!--collapse end-->
                         <!------TABLE-------->
                         <div id="suspect_acc_table_main">
                             <table class="table table-bordered p-0 m-0">
@@ -1068,8 +1084,10 @@ $db = $database->getConnection();
                             </table>
                         </div>
                         <!------------TABLE end------->
-                    </div><!---card body end-->
-                </div> <!--- card end-->
+                    </div>
+                    <!---card body end-->
+                </div>
+                <!--- card end-->
                 <!---------ADD ACCOUNT END-------->
                 <!--------ADD E-WALLET------------>
                 <div class="card my-4">
@@ -1077,7 +1095,7 @@ $db = $database->getConnection();
                         <div class="text-center">
                             <h1 class="sub-head">ई-वॉलेट की जानकारी</h1>
                         </div>
-                    </div> 
+                    </div>
                     <div class="card-body">
                         <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse"
                             data-target="#suspect_ewallet_details" id="btn_addewallet">
@@ -1088,8 +1106,8 @@ $db = $database->getConnection();
                             <!--Suspect Ewallet detail form-->
                             <!------------------------------->
                             <div class="wallet-details">
-                                <form id="wallet_detailform" class="wallet-detail-form ui blue segment form" method="POST"
-                                    action="insertFiles/insert_suspectForm.php">
+                                <form id="wallet_detailform" class="wallet-detail-form ui blue segment form"
+                                    method="POST" action="insertFiles/insert_suspectForm.php">
                                     <div class="three fields">
                                         <div class="eight wide field">
                                             <label>UPI Name</label>
@@ -1162,7 +1180,8 @@ $db = $database->getConnection();
                             <!----------------------------------->
                             <!--Suspect ewallet detail form End-->
                             <!----------------------------------->
-                        </div> <!---collapse end---->
+                        </div>
+                        <!---collapse end---->
                         <!------TABLE-------->
                         <div id="suspect_ewallet_table_main">
                             <table class="table table-bordered p-0 m-0">
@@ -1184,8 +1203,10 @@ $db = $database->getConnection();
                             </table>
                         </div>
                         <!-----------TABLE END------>
-                    </div> <!----card body end--->
-                </div> <!--- card end-->
+                    </div>
+                    <!----card body end--->
+                </div>
+                <!--- card end-->
                 <!---------ADD E-WALLET END-------->
                 <!--------ADD WEBSITE------------>
                 <div class="card my-4">
@@ -1193,7 +1214,7 @@ $db = $database->getConnection();
                         <div class="text-center">
                             <h1 class="sub-head">वेबसाइट की जानकारी</h1>
                         </div>
-                    </div> 
+                    </div>
                     <div class="card-body">
                         <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse"
                             data-target="#suspect_website_details" id="btn_addwebsite">
@@ -1204,8 +1225,8 @@ $db = $database->getConnection();
                             <!--Suspect Website detail form-->
                             <!------------------------------->
                             <div class="website-details">
-                                <form id="website_detailform" class="wallet-detail-form ui blue segment form" method="POST"
-                                    action="insertFiles/insertWEB.php">
+                                <form id="website_detailform" class="wallet-detail-form ui blue segment form"
+                                    method="POST" action="insertFiles/insertWEB.php">
                                     <div class="two fields">
                                         <div class="eight wide field">
                                             <label>वेबसाइट</label>
@@ -1223,7 +1244,8 @@ $db = $database->getConnection();
                                         </div>
                                         <div class="eight wide field">
                                             <label>संदिग्ध मोबाइल नंबर </label>
-                                            <input type="text" name="suspect_number" placeholder="संदिग्ध मोबाइल नंबर " />
+                                            <input type="text" name="suspect_number"
+                                                placeholder="संदिग्ध मोबाइल नंबर " />
                                         </div>
                                     </div>
                                     <button class="ui button form-btn" name="final_form" type="submit">
@@ -1234,7 +1256,8 @@ $db = $database->getConnection();
                             <!----------------------------------->
                             <!--Suspect website detail form End-->
                             <!----------------------------------->
-                        </div><!--collapse end--->
+                        </div>
+                        <!--collapse end--->
                         <!----------------TABLE----->
                         <div id="suspect_website_table_main">
                             <table class="table table-bordered p-0 m-0">
@@ -1256,116 +1279,120 @@ $db = $database->getConnection();
                             </table>
                         </div>
                         <!--------------TABLE END------>
-                    </div><!--card body end-->
-                </div> <!--- card end-->
-                  
+                    </div>
+                    <!--card body end-->
+                </div>
+                <!--- card end-->
+
                 <!---------ADD WEBSITE END-------->
-           </div> <!---blue segment end-->
-            <div class="text-center">
-            <button class="ui button nexte-btn" name="back_button">Back</button>
             </div>
-        <div>
-        <!---------------------------------->
-        <!--Full Suspected detail div End--->
-        <!---------------------------------->
-        
-        
+            <!---blue segment end-->
+            <div class="text-center">
+                <button class="ui button nexte-btn" name="back_button">Back</button>
+            </div>
+            <div>
+                <!---------------------------------->
+                <!--Full Suspected detail div End--->
+                <!---------------------------------->
 
-    </div> <!--container end-->
-     <!---FORM START ENDS------>
-    <!--Sweet Alert-->
-    <script src="../dependencies/sweetalert/sweetalert.min.js"></script>
-    <!--Jquery-->
-    <script src="../dependencies/jquery/jquery.min.js"></script>
-    <!--Sementic JS-->
-    <script src="../dependencies/semantic/dist/semantic.min.js"></script>
-    <!--Bootstrap JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
-    <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 
-    <script src="js/insertbasic.js"></script>
-    <script>
-    $(document).ready(function(){
-        $("#SuspectFormDiv").hide();
-        $(document).on('click','button[name="next_button"]',function(){
-            $("#basicFormDiv").fadeOut();
-            $("#SuspectFormDiv").fadeIn();
-        });
-        $(document).on('click','button[name="back_button"]',function(){
-            $("#basicFormDiv").fadeIn();
-            $("#SuspectFormDiv").fadeOut();
-        });
-         //suspect number details
-         $('#btn_addnum').click(function() {
-            if ($('#suspect_no_details').is('.collapse:not(.show)')) {
-                $('#suspect_num_table_main').hide();
-            } else {
-                $('#suspect_num_table_main').show();
-            }
-        });
-        $(document).on('click','button[name="number_form"]',function(){
-                $('#suspect_no_details').collapse('hide');
-                $('#suspect_num_table_main').show();
-        });
-        //suspect number details ends
-        //suspect account details
-        $('#btn_addacc').click(function() {
-            if ($('#suspect_acc_details').is('.collapse:not(.show)')) {
-                $('#suspect_acc_table_main').hide();
-            } else {
-                $('#suspect_acc_table_main').show();
-            }
-        });
+            </div>
+            <!--container end-->
+            <!---FORM START ENDS------>
+            <!--Sweet Alert-->
+            <script src="../dependencies/sweetalert/sweetalert.min.js"></script>
+            <!--Jquery-->
+            <script src="../dependencies/jquery/jquery.min.js"></script>
+            <!--Sementic JS-->
+            <script src="../dependencies/semantic/dist/semantic.min.js"></script>
+            <!--Bootstrap JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+            <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
 
-        //suspect ewallet details
-        $('#btn_addewallet').click(function() {
-            if ($('#suspect_ewallet_details').is('.collapse:not(.show)')) {
-                $('#suspect_ewallet_table_main').hide();
-            } else {
-                $('#suspect_ewallet_table_main').show();
-            }
-        });
-        //suspect ewallet details ends
-        //suspect website details
-        $('#btn_addwebsite').click(function() {
-            if ($('#suspect_website_details').is('.collapse:not(.show)')) {
-                $('#suspect_website_table_main').hide();
-            } else {
-                $('#suspect_website_table_main').show();
-            }
-        });
-        //suspect website details ends
-        //ajax to load state
-        $('#ap_country').change(function() {
-            var country = $('#ap_country').val();
-            $.ajax({
-                url: 'user_fetch.php',
-                method: 'POST',
-                data: {
-                    country: country,
-                },
-                success: function(data) {
-                    $('#ap_state').html(data);
-                },
+            <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+            <script src="js/insertbasic.js"></script>
+            <script>
+            $(document).ready(function() {
+                $("#SuspectFormDiv").hide();
+                $(document).on('click', 'button[name="next_button"]', function() {
+                    $("#basicFormDiv").fadeOut();
+                    $("#SuspectFormDiv").fadeIn();
+                });
+                $(document).on('click', 'button[name="back_button"]', function() {
+                    $("#basicFormDiv").fadeIn();
+                    $("#SuspectFormDiv").fadeOut();
+                });
+                //suspect number details
+                $('#btn_addnum').click(function() {
+                    if ($('#suspect_no_details').is('.collapse:not(.show)')) {
+                        $('#suspect_num_table_main').hide();
+                    } else {
+                        $('#suspect_num_table_main').show();
+                    }
+                });
+                $(document).on('click', 'button[name="number_form"]', function() {
+                    $('#suspect_no_details').collapse('hide');
+                    $('#suspect_num_table_main').show();
+                });
+                //suspect number details ends
+                //suspect account details
+                $('#btn_addacc').click(function() {
+                    if ($('#suspect_acc_details').is('.collapse:not(.show)')) {
+                        $('#suspect_acc_table_main').hide();
+                    } else {
+                        $('#suspect_acc_table_main').show();
+                    }
+                });
+
+                //suspect ewallet details
+                $('#btn_addewallet').click(function() {
+                    if ($('#suspect_ewallet_details').is('.collapse:not(.show)')) {
+                        $('#suspect_ewallet_table_main').hide();
+                    } else {
+                        $('#suspect_ewallet_table_main').show();
+                    }
+                });
+                //suspect ewallet details ends
+                //suspect website details
+                $('#btn_addwebsite').click(function() {
+                    if ($('#suspect_website_details').is('.collapse:not(.show)')) {
+                        $('#suspect_website_table_main').hide();
+                    } else {
+                        $('#suspect_website_table_main').show();
+                    }
+                });
+                //suspect website details ends
+                //ajax to load state
+                $('#ap_country').change(function() {
+                    var country = $('#ap_country').val();
+                    $.ajax({
+                        url: 'user_fetch.php',
+                        method: 'POST',
+                        data: {
+                            country: country,
+                        },
+                        success: function(data) {
+                            $('#ap_state').html(data);
+                        },
+                    });
+                });
+                $('#ap_state').change(function() {
+                    var state = $('#ap_state').val();
+                    $.ajax({
+                        url: 'user_fetch.php',
+                        method: 'POST',
+                        data: {
+                            state: state,
+                        },
+                        success: function(data) {
+                            $('#ap_city').html(data);
+                        },
+                    });
+                });
             });
-        });
-        $('#ap_state').change(function() {
-            var state = $('#ap_state').val();
-            $.ajax({
-                url: 'user_fetch.php',
-                method: 'POST',
-                data: {
-                    state: state,
-                },
-                success: function(data) {
-                    $('#ap_city').html(data);
-                },
-            });
-        });
-    });
-        
-    </script>
+            </script>
 </body>
+
 </html>

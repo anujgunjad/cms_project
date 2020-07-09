@@ -13,7 +13,7 @@ global $conn;
                 <div class='three fields'>
                     <div class='seven wide field'>
                         <label>आवेदक का नाम </label>
-                        <span class='form-text'>".$row['ap_name']."</span>
+                        <input class='form-text' disabled value=".$row['ap_name']."></input>
                     </div>
                     <div class='four wide field'>
                         <label>उम्र</label>

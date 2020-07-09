@@ -265,7 +265,7 @@
    
              return $stmt;
         }
-     }
+    }
 
        
     // $read_suspect = new Basic($db);
