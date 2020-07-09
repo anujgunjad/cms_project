@@ -2,7 +2,7 @@
 var ctx = document.getElementById("genderChart").getContext('2d');
  let genderData = [12, 19, 3];
 var myChart = new Chart(ctx, {
-  type: 'pie',
+  type: 'doughnut',
   data: {
     labels: ["Male", "Female", "Other"],
     datasets: [{
