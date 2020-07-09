@@ -29,12 +29,17 @@ select {
 .form-btn {
   background-color: #004ba8 !important;
   color: #fff !important;
+
 }
 .sub-head {
   color: #004ba8;
 }
 .update-btn {
   background-color: #ad0000 !important;
+  color: #fff !important;
+}
+.nexte-btn{
+  background-color: #099734 !important;
   color: #fff !important;
 }
 .modal-form {

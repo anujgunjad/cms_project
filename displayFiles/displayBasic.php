@@ -81,9 +81,15 @@ global $conn;
                         <span class='form-text'>".$row['created_date']."</span>
                     </div>
                 </div>
-                <button class='ui button update-btn' id='update-display' type='submit' name='update' value='Update'>
-                    Update
-                </button>
+                <div class='field text-center'>
+
+                    <button class='ui button update-btn' id='update-display' type='submit' name='update' value='Update'>
+                        Update
+                    </button>
+                    <button class='ui button nexte-btn' type='button' id='next_button'  name='next_button'>
+                        Next
+                    </button>
+                </div>
             </form>
     ";
   
