@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  <h1>Recently Added Complaints</h1>
+  <h1 style="color:#004ba8">Recently Added Complaints</h1>
   <div id="dashboard-complaints">
     <!-- react-components -->
   </div>

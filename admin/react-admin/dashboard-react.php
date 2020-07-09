@@ -16,16 +16,17 @@ var myChart = new Chart(ctx, {
   }
 });
 var ctx = document.getElementById("complaintType").getContext('2d');
- let complaintTypeData = [10, 12, 3];
+ let complaintTypeData = [10, 12, 6, 7];
 var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Male", "Female", "Other"],
+    labels: ["सोशल मीडिया", "ऑनलाइन ठगी", "साइबर आतंकवाद","अन्य"],
     datasets: [{
       backgroundColor: [
-        "#FFCD56",
-        "#FF6384",
-        "#36A2EB",
+        "#6DD3CE",
+        "#FBF774",
+        "#F7A278",
+        "#A96DA3",
       ],
       data: complaintTypeData
     }]
