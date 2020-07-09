@@ -15,8 +15,8 @@ var myChart = new Chart(ctx, {
     }]
   }
 });
-var ctx = document.getElementById("genderChart").getContext('2d');
- let genderData = [12, 19, 3];
+var ctx = document.getElementById("complaintType").getContext('2d');
+ let complaintTypeData = [10, 12, 3];
 var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
@@ -27,7 +27,7 @@ var myChart = new Chart(ctx, {
         "#FF6384",
         "#36A2EB",
       ],
-      data: genderData
+      data: complaintTypeData
     }]
   }
 });
