@@ -1,4 +1,20 @@
 <script type="text/babel"> 
+// Chart data fecth
+const fetchChartData = () => {
+    fetch('../api/data/count.php')
+            .then(res => res.json())
+            .then((data) => {
+                let genderArray = data.gender;
+                let complaintTypeArray = data.complaint_type;
+                let subComplaintTypeArray = data.sub_complaint_type;
+                console.log(genderArray);
+                console.log(complaintTypeArray);
+                console.log(subComplaintTypeArray);
+            })
+            .catch(console.log)
+}
+fetchChartData();
+// Gender graph
 var ctx = document.getElementById("genderChart").getContext('2d');
  let genderData = [12, 19, 3];
 var myChart = new Chart(ctx, {
@@ -15,6 +31,7 @@ var myChart = new Chart(ctx, {
     }]
   }
 });
+// Complaint graph
 var ctx = document.getElementById("complaintType").getContext('2d');
  let complaintTypeData = [10, 12, 6, 7];
 var myChart = new Chart(ctx, {
@@ -32,7 +49,7 @@ var myChart = new Chart(ctx, {
     }]
   }
 });
-// Bar Graph
+// Sub complaint Graph
 var ctx = document.getElementById("myChart");
 let subComplaintData = [12, 19, 3, 5, 2, 3, 20, 3, 5, 6, 2, 1, 3, 13, 7, 2, 16]
 var myChart = new Chart(ctx, {
