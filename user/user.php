@@ -1340,9 +1340,18 @@ $db = $database->getConnection();
                 <!--Full Suspected detail div End--->
                 <!---------------------------------->
 
+     <script src="../dependencies/sweetalert/sweetalert.min.js"></script>
+    <!--Jquery-->
+    <script src="../dependencies/jquery/jquery.min.js"></script>
+    <!--Sementic JS-->
+    <script src="../dependencies/semantic/dist/semantic.min.js"></script>
+    <!--Bootstrap JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+    <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 
-    <script src="js/insertbasic.js"></script>
+    <script src="js/insertbasic.js" type="text/javascript"></script>
     <script>
     $(document).ready(function(){
         $("#SuspectFormDiv").hide();
@@ -1430,7 +1439,9 @@ $db = $database->getConnection();
                     $('#ap_city').html(data);
                 },
             });
-            </script>
+        });
+    });
+ </script>
 </body>
 
 </html>
