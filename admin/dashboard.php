@@ -19,6 +19,10 @@
   <div id="dashboard-cards">
     <!-- react-components -->
   </div>
+  <h1 style="color:#004ba8">Recently Added Complaints</h1>
+  <div id="dashboard-complaints">
+    <!-- react-components -->
+  </div>
   <div id="charts-row">
     <div class="two-charts mb-5">
       <div class="chart">
@@ -37,10 +41,7 @@
        </center> 
       </div>
   </div>
-  <h1 style="color:#004ba8">Recently Added Complaints</h1>
-  <div id="dashboard-complaints">
-    <!-- react-components -->
-  </div>
+  
 </div>
   <!-- 'include' for React File  -->
   <?php include("react-admin/dashboard-react.php")?>  
