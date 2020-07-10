@@ -82,12 +82,12 @@ const timeDateFormatter = (arry) => {
                                <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4>{this.state.applicant.crime_time?this.state.applicant.crime_time:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4>{this.state.applicant.amount?this.state.applicant.amount:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की फ्रीज राशि</h4>{this.state.applicant.freeze_amount?this.state.applicant.freeze_amount:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name?this.state.applicant.checker_name:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate?this.state.createdDate:"अभी तक दर्ज नहीं है"}</td> 
                                 </tr>
                                <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate?this.state.createdDate:"अभी तक दर्ज नहीं है"}</td> 
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की स्थिति</h4>{this.state.applicant.complaint_status==0?"नहीं":"हाँ"}</td>
-                                    <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
