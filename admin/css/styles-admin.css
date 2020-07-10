@@ -10,9 +10,12 @@
 .theme-color {
   color: #004ba8 !important;
 }
+.nav-head {
+  font-size: 3rem;
+}
 /* ADMIN DASHBOARD */
 #dashboard-cards {
-  padding: 4vh 1vw;
+  padding: 4vh 1vw 0 1vw;
 }
 .btn-primary:hover {
   background: transparent !important;
