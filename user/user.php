@@ -559,6 +559,7 @@ $db = $database->getConnection();
                             <!------UPI details----------->
                             <!----------------------------->
 
+<<<<<<< HEAD
                             <button type="button" id="btn_addupi" class="add-number-ipdr-btn ui orange button my-3"
                                 data-toggle="modal" data-target="#suspect_no_upi_details" disabled>
                                 Add UPI details
@@ -582,6 +583,43 @@ $db = $database->getConnection();
                                                         <label>UPI</label>
                                                         <input type="text" name="upi_id" placeholder="UPI id " />
                                                     </div>
+=======
+                        <button type="button" id="btn_addupi" class="add-number-ipdr-btn ui orange button my-3"
+                            data-toggle="modal" data-target="#suspect_no_upi_details" disabled>
+                            Add UPI details
+                        </button>
+                        <!-- Modal -->
+                        <div id="suspect_no_upi_details" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Add UPI details</h4>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <form id="upi_detailform" class="upi-detail-form ui blue segment form" method="POST"
+                                        action="insertFiles/insertUPI.php">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <label>UPI</label>
+                                                    <input type="text" name="upi_id" placeholder="UPI id " />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <label>UPI Link</label>
+                                                    <select name="upi_link" class="ui dropdown" required>
+                                                        <option type="radio" value="" name="upi_link_confirm">UPI Link
+                                                        </option>
+                                                        <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
+                                                        </option>
+                                                        <option type="radio" value="नही" name="upi_link_confirm">नही
+                                                        </option>
+                                                    </select>
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm">
@@ -679,10 +717,37 @@ $db = $database->getConnection();
                                         <td>No Number Added Yet</td>
                                         <td>No Number Added Yet</td>
                                     </tr>
+<<<<<<< HEAD
+=======
                                 </tbody>
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+                        <div id="txt5"></div>
+                        <!---------------------------------->
+                        <!-------UPI Details ends ----------->
+                        <!----------------------------------->
+                        <div class="field mt-4">
+                            <button class="ui button form-btn" name="num_form" type="submit">
+                                Done
+                            </button>
+                        </div>
+                        </div><!---collapse class end-->
+                        <!--------------TABLE----------->
+                        <div id="suspect_num_table_main">
+                            <table class="table table-bordered p-0 m-0">
+                                <thead>
+                                    <tr id="table-head">
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Phone numbers</th>
+                                        <th scope="col">Update/Delete</th>
+                                    </tr>
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
+                                </tbody>
+                                <tbody id="new-row"></tbody>
+                            </table>
+                        </div>
+<<<<<<< HEAD
                         <div id="txt5"></div>
                         <!---------------------------------->
                         <!-------UPI Details ends ----------->
@@ -705,6 +770,12 @@ $db = $database->getConnection();
                                 </tr>
                                 </tbody>
                         </table>
+=======
+                        <div id="txt2"></div>
+                        <!-----TABLE ENDS-->
+
+
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                     </div>
                     <div id="txt2"></div>
                     <!-----TABLE ENDS-->
@@ -754,9 +825,112 @@ $db = $database->getConnection();
                                     <label>मेल दिनाक</label>
                                     <input type="date" name="mail_date" placeholder="मेल दिनाक" />
                                 </div>
+<<<<<<< HEAD
                                 <div class="six wide field">
                                     <label>मेल प्राप्त </label>
                                     <input type="date" name="mail_received" placeholder="मेल प्राप्त " />
+=======
+                                <br />
+                                <button class="ui button form-btn" name="fourth_form" type="submit">
+                                    Submit
+                                </button>
+                            </form>
+                            <!----------------------------->
+                            <!-------Pan Details----------->
+                            <!----------------------------->
+                            <button type="button" id="btn_addpan" class="add-account-pan-btn ui orange button my-3"
+                                data-toggle="modal" data-target="#suspect_acc_pan_details" disabled>
+                                Add PAN details
+                            </button>
+                            <!-- Modal -->
+                            <div id="suspect_acc_pan_details" class="modal fade" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Add PAN details</h4>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                &times;
+                                            </button>
+                                        </div>
+                                        <form id="acc_panform" class="acc-pan-form ui blue segment form" method="POST"
+                                            action="insertFiles/insertPAN.php">
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>PAN </label>
+                                                        <input type="text" name="pan_number" placeholder="PAN number" />
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>PAN Verified </label>
+                                                        <select class="ui dropdown" id="pan_verified"
+                                                            name="pan_verified" required>
+                                                            <option type="radio" value="">Pan Verification</option>
+                                                            <option type="radio" value="हाँ">हाँ </option>
+                                                            <option type="radio" value="नही">नही </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>PAN Username </label>
+                                                        <input type="text" name="Pan_username"
+                                                            placeholder="PAN username" />
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>Aadhar number</label>
+                                                        <input type="number" name="aadhar_number"
+                                                            placeholder="aadhar number" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>Income Tax </label>
+                                                        <select class="ui dropdown" id="incometax" name="incometax"
+                                                            required>
+                                                            <option type="radio" value="">Income Tax</option>
+                                                            <option type="radio" value="हाँ">हाँ </option>
+                                                            <option type="radio" value="नही">नही </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>GST In </label>
+                                                        <select class="ui dropdown" id="gst_in" name="gst_in">
+                                                            <option type="radio" value="">GST In</option>
+                                                            <option type="radio" value="हाँ">हाँ </option>
+                                                            <option type="radio" value="नही">नही </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>TIN</label>
+                                                        <select class="ui dropdown" id="Tin" name="Tin" required>
+                                                            <option type="radio" value="">TIN</option>
+                                                            <option type="radio" value="हाँ">हाँ </option>
+                                                            <option type="radio" value="नही">नही </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>Sales Tax </label>
+                                                        <select class="ui dropdown" id="salestax" name="salestax"
+                                                            required>
+                                                            <option type="radio" value="">Sales Tax</option>
+                                                            <option type="radio" value="हाँ">हाँ </option>
+                                                            <option type="radio" value="नही">नही </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="ui button form-btn" type="submit" id="btn_submit_pan">
+                                                    Submit PAN details
+                                                </button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                                 </div>
                             </div>
                             <div class="three fields">
@@ -773,6 +947,7 @@ $db = $database->getConnection();
                                     <input type="text" name="address" placeholder="पता" />
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="four fields">
                                 <div class="six wide field">
                                     <label>जिला </label>
@@ -789,6 +964,67 @@ $db = $database->getConnection();
                                 <div class="six wide field">
                                     <label>लाभार्थी खाता</label>
                                     <input type="text" name="profit_acc" placeholder="लाभार्थी खाता " />
+=======
+                            <div id="txt7"></div>
+                            <!--------------------------------->
+                            <!---------Pan details end--------->
+                            <!--------------------------------->
+
+                            <!----------------------------->
+                            <!--Bank Account Atm Details--->
+                            <!----------------------------->
+                            <button type="button" id="btn_addatm" class="add-account-atm-btn ui orange button my-3"
+                                data-toggle="modal" data-target="#suspect_acc_atm_details" disabled>
+                                Add Bank Account Atm details
+                            </button>
+                            <!-- Modal -->
+                            <div id="suspect_acc_atm_details" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Add Bank Account Atm details</h4>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                &times;
+                                            </button>
+                                        </div>
+                                        <form id="acc_atmform" class="acc-atm-form ui blue segment form" method="POST"
+                                            action="insertFiles/insertATM.php">
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>ATM footage </label>
+                                                        <select class="ui dropdown" id="atm_footage" name="atm_footage"
+                                                            required>
+                                                            <option type="radio" value="">ATM Footage</option>
+                                                            <option type="radio" value="हाँ">हाँ </option>
+                                                            <option type="radio" value="नही">नही </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <label>Email Sent </label>
+                                                        <input type="date" name="atm_email_sent" id="atm_email_sent" />
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label>Email Recieved</label>
+                                                        <input type="date" name="atm_email_recieved"
+                                                            id="atm_email_recieved" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="ui button form-btn" type="submit" id="btn_submit_pan">
+                                                    Submit Atm details
+                                                </button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                                 </div>
                             </div>
                             <div class="five fields">
@@ -817,9 +1053,23 @@ $db = $database->getConnection();
                                     <input type="file" name="bank_statement" placeholder="Bank Statement" />
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <br />
                             <button class="ui button form-btn" name="fourth_form" type="submit">
                                 Submit
+=======
+                            <div id="txt8"></div>
+                            <!--------------------------------->
+                            <!--Bank Account Atm details end--->
+                            <!--------------------------------->
+
+                            <!-------------------------------->
+                            <!-------iplogs Details----------->
+                            <!-------------------------------->
+                            <button type="button" id="btn_addiplog" class="add-account-iplogs-btn ui orange button my-3"
+                                data-toggle="modal" data-target="#suspect_acc_iplog_details" disabled>
+                                Add Bank Account iplog details
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                             </button>
                         </form>
                         <!----------------------------->
@@ -916,6 +1166,34 @@ $db = $database->getConnection();
                                     </form>
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
+
+                            <!-------------------------->
+                            <div id="suspect_acc_table_iplog">
+                                <table class="table table-bordered p-0 m-0">
+                                    <thead>
+                                        <tr id="table-head">
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">IP logs</th>
+                                            <th scope="col">Update/Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="old-row">
+                                        <tr>
+                                            <td>No Number Added Yet</td>
+                                            <td>No Number Added Yet</td>
+                                            <td>No Number Added Yet</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody id="new-row"></tbody>
+                                </table>
+                            </div>
+                            <div id="txt9"></div>
+                            <!--------------------------------->
+                            <!---------iplogs details end--------->
+                            <!--------------------------------->
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                         </div>
 
                         <!-------------------------->
@@ -938,6 +1216,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+<<<<<<< HEAD
                         <div id="txt7"></div>
                         <!--------------------------------->
                         <!---------Pan details end--------->
@@ -949,6 +1228,26 @@ $db = $database->getConnection();
                         <button type="button" id="btn_addatm" class="add-account-atm-btn ui orange button my-3"
                             data-toggle="modal" data-target="#suspect_acc_atm_details" disabled>
                             Add Bank Account Atm details
+=======
+                       <div id="txt6"></div>
+                        <!------------TABLE end------->
+                    </div>
+                    <!---card body end-->
+                </div>
+                <!--- card end-->
+                <!---------ADD ACCOUNT END-------->
+                <!--------ADD E-WALLET------------>
+                <div class="card my-4">
+                    <div class="card-header">
+                        <div class="text-center">
+                            <h1 class="sub-head">ई-वॉलेट की जानकारी</h1>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse"
+                            data-target="#suspect_ewallet_details" id="btn_addewallet">
+                            Add E-Wallet Detail
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                         </button>
                         <!-- Modal -->
                         <div id="suspect_acc_atm_details" class="modal fade" role="dialog">
@@ -1020,6 +1319,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+<<<<<<< HEAD
                         <div id="txt8"></div>
                         <!--------------------------------->
                         <!--Bank Account Atm details end--->
@@ -1031,6 +1331,26 @@ $db = $database->getConnection();
                         <button type="button" id="btn_addiplog" class="add-account-iplogs-btn ui orange button my-3"
                             data-toggle="modal" data-target="#suspect_acc_iplog_details" disabled>
                             Add Bank Account iplog details
+=======
+                        <div id="txt10"></div>
+                        <!-----------TABLE END------>
+                    </div>
+                    <!----card body end--->
+                </div>
+                <!--- card end-->
+                <!---------ADD E-WALLET END-------->
+                <!--------ADD WEBSITE------------>
+                <div class="card my-4">
+                    <div class="card-header">
+                        <div class="text-center">
+                            <h1 class="sub-head">वेबसाइट की जानकारी</h1>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="add-number-btn ui button my-3" data-toggle="collapse"
+                            data-target="#suspect_website_details" id="btn_addwebsite">
+                            Add Website Detail
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                         </button>
                         <!-- Modal -->
                         <div id="suspect_acc_iplog_details" class="modal fade" role="dialog">
@@ -1103,6 +1423,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+<<<<<<< HEAD
                         <div id="txt9"></div>
                         <!--------------------------------->
                         <!---------iplogs details end--------->
@@ -1128,6 +1449,10 @@ $db = $database->getConnection();
                             </tbody>
                             <tbody id="new-row"></tbody>
                         </table>
+=======
+                        <div id="txt11"></div>
+                        <!--------------TABLE END------>
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
                     </div>
                     <div id="txt6"></div>
                     <!------------TABLE end------->
@@ -1332,6 +1657,7 @@ $db = $database->getConnection();
             </div>
             <!--- card end-->
 
+<<<<<<< HEAD
             <!---------ADD WEBSITE END-------->
         </div>
         <!---blue segment end-->
@@ -1342,8 +1668,20 @@ $db = $database->getConnection();
             <!---------------------------------->
             <!--Full Suspected detail div End--->
             <!---------------------------------->
+=======
+     <script src="../dependencies/sweetalert/sweetalert.min.js"></script>
+    <!--Jquery-->
+    <script src="../dependencies/jquery/jquery.min.js"></script>
+    <!--Sementic JS-->
+    <script src="../dependencies/semantic/dist/semantic.min.js"></script>
+    <!--Bootstrap JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+    <script src="../dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
 
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 
+<<<<<<< HEAD
             <!---FORM START ENDS------>
             <!--Sweet Alert-->
             <script src="../dependencies/sweetalert/sweetalert.min.js"></script>
@@ -1446,8 +1784,99 @@ $db = $database->getConnection();
                         },
                     });
                 });
+=======
+    <script src="js/insertbasic.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function(){
+        $("#SuspectFormDiv").hide();
+        $(document).on('click','button[name="next_button"]',function(){
+            $("#basicFormDiv").fadeOut();
+            $("#SuspectFormDiv").fadeIn();
+        });
+        $(document).on('click','button[name="back_button"]',function(){
+            $("#basicFormDiv").fadeIn();
+            $("#SuspectFormDiv").fadeOut();
+        });
+         //suspect number details
+         $('#btn_addnum').click(function() {
+            if ($('#suspect_no_details').is('.collapse:not(.show)')) {
+                $('#suspect_num_table_main').hide();
+            } else {
+                $('#suspect_num_table_main').show();
+            }
+        });
+        $(document).on('click','button[name="num_form"]',function(){
+                $('#suspect_no_details').collapse('hide');
+                $('#suspect_num_table_main').show();
+        });
+        
+           //suspect number details ends
+        //suspect account details
+        $('#btn_addacc').click(function() {
+            if ($('#suspect_acc_details').is('.collapse:not(.show)')) {
+                $('#suspect_acc_table_main').hide();
+            } else {
+                $('#suspect_acc_table_main').show();
+            }
+        });
+
+        //suspect ewallet details
+        $('#btn_addewallet').click(function() {
+            if ($('#suspect_ewallet_details').is('.collapse:not(.show)')) {
+                $('#suspect_ewallet_table_main').hide();
+            } else {
+                $('#suspect_ewallet_table_main').show();
+            }
+        });
+       
+        $(document).on('click','button[name="second_form"]',function(){
+            $('#suspect_ewallet_details').collapse('hide');
+                $('#suspect_ewallet_table_main').show();
+        });
+        //suspect ewallet details ends
+        //suspect website details
+        $('#btn_addwebsite').click(function() {
+            if ($('#suspect_website_details').is('.collapse:not(.show)')) {
+                $('#suspect_website_table_main').hide();
+            } else {
+                $('#suspect_website_table_main').show();
+            }
+        });
+        $(document).on('click','button[name="final_form"]',function(){
+            $('#suspect_website_details').collapse('hide');
+                $('#suspect_website_table_main').show();
+        });
+        //suspect website details ends
+        //ajax to load state
+        $('#ap_country').change(function() {
+            var country = $('#ap_country').val();
+            $.ajax({
+                url: 'user_fetch.php',
+                method: 'POST',
+                data: {
+                    country: country,
+                },
+                success: function(data) {
+                    $('#ap_state').html(data);
+                },
             });
-            </script>
+        });
+        $('#ap_state').change(function() {
+            var state = $('#ap_state').val();
+            $.ajax({
+                url: 'user_fetch.php',
+                method: 'POST',
+                data: {
+                    state: state,
+                },
+                success: function(data) {
+                    $('#ap_city').html(data);
+                },
+>>>>>>> decdbe354a2b05665a370066d52a2f2d7dc8be25
+            });
+        });
+    });
+ </script>
 </body>
 
 </html>
