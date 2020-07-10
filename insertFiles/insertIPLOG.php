@@ -12,7 +12,7 @@ $stmt->bind_param("ssssssss", $complaint_id, $acc_id, $iplog_id, $iplog, $email_
     
     $iplog = htmlspecialchars(strip_tags($_POST['iplog']));
     $email_sent = htmlspecialchars(strip_tags($_POST['iplog_email_sent']));
-    $email_received = htmlspecialchars(strip_tags($_POST['iplog_email_recieved"']));
+    $email_received = htmlspecialchars(strip_tags($_POST['iplog_email_recieved']));
     
     $createDate; 
     $lastUpdate; 
