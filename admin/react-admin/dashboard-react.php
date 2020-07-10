@@ -152,9 +152,8 @@ const timeDateFormatter = (arry) => {
                     <div class="col-sm-6">
                         <div style={{border:"2px solid #004ba8"}} class="card">
                             <div class="card-body">
-                                <h5 style={{color:"#004ba8"}} class="card-title">{this.props.title}</h5>
-                                <span class="card-text">{this.props.content}</span>
-                                <p class="card-text">{this.props.contentSec}</p>
+                                <h5 style={{color:"#004ba8",fontSize:"1.3rem"}} class="card-title">{this.props.title}</h5>
+                                <span style={{fontWeight:"bold"}} class="card-text">{this.props.content}</span>
                             </div>
                         </div>
                     </div>          

@@ -3,7 +3,7 @@
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-        <h1 class="nav-head">Dashboard</h1>
+        <h1 class="nav-head">Admin Dashboard</h1>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -19,7 +19,7 @@
   <div id="dashboard-cards">
     <!-- react-components -->
   </div>
-  <h1 style="color:#004ba8">Recently Added Complaints</h1>
+  <h1 class="recent-head">Recently Added Complaints</h1>
   <div id="dashboard-complaints">
     <!-- react-components -->
   </div>
