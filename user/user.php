@@ -335,7 +335,7 @@ $db = $database->getConnection();
                             <!--------CDR details------->
                             <!-------------------------->
                             <button type="button" id="btn_addcdr" class="add-number-cdr-btn ui orange button my-3"
-                                data-toggle="modal" data-target="#suspect_no_cdr_details">
+                                data-toggle="modal" data-target="#suspect_no_cdr_details" disabled>
                                 Add CDR details
                             </button>
                             <!-- Modal -->
@@ -449,6 +449,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
+                            <div id="txt3"></div>
                             <!-------------------------->
                             <!---CDR details ends------->
                             <!-------------------------->
@@ -458,7 +459,7 @@ $db = $database->getConnection();
                             <!----------------------------->
 
                             <button type="button" id="btn_addipdr" class="add-number-ipdr-btn ui orange button my-3"
-                                data-toggle="modal" data-target="#suspect_no_ipdr_details">
+                                data-toggle="modal" data-target="#suspect_no_ipdr_details" disabled>
                                 Add IPDR details
                             </button>
                             <!-- Modal -->
@@ -538,6 +539,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
+                            <div id="txt4"></div>
                             <!----------------------------->
                             <!------IPDR details ends------>
                             <!----------------------------->
@@ -546,7 +548,7 @@ $db = $database->getConnection();
                         <!----------------------------->
 
                         <button type="button" id="btn_addupi" class="add-number-ipdr-btn ui orange button my-3"
-                            data-toggle="modal" data-target="#suspect_no_upi_details">
+                            data-toggle="modal" data-target="#suspect_no_upi_details" disabled>
                             Add UPI details
                         </button>
                         <!-- Modal -->
@@ -620,11 +622,12 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+                        <div id="txt5"></div>
                         <!---------------------------------->
                         <!-------UPI Details ends ----------->
                         <!----------------------------------->
                         <div class="field mt-4">
-                            <button class="ui button form-btn" name="number_form" type="submit">
+                            <button class="ui button form-btn" name="num_form" type="submit">
                                 Done
                             </button>
                         </div>
@@ -651,6 +654,7 @@ $db = $database->getConnection();
                                 </tbody>                            
                             </table>
                         </div>
+                        <div id="txt2"></div>
                         <!-----TABLE ENDS-->
                             
 
@@ -768,7 +772,7 @@ $db = $database->getConnection();
                             <!-------Pan Details----------->
                             <!----------------------------->
                             <button type="button" id="btn_addpan" class="add-account-pan-btn ui orange button my-3"
-                                data-toggle="modal" data-target="#suspect_acc_pan_details">
+                                data-toggle="modal" data-target="#suspect_acc_pan_details" disabled>
                                 Add PAN details
                             </button>
                             <!-- Modal -->
@@ -880,6 +884,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
+                            <div id="txt7"></div>
                             <!--------------------------------->
                             <!---------Pan details end--------->
                             <!--------------------------------->
@@ -888,7 +893,7 @@ $db = $database->getConnection();
                             <!--Bank Account Atm Details--->
                             <!----------------------------->
                             <button type="button" id="btn_addatm" class="add-account-atm-btn ui orange button my-3"
-                                data-toggle="modal" data-target="#suspect_acc_atm_details">
+                                data-toggle="modal" data-target="#suspect_acc_atm_details" disabled>
                                 Add Bank Account Atm details
                             </button>
                             <!-- Modal -->
@@ -961,6 +966,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
+                            <div id="txt8"></div>
                             <!--------------------------------->
                             <!--Bank Account Atm details end--->
                             <!--------------------------------->
@@ -969,7 +975,7 @@ $db = $database->getConnection();
                             <!-------iplogs Details----------->
                             <!-------------------------------->
                             <button type="button" id="btn_addiplog" class="add-account-iplogs-btn ui orange button my-3"
-                                data-toggle="modal" data-target="#suspect_acc_iplog_details">
+                                data-toggle="modal" data-target="#suspect_acc_iplog_details" disabled>
                                 Add Bank Account iplog details
                             </button>
                             <!-- Modal -->
@@ -1043,6 +1049,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
+                            <div id="txt9"></div>
                             <!--------------------------------->
                             <!---------iplogs details end--------->
                             <!--------------------------------->
@@ -1067,6 +1074,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+                       <div id="txt6"></div>
                         <!------------TABLE end------->
                     </div><!---card body end-->
                 </div> <!--- card end-->
@@ -1183,6 +1191,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+                        <div id="txt10"></div>
                         <!-----------TABLE END------>
                     </div> <!----card body end--->
                 </div> <!--- card end-->
@@ -1255,6 +1264,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
+                        <div id="txt11"></div>
                         <!--------------TABLE END------>
                     </div><!--card body end-->
                 </div> <!--- card end-->
@@ -1305,11 +1315,12 @@ $db = $database->getConnection();
                 $('#suspect_num_table_main').show();
             }
         });
-        $(document).on('click','button[name="number_form"]',function(){
+        $(document).on('click','button[name="num_form"]',function(){
                 $('#suspect_no_details').collapse('hide');
                 $('#suspect_num_table_main').show();
         });
-        //suspect number details ends
+        
+           //suspect number details ends
         //suspect account details
         $('#btn_addacc').click(function() {
             if ($('#suspect_acc_details').is('.collapse:not(.show)')) {
@@ -1327,6 +1338,11 @@ $db = $database->getConnection();
                 $('#suspect_ewallet_table_main').show();
             }
         });
+       
+        $(document).on('click','button[name="second_form"]',function(){
+            $('#suspect_ewallet_details').collapse('hide');
+                $('#suspect_ewallet_table_main').show();
+        });
         //suspect ewallet details ends
         //suspect website details
         $('#btn_addwebsite').click(function() {
@@ -1335,6 +1351,10 @@ $db = $database->getConnection();
             } else {
                 $('#suspect_website_table_main').show();
             }
+        });
+        $(document).on('click','button[name="final_form"]',function(){
+            $('#suspect_website_details').collapse('hide');
+                $('#suspect_website_table_main').show();
         });
         //suspect website details ends
         //ajax to load state
