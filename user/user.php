@@ -187,6 +187,10 @@ $db = $database->getConnection();
                             <input type="text" name="amount" placeholder="राशि" />
                         </div>
                         <div class="eight wide field">
+                            <label>फ्रीज़ रुपये</label>
+                            <input type="text" name="freeze_amount" placeholder="राशि" />
+                        </div>
+                        <div class="eight wide field">
                             <label>जांचकर्ता का नाम</label>
                             <input type="text" name="checker_name" placeholder="जांचकर्ता का नाम" />
                         </div>
