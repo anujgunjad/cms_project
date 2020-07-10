@@ -225,6 +225,7 @@ const timeDateFormatter = (arry) => {
             };
             const textStyle = {
                 fontSize:"1.1rem",
+                fontWeight:"bold",
             }
           return (
             <table class="ui celled table">

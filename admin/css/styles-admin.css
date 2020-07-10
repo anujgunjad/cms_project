@@ -23,7 +23,7 @@
   font-size: 2.6rem;
 }
 #dashboard-complaints {
-  padding: 0 0.7vw;
+  padding: 0 0.7vw 6vh 0.7vw;
 }
 .btn-primary:hover {
   background: transparent !important;
@@ -39,9 +39,15 @@
   text-transform: uppercase;
   font-size: 1.8rem;
 }
+.first-chart-row {
+  background: #f8f9fa;
+  border-radius: 5px;
+  background: cyan;
+}
 .two-charts {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 5vh 1vw;
 }
 
 /* ADMIN COMPLAINTS PAGE */
