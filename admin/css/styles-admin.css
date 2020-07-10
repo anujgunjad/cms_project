@@ -10,9 +10,20 @@
 .theme-color {
   color: #004ba8 !important;
 }
+.nav-head {
+  font-size: 3rem;
+}
 /* ADMIN DASHBOARD */
 #dashboard-cards {
-  padding: 4vh 1vw;
+  padding: 4vh 1vw 3vh 1vw;
+}
+.recent-head {
+  color: #004ba8;
+  padding-left: 0.7vw;
+  font-size: 2.6rem;
+}
+#dashboard-complaints {
+  padding: 0 0.7vw 10vh 0.7vw;
 }
 .btn-primary:hover {
   background: transparent !important;
@@ -28,11 +39,22 @@
   text-transform: uppercase;
   font-size: 1.8rem;
 }
+.first-chart-row {
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+.chart {
+  background: #f8f9fa;
+}
 .two-charts {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 10vh 1vw 5vh 1vw;
 }
-
+.bar-graph-chart {
+  margin-bottom: 10vh;
+  border-radius: 5px;
+}
 /* ADMIN COMPLAINTS PAGE */
 .not-found-alert {
   margin-bottom: 0;

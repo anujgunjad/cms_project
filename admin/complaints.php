@@ -2,7 +2,7 @@
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-          <h1 class="nav-head">Complaints</h1>
+          <h1 class="nav-head">Search By Keyword</h1>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -24,6 +24,7 @@
                 <option value="2">Complaint Number</option>
                 <option value="3">Applicant Phone Number</option>
                 <option value="4">Suspect Name</option>
+                <option value="5">Address</option>
               </select>
             </div>
             <div class="fifteen wide field">
