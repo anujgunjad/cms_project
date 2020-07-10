@@ -148,18 +148,13 @@ const timeDateFormatter = (arry) => {
             }
   class Card extends React.Component {
         render() {
-            const cardButtonStyle ={
-                backgroundColor: "#004ba8",
-                border: "2px solid #004ba8",
-            };
             return ( 
                     <div class="col-sm-6">
-                        <div class="card">
+                        <div style={{border:"2px solid #004ba8"}} class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{this.props.title}</h5>
+                                <h5 style={{color:"#004ba8"}} class="card-title">{this.props.title}</h5>
                                 <span class="card-text">{this.props.content}</span>
                                 <p class="card-text">{this.props.contentSec}</p>
-                                <a href={this.props.href} style={cardButtonStyle} class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>          
@@ -172,8 +167,6 @@ const timeDateFormatter = (arry) => {
             cardData: [],
             contentOne: [],
             contentTwo: "",
-            hrefOne:"",
-            hrefTwo:"complaints-category.php",
         }
         componentDidMount(){
                 const dateFormatter = (str) => {
@@ -188,7 +181,6 @@ const timeDateFormatter = (arry) => {
                 // console.log(data);
                 this.setState({ cardData: data.complainee})
                 this.setState({ contentTwo: this.state.cardData.length})
-                this.setState({hrefOne:`show-complaint.php?id=${this.state.cardData[this.state.cardData.length - 1].complaint_id}`}) 
                 let timeDate = this.state.cardData[this.state.cardData.length - 1].last_updated;
                 let con = timeDate.split(" ");
                 let date = con[0];
@@ -203,8 +195,8 @@ const timeDateFormatter = (arry) => {
         render() {
             return(
                 <div id="cards-row" class="row">
-                    <Card href={this.state.hrefOne} title="Last record added at" content={"Date : " + this.state.contentOne[0]} contentSec={"Time : " + this.state.contentOne[1]} />
-                    <Card href={this.state.hrefTwo} title="Total number of complaints" content={"Total : " + this.state.contentTwo + " Complaints"} contentSec="-"/>
+                    <Card title="Last record added at" content={"Date : " + this.state.contentOne[0]+ ", " + " Time : " + this.state.contentOne[1]} />
+                    <Card title="Total number of complaints" content={"Total : " + this.state.contentTwo + " Complaints"} contentSec=""/>
                 </div>
             );
         }
