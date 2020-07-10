@@ -128,7 +128,7 @@ const timeDateFormatter = (arry) => {
                                 <table class="ui celled table">
                                 <tbody>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"> <span style={{color:"red"}}>({i})</span> संदिग्ध का नाम</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{suspect.suspect_address?suspect.suspect_address:"अभी तक दर्ज नहीं है"}</td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4>{suspect.email_id?suspect.email_id:"अभी तक दर्ज नहीं है"}</td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4>{suspect.domin_name?suspect.domin_name:"अभी तक दर्ज नहीं है"}</td>
