@@ -43,6 +43,7 @@ const timeDateFormatter = (arry) => {
                 let crimeDateRev = applicant[0].crime_date,
                     crimeDate = dateFormatter(crimeDateRev);
                 this.setState({ crimeDate: crimeDate});
+                console.log(applicant);
                 })
                 .catch(console.log)
         }
