@@ -32,7 +32,7 @@ totalData.then((data) => {
             labels: ["Male", "Female", "Other"],
             datasets: [{
             backgroundColor: [
-                "#FFCD56",
+                "#7EE081",
                 "#FF6384",
                 "#36A2EB",
             ],
@@ -57,7 +57,7 @@ totalData.then((data) => {
         ],
         data: complaintTypeData
         }]
-    }
+    },
     });
     let sct = data[2];
     // Sub complaint Graph
@@ -117,12 +117,15 @@ totalData.then((data) => {
         xAxes: [{
             ticks: {
             maxRotation: 90,
-            minRotation: 80
+            minRotation: 80,
+            fontSize: 15,
             }
         }],
         yAxes: [{
             ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            fontSize: 15,
+
             }
         }]
         }

@@ -23,7 +23,7 @@
   font-size: 2.6rem;
 }
 #dashboard-complaints {
-  padding: 0 0.7vw 6vh 0.7vw;
+  padding: 0 0.7vw 10vh 0.7vw;
 }
 .btn-primary:hover {
   background: transparent !important;
@@ -42,14 +42,19 @@
 .first-chart-row {
   background: #f8f9fa;
   border-radius: 5px;
-  background: cyan;
+}
+.chart {
+  background: #f8f9fa;
 }
 .two-charts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 5vh 1vw;
+  padding: 10vh 1vw 5vh 1vw;
 }
-
+.bar-graph-chart {
+  margin-bottom: 10vh;
+  border-radius: 5px;
+}
 /* ADMIN COMPLAINTS PAGE */
 .not-found-alert {
   margin-bottom: 0;

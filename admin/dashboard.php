@@ -25,7 +25,9 @@
   </div>
   <div id="charts-row">
     <div class="first-chart-row">
-      <h1 style="padding-top:2vh" class="recent-head">Graphs Representation</h1>
+      <center>
+        <h1 style="padding-top:2vh" class="recent-head">Graphs Representation</h1>
+      </center>
       <div class="two-charts mb-5">
         <div class="chart">
           <canvas id="complaintType"></canvas>
@@ -37,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="chart">
+    <div class="chart bar-graph-chart">
         <h1 style="color:#004ba8" class="pl-5 ml-5 pt-5 mt-5">SUB COMPLAINT TYPE</h1>
        <center>
         <canvas id="myChart" width="900" height="450"></canvas>
