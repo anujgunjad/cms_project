@@ -56,6 +56,7 @@
             "bh_dv" => $bh_dv,
             "crime_date" => $crime_date,
             "crime_time" => $crime_time,
+            "freeze_amount" => $freeze_amount,
             "amount" => $amount,
             "checker_name" => $checker_name,
             "created_date" => $created_date,

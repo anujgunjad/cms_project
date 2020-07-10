@@ -7,15 +7,6 @@ $conn = $database->getConnection();
     complaint_id = '".$_SESSION['key']."'";
     $result = $conn->query($query);
     $i = 1;
-    echo "<table class='table table-bordered p-0 m-0'>
-    <thead>
-        <tr id='table-head'>
-            <th scope='col'>S.No</th>
-            <th scope='col'>Phone numbers</th>
-            <th scope='col'>Update/Delete</th>
-        </tr>
-    </thead>
-    <tbody>";
     if($result->rowCount()> 0){
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
          
@@ -35,8 +26,6 @@ $conn = $database->getConnection();
             $i=$i+1;
         
           }
-          echo "</tbody>
-          </table>";
         } else {
           echo "0 results";
     }

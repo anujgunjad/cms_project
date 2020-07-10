@@ -4,6 +4,7 @@
 }
 form {
   margin-top: 5vh !important;
+  margin-bottom: 5vh !important;
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem !important;
 }
@@ -29,7 +30,6 @@ select {
 .form-btn {
   background-color: #004ba8 !important;
   color: #fff !important;
-
 }
 .sub-head {
   color: #004ba8;
@@ -38,7 +38,7 @@ select {
   background-color: #ad0000 !important;
   color: #fff !important;
 }
-.nexte-btn{
+.nexte-btn {
   background-color: #099734 !important;
   color: #fff !important;
 }

@@ -55,6 +55,7 @@ if($num > 0 && $numtwo > 0) {
             "crime_date" => $crime_date,
             "crime_time" => $crime_time,
             "amount" => $amount,
+            "freeze_amount" => $freeze_amount,
             "checker_name" => $checker_name,
             "created_date" => $created_date,
             "last_updated" => $last_updated,
