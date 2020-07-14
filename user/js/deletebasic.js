@@ -13,28 +13,40 @@ $(document).ready(function () {
                 $.ajax({
                 url: '../deleteFiles/deletefile.php',
                 method: 'POST',
+                dataType: 'JSON',
                 data: {num_id:num_id},
-                success: function (data) {
-                    console.log(data);
+                success: function(data) {                 
                     swal({
                     title: 'Deleted Successfully',
                     icon: 'success',
                     button: 'Next',
                     }).then(() => {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function () {
-                          if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt2').innerHTML = this.responseText;
-                          }
-                          $('#suspect_num_table_main').replaceWith($('#txt2'));
-                        };
-                        xmlhttp.open(
-                          'GET',
-                          '../displayFiles/display.php?numdetailform="1"',
-                          true
-                        );
-                        xmlhttp.send();
+                      var session_data = data.sessiondata;
+                      if(session_data > 0)
+                      {  console.log("disable button");
+                        $('#btn_addcdr').prop('disabled', true);
+                        $('#btn_addipdr').prop('disabled', true);
+                        $('#btn_addupi').prop('disabled', true);
+                        $("#suspect_num_table_cdr").html(data.resetcdr);
+                        $("#suspect_num_table_ipdr").html(data.resetipdr);
+                        $("#suspect_num_table_upi").html(data.resetupi);
+                      }
+                      var xmlhttp = new XMLHttpRequest();
+                      xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                          document.getElementById('suspect_num_table_main').innerHTML = this.responseText;
+                        }
+                       $('#suspect_num_table_main').css('display','inline');
+                      };
+                      xmlhttp.open(
+                        'GET',
+                        '../displayFiles/display.php?numdetailform="1"',
+                        true
+                      );
+                      xmlhttp.send();
+                       
                     });
+                   
                 },
                 error: function () {},
             
@@ -69,9 +81,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt3').innerHTML = this.responseText;
+                            document.getElementById('suspect_num_table_cdr').innerHTML = this.responseText;
                         }
-                        $('#suspect_num_table_cdr').replaceWith($('#txt3'));
+                        $('#suspect_num_table_cdr').css('display','inline');
                         };
                         xmlhttp.open(
                         'GET',
@@ -114,9 +126,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                             if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt4').innerHTML = this.responseText;
+                            document.getElementById('suspect_num_table_ipdr').innerHTML = this.responseText;
                             }
-                            $('#suspect_num_table_ipdr').replaceWith($('#txt4'));
+                            $('#suspect_num_table_ipdr').css('display','inline');
                         };
                         xmlhttp.open(
                             'GET',
@@ -160,9 +172,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                           if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt5').innerHTML = this.responseText;
+                            document.getElementById('suspect_num_table_upi').innerHTML = this.responseText;
                           }
-                          $('#suspect_num_table_upi').replaceWith($('#txt5'));
+                          $('#suspect_num_table_upi').css('display','inline');
                         };
                         xmlhttp.open(
                           'GET',
@@ -195,19 +207,31 @@ $(document).ready(function () {
                 url: '../deleteFiles/deletefile.php',
                 method: 'POST',
                 data: {acc_id:acc_id},
+                dataType: "JSON",
                 success: function (data) {
-                    console.log(data);
+                    console.log(data.msg);                    
                     swal({
                     title: 'Deleted Successfully',
                     icon: 'success',
                     button: 'Next',
                     }).then(() => {
+                      var session_data = data.sessiondata;
+                      if(session_data > 0)
+                      {  console.log("disable button");
+                        $('#btn_addpan').prop('disabled', true);
+                        $('#btn_addatm').prop('disabled', true);
+                        $('#btn_addiplog').prop('disabled', true);
+                        $("#suspect_acc_table_pan").html(data.resetpan);
+                        $("#suspect_acc_table_atm").html(data.resetatm);
+                        $("#suspect_acc_table_iplog").html(data.resetiplog);
+                      
+                      }
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                           if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt6').innerHTML = this.responseText;
+                            document.getElementById('suspect_acc_table_main').innerHTML = this.responseText;
                           }
-                          $('#suspect_acc_table_main').replaceWith($('#txt6'));
+                          $('#suspect_acc_table_main').css('display','inline');
                         };
                         xmlhttp.open(
                           'GET',
@@ -250,9 +274,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                           if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt7').innerHTML = this.responseText;
+                            document.getElementById('suspect_acc_table_pan').innerHTML = this.responseText;
                           }
-                          $('#suspect_acc_table_pan').replaceWith($('#txt7'));
+                          $('#suspect_acc_table_pan').css('display','inline');
                         };
                         xmlhttp.open(
                           'GET',
@@ -294,9 +318,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                           if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt8').innerHTML = this.responseText;
+                            document.getElementById('suspect_acc_table_atm').innerHTML = this.responseText;
                           }
-                          $('#suspect_acc_table_atm').replaceWith($('#txt8'));
+                          $('#suspect_acc_table_atm').css('display','inline');
                         };
                         xmlhttp.open(
                           'GET',
@@ -338,9 +362,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                           if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt9').innerHTML = this.responseText;
+                            document.getElementById('suspect_acc_table_iplog').innerHTML = this.responseText;
                           }
-                          $('#suspect_acc_table_iplog').replaceWith($('#txt9'));
+                          $('#suspect_acc_table_iplog').css('display','inline');
                         };
                         xmlhttp.open(
                           'GET',
@@ -382,9 +406,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                           if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt10').innerHTML = this.responseText;
+                            document.getElementById('suspect_ewallet_table_main').innerHTML = this.responseText;
                           }
-                          $('#suspect_ewallet_table_main').replaceWith($('#txt10'));
+                          $('#suspect_ewallet_table_main').css('display','inline');
                         };
                         xmlhttp.open(
                           'GET',
@@ -426,9 +450,9 @@ $(document).ready(function () {
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function () {
                             if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById('txt11').innerHTML = this.responseText;
+                            document.getElementById('suspect_website_table_main').innerHTML = this.responseText;
                             }
-                            $('#suspect_website_table_main').replaceWith($('#txt11'));
+                            $('#suspect_website_table_main').css('display','inline');
                         };
                         xmlhttp.open(
                             'GET',

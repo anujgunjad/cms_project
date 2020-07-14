@@ -80,35 +80,97 @@ if(isset($_POST['num_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_numbers WHERE number_id='$num_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo " Number Deleted Successfully!!!";
+        $msg = " Number Deleted Successfully!!!";
     }
     else {
-        echo " Number Deletion Failed!!!";  
+        $msg = " Number Deletion Failed!!!";  
     }
     $stmt1 = $conn->prepare("DELETE FROM suspect_number_cdr_info WHERE number_id='$num_id'");
     $execution1 = $stmt1->execute();
     if($execution1 == true){
-        echo " Cdr Deleted Successfully!!!";
+        $msg .= " Cdr Deleted Successfully!!!";
     }
     else {
-        echo " Cdr Deletion Failed!!!";  
+        $msg .= " Cdr Deletion Failed!!!";  
     }
     $stmt2 = $conn->prepare("DELETE FROM suspect_number_ipdr_info WHERE number_id='$num_id'");
     $execution2 = $stmt2->execute();
     if($execution2 == true){
-        echo " ipdr Deleted Successfully!!!";
+        $msg .= " ipdr Deleted Successfully!!!";
     }
     else {
-        echo " ipdr Deletion Failed!!!";  
+        $msg .= " ipdr Deletion Failed!!!";  
     }
     $stmt3 = $conn->prepare("DELETE FROM suspect_number_upi_info WHERE number_id='$num_id'");
     $execution3 = $stmt3->execute();
     if($execution3 == true){
-        echo " upi Deleted Successfully!!!";
+        $msg .= " upi Deleted Successfully!!!";
     }
     else {
-        echo " upi Deletion Failed!!!";  
+        $msg .= " upi Deletion Failed!!!";  
+    } 
+    if($num_id == $_SESSION['numberkey'])
+    {
+        unset($_SESSION['numberkey']);
+        $sessiondata = 2;
     }
+    else{
+        $sessiondata = 0;
+    }
+    $resetcdr = "<table class='table table-bordered p-0 m-0'>
+    <thead>
+        <tr id='table-head'>
+            <th scope='col'>S.No</th>
+            <th scope='col'>CDR number</th>
+            <th scope='col'>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+    </tr>
+    </tbody>
+    </table>";
+    $resetipdr = "<table class='table table-bordered p-0 m-0'>
+    <thead>
+        <tr id='table-head'>
+            <th scope='col'>S.No</th>
+            <th scope='col'>IPDR number</th>
+            <th scope='col'>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+    </tr>
+    </tbody>
+    </table>";
+    $resetupi = "<table class='table table-bordered p-0 m-0'>
+    <thead>
+        <tr id='table-head'>
+            <th scope='col'>S.No</th>
+            <th scope='col'>UPI number</th>
+            <th scope='col'>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+    </tr>
+    </tbody>
+    </table>";
+    $data['resetcdr'] = $resetcdr;
+    $data['resetipdr'] =$resetipdr;
+    $data['resetupi'] = $resetupi;
+    $data['msg'] = $msg;
+    $data['sessiondata'] = $sessiondata;
+    echo json_encode($data);
 }
 if(isset($_POST['acc_id']))
 {
@@ -116,35 +178,97 @@ if(isset($_POST['acc_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_bank_accounts WHERE acc_id='$acc_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo " Number Deleted Successfully!!!";
+        $msg= " account number Deleted Successfully!!!";
     }
     else {
-        echo " Number Deletion Failed!!!";  
+        $msg= "account number Deletion Failed!!!";  
     }
     $stmt1 = $conn->prepare("DELETE FROM suspect_pan_info WHERE acc_id='$acc_id'");
     $execution1 = $stmt1->execute();
     if($execution1 == true){
-        echo " pan Deleted Successfully!!!";
+        $msg .= " pan Deleted Successfully!!!";
     }
     else {
-        echo " pan Deletion Failed!!!";  
+        $msg .= " pan Deletion Failed!!!";  
     }
     $stmt2 = $conn->prepare("DELETE FROM bank_accounts_atm WHERE acc_id='$acc_id'");
     $execution2 = $stmt2->execute();
     if($execution2 == true){
-        echo " atm Deleted Successfully!!!";
+        $msg .= " atm Deleted Successfully!!!";
     }
     else {
-        echo " atm Deletion Failed!!!";  
+        $msg .= " atm Deletion Failed!!!";  
     }
     $stmt3 = $conn->prepare("DELETE FROM bank_accounts_iplogs WHERE acc_id='$acc_id'");
     $execution3 = $stmt3->execute();
     if($execution3 == true){
-        echo " iplog Deleted Successfully!!!";
+        $msg .= " iplog Deleted Successfully!!!";
     }
     else {
-        echo " iplog Deletion Failed!!!";  
+        $msg .= " iplog Deletion Failed!!!";  
     }
+    if($acc_id == $_SESSION['acckey'])
+    {
+        unset($_SESSION['acckey']);
+        $sessiondata = "2";
+    }
+    else{
+        $sessiondata ="0";
+    }
+    $resetpan = "<table class='table table-bordered p-0 m-0'>
+    <thead>
+        <tr id='table-head'>
+            <th scope='col'>S.No</th>
+            <th scope='col'>PAN number</th>
+            <th scope='col'>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+    </tr>
+    </tbody>
+    </table>";
+    $resetatm = "<table class='table table-bordered p-0 m-0'>
+    <thead>
+        <tr id='table-head'>
+            <th scope='col'>S.No</th>
+            <th scope='col'>ATM footage</th>
+            <th scope='col'>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+    </tr>
+    </tbody>
+    </table>";
+    $resetiplog = "<table class='table table-bordered p-0 m-0'>
+    <thead>
+        <tr id='table-head'>
+            <th scope='col'>S.No</th>
+            <th scope='col'>IPLOG footage</th>
+            <th scope='col'>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+    </tr>
+    </tbody>
+    </table>";
+    $data['resetpan'] = $resetpan;
+    $data['resetatm'] =$resetatm;
+    $data['resetiplog'] = $resetiplog;
+    $data['msg'] = $msg;
+    $data['sessiondata'] = $sessiondata;
+    echo json_encode($data);
 }
 if(isset($_POST['ewallet_id']))
 {

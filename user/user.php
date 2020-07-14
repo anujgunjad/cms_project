@@ -460,8 +460,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
-                            <div id="txt3"></div>
-                            <!-------------------------->
+                           <!-------------------------->
                             <!---CDR details ends------->
                             <!-------------------------->
 
@@ -551,7 +550,6 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
-                            <div id="txt4"></div>
                             <!----------------------------->
                             <!------IPDR details ends------>
                             <!----------------------------->
@@ -654,7 +652,6 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
-                            <div id="txt5"></div>
                             <!---------------------------------->
                             <!-------UPI Details ends ----------->
                             <!----------------------------------->
@@ -687,8 +684,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt2"></div>
-                    
+                                            
                     <!-----TABLE ENDS-->
 
 
@@ -920,7 +916,6 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt7"></div>
                         <!--------------------------------->
                         <!---------Pan details end--------->
                         <!--------------------------------->
@@ -1002,7 +997,6 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt8"></div>
                         <!--------------------------------->
                         <!--Bank Account Atm details end--->
                         <!--------------------------------->
@@ -1085,7 +1079,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt9"></div>
+                        
                         <!--------------------------------->
                         <!---------iplogs details end--------->
                         <!--------------------------------->
@@ -1117,7 +1111,7 @@ $db = $database->getConnection();
                             <tbody id="new-row"></tbody>
                         </table>
                     </div>
-                    <div id="txt6"></div>
+
                     <!------------TABLE end------->
                     
                 </div>
@@ -1238,7 +1232,6 @@ $db = $database->getConnection();
                             <tbody id="new-row"></tbody>
                         </table>
                     </div>
-                    <div id="txt10"></div>
                     <!-----------TABLE END------>
                 </div>
                 <!----card body end--->
@@ -1314,7 +1307,6 @@ $db = $database->getConnection();
                             <tbody id="new-row"></tbody>
                         </table>
                     </div>
-                    <div id="txt11"></div>
                     <!--------------TABLE END------>
                 </div>
                 <!--card body end-->
