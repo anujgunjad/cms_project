@@ -71,6 +71,11 @@ const timeDateFormatter = (arry) => {
         }
         
         render(){
+            const pdfButtonStyle = {
+                background:"#C50202",
+                border: "2px solid #C50202",
+                color:"#fff",
+            }
             return(
                 <div>
                 <center>
@@ -99,7 +104,11 @@ const timeDateFormatter = (arry) => {
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                                               
+                                <tr>
+                                    <th colspan="4">
+                                           <a style={{color:"#fff"},pdfButtonStyle} class={cdr.cdr_pdf?"ui small button pdf-button":"ui disabled small button pdf-button"} href={cdr.cdr_pdf ?"../insertFiles/" + cdr.cdr_pdf : ""} download>CDR PDF</a> 
+                                    </th>
+                                </tr>                            
                            </tbody>
                         </table>
                         ))
