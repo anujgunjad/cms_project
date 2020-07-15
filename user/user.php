@@ -69,9 +69,9 @@ $db = $database->getConnection();
                             <label>लिंग</label>
                             <select id="ap_gender" name="ap_gender" class="ui dropdown" required>
                                 <option value="">लिंग</option>
-                                <option value="female">महिला</option>
-                                <option value="male">पुरुष</option>
-                                <option value="other">अन्य</option>
+                                <option value="2">महिला</option>
+                                <option value="1">पुरुष</option>
+                                <option value="3">अन्य</option>
                             </select>
                         </div>
                         <div class="four wide field">
