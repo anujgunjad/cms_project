@@ -178,7 +178,8 @@ const timeDateFormatter = (arry) => {
                 fetch(`../api/data/read_suspect_number.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({numbers: data.numbers})
+                    this.setState({numbers: data.numbers});
+                    console.log(this.state.numbers);
                 })
                 .catch(console.log)
         }
