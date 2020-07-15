@@ -106,7 +106,7 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                           <a style={{color:"#fff"},pdfButtonStyle} class={cdr.cdr_pdf?"ui small button pdf-button":"ui disabled small button pdf-button"} href={cdr.cdr_pdf ?"../insertFiles/" + cdr.cdr_pdf : ""} download>CDR PDF</a> 
+                                           <a style={{color:"#fff"},pdfButtonStyle} class={cdr.cdr_pdf?"ui small button pdf-button":"ui disabled small button pdf-button"} href={cdr.cdr_pdf ?"../insertFiles/" + cdr.cdr_pdf : ""} download><i class="fa fa-download fa-fw" aria-hidden="true"></i> CDR PDF</a> 
                                     </th>
                                 </tr>                            
                            </tbody>
