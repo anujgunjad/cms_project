@@ -321,7 +321,7 @@ const timeDateFormatter = (arry) => {
                                     <th colspan="4">
                                         
                                          <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>More Info</a> 
-                                           <a style={{color:"#fff"},pdfButtonStyle} class={account.bank_statement_file?"ui small button pdf-button mr-2":"ui disabled small button pdf-button mr-r"} href={account.bank_statement_file ?"../insertFiles/" + account.bank_statement_file : ""} download>Download KYC PDF</a> 
+                                           <a style={{color:"#fff"},pdfButtonStyle} class={account.kyc_pdf?"ui small button pdf-button mr-2":"ui disabled small button pdf-button mr-r"} href={account.kyc_pdf ?"../insertFiles/" + account.kyc_pdf : ""} download>Download KYC PDF</a> 
                                            <a style={{color:"#fff"},pdfButtonStyle} class={account.bank_statement_file?"ui small button pdf-button":"ui disabled small button pdf-button"} href={account.bank_statement_file ?"../insertFiles/" + account.bank_statement_file : ""} download>Bank Statement File</a> 
                                     </th>
                                 </tr>
