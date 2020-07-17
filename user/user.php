@@ -207,6 +207,7 @@ $db = $database->getConnection();
             </div>
         </div>
         <!---basic-form-div end---->
+        
         <!------------------------->
         <!--Basic detail form END-->
         <!------------------------->
