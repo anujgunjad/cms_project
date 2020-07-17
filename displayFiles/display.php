@@ -125,7 +125,7 @@ $conn = $database->getConnection();
                  <td>".$i."</td>
                  <td>".$row['number_one']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit'  name='delete_num' id='delete_num' value='".$row['number_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -140,101 +140,116 @@ $conn = $database->getConnection();
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
          
      }
  }
 //cdr details form
 if(isset($_REQUEST['cdrdetailform']))
 {   
-    $query = "SELECT * from suspect_number_cdr_info where 	
-    complaint_id = '".$_SESSION['key']."' and number_id='".$_SESSION['numberkey']."'";
-     $result2 = $conn->prepare($query);
-     $result2->execute();
-     $i = 1;
-     echo "<table class='table table-bordered p-0 m-0'>
-     <thead>
-         <tr id='table-head'>
-             <th scope='col'>S.No</th>
-             <th scope='col'>CDR numbers</th>
-             <th scope='col'>Update/Delete</th>
-         </tr>
-     </thead>
-     <tbody>";
-    
-     if($result2->rowCount() >0){
-         while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
-         
-             echo "
+    if(isset($_SESSION['numberkey']))
+    {
+        $query = "SELECT * from suspect_number_cdr_info where 	
+        complaint_id = '".$_SESSION['key']."' and number_id='".$_SESSION['numberkey']."'";
+         $result2 = $conn->prepare($query);
+         $result2->execute();
+         $i = 1;
+         echo "<table class='table table-bordered p-0 m-0'>
+         <thead>
+             <tr id='table-head'>
+                 <th scope='col'>S.No</th>
+                 <th scope='col'>CDR numbers</th>
+                 <th scope='col'>Update/Delete</th>
+             </tr>
+         </thead>
+         <tbody>";
+        
+         if($result2->rowCount() >0){
+             while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
              
-                 <tr>
-                 <td>".$i."</td>
-                 <td>".$row['cdr']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
-                         class='ui mini red button delete'>
-                         Delete
-                     </button>
-                 </td>
-                 </tr>          
-         "; 
-             $i=$i+1;
-         
+                 echo "
+                 
+                     <tr>
+                     <td>".$i."</td>
+                     <td>".$row['cdr']."</td>
+                     <td><a class='ui mini button green' href='#'>Update</a>
+                         <button type='submit'id='delete_cdr'  name='delete_cdr' value='".$row['cdr_id']."' href='#'
+                             class='ui mini red button delete'>
+                             Delete
+                         </button>
+                     </td>
+                     </tr>          
+             "; 
+                 $i=$i+1;
+             
+              }                
+            } 
+         else {
+             echo "<tr>
+             <td>No Number Added Yet</td>
+             <td>No Number Added Yet</td>
+             <td>No Number Added Yet</td>
+         </tr> ";
+             
          }
          echo "</tbody>
          </table>";
-        
-         } 
-     else {
-         echo "0 results";
-         
-     }
+    }
+  
 }
 // ipdr details form
 if(isset($_REQUEST['ipdrdetailform']))
-{   
-    $query = "SELECT * from suspect_number_ipdr_info where 	
-    complaint_id = '".$_SESSION['key']."' and number_id='".$_SESSION['numberkey']."'";
-     $result2 = $conn->prepare($query);
-     $result2->execute();
-     $i = 1;
-     echo "<table class='table table-bordered p-0 m-0'>
-     <thead>
-         <tr id='table-head'>
-             <th scope='col'>S.No</th>
-             <th scope='col'>IPDR numbers</th>
-             <th scope='col'>Update/Delete</th>
-         </tr>
-     </thead>
-     <tbody>";
-    
-     if($result2->rowCount() >0){
-         while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
-         
-             echo "
-             
-                 <tr>
-                 <td>".$i."</td>
-                 <td>".$row['ipdr']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
-                         class='ui mini red button delete'>
-                         Delete
-                     </button>
-                 </td>
-                 </tr>          
-         "; 
-             $i=$i+1;
-         
-         }
-         echo "</tbody>
-         </table>";
+{   if(isset($_SESSION['numberkey']))
+    {
+        $query = "SELECT * from suspect_number_ipdr_info where 	
+        complaint_id = '".$_SESSION['key']."' and number_id='".$_SESSION['numberkey']."'";
+        $result2 = $conn->prepare($query);
+        $result2->execute();
+        $i = 1;
+        echo "<table class='table table-bordered p-0 m-0'>
+        <thead>
+            <tr id='table-head'>
+                <th scope='col'>S.No</th>
+                <th scope='col'>IPDR numbers</th>
+                <th scope='col'>Update/Delete</th>
+            </tr>
+        </thead>
+        <tbody>";
         
-         } 
-     else {
-         echo "0 results";
-         
-     }
+        if($result2->rowCount() >0){
+            while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
+            
+                echo "             
+                    <tr>
+                    <td>".$i."</td>
+                    <td>".$row['ipdr']."</td>
+                    <td><a class='ui mini button green' href='#'>Update</a>
+                        <button type='submit' name='delete_ipdr' id='delete_ipdr' value='".$row['ipdr_id']."' href='#'
+                            class='ui mini red button delete'>
+                            Delete
+                        </button>
+                    </td>
+                    </tr>          
+            "; 
+                $i=$i+1;
+            
+            }  
+            } 
+        else {
+                echo "<tr>
+                <td>No Number Added Yet</td>
+                <td>No Number Added Yet</td>
+                <td>No Number Added Yet</td>
+                </tr> ";
+            }
+        echo "</tbody>
+        </table>";
+
+    }    
 }
 //upi details form
 if(isset($_REQUEST['upidetailform']))
@@ -263,7 +278,7 @@ if(isset($_REQUEST['upidetailform']))
                  <td>".$i."</td>
                  <td>".$row['upi']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' id='delete_upi' name='delete_upi' value='".$row['upi_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -273,14 +288,19 @@ if(isset($_REQUEST['upidetailform']))
              $i=$i+1;
          
          }
-         echo "</tbody>
-         </table>";
+         
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr> ";
          
      }
+     echo "</tbody>
+         </table>";
 }
 //account details info
 if(isset($_REQUEST['accdetailform']))
@@ -309,7 +329,7 @@ if(isset($_REQUEST['accdetailform']))
                  <td>".$i."</td>
                  <td>".$row['acc_number']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' name='delete_acc' id='delete_acc' value='".$row['acc_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -319,14 +339,19 @@ if(isset($_REQUEST['accdetailform']))
              $i=$i+1;
          
          }
-         echo "</tbody>
-         </table>";
+        
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
          
      }
+     echo "</tbody>
+     </table>";
 }
 // pan details form
 if(isset($_REQUEST['pandetailform']))
@@ -355,7 +380,7 @@ if(isset($_REQUEST['pandetailform']))
                  <td>".$i."</td>
                  <td>".$row['pan']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' name='delete_pan' id='delete_pan' value='".$row['pan_info_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -364,15 +389,17 @@ if(isset($_REQUEST['pandetailform']))
          "; 
              $i=$i+1;
          
-         }
-         echo "</tbody>
-         </table>";
-        
-         } 
+         }     
+        } 
      else {
-         echo "0 results";
-         
-     }
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr> ";       
+        }
+     echo "</tbody>
+     </table>";
 }
 //atm details form
 if(isset($_REQUEST['atmdetailform']))
@@ -401,7 +428,7 @@ if(isset($_REQUEST['atmdetailform']))
                  <td>".$i."</td>
                  <td>".$row['atm_footage']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' name='delete_atm' id='delete_atm' value='".$row['atm_footage_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -411,14 +438,19 @@ if(isset($_REQUEST['atmdetailform']))
              $i=$i+1;
          
          }
-         echo "</tbody>
-         </table>";
+        
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
          
      }
+     echo "</tbody>
+     </table>";
 }
 //iplogs detail form
 if(isset($_REQUEST['iplogdetailform']))
@@ -447,7 +479,7 @@ if(isset($_REQUEST['iplogdetailform']))
                  <td>".$i."</td>
                  <td>".$row['iplog']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' name='delete_iplog' id='delete_iplog' value='".$row['iplog_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -456,15 +488,19 @@ if(isset($_REQUEST['iplogdetailform']))
          "; 
              $i=$i+1;
          
-         }
-         echo "</tbody>
-         </table>";
+         }       
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
          
      }
+     echo "</tbody>
+     </table>";
 }
 //ewallet detail form
 if(isset($_REQUEST['ewalletdetailform']))
@@ -493,7 +529,7 @@ if(isset($_REQUEST['ewalletdetailform']))
                  <td>".$i."</td>
                  <td>".$row['upi_name']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' name='delete_ewallet' id='delete_ewallet' value='".$row['suspect_ewallet_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -508,9 +544,15 @@ if(isset($_REQUEST['ewalletdetailform']))
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
          
      }
+     echo "</tbody>
+     </table>";
 }
 //website detail form
 if(isset($_REQUEST['websitedetailform']))
@@ -539,7 +581,7 @@ if(isset($_REQUEST['websitedetailform']))
                  <td>".$i."</td>
                  <td>".$row['website_name']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete' value='1' href='#'
+                     <button type='submit' name='delete_website' id='delete_website' value='".$row['website_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -549,13 +591,18 @@ if(isset($_REQUEST['websitedetailform']))
              $i=$i+1;
          
          }
-         echo "</tbody>
-         </table>";
+        
         
          } 
      else {
-         echo "0 results";
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
          
      }
+     echo "</tbody>
+     </table>";
 }
 ?>

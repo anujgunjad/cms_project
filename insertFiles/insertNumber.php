@@ -53,4 +53,5 @@ $stmt->bind_param("ssssssssssssssssssssss", $complaint_id, $number_id, $number_o
     else {
         echo "Insertion Failed!!!";  
     }
+   
 ?>

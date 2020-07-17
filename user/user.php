@@ -460,8 +460,7 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
-                            <div id="txt3"></div>
-                            <!-------------------------->
+                           <!-------------------------->
                             <!---CDR details ends------->
                             <!-------------------------->
 
@@ -551,7 +550,6 @@ $db = $database->getConnection();
                                     <tbody id="new-row"></tbody>
                                 </table>
                             </div>
-                            <div id="txt4"></div>
                             <!----------------------------->
                             <!------IPDR details ends------>
                             <!----------------------------->
@@ -576,25 +574,26 @@ $db = $database->getConnection();
                                         </div>
                                         <form id="upi_detailform" class="upi-detail-form ui blue segment form"
                                             method="POST" action="insertFiles/insertUPI.php">
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-sm">
-                                                        <label>UPI</label>
-                                                        <input type="text" name="upi_id" placeholder="UPI id " />
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-sm">
+                                                            <label>UPI</label>
+                                                            <input type="text" name="upi_id" placeholder="UPI id " />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm">
-                                                        <label>UPI Link</label>
-                                                        <select name="upi_link" class="ui dropdown" required>
-                                                            <option type="radio" value="" name="upi_link_confirm">UPI
-                                                                Link
-                                                            </option>
-                                                            <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
-                                                            </option>
-                                                            <option type="radio" value="नही" name="upi_link_confirm">नही
-                                                            </option>
-                                                        </select>
+                                                    <div class="row">
+                                                        <div class="col-sm">
+                                                            <label>UPI Link</label>
+                                                            <select name="upi_link" class="ui dropdown" required>
+                                                                <option type="radio" value="" name="upi_link_confirm">UPI
+                                                                    Link
+                                                                </option>
+                                                                <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
+                                                                </option>
+                                                                <option type="radio" value="नही" name="upi_link_confirm">नही
+                                                                </option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-sm">
@@ -656,11 +655,13 @@ $db = $database->getConnection();
                             <!---------------------------------->
                             <!-------UPI Details ends ----------->
                             <!----------------------------------->
+                            
                             <div class="field mt-4">
-                                <button class="ui button form-btn" name="number_form" type="submit">
+                                <button class="ui button form-btn" name="num_form" type="submit">
                                     Done
                                 </button>
                             </div>
+                            <br>
                         </div>
                         <!---collapse class end-->
                         <!--------------TABLE----------->
@@ -683,30 +684,7 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt5"></div>
-                        <!---------------------------------->
-                        <!-------UPI Details ends ----------->
-                        <!----------------------------------->
-                        <div class="field mt-4">
-                            <button class="ui button form-btn" name="num_form" type="submit">
-                                Done
-                            </button>
-                        </div>
-                    </div>
-                    <!---collapse class end-->
-                    <!--------------TABLE----------->
-                    <div id="suspect_num_table_main">
-                        <table class="table table-bordered p-0 m-0">
-                            <thead>
-                                <tr id="table-head">
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Phone numbers</th>
-                                    <th scope="col">Update/Delete</th>
-                                </tr>
-                                </tbody>
-                        </table>
-                    </div>
-                    <div id="txt2"></div>
+                                            
                     <!-----TABLE ENDS-->
 
 
@@ -938,7 +916,6 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt7"></div>
                         <!--------------------------------->
                         <!---------Pan details end--------->
                         <!--------------------------------->
@@ -1020,7 +997,6 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt8"></div>
                         <!--------------------------------->
                         <!--Bank Account Atm details end--->
                         <!--------------------------------->
@@ -1103,10 +1079,16 @@ $db = $database->getConnection();
                                 <tbody id="new-row"></tbody>
                             </table>
                         </div>
-                        <div id="txt9"></div>
+                        
                         <!--------------------------------->
                         <!---------iplogs details end--------->
                         <!--------------------------------->
+                        <div class="field mt-4">
+                                <button class="ui button form-btn" name="acc_form" type="submit">
+                                    Done
+                                </button>
+                            </div>
+                        <br>
                     </div>
                     <!--collapse end-->
                     <!------TABLE-------->
@@ -1129,8 +1111,9 @@ $db = $database->getConnection();
                             <tbody id="new-row"></tbody>
                         </table>
                     </div>
-                    <div id="txt6"></div>
+
                     <!------------TABLE end------->
+                    
                 </div>
                 <!---card body end-->
             </div>
@@ -1249,7 +1232,6 @@ $db = $database->getConnection();
                             <tbody id="new-row"></tbody>
                         </table>
                     </div>
-                    <div id="txt10"></div>
                     <!-----------TABLE END------>
                 </div>
                 <!----card body end--->
@@ -1325,7 +1307,6 @@ $db = $database->getConnection();
                             <tbody id="new-row"></tbody>
                         </table>
                     </div>
-                    <div id="txt11"></div>
                     <!--------------TABLE END------>
                 </div>
                 <!--card body end-->
@@ -1358,6 +1339,7 @@ $db = $database->getConnection();
 
             <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
             <script src="js/insertbasic.js"></script>
+            <script src="js/deletebasic.js"></script>
 
             <script>
             $(document).ready(function() {
@@ -1382,6 +1364,7 @@ $db = $database->getConnection();
                     $('#suspect_no_details').collapse('hide');
                     $('#suspect_num_table_main').show();
                 });
+        
 
                 //suspect number details ends
                 //suspect account details
@@ -1391,6 +1374,10 @@ $db = $database->getConnection();
                     } else {
                         $('#suspect_acc_table_main').show();
                     }
+                });
+                $(document).on('click', 'button[name="acc_form"]', function() {
+                    $('#suspect_acc_details').collapse('hide');
+                    $('#suspect_acc_table_main').show();
                 });
 
                 //suspect ewallet details

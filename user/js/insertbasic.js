@@ -88,12 +88,15 @@ $(document).ready(function () {
           $('#btn_addcdr').prop('disabled', false);
           $('#btn_addipdr').prop('disabled', false);
           $('#btn_addupi').prop('disabled', false);
+          $("#suspect_num_table_cdr").html("<table class='table table-bordered p-0 m-0'><thead><tr id='table-head'><th scope='col'>S.No</th><th scope='col'>CDR number</th><th scope='col'>Update/Delete</th></tr></thead><tbody><tr><td>No Number Added Yet</td><td>No Number Added Yet</td><td>No Number Added Yet</td></tr></tbody></table>");
+          $("#suspect_num_table_ipdr").html("<table class='table table-bordered p-0 m-0'><thead><tr id='table-head'><th scope='col'>S.No</th><th scope='col'>IPDR number</th><th scope='col'>Update/Delete</th></tr></thead><tbody><tr><td>No Number Added Yet</td><td>No Number Added Yet</td><td>No Number Added Yet</td></tr></tbody></table>");
+          $("#suspect_num_table_upi").html("<table class='table table-bordered p-0 m-0'><thead><tr id='table-head'><th scope='col'>S.No</th><th scope='col'>UPI number</th><th scope='col'>Update/Delete</th></tr></thead><tbody><tr><td>No Number Added Yet</td><td>No Number Added Yet</td><td>No Number Added Yet</td></tr></tbody></table>");
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt2').innerHTML = this.responseText;
+              document.getElementById('suspect_num_table_main').innerHTML = this.responseText;
             }
-            $('#suspect_num_table_main').replaceWith($('#txt2'));
+           $('#suspect_num_table_main').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -129,9 +132,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt3').innerHTML = this.responseText;
+              document.getElementById('suspect_num_table_cdr').innerHTML = this.responseText;
             }
-            $('#suspect_num_table_cdr').replaceWith($('#txt3'));
+            $('#suspect_num_table_cdr').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -167,9 +170,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt4').innerHTML = this.responseText;
+              document.getElementById('suspect_num_table_ipdr').innerHTML = this.responseText;
             }
-            $('#suspect_num_table_ipdr').replaceWith($('#txt4'));
+            $('#suspect_num_table_ipdr').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -205,9 +208,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt5').innerHTML = this.responseText;
+              document.getElementById('suspect_num_table_upi').innerHTML = this.responseText;
             }
-            $('#suspect_num_table_upi').replaceWith($('#txt5'));
+            $('#suspect_num_table_upi').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -241,12 +244,15 @@ $(document).ready(function () {
           $('#btn_addpan').prop('disabled', false);
           $('#btn_addatm').prop('disabled', false);
           $('#btn_addiplog').prop('disabled', false);
+          $("#suspect_acc_table_pan").html("<table class='table table-bordered p-0 m-0'><thead><tr id='table-head'><th scope='col'>S.No</th><th scope='col'>PAN number</th><th scope='col'>Update/Delete</th></tr></thead><tbody><tr><td>No Number Added Yet</td><td>No Number Added Yet</td><td>No Number Added Yet</td></tr></tbody></table>");
+          $("#suspect_acc_table_atm").html("<table class='table table-bordered p-0 m-0'><thead><tr id='table-head'><th scope='col'>S.No</th><th scope='col'>ATM footage</th><th scope='col'>Update/Delete</th></tr></thead><tbody><tr><td>No Number Added Yet</td><td>No Number Added Yet</td><td>No Number Added Yet</td></tr></tbody></table>");
+          $("#suspect_acc_table_iplog").html("<table class='table table-bordered p-0 m-0'><thead><tr id='table-head'><th scope='col'>S.No</th><th scope='col'>iplog footage</th><th scope='col'>Update/Delete</th></tr></thead><tbody><tr><td>No Number Added Yet</td><td>No Number Added Yet</td><td>No Number Added Yet</td></tr></tbody></table>");
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt6').innerHTML = this.responseText;
+              document.getElementById('suspect_acc_table_main').innerHTML = this.responseText;
             }
-            $('#suspect_acc_table_main').replaceWith($('#txt6'));
+            $('#suspect_acc_table_main').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -282,9 +288,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt7').innerHTML = this.responseText;
+              document.getElementById('suspect_acc_table_pan').innerHTML = this.responseText;
             }
-            $('#suspect_acc_table_pan').replaceWith($('#txt7'));
+            $('#suspect_acc_table_pan').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -320,9 +326,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt8').innerHTML = this.responseText;
+              document.getElementById('suspect_acc_table_atm').innerHTML = this.responseText;
             }
-            $('#suspect_acc_table_atm').replaceWith($('#txt8'));
+            $('#suspect_acc_table_atm').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -358,9 +364,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt9').innerHTML = this.responseText;
+              document.getElementById('suspect_acc_table_iplog').innerHTML = this.responseText;
             }
-            $('#suspect_acc_table_iplog').replaceWith($('#txt9'));
+            $('#suspect_acc_table_iplog').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -395,9 +401,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt10').innerHTML = this.responseText;
+              document.getElementById('suspect_ewallet_table_main').innerHTML = this.responseText;
             }
-            $('#suspect_ewallet_table_main').replaceWith($('#txt10'));
+            $('#suspect_ewallet_table_main').css('display','inline');
           };
           xmlhttp.open(
             'GET',
@@ -432,9 +438,9 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById('txt11').innerHTML = this.responseText;
+              document.getElementById('suspect_website_table_main').innerHTML = this.responseText;
             }
-            $('#suspect_website_table_main').replaceWith($('#txt11'));
+            $('#suspect_website_table_main').css('display','inline');
           };
           xmlhttp.open(
             'GET',
