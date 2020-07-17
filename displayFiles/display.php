@@ -15,7 +15,7 @@ $conn = $database->getConnection();
                     <div class='one fields'>
                         <div class='four wide field'>
                             <label><span class='complaint-field'>शिकायत क्रमांक *</span></label>
-                            <input class='form-text' value = '".$row['complaint_no']."' disabled/>
+                            <input class='form-text' value = '".$row['complaint_no']."' disabled = 'disabled'/>
                         </div>
                     </div>
                     <hr />
@@ -23,102 +23,105 @@ $conn = $database->getConnection();
                     <div class='four fields'>
                         <div class='six wide field'>
                             <label>आवेदक का नाम </label>
-                            <input class='form-text'  value = '".$row['ap_name']."' disabled />
+                            <input class='form-text'  value = '".$row['ap_name']."' disabled = 'disabled' />
                         </div>
                         <div class='three wide field'>
                             <label>उम्र</label>
-                            <input class='form-text'  value = '".$row['ap_age']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_age']."' disabled = 'disabled'  />
                         </div>
                         <div class='three wide field'>
                             <label>लिंग</label>
-                            <input class='form-text'  value = '".$row['ap_gender']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_gender']."' disabled = 'disabled'  />
                         </div>
                         <div class='four wide field'>
                             <label>मोबाइल नंबर</label>
-                            <input class='form-text'  value = '".$row['ap_mob']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_mob']."' disabled = 'disabled'  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='eight wide field'>
                             <label>आवेदक का पता</label>
-                            <input class='form-text'  value = '".$row['ap_address']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_address']."' disabled = 'disabled'  />
                         </div>
                         <div class='four wide field'>
                             <label>Country</label>
-                            <input class='form-text'  value = '".$row['ap_country']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_country']."' disabled = 'disabled'  />
                         </div>
                         <div class='four wide field'>
                             <label>State</label>
-                            <input class='form-text'  value = '".$row['ap_state']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_state']."' disabled = 'disabled'  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='six wide field'>
                             <label>City</label>
-                            <input class='form-text'  value = '".$row['ap_city']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_city']."' disabled = 'disabled'  />
                         </div>
                         <div class='six wide field'>
                             <label>पिन कोड</label>
-                            <input class='form-text'  value = '".$row['ap_pin_code']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_pin_code']."' disabled = 'disabled'  />
                         </div>
                         <div class='six wide field'>
                             <label>आधार क्रमांक</label>
-                            <input class='form-text'  value = '".$row['ap_adhar']."' disabled  />
+                            <input class='form-text'  value = '".$row['ap_adhar']."' disabled = 'disabled'  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='six wide field'>
                             <label>प्रकार</label>
-                            <input class='form-text'  value = '".$row['complaint_type']."' disabled  />
+                            <input class='form-text'  value = '".$row['complaint_type']."' disabled  = 'disabled' />
                         </div>
                         <div class='six wide field'>
                             <label>उप-प्रकार</label>
-                            <input class='form-text'  value = '".$row['sub_complaint_type']."' disabled  />
+                            <input class='form-text'  value = '".$row['sub_complaint_type']."' disabled  = 'disabled' />
                         </div>
                         <div class='six wide field'>
                             <label>आई टी ऐक्ट धारा</label>
-                            <input class='form-text'  value = '".$row['it_act']."' disabled  />
+                            <input class='form-text'  value = '".$row['it_act']."' disabled = 'disabled'  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='six wide field'>
                             <label>भा द वि धारा</label>
-                            <input class='form-text'  value = '".$row['bh_dv']."' disabled  />
+                            <input class='form-text'  value = '".$row['bh_dv']."' disabled = 'disabled'  />
                         </div>
                         <div class='six wide field'>
                             <label>घटना का दिनांक</label>
-                            <input class='form-text'  value = '".$row['crime_date']."' disabled  />
+                            <input class='form-text'  value = '".$row['crime_date']."' disabled = 'disabled'  />
                         </div>
                         <div class='six wide field'>
                             <label>घटना का समय</label>
-                            <input class='form-text'  value = '".$row['crime_time']."' disabled  />
+                            <input class='form-text'  value = '".$row['crime_time']."' disabled = 'disabled'  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='eight wide field'>
                             <label>आवेदक की राशि</label>
-                            <input class='form-text'  value = '".$row['amount']."' disabled  />
+                            <input class='form-text'  value = '".$row['amount']."' disabled = 'disabled'  />
                         </div>
                         <div class='eight wide field'>
                             <label>फ्रीज़ रुपये</label>
-                            <input class='form-text'  value = '".$row['freeze_amount']."' disabled  />
+                            <input class='form-text'  value = '".$row['freeze_amount']."' disabled = 'disabled'  />
                         </div>
                         <div class='eight wide field'>
                             <label>जांचकर्ता का नाम</label>
-                            <input class='form-text'  value = '".$row['checker_name']."' disabled  />
+                            <input class='form-text'  value = '".$row['checker_name']."' disabled = 'disabled'  />
                         </div>
                     </div>
                     <div class='field text-center'>
-                        <button class='ui button  form-btn'  id='result-basic' type='submit' name='result'
-                            value='Submit'>
-                            Submit
-                        </button>
-                    </div>
+
+                    <button class='ui button update-btn' id='update-display' type = 'button' name = 'update_basic'>
+                        Update
+                    </button>
+                    <button class='ui button nexte-btn' type='button' id='next_button'  name='next_button'>
+                        Next
+                    </button>
+                </div>
                 </form>
              ";
         }
