@@ -153,7 +153,7 @@ $db = $database->getConnection();
                                     $sub_complaint_type_query_num = $sub_complaint_type_query->rowCount();
                                         if($sub_complaint_type_query_num > 0) { 
                                             while($rownumtwo = $sub_complaint_type_query->fetch(PDO::FETCH_ASSOC)) {
-                                             $sub_complaint_type.= "<option value=".$rownumtwo['sub_complaint_type_id'].">".$rownumtwo['sub_type']."</option>"; 
+                                            $sub_complaint_type.= "<option value=".$rownumtwo['sub_complaint_type_id'].">".$rownumtwo['sub_type']."</option>"; 
                                         } 
                                     } 
                                     echo $sub_complaint_type; 
@@ -1317,7 +1317,7 @@ $db = $database->getConnection();
                 <!---------ADD WEBSITE END-------->
             </div>
             <!---blue segment end-->
-            <div class="text-center">
+            <div class="text-center p-4">
                 <button class="ui button nexte-btn" name="back_button">Back</button>
             </div>
             <div>
@@ -1341,6 +1341,7 @@ $db = $database->getConnection();
                 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
                 <script src="js/insertbasic.js"></script>
                 <script src="js/deletebasic.js"></script>
+                <script src="js/updatebasic.js"></script>
 
                 <script>
                 $(document).ready(function() {

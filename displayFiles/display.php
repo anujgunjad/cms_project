@@ -12,88 +12,117 @@ $conn = $database->getConnection();
     if($result->rowCount()> 0){
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "
-            <form id='basicFormResult' class='basic-form-result ui blue segment form'>
-                <div class='three fields'>
-                    <div class='seven wide field'>
-                        <label>आवेदक का नाम </label>
-                        <span class='form-text'>".$row['ap_name']."</span>
+            <form id='basicForm' method='POST' action='../insertFiles/insert_basicForm.php'
+                    class='basic-form ui blue segment form'>
+                    <div class='one fields'>
+                        <div class='four wide field'>
+                            <label><span class='complaint-field'>शिकायत क्रमांक *</span></label>
+                            <input class='complaint-num-box' value = '".$row['complaint_no']."' />
+                        </div>
                     </div>
-                    <div class='four wide field'>
-                        <label>उम्र</label>
-                        <span class='form-text'>".$row['ap_age']."</span>
-                    </div>
-                    <div class='five wide field'>
-                        <label>मोबाइल नंबर</label>
-                        <span class='form-text'>".$row['ap_mob']."</span>
-                    </div>
-                </div>
-                <div class='two fields'>
-                    <div class='ten wide field'>
-                        <label>आवेदक का पता</label>
-                        <span class='form-text'>".$row['ap_address']."</span>
-                    </div>
-                    <div class='six wide field'>
-                        <label>आधार क्रमांक</label>
-                        <span class='form-text'>".$row['ap_adhar']."</span>
-                    </div>
-                </div>
-                <div class='three fields'>
-                    <div class='six wide field'>
-                        <label>प्रकार</label>
-                        <span class='form-text'>".$row['complaint_type']."</span>
-                    </div>
-                    <div class='six wide field'>
-                        <label>अपराध का तरीका</label>
-                        <span class='form-text'>".$row['sub_complaint_type']."</span>
-                    </div>
-                    <div class='six wide field'>
-                        <label>आई टी ऐक्ट धारा</label>
-                        <span class='form-text'>".$row['it_act']."</span>
-                    </div>
-                </div>
-                <div class='three fields'>
-                    <div class='six wide field'>
-                        <label>भा द वि धारा</label>
-                        <span class='form-text'>".$row['bh_dv']."</span>
-                    </div>
-                    <div class='six wide field'>
-                        <label>घटना का दिनांक</label>
-                        <span class='form-text'>".$row['crime_date']."</span>
-                    </div>
-                    <div class='six wide field'>
-                        <label>घटना का समय</label>
-                        <span class='form-text'>".$row['crime_time']."</span>
-                    </div>
-                </div>
-    
-                <div class='four fields'>
-                    <div class='four wide field'>
-                        <label>आवेदक की राशि</label>
-                        <span class='form-text'>".$row['amount']."</span>
-                    </div>
-                    <div class='four wide field'>
-                        <label>जांचकर्ता का नाम</label>
-                        <span class='form-text'>".$row['checker_name']."</span>
-                    </div>
-                    <div class='four wide field'>
-                        <label>शिकायत क्रमांक</label>
-                        <span class='form-text'>".$row['complaint_no']."</span>
-                    </div>
-                    <div class='four wide field'>
-                        <label>शिकायत की दिनांक</label>
-                        <span class='form-text'>".$row['created_date']."</span>
-                    </div>
-                </div>
-                <div class='field text-center'>
+                    <hr />
 
-                    <button class='ui button update-btn' id='update-display' type = 'button' name='update' value='Update'>
-                        Update
-                    </button>
-                    <button class='ui button nexte-btn' type='button' id='next_button'  name='next_button'>
-                        Next
-                    </button>
-                </div>
-            </form>
+                    <div class='four fields'>
+                        <div class='six wide field'>
+                            <label>आवेदक का नाम </label>
+                            <input type='text' name='ap_name' placeholder='नाम' />
+                        </div>
+                        <div class='three wide field'>
+                            <label>उम्र</label>
+                            <input type='text' name='ap_age' placeholder='उम्र' />
+                        </div>
+                        <div class='three wide field'>
+                            <label>लिंग</label>
+                           
+                        </div>
+                        <div class='four wide field'>
+                            <label>मोबाइल नंबर</label>
+                            <input type='tel' name='ap_mob' placeholder='मोबाइल नंबर' />
+                        </div>
+                    </div>
+
+                    <div class='three fields'>
+                        <div class='eight wide field'>
+                            <label>आवेदक का पता</label>
+                            <input type='text' name='ap_address' placeholder='आवेदक का पता'/>
+                        </div>
+                        <div class='four wide field'>
+                            <label>Country</label>
+                          
+                        </div>
+                        <div class='four wide field'>
+                            <label>State</label>
+                           
+                        </div>
+                    </div>
+
+                    <div class='three fields'>
+                        <div class='six wide field'>
+                            <label>City</label>
+                          
+                        </div>
+                        <div class='six wide field'>
+                            <label>पिन कोड</label>
+                            <input type='text' />
+                        </div>
+                        <div class='six wide field'>
+                            <label>आधार क्रमांक</label>
+                            <input type='text'/>
+                        </div>
+                    </div>
+
+                    <div class='three fields'>
+                        <div class='six wide field'>
+                            <label>प्रकार</label>
+                            
+                        </div>
+                        <div class='six wide field'>
+                            <label>उप-प्रकार</label>
+                         
+                        </div>
+                        <div class='six wide field'>
+                            <label>आई टी ऐक्ट धारा</label>
+                            <input type='text' />
+                        </div>
+                    </div>
+
+                    <div class='three fields'>
+                        <div class='six wide field'>
+                            <label>भा द वि धारा</label>
+                            <input type='text' />
+                        </div>
+                        <div class='six wide field'>
+                            <label>घटना का दिनांक</label>
+                            <input type='date'/>
+                        </div>
+                        <div class='six wide field'>
+                            <label>घटना का समय</label>
+                            <input type='time'/>
+                        </div>
+                    </div>
+
+                    <div class='three fields'>
+                        <div class='eight wide field'>
+                            <label>आवेदक की राशि</label>
+                            <input type='text' />
+                        </div>
+                        <div class='eight wide field'>
+                            <label>फ्रीज़ रुपये</label>
+                            <input type='text' />
+                        </div>
+                        <div class='eight wide field'>
+                            <label>जांचकर्ता का नाम</label>
+                            <input type='text' />
+                        </div>
+                    </div>
+                    <div class='field text-center'>
+                        <button class='ui button  form-btn'  id='result-basic' type='submit' name='result'
+                            value='Submit'>
+                            Submit
+                        </button>
+                    </div>
+
+                </form>
              ";
         }
     }
