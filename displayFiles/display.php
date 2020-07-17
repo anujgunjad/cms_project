@@ -6,18 +6,16 @@ $database = new Database();
 $conn = $database->getConnection();
  if(isset($_REQUEST['basicform']))
  {
-    $query = "SELECT * from basic_details where 	
-    complaint_id = '".$_SESSION['key']."'";
+    $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, g.gender as ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.freeze_amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from basic_details c  INNER JOIN genders as g ON g.id = c.ap_gender  INNER JOIN countries co  ON co.id = c.ap_country INNER JOIN states s  ON s.id = c.ap_state INNER JOIN cities ci ON ci.id = c.ap_city INNER JOIN complaint_type ct ON ct.type_id = c.complaint_type INNER JOIN sub_complaint_type cst ON cst.sub_complaint_type_id = c.sub_complaint_type WHERE complaint_id = '".$_SESSION['key']."'";
     $result = $conn->query($query);
     if($result->rowCount()> 0){
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "
-            <form id='basicForm' method='POST' action='../insertFiles/insert_basicForm.php'
-                    class='basic-form ui blue segment form'>
+            <form id='basicFormResult' class='basic-form-result ui blue segment form'>
                     <div class='one fields'>
                         <div class='four wide field'>
                             <label><span class='complaint-field'>शिकायत क्रमांक *</span></label>
-                            <input class='complaint-num-box' value = '".$row['complaint_no']."' />
+                            <input class='form-text' value = '".$row['complaint_no']."' disabled/>
                         </div>
                     </div>
                     <hr />
@@ -25,94 +23,94 @@ $conn = $database->getConnection();
                     <div class='four fields'>
                         <div class='six wide field'>
                             <label>आवेदक का नाम </label>
-                            <input type='text' name='ap_name' placeholder='नाम' />
+                            <input class='form-text'  value = '".$row['ap_name']."' disabled />
                         </div>
                         <div class='three wide field'>
                             <label>उम्र</label>
-                            <input type='text' name='ap_age' placeholder='उम्र' />
+                            <input class='form-text'  value = '".$row['ap_age']."' disabled  />
                         </div>
                         <div class='three wide field'>
                             <label>लिंग</label>
-                           
+                            <input class='form-text'  value = '".$row['ap_gender']."' disabled  />
                         </div>
                         <div class='four wide field'>
                             <label>मोबाइल नंबर</label>
-                            <input type='tel' name='ap_mob' placeholder='मोबाइल नंबर' />
+                            <input class='form-text'  value = '".$row['ap_mob']."' disabled  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='eight wide field'>
                             <label>आवेदक का पता</label>
-                            <input type='text' name='ap_address' placeholder='आवेदक का पता'/>
+                            <input class='form-text'  value = '".$row['ap_address']."' disabled  />
                         </div>
                         <div class='four wide field'>
                             <label>Country</label>
-                          
+                            <input class='form-text'  value = '".$row['ap_country']."' disabled  />
                         </div>
                         <div class='four wide field'>
                             <label>State</label>
-                           
+                            <input class='form-text'  value = '".$row['ap_state']."' disabled  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='six wide field'>
                             <label>City</label>
-                          
+                            <input class='form-text'  value = '".$row['ap_city']."' disabled  />
                         </div>
                         <div class='six wide field'>
                             <label>पिन कोड</label>
-                            <input type='text' />
+                            <input class='form-text'  value = '".$row['ap_pin_code']."' disabled  />
                         </div>
                         <div class='six wide field'>
                             <label>आधार क्रमांक</label>
-                            <input type='text'/>
+                            <input class='form-text'  value = '".$row['ap_adhar']."' disabled  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='six wide field'>
                             <label>प्रकार</label>
-                            
+                            <input class='form-text'  value = '".$row['complaint_type']."' disabled  />
                         </div>
                         <div class='six wide field'>
                             <label>उप-प्रकार</label>
-                         
+                            <input class='form-text'  value = '".$row['sub_complaint_type']."' disabled  />
                         </div>
                         <div class='six wide field'>
                             <label>आई टी ऐक्ट धारा</label>
-                            <input type='text' />
+                            <input class='form-text'  value = '".$row['it_act']."' disabled  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='six wide field'>
                             <label>भा द वि धारा</label>
-                            <input type='text' />
+                            <input class='form-text'  value = '".$row['bh_dv']."' disabled  />
                         </div>
                         <div class='six wide field'>
                             <label>घटना का दिनांक</label>
-                            <input type='date'/>
+                            <input class='form-text'  value = '".$row['crime_date']."' disabled  />
                         </div>
                         <div class='six wide field'>
                             <label>घटना का समय</label>
-                            <input type='time'/>
+                            <input class='form-text'  value = '".$row['crime_time']."' disabled  />
                         </div>
                     </div>
 
                     <div class='three fields'>
                         <div class='eight wide field'>
                             <label>आवेदक की राशि</label>
-                            <input type='text' />
+                            <input class='form-text'  value = '".$row['amount']."' disabled  />
                         </div>
                         <div class='eight wide field'>
                             <label>फ्रीज़ रुपये</label>
-                            <input type='text' />
+                            <input class='form-text'  value = '".$row['freeze_amount']."' disabled  />
                         </div>
                         <div class='eight wide field'>
                             <label>जांचकर्ता का नाम</label>
-                            <input type='text' />
+                            <input class='form-text'  value = '".$row['checker_name']."' disabled  />
                         </div>
                     </div>
                     <div class='field text-center'>
@@ -121,7 +119,6 @@ $conn = $database->getConnection();
                             Submit
                         </button>
                     </div>
-
                 </form>
              ";
         }
