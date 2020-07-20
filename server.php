@@ -63,7 +63,7 @@ if (isset($_POST['login_user'])) {
           $_SESSION['name'] = strtoupper($name);
           $_SESSION['role'] = $row['role'];
           $_SESSION['msg'] = "";
-          if($_SESSION['role']== 0)
+          if($_SESSION['role']== "0")
             {
               header('location: admin/dashboard.php');
             }
