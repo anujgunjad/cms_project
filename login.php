@@ -26,10 +26,12 @@
   	<div class="field">
   		<label class="labels">User ID</label>
   		<input type="text" name="user_id" required>
+		  <p style="font-size: 12px; color:#004BA8" class="mt-2">*for Development purposes only &#8594; [admin123, user123 ] </p>
   	</div>
   	<div class="field">
   		<label class="labels">Password</label>
   		<input type="password" name="password" required>
+		  <p style="font-size: 12px; color:#004BA8" class="mt-2">*for Development purposes only &#8594; [12345 ] </p>
   	</div>
   	<div class="field">
   		<button id="btn" class="ui button form-btn-one" type="submit" name="login_user">Log in</button>

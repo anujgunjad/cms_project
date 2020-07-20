@@ -12,7 +12,7 @@
           </ul>
         </div>
             <a href="dashboard.php?logout='1'" >
-              <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" type="submit">Log Out</button>
+              <button class="btn btn-outline-light my-2 my-sm-0 " type="submit">Log Out</button>
             </a>
         </nav>
 
