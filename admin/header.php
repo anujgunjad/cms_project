@@ -10,6 +10,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['user_id']);
     unset($_SESSION['name']);
     unset($_SESSION['role']);
+    array_push($errors, "Successfully Logged Out");
     header("location: /cms_project/login.php");
 }
 ?>
