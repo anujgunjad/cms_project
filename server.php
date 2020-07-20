@@ -1,7 +1,7 @@
 <?php
 session_start();
 // error_reporting(0);
-// error_reporting(0);
+error_reporting(0);
 // initializing variables
 $servername = "127.0.0.1";
 $username = "root";
@@ -62,6 +62,7 @@ if (isset($_POST['login_user'])) {
           $_SESSION['user_id'] = $row['userid'];
           $_SESSION['name'] = strtoupper($name);
           $_SESSION['role'] = $row['role'];
+          $_SESSION['msg'] = "";
           if($_SESSION['role']=="Admin")
             {
               header('location: admin/dashboard.php');

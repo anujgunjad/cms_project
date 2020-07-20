@@ -17,6 +17,12 @@
 	
   <form class="ui form my-form" method="post" action="login.php">
   	<?php include('errors.php'); ?>
+	<?php 
+	if ($_GET['logout'] == 1) { ?>
+		<div class="alert alert-danger custom-alert" role="alert">
+			<p>Successfully Logged Out</p>
+		</div> 	 
+	<?php } ?>
   	<div class="field">
   		<label class="labels">User ID</label>
   		<input type="text" name="user_id" required>

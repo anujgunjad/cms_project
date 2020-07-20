@@ -6,12 +6,12 @@ if (!isset($_SESSION['user_id'])) {
     header('location: /cms_project/login.php');
 }
 if (isset($_GET['logout'])) {
+    $flag = "hello";
     session_destroy();
     unset($_SESSION['user_id']);
     unset($_SESSION['name']);
     unset($_SESSION['role']);
-    array_push($errors, "Successfully Logged Out");
-    header("location: /cms_project/login.php");
+    header("location: /cms_project/login.php?logout=1");
 }
 ?>
 <html>
