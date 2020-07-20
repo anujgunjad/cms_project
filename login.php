@@ -11,6 +11,7 @@
     
     margin-left: 41vw;
 }
+
 </style>
 <h2 class="head-one">Log In</h2>
 	
@@ -28,7 +29,7 @@
   		<button id="btn" class="ui button form-btn-one" type="submit" name="login_user">Log in</button>
   	</div>
   	<p>
-  		Not yet a member? <a href="register.php">Sign up</a> or <a href="home.php">Home</a>
+  		Don't have an account? <a href="register.php">Sign up</a>
   	</p>
   </form>
   <?php include('footer.php') ?>

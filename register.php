@@ -1,6 +1,5 @@
 <?php include('server.php') ?>
 <link rel="stylesheet" href="style/login.css">
-
 <?php include('header.php') ?>
 <div class="overlay">
 </div>
@@ -38,7 +37,7 @@
   	  <button type="submit" class="ui button form-btn-one" id="reg-btn" name="reg_user">Register</button>
 	  </div>
   	<p>
-  		Already a member? <a href="login.php">Sign in</a> or <a href="home.php">Home</a>
+  		Already have an account? <a href="login.php">Log in</a>
   	</p>
   </form>
 </div>
