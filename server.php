@@ -72,7 +72,7 @@ if (isset($_POST['login_user'])) {
             }
          
         }else {
-            array_push($errors, "Incorrect Username or Password");
+            array_push($errors, "Incorrect User ID or Password");
         }
     }
   }
