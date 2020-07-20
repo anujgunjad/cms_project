@@ -1,4 +1,3 @@
-<?php include('../server.php')?>
 <?php include("header.php")?>
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
