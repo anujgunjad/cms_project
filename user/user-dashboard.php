@@ -5,8 +5,11 @@ if (!isset($_SESSION['user_id'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: /cms_project/login.php');
 }
+if($_SESSION['role'] != "1")
+   {
+    header('location: /cms_project/error.php');
+   }
 if (isset($_GET['logout'])) {
-    $flag = "hello";
     session_destroy();
     unset($_SESSION['user_id']);
     unset($_SESSION['name']);

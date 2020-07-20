@@ -29,6 +29,17 @@
   font-size: 22em;
   font-weight: bold;
   background: transparent;
-  margin: 0 auto !important;
   text-shadow: 8px 8px 2px #000000;
+}
+#error-msg {
+  color: #fff;
+  font-weight: 500;
+  font-family: sans-serif;
+}
+.error-links {
+  color: #479aff;
+  text-decoration: none !important;
+}
+.error-links:hover {
+  color: #85bcff;
 }
