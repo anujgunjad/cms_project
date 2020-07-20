@@ -1,7 +1,7 @@
 <?php include('../server.php')?>
 <?php 
 //   Checking For logged in user
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) ) {
     $_SESSION['msg'] = "You must log in first";
     header('location: /cms_project/login.php');
 }
