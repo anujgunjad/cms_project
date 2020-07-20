@@ -19,7 +19,7 @@
   	<?php include('errors.php'); ?>
 	<?php 
 	if ($_GET['logout'] == 1) { ?>
-		<div class="alert alert-danger custom-alert" role="alert">
+		<div class="alert alert-success" role="alert">
 			<p>Successfully Logged Out</p>
 		</div> 	 
 	<?php } ?>
