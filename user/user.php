@@ -1,8 +1,10 @@
 <?php
+include('../server.php');
 include("../includes/config.php");
 $database = new Database();
 $db = $database->getConnection();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,24 +18,27 @@ $db = $database->getConnection();
     <link rel="stylesheet" type="text/css" href="../dependencies/bootstrap/dist/css/bootstrap.min.css" />
     <!--External CSS-->
     <link rel="stylesheet" href="style/mainForm.css" />
+    <link rel="stylesheet" href="style/userDashStyle.css" />
     <title>CMS | USER</title>
 </head>
 
 <body>
     <!---NAVIGATION BAR------->
     <nav class="navbar navbar-expand-lg">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="navbar-brand " href="#">Complaint Managment System | Complaint Form</a>
-            </li>
-            <li class="nav-item active">
-                <a class="navbar-brand" href="user-dashboard.php">Dashboard</a>
-            </li>
-        </ul>
-        <button type="button" class="btn btn-outline-dark btn-lg">
-            Log Out
-        </button>
-    </nav>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="navbar-brand text-white" href="#">User Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="navbar-brand" href="user-dashboard.php">Dashboard</a>
+                    </li>
+                </ul>
+                <p style="color:#fff" class="pr-2">WELCOME <?php echo $_SESSION['name']?></p>
+                
+                <a href="user-dashboard.php?logout='1'" >
+                    <button type="button" class="btn btn-outline-light">Log Out</button>
+                </a>
+            </nav>
     <!---NAVIGATION BAR ENDS------->
     <!---FORM START----------->
     <div class="container-fluid">

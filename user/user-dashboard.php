@@ -1,4 +1,19 @@
 <?php include('../server.php')?>
+<?php 
+//   Checking For logged in user
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: /cms_project/login.php');
+}
+if (isset($_GET['logout'])) {
+    $flag = "hello";
+    session_destroy();
+    unset($_SESSION['user_id']);
+    unset($_SESSION['name']);
+    unset($_SESSION['role']);
+    header("location: /cms_project/login.php?logout=1");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,16 +39,20 @@
             <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="navbar-brand text-white" href="#">Complaint Managment System | USER Dashboard</a>
+                        <a class="navbar-brand text-white" href="#">User Dashboard</a>
                     </li>
                 </ul>
                 <p style="color:#fff" class="pr-2">WELCOME <?php echo $_SESSION['name']?></p>
-                <button type="button" class="btn btn-outline-light">Log Out</button>
+                
+                <a href="user-dashboard.php?logout='1'" >
+                    <button type="button" class="btn btn-outline-light">Log Out</button>
+                </a>
             </nav>
             <div class="complaint-box p-4">
-                <button type="button" onclick="document.location = 'user.php'" class="insert-new btn">Insert New
-                    Complaint</button><br>
-
+                <button type="button" onclick="document.location = 'user.php'" class="insert-new btn">
+                    Insert New Complaint
+                </button>
+                <br>
                 <table class="table table-bordered mt-4">
                     <thead class="thead-light">
                         <tr>
