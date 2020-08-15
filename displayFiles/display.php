@@ -113,7 +113,7 @@ $conn = $database->getConnection();
                             <input class='form-text'  value = '".$row['checker_name']."' disabled = 'disabled'  />
                         </div>
                     </div>
-                    <div class='field text-center'>
+                    <div id = 'done' class='field text-center'>
 
                     <button class='ui button update-btn' id='update-display' type = 'button' name = 'update_basic'>
                         Update
@@ -121,8 +121,10 @@ $conn = $database->getConnection();
                     <button class='ui button nexte-btn' type='button' id='next_button'  name='next_button'>
                         Next
                     </button>
-                </div>
+                    
+                    </div>
                 </form>
+                <div id='txtbasic'></div>
              ";
         }
     }

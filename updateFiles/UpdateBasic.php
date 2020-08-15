@@ -3,10 +3,10 @@
     include_once "../includes/connection.php";
     //$query = "INSERT INTO basic_details (complaint_id, complaint_no, ap_name, ap_age, ap_gender, ap_mob, ap_address, ap_country, ap_state, ap_city, ap_pin_code, ap_adhar, complaint_type, sub_complaint_type, it_act, bh_dv, crime_date, crime_time, amount, checker_name, created_date, last_updated, complaint_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $id = $_SESSION['user_id'];
-    $stmt = $conn->prepare("INSERT INTO basic_details (complaint_id, complaint_no, ap_name, ap_age, ap_gender, ap_mob, ap_address, ap_country, ap_state, ap_city, ap_pin_code, ap_adhar, complaint_type, sub_complaint_type, it_act, bh_dv, crime_date, crime_time, amount,freeze_amount, checker_name, created_date, last_updated, complaint_status,user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt = $conn->prepare("UPDATE basic_details SET complaint_id = ?,complaint_no = ?, ap_name= ?, ap_age = ?,ap_gender= ?,ap_mob = ?,ap_address = ?,ap_country = ?,ap_state = ?, ap_city = ?, ap_pin_code = ?, ap_adhar = ?, complaint_type = ?, sub_complaint_type = ?, it_act = ?, bh_dv = ?, crime_date = ?, crime_time = ? , amount = ?, freeze_amount = ?, checker_name = ?, created_date = ?, last_updated = ?, complaint_status = ?, user_id = ? WHERE complaint_id = $_SESSION['key']");
     $stmt->bind_param("sssssssssssssssssssssssss", $complaintKey, $complaintNo , $apName, $apAge, $apGender, $apMob, $apAdd, $country, $state, $city, $pinCode, $apAdhar, $complaintType, $subComplaintType, $itAct, $bhDv, $crimeDate, $crimeTime, $amount, $freeze_amount, $checkerName, $createDate, $lastUpdate, $comStatus, $id);
 
-    $complaintKey = uniqid();
+    $complaintKey = $_SESSION['key'];
     
     //FORM FIELDS FROM HERE
     $complaintNo = htmlspecialchars(strip_tags($_POST["complaint_no"]));

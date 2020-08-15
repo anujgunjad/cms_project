@@ -1,10 +1,15 @@
 <?php include('../server.php')?>
 <?php 
 //   Checking For logged in user
+include_once "../includes/config.php";
+    $database = new Database();
+   $db = $database->getConnection();
 if (!isset($_SESSION['user_id'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: /cms_project/login.php');
 }
+//Session User ID Variable
+$id = $_SESSION['user_id'];
 if($_SESSION['role'] != "1")
    {
     header('location: /cms_project/error.php');
@@ -16,6 +21,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['role']);
     header("location: /cms_project/login.php?logout=1");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,17 +72,31 @@ if (isset($_GET['logout'])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Random</td>
-                            <td>Test</td>
+                    <?php 
+                         $stmt = $db->query("SELECT * from basic_details where user_id = '$id'");
+                         $num = $stmt->rowCount();
+                        
+                         if($num > 0)
+                        {   
+                           $count = 1;
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $states.= " <tr>
+                            <th scope='row'>$count</th>
+                            <td>".$row['complaint_no']."</td>
+                            <td>".$row['ap_name']."</td>
                             <td>
-                                <div class="field">
-                                    <button class="btn btn-success" name="number_form">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                <div class='field'>
+                                    <button class='btn btn-success' name='number_form'>Edit</button>
+                                    <button type='button' class='btn btn-danger'>Delete</button>
                                 </div>
                             </td>
-                        </tr>
+                            </tr>";
+                            $count++;
+                            }   
+                        }
+                        
+                        echo $states;
+                     ?>
                     </tbody>
                 </table>
             </div>
