@@ -26,13 +26,30 @@
                         <input type="number" name="genfile_compliaint_id" id="genfile_compliaint_id" placeholder="Enter complaint id" >
                     </div>
                     <div class="field">
-                      <button class="ui blue button" id="generate_btn" >Dowmload Basic details</button>
+                      <button class="ui blue button" id="generate_btn" >Download Basic details</button>
                     </div>
                 </div>
     </div>
     <div id="data_fetch"></div>
-
-
+    <?php
+    if(isset($_GET['basicdownload_id']))
+    {  $basicdownload_id = $_GET['basicdownload_id'];
+         $file = 'basicdetails_'.$basicdownload_id.'.xlsx';
+        $mime ='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+        ob_end_clean(); // this is solution
+        header('Content-Description: File Transfer');
+        header('Content-Type: ' . $mime);
+        header("Content-Transfer-Encoding: Binary");
+        header("Content-disposition: attachment; filename=\"" . basename($file) . "\"");
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        readfile($file);
+        unlink($file);
+        exit;
+    }
+    ?>
 </div>
 <script src="../dependencies/jquery/jquery.min.js"></script>
 <script src='../dependencies/sweetalert/sweetalert.min.js'></script>
@@ -65,7 +82,7 @@
                     data:{sendbasic:sendbasic},
                     type:"POST",
                     success:function(response){
-                        window.location = 'generate_file_action.php';
+                        window.location = 'generate_file.php?basicdownload_id='+gen_complaint_id;
                         }
                     });
                     }
