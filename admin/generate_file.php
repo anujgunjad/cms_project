@@ -26,7 +26,7 @@
                         <input type="number" name="genfile_compliaint_id" id="genfile_compliaint_id" placeholder="Enter complaint id" >
                     </div>
                     <div class="field">
-                      <button class="ui blue button" id="generate_btn" >Generate Excel</button>
+                      <button class="ui blue button" id="generate_btn" >Dowmload Basic details</button>
                     </div>
                 </div>
     </div>
@@ -65,8 +65,7 @@
                     data:{sendbasic:sendbasic},
                     type:"POST",
                     success:function(response){
-                        alert("file saved");
-
+                        window.location = 'generate_file_action.php';
                         }
                     });
                     }
