@@ -13,7 +13,7 @@
         <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" onclick="changeComponent();" type="submit">Log
             Out</button>
     </nav>
-    <div class="ui form">
+    <div class="ui form pl-3 mt-2">
             <div class=" four fields">
                     <div class="field">
                         <label>Complaint Id</label>
