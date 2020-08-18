@@ -38,8 +38,7 @@
     
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Inserted Successfully!!!";
-        $_SESSION['key'] = $complaintKey;
+        echo "Update Successfully!!!";
     }
     else {
         echo "Insertion Failed!!!";  

@@ -4,11 +4,15 @@ session_start();
 include("../includes/config.php");
 $database = new Database();
 $conn = $database->getConnection();
- if(isset($_REQUEST['basicform']) || isset($_REQUEST['basicform']))
+ if(isset($_REQUEST['basicform']))
  {
     $query = "SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, g.gender as ap_gender, c.ap_mob, c.ap_address, co.name as ap_country, s.name as ap_state, ci.name as ap_city, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, cst.sub_type as sub_complaint_type, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.freeze_amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from basic_details c  INNER JOIN genders as g ON g.id = c.ap_gender  INNER JOIN countries co  ON co.id = c.ap_country INNER JOIN states s  ON s.id = c.ap_state INNER JOIN cities ci ON ci.id = c.ap_city INNER JOIN complaint_type ct ON ct.type_id = c.complaint_type INNER JOIN sub_complaint_type cst ON cst.sub_complaint_type_id = c.sub_complaint_type WHERE complaint_id = '".$_SESSION['key']."'";
     $result = $conn->query($query);
-    if($result->rowCount()> 0){
+    echo $result->rowCount();
+    if($result->rowCount() <= 0){
+         echo "0 results";
+    }
+    else{
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "
             <form id='basicFormResult' class='basic-form-result ui blue segment form'>
@@ -23,7 +27,10 @@ $conn = $database->getConnection();
                     <div class='four fields'>
                         <div class='six wide field'>
                             <label>आवेदक का नाम </label>
-                            <input class='form-text' id = 'ap_name'  value = '".$row['ap_name']."' disabled = 'disabled' />
+                            <button class='ui button update-btn' type = 'button' name = 'lets__basic'>
+                                Update
+                            </button>
+                            //<input class='form-text' name = 'lets__test' id = 'ap_name'  value = '".$row['ap_name']."' disabled = 'disabled' />
                         </div>
                         <div class='three wide field'>
                             <label>उम्र</label>
@@ -124,12 +131,8 @@ $conn = $database->getConnection();
                     
                     </div>
                 </form>
-                <div id='txt'></div>
-             ";
+            ";
         }
-    }
-    else{
-        echo "0 results";
     }
  }
  //num details form
@@ -230,7 +233,6 @@ if(isset($_REQUEST['cdrdetailform']))
          echo "</tbody>
          </table>";
     }
-  
 }
 // ipdr details form
 if(isset($_REQUEST['ipdrdetailform']))

@@ -26,7 +26,7 @@ $(document).ready(function () {
           };
           xmlhttp.open(
             'GET',
-            '../displayFiles/display.php?basicform= "1"',
+            '../displayFiles/displayBasic.php',
             true
           );
           xmlhttp.send();

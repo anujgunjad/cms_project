@@ -4,6 +4,13 @@ $(document).ready(function () {
     $("button[name='update_basic']").replaceWith("<button class='ui button form-btn' id='save_button' type='button' name='save_button'>Save</button>");
   });
 
+  $(document).on('click', "button[name='lets__basic']", function (){
+    console.log('Great');
+  });
+
+  // $("select[name='ap__country']").change(function() {
+  //   console.log('Change');
+  // });
   $(document).on('click', "button[name='save_button']", function (){
     console.log('Tested');
     var complaint_no = $('#complaint_no').val();
@@ -12,8 +19,8 @@ $(document).ready(function () {
     var ap_gender = $('#ap_gender').val();
     var ap_mob = $('#ap_mob').val();
     var ap_address = $('#ap_address').val();
-    var ap_country = $('#ap_country').val();
-    var ap_state = $('#ap_state').val();
+    var ap_country = $('#ap__country').val();
+    var ap_state = $('#ap__state').val();
     var ap_city = $('#ap_city').val();
     var ap_pin_code = $('#ap_pin_code').val();
     var ap_adhar = $('#ap_adhar').val();
@@ -39,18 +46,14 @@ $(document).ready(function () {
             button: 'Next',
             }).then(() => {
             console.log('DONE');
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-              if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('txt').innerHTML = this.responseText;
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function() {
+              if (this.readyState==4 && this.status==200) {
+                document.getElementById('txtResult').innerHTML=this.responseText;
               }
-              $('#basicFormResult').replaceWith($('#txt'));
-            };
-            xmlhttp.open(
-              'GET',
-              '../displayFiles/display.php?basicform="1"',
-              true
-            );
+              $('#basicFormResult').replaceWith($('#txtResult'));
+            }
+            xmlhttp.open('GET','../displayFiles/displayBasic.php',true);
             xmlhttp.send();
           });
         },

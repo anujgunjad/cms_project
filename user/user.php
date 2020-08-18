@@ -209,6 +209,7 @@ $db = $database->getConnection();
 
                 </form>
                 <div id="txt"></div>
+                <div id='txtResult'></div>
             </div>
         </div>
         <!---basic-form-div end---->
