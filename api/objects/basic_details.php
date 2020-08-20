@@ -4,7 +4,6 @@
  //initialize Database
  $database = new Database();
  $db = $database->getConnection();
- 
     class Basic{
         //Database and table names
         private $conn;
@@ -45,11 +44,102 @@
 
         private $complaint_sub_type_table = "sub_complaint_type";
         private $complaint_type_table = "complaint_type";
+
+
+        //Update Basic Variables
+        public $complaint_id_basic; 
+        public $complaint_no_basic;
+        public $ap_name_basic;
+        public $ap_age_basic;
+        public $ap_gender_basic;
+        public $ap_mob_basic;
+        public $ap_address_basic;
+        public $ap_country_basic;
+        public $ap_state_basic;
+        public $ap_city_basic;
+        public $ap_pin_code_basic;
+        public $ap_adhar_basic;
+        public $complaint_type_basic;
+        public $sub_complaint_type_basic;
+        public $it_act_basic;
+        public $bh_dv_basic;
+        public $crime_date_basic;
+        public $crime_time_basic;
+        public $amount_basic;
+        public $freeze_amount_basic;
+        public $checker_name_basic;
+        public $created_date_basic; 
+        public $last_update_basic; 
+        public $complaint_status_basic;
+
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
         }
         
+        function updateBasic() {
+            $query = "UPDATE $this->complainee_table SET complaint_no = :complaint_no_basic, ap_name= :ap_name_basic, ap_age = :ap_age_basic,ap_gender= :ap_gender_basic,ap_mob = :ap_mob_basic,ap_address = :ap_address_basic,ap_country = :ap_country_basic,ap_state = :ap_state_basic, ap_city = :ap_city_basic, ap_pin_code = :ap_pin_code_basic, ap_adhar = :ap_adhar_basic, complaint_type = :complaint_type_basic, sub_complaint_type = :sub_complaint_type_basic, it_act = :it_act_basic, bh_dv = :bh_dv_basic, crime_date = :crime_date_basic, crime_time = :crime_time_basic , amount = :amount_basic, freeze_amount = :freeze_amount_basic, checker_name = :checker_name_basic, created_date = :created_date_basic, last_updated = :last_update_basic, complaint_status = :complaint_status_basic, user_id = 'user123' WHERE complaint_id = :complaint_id_basic";
+
+            $stmt = $this->conn->prepare($query);
+
+            $this->complaint_no_basic = htmlspecialchars(strip_tags($this->complaint_no_basic));
+            $this->ap_name_basic = htmlspecialchars(strip_tags($this->ap_name_basic));
+            $this->ap_age_basic = htmlspecialchars(strip_tags( $this->ap_age_basic));
+            $this->ap_gender_basic = htmlspecialchars(strip_tags($this->ap_gender_basic));
+            $this->ap_mob_basic = htmlspecialchars(strip_tags($this->ap_mob_basic));
+            $this->ap_address_basic = htmlspecialchars(strip_tags($this->ap_address_basic));
+            $this->ap_country_basic = htmlspecialchars(strip_tags($this->ap_country_basic));
+            $this->ap_state_basic = htmlspecialchars(strip_tags($this->ap_state_basic));
+            $this->ap_city_basic = htmlspecialchars(strip_tags($this->ap_city_basic));
+            $this->ap_pin_code_basic = htmlspecialchars(strip_tags($this->ap_pin_code_basic));
+            $this->ap_adhar_basic = htmlspecialchars(strip_tags($this->ap_adhar_basic));
+            $this->complaint_type_basic = htmlspecialchars(strip_tags($this->complaint_type_basic));
+            $this->sub_complaint_type_basic = htmlspecialchars(strip_tags($this->sub_complaint_type_basic));
+            $this->it_act_basic = htmlspecialchars(strip_tags($this->it_act_basic));
+            $this->bh_dv_basic = htmlspecialchars(strip_tags($this->bh_dv_basic));
+            $this->crime_date_basic = htmlspecialchars(strip_tags($this->crime_date_basic));
+            $this->crime_time_basic = htmlspecialchars(strip_tags($this->crime_time_basic));
+            $this->amount_basic = htmlspecialchars(strip_tags($this->amount_basic));
+            $this->freeze_amount_basic = htmlspecialchars(strip_tags($this->freeze_amount_basic));
+            $this->checker_name_basic = htmlspecialchars(strip_tags($this->checker_name_basic));
+            $this->complaint_id_basic = htmlspecialchars(strip_tags($this->complaint_id_basic));
+            $this->created_date_basic = htmlspecialchars(strip_tags($this->created_date_basic));
+            $this->last_update_basic = htmlspecialchars(strip_tags($this->last_update_basic));
+            $this->complaint_status_basic = htmlspecialchars(strip_tags($this->complaint_status_basic));
+
+            $stmt->bindParam(':complaint_id_basic', $this->complaint_id_basic);
+            $stmt->bindParam(':complaint_no_basic', $this->complaint_no_basic);
+            $stmt->bindParam(':ap_name_basic', $this->ap_name_basic);
+            $stmt->bindParam(':ap_age_basic', $this->ap_age_basic);
+            $stmt->bindParam(':ap_gender_basic', $this->ap_gender_basic);
+            $stmt->bindParam(':ap_mob_basic', $this->ap_mob_basic);
+            $stmt->bindParam(':ap_address_basic', $this->ap_address_basic);
+            $stmt->bindParam(':ap_country_basic', $this->ap_country_basic);
+            $stmt->bindParam(':ap_state_basic', $this->ap_state_basic);
+            $stmt->bindParam(':ap_city_basic', $this->ap_city_basic);
+            $stmt->bindParam(':ap_pin_code_basic', $this->ap_pin_code_basic);
+            $stmt->bindParam(':ap_adhar_basic', $this->ap_adhar_basic);
+            $stmt->bindParam(':complaint_type_basic', $this->complaint_type_basic);
+            $stmt->bindParam(':sub_complaint_type_basic', $this->sub_complaint_type_basic);
+            $stmt->bindParam(':it_act_basic', $this->it_act_basic);
+            $stmt->bindParam(':bh_dv_basic', $this->bh_dv_basic);
+            $stmt->bindParam(':crime_date_basic', $this->crime_date_basic);
+            $stmt->bindParam(':crime_time_basic', $this->crime_time_basic);
+            $stmt->bindParam(':amount_basic', $this->amount_basic);
+            $stmt->bindParam(':freeze_amount_basic', $this->freeze_amount_basic);
+            $stmt->bindParam(':checker_name_basic',  $this->checker_name_basic);
+            $stmt->bindParam(':created_date_basic', $this->created_date_basic);
+            $stmt->bindParam(':last_update_basic', $this->last_update_basic);
+            $stmt->bindParam(':complaint_status_basic', $this->complaint_status_basic);
+
+            // execute the query
+            if($stmt->execute()){
+                return true;
+            }
+  
+            return false;
+        }
+
         function readAll_complainee(){
 
             //Select All Query
