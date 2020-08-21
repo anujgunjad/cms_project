@@ -1,6 +1,9 @@
 <?php include("../server.php") ?>
 <?php include('user-header.php')?>
 <link rel="stylesheet" href="../admin/CSS/sidenav.css">
+<link rel="stylesheet" href="../admin/CSS/styles-admin.css">
+ <!--Semantic UI-->
+ <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
         <h1 class="nav-head mt-1 ml-5"> Update complaint <strong><span id="update-complaint-number" style="color:red">101/19</span></strong></h1>
@@ -18,10 +21,9 @@
 
     <div class="container-fluid">
         <div id="show-complaint">
-
             <!-- react-components -->
         </div>
     </div>
     <!-- 'include' for React File  -->
-    <?php //include("react-admin/show-complaint-react.php")?>
+    <?php include("react-user/update-complaint-react.php")?>
 <?php include('user-footer.php')?>

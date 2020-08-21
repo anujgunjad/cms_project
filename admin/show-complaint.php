@@ -17,7 +17,6 @@
 
     <div class="container-fluid">
         <div id="show-complaint">
-
             <!-- react-components -->
         </div>
     </div>
