@@ -19,9 +19,7 @@ const timeDateFormatter = (arry) => {
                     realDate = reverseArray.join("-"); 
                 return realDate;
             }
-const updateBasicDetails = () => {
-    alert("updateclicked");
-}
+
   class Applicant extends React.Component {
     state = {
           applicant: {},
@@ -51,6 +49,23 @@ const updateBasicDetails = () => {
                 })
                 .catch(console.log)
         }
+         updateBasicDetails = () => {
+             let complaint_id_basic = this.state.applicant.complaint_id;
+            fetch("../api/data/update_basic.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    title: "foo", 
+                    body: "bar", 
+                    userId: 1 
+                })
+            }) 
+                // Converting to JSON 
+                .then(response => response.json()) 
+                // Displaying results to console 
+                .then(json => console.log(json)); 
+            }
         render() {    
             return ( 
                 <div>
@@ -120,7 +135,7 @@ const updateBasicDetails = () => {
                                 </tr>
                                <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate?this.state.createdDate:"अभी तक दर्ज नहीं है"}</td>
-                                    <td><button class="ui button update-button py-3 px-5" onclick="updateBasicDetails()">Update</button></td>
+                                    <td><button class="ui button update-button py-3 px-5" onClick={this.updateBasicDetails}>Update</button></td>
                                     <td></td>
                                     <td></td>
                                 </tr>

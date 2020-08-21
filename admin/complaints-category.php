@@ -10,8 +10,7 @@
                 </li>
             </ul>
         </div>
-        <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" onclick="changeComponent();" type="submit">Log
-            Out</button>
+        <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" onclick="changeComponent();" type="submit">LogOut</button>
     </nav>
 
     <div id="mega-wrapper" class="container-fluid">
