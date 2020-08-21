@@ -24,21 +24,40 @@ const timeDateFormatter = (arry) => {
     state = {
           applicant: {},
           countries: [],
+          newstates:[],
+          cities:[],
           crimeDate:"",
           createdDate: "",
           updatedDate: "",
         }
         componentDidMount(){
             this.getCountries();
+            this.getStates();
             this.fetchApplicantData();
         }
         getCountries(){
-            console.log("country done");
             fetch("../api/data/read_country.php")
             .then(res => res.json())
             .then((data) => {
               this.setState({countries: data.country});
-              console.log(this.state.countries);
+            })
+        }
+        getStates = () => {
+            let c_dd = document.getElementById("country"),
+                c_id = c_dd.options[c_dd.selectedIndex].value;
+            fetch(`../api/data/read_state.php?country_id=${c_id}`)
+            .then(res => res.json())
+            .then((data) => {
+              this.setState({newstates: data.states});
+            })
+        }
+        getCities = () => {
+            let s_dd = document.getElementById("states"),
+                s_id = s_dd.options[s_dd.selectedIndex].value;
+            fetch(`../api/data/read_city.php?state_id=${s_id}`)
+            .then(res => res.json())
+            .then((data) => {
+              this.setState({cities: data.cities});
             })
         }
         fetchApplicantData(){
@@ -106,17 +125,31 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4><input class="rounded py-2 mt-1 px-2" id="ap_address" type="text" name="name" placeholder={this.state.applicant.ap_address} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="gender" id="gender"><option value="">{this.state.applicant.ap_gender}</option><option value="1">Male</option><option value="2">Female</option></select></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>
-                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="country" id="country">
-                                            <option value="">{this.state.applicant.ap_country}</option>
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="country" id="country" onChange={this.getStates}>
+                                            <option value="101">{this.state.applicant.ap_country}</option>
                                             {
                                                 this.state.countries.map((country) => <option value={country.id}>{country.name}</option>)
                                             }
                                         </select>
                                     </td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states"><option value="">{this.state.applicant.ap_state}</option></select></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states">
+                                            <option value="">{this.state.applicant.ap_state}</option>
+                                            {
+                                                this.state.newstates.map((state) => <option value={state.id}>{state.name}</option>)
+                                            }
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="city" id="city"><option value="">{this.state.applicant.ap_city}</option></select></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4>
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="city" id="city">
+                                            <option value="21">{this.state.applicant.ap_city}</option>
+                                            {
+                                                this.state.cities.map((city) => <option value={city.id}>{city.name}</option>)
+                                            }
+                                        </select>
+                                    </td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4><input class="rounded py-2 mt-1 px-2" id="ap_pin_code" type="number"  placeholder={this.state.applicant.ap_pin_code} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4><input class="rounded py-2 mt-1 px-2" id="ap_adhar" type="number"  placeholder={this.state.applicant.ap_adhar} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>
