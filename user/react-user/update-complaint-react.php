@@ -191,7 +191,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4><input class="rounded py-2 mt-1 px-2" id="ap_adhar" type="number"  placeholder={this.state.applicant.ap_adhar} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint_type">
-                                            <option value="0">{this.state.applicant.sub_complaint_type}</option>
+                                            <option value="1">{this.state.applicant.sub_complaint_type}</option>
                                             <option value="1">सोशल मीडिया</option>
                                             <option value="2">ऑनलाइन ठगी</option>
                                             <option value="3">साइबर आतंकवाद</option>
@@ -202,7 +202,7 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="sub_complaint_type" id="sub_complaint_type">
-                                            <option value="">{this.state.applicant.complaint_type}</option>
+                                            <option value="1">{this.state.applicant.complaint_type}</option>
                                             <option value="1">Online Bank Fraud</option>
                                             <option value="2">Job Fraud</option>
                                             <option value="3">OLX Fraud</option>
