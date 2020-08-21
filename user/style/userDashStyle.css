@@ -42,3 +42,13 @@
   /* Microsoft Edge */
   color: #000 !important;
 }
+
+.update-button {
+  background-color: #004ba8 !important;
+  color: #fff !important;
+  border: 2px solid #004ba8 !important;
+}
+.update-button:hover {
+  background-color: transparent !important;
+  color: #004ba8 !important;
+}
