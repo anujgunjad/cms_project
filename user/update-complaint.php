@@ -6,7 +6,7 @@
  <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-        <h1 class="nav-head mt-1 ml-5"> Update complaint <strong><span id="update-complaint-number" style="color:red">101/19</span></strong></h1>
+        <h1 class="nav-head mt-1 ml-5"> Update complaint</h1>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">

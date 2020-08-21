@@ -44,7 +44,7 @@ const timeDateFormatter = (arry) => {
                     crimeDate = dateFormatter(crimeDateRev);
                 this.setState({ crimeDate: crimeDate});
                 console.log(applicant);
-                console.log(document.getElementById("hello").value);
+                console.log(document.getElementById("ap_name").value);
                 })
                 .catch(console.log)
         }
@@ -58,30 +58,59 @@ const timeDateFormatter = (arry) => {
                             <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 style={{color:"red"}} class="ui header mb-1 mt-1">शिकायत क्रमांक</h4>{this.state.applicant.complaint_no?this.state.applicant.complaint_no:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4><input id="hello" type="text" value="test-update" name="name" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4>{this.state.applicant.ap_age?this.state.applicant.ap_age:"अभी तक दर्ज नहीं है"} साल</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4>{this.state.applicant.ap_mob?this.state.applicant.ap_mob:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का नाम</h4><input class="rounded py-2 mt-1 px-2" id="ap_name" type="text" placeholder={this.state.applicant.ap_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की उम्र</h4><input class="rounded py-2 mt-1 px-2" id="ap_age" type="number" placeholder={this.state.applicant.ap_age} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का मोबाइल नंबर</h4><input class="rounded py-2 mt-1 px-2" id="ap_mob" type="number" placeholder={this.state.applicant.ap_mob} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4>{this.state.applicant.ap_address?this.state.applicant.ap_address:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4>{this.state.applicant.ap_gender?this.state.applicant.ap_gender:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>{this.state.applicant.ap_country?this.state.applicant.ap_country:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>{this.state.applicant.ap_state?this.state.applicant.ap_state:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4><input class="rounded py-2 mt-1 px-2" id="ap_address" type="text" name="name" placeholder={this.state.applicant.ap_address} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="gender" id="gender"><option value="">{this.state.applicant.ap_gender}</option><option value="1">Male</option><option value="2">Female</option></select></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="country" id="country"><option value="">{this.state.applicant.ap_country}</option></select></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states"><option value="">{this.state.applicant.ap_state}</option></select></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4>{this.state.applicant.ap_city?this.state.applicant.ap_city:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4>{this.state.applicant.ap_pin_code?this.state.applicant.ap_pin_code:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4>{this.state.applicant.ap_adhar?this.state.applicant.ap_adhar:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>{this.state.applicant.complaint_type?this.state.applicant.complaint_type:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="city" id="city"><option value="">{this.state.applicant.ap_city}</option></select></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4><input class="rounded py-2 mt-1 px-2" id="ap_pin_code" type="number"  placeholder={this.state.applicant.ap_pin_code} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4><input class="rounded py-2 mt-1 px-2" id="ap_adhar" type="number"  placeholder={this.state.applicant.ap_adhar} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint-type">
+                                            <option value="">{this.state.applicant.sub_complaint_type}</option>
+                                            <option value="1">सोशल मीडिया</option>
+                                            <option value="2">ऑनलाइन ठगी</option>
+                                            <option value="3">साइबर आतंकवाद</option>
+                                            <option value="4">अन्य</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>{this.state.applicant.sub_complaint_type?this.state.applicant.sub_complaint_type:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आई टी ऐक्ट धारा</h4>{this.state.applicant.it_act?this.state.applicant.it_act:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">भा द वि धारा</h4>{this.state.applicant.bh_dv?this.state.applicant.bh_dv:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4>{this.state.crimeDate?this.state.crimeDate:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint-type">
+                                            <option value="">{this.state.applicant.complaint_type}</option>
+                                            <option value="1">Online Bank Fraud</option>
+                                            <option value="2">Job Fraud</option>
+                                            <option value="3">OLX Fraud</option>
+                                            <option value="4">KYC Fraud</option>
+                                            <option value="5">Link Fraud</option>
+                                            <option value="6">Screen Sharing App</option>
+                                            <option value="7">Fake Facebook</option>
+                                            <option value="8">Fake Instagram</option>
+                                            <option value="9">Facebook Hack</option>
+                                            <option value="10">Instagram Hack</option>
+                                            <option value="11">Gmail Hack</option>
+                                            <option value="12">Social Media Harassment</option>
+                                            <option value="13">Whatsapp Harassment</option>
+                                            <option value="14">Whatsapp Hack</option>
+                                            <option value="15">Metrimonial Fraud</option>
+                                            <option value="16">Custom Fraud</option>
+                                            <option value="17">Other</option>
+                                        </select>
+                                    </td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आई टी ऐक्ट धारा</h4><input class="rounded py-2 mt-1 px-2" id="it_act" type="text" placeholder={this.state.applicant.it_act} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">भा द वि धारा</h4><input class="rounded py-2 mt-1 px-2" id="bh_dv" type="text" placeholder={this.state.applicant.bh_dv} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="crimeDate" type="date" placeholder={this.state.applicant.crimeDate} /></td>
                                 </tr>
                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4>{this.state.applicant.crime_time?this.state.applicant.crime_time:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4><input style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" id="crimeDate" type="time" placeholder={this.state.applicant.crime_time} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4>{this.state.applicant.amount?this.state.applicant.amount:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की फ्रीज राशि</h4>{this.state.applicant.freeze_amount?this.state.applicant.freeze_amount:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4>{this.state.applicant.checker_name?this.state.applicant.checker_name:"अभी तक दर्ज नहीं है"}</td>
@@ -497,7 +526,7 @@ const timeDateFormatter = (arry) => {
 
             return(
                 <center>
-                    <h1 class="h1 mt-3 h1-complaint">शिकायत क्रमांक <span style={{color:"red"}}>{this.state.applicant.complaint_no}</span> का पूरा विवरण</h1>
+                    <h1 class="h1 mt-3 h1-complaint">शिकायत क्रमांक <span style={{color:"red"}}>{this.state.applicant.complaint_no}</span> को अपडेट करें</h1>
                     <Applicant />
                     <Suspect />
                     <Numbers />
