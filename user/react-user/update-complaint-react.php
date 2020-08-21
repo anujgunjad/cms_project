@@ -23,13 +23,23 @@ const timeDateFormatter = (arry) => {
   class Applicant extends React.Component {
     state = {
           applicant: {},
-          countries: {},
+          countries: [],
           crimeDate:"",
           createdDate: "",
           updatedDate: "",
         }
         componentDidMount(){
+            this.getCountries();
             this.fetchApplicantData();
+        }
+        getCountries(){
+            console.log("country done");
+            fetch("../api/data/read_country.php")
+            .then(res => res.json())
+            .then((data) => {
+              this.setState({countries: data.country});
+              console.log(this.state.countries);
+            })
         }
         fetchApplicantData(){
                 let id = idFetcher();               
@@ -50,14 +60,7 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
-        getCountries = () => {
-            fetch("../api/data/read_country.php")
-            .then(res => res.json())
-            .then((data) => {
-
-            })
-        }
-         updateBasicDetails = () => {
+         updateBasicDetails(){
              let complaint_id_basic = this.state.applicant.complaint_id,
                 complaint_no_basic = this.state.applicant.complaint_no;
                 ap_name_basic = document.getElementById("ap_name").value?document.getElementById("ap_name").value : this.state.applicant.ap_name;
@@ -102,7 +105,14 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का पता</h4><input class="rounded py-2 mt-1 px-2" id="ap_address" type="text" name="name" placeholder={this.state.applicant.ap_address} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="gender" id="gender"><option value="">{this.state.applicant.ap_gender}</option><option value="1">Male</option><option value="2">Female</option></select></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="country" id="country"><option value="">{this.state.applicant.ap_country}</option></select></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="country" id="country">
+                                            <option value="">{this.state.applicant.ap_country}</option>
+                                            {
+                                                this.state.countries.map((country) => <option value={country.id}>{country.name}</option>)
+                                            }
+                                        </select>
+                                    </td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states"><option value="">{this.state.applicant.ap_state}</option></select></td>
                                 </tr>
                                 <tr>
