@@ -23,6 +23,7 @@ const timeDateFormatter = (arry) => {
   class Applicant extends React.Component {
     state = {
           applicant: {},
+          countries: {},
           crimeDate:"",
           createdDate: "",
           updatedDate: "",
@@ -32,7 +33,7 @@ const timeDateFormatter = (arry) => {
         }
         fetchApplicantData(){
                 let id = idFetcher();               
-                fetch('../api/data/read_all_complainee.php')
+                fetch(`../api/data/read_complainee.php?complaint_id=${id}`)
                 .then(res => res.json())
                 .then((data) => {
                 const applicant = data.complainee.filter(complaint => complaint.complaint_id == id);
@@ -49,8 +50,28 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
+        getCountries = () => {
+            fetch("../api/data/read_country.php")
+            .then(res => res.json())
+            .then((data) => {
+
+            })
+        }
          updateBasicDetails = () => {
-             let complaint_id_basic = this.state.applicant.complaint_id;
+             let complaint_id_basic = this.state.applicant.complaint_id,
+                complaint_no_basic = this.state.applicant.complaint_no;
+                ap_name_basic = document.getElementById("ap_name").value?document.getElementById("ap_name").value : this.state.applicant.ap_name;
+                ap_age_basic = document.getElementById("ap_age").value?document.getElementById("ap_age").value : this.state.applicant.ap_age;
+                ap_gender_basic = 1;
+                ap_mob_basic = document.getElementById("ap_mob").value?document.getElementById("ap_mob").value : this.state.applicant.ap_mob;
+                ap_address_basic = document.getElementById("ap_address").value?document.getElementById("ap_address").value : this.state.applicant.ap_address;
+                ap_country_basic = 101;
+                ap_state_basic = 21;
+                ap_city_basic = 2232;
+                ap_pin_code_basic = document.getElementById("ap_pin_code").value?document.getElementById("ap_pin_code").value : this.state.applicant.ap_pin_code;
+                ap_adhar_basic = document.getElementById("ap_adhar").value?document.getElementById("ap_adhar").value : this.state.applicant.ap_adhar;
+                ct = document.getElementById("complaint_type"),
+                complaint_type_basic = ct.options[ct.selectedIndex].value;
             fetch("../api/data/update_basic.php", { 
                 // Adding method type 
                 method: "POST", 
@@ -61,10 +82,8 @@ const timeDateFormatter = (arry) => {
                     userId: 1 
                 })
             }) 
-                // Converting to JSON 
-                .then(response => response.json()) 
-                // Displaying results to console 
-                .then(json => console.log(json)); 
+                // update done
+                .then(console.log("updated")); 
             }
         render() {    
             return ( 
@@ -91,7 +110,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पिन कोड</h4><input class="rounded py-2 mt-1 px-2" id="ap_pin_code" type="number"  placeholder={this.state.applicant.ap_pin_code} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4><input class="rounded py-2 mt-1 px-2" id="ap_adhar" type="number"  placeholder={this.state.applicant.ap_adhar} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>
-                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint-type">
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint_type">
                                             <option value="">{this.state.applicant.sub_complaint_type}</option>
                                             <option value="1">सोशल मीडिया</option>
                                             <option value="2">ऑनलाइन ठगी</option>
@@ -102,7 +121,7 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>
-                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint-type">
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="sub_complaint_type" id="sub_complaint_type">
                                             <option value="">{this.state.applicant.complaint_type}</option>
                                             <option value="1">Online Bank Fraud</option>
                                             <option value="2">Job Fraud</option>
