@@ -88,13 +88,28 @@ const timeDateFormatter = (arry) => {
                 ap_gender_basic = 1;
                 ap_mob_basic = document.getElementById("ap_mob").value?document.getElementById("ap_mob").value : this.state.applicant.ap_mob;
                 ap_address_basic = document.getElementById("ap_address").value?document.getElementById("ap_address").value : this.state.applicant.ap_address;
-                ap_country_basic = 101;
-                ap_state_basic = 21;
-                ap_city_basic = 2232;
+                c_dd = document.getElementById("country"),
+                ap_country_basic = c_dd.options[c_dd.selectedIndex].value;
+                s_dd = document.getElementById("country"),
+                ap_state_basic = s_dd.options[s_dd.selectedIndex].value;
+                ci_dd = document.getElementById("country"),
+                ap_city_basic = ci_dd.options[ci_dd.selectedIndex].value;
                 ap_pin_code_basic = document.getElementById("ap_pin_code").value?document.getElementById("ap_pin_code").value : this.state.applicant.ap_pin_code;
                 ap_adhar_basic = document.getElementById("ap_adhar").value?document.getElementById("ap_adhar").value : this.state.applicant.ap_adhar;
-                ct = document.getElementById("complaint_type"),
-                complaint_type_basic = ct.options[ct.selectedIndex].value;
+                ctdd = document.getElementById("complaint_type"),
+                complaint_type_basic = ctdd.options[ctdd.selectedIndex].value;
+                sctdd = document.getElementById("complaint_type"),
+                sub_complaint_type_basic = sctdd.options[sctdd.selectedIndex].value;
+                it_act_basic = document.getElementById("it_act").value?document.getElementById("it_act").value : this.state.applicant.it_act;
+                bh_dv_basic = document.getElementById("bh_dv").value?document.getElementById("bh_dv").value : this.state.applicant.bh_dv;
+                crime_date_basic = document.getElementById("crime_date").value?document.getElementById("crime_date").value : this.state.applicant.crime_date;
+                crime_time_basic = document.getElementById("crime_time").value?document.getElementById("crime_time").value : this.state.applicant.crime_time;
+                amount_basic = document.getElementById("amount").value?document.getElementById("amount").value : this.state.applicant.amount;
+                freeze_amount_basic = document.getElementById("freeze_amount").value?document.getElementById("freeze_amount").value : this.state.applicant.freeze_amount;
+                checker_name_basic = document.getElementById("checker_name").value?document.getElementById("checker_name").value : this.state.applicant.checker_name;
+                created_date_basic =  this.state.applicant.created_date;
+                last_update_basic =  this.state.applicant.last_updated;
+                complaint_status_basic =  this.state.applicant.complaint_status;
             fetch("../api/data/update_basic.php", { 
                 // Adding method type 
                 method: "POST", 
@@ -188,10 +203,10 @@ const timeDateFormatter = (arry) => {
                                     </td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आई टी ऐक्ट धारा</h4><input class="rounded py-2 mt-1 px-2" id="it_act" type="text" placeholder={this.state.applicant.it_act} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">भा द वि धारा</h4><input class="rounded py-2 mt-1 px-2" id="bh_dv" type="text" placeholder={this.state.applicant.bh_dv} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="crime-date" type="date" placeholder={this.state.applicant.crimeDate} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना की दिनांक</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="crime_date" type="date" placeholder={this.state.applicant.crimeDate} /></td>
                                 </tr>
                                <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4><input style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" id="crime-time" type="time" placeholder={this.state.applicant.crime_time} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">घटना का समय</h4><input style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" id="crime_time" type="time" placeholder={this.state.applicant.crime_time} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की राशि</h4><input class="rounded py-2 mt-1 px-2" id="amount" type="number" placeholder={this.state.applicant.amount} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक की फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id="freeze_amount" type="number" placeholder={this.state.applicant.freeze_amount} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जांचकर्ता का नाम</h4><input class="rounded py-2 mt-1 px-2" id="checker_name" type="text" placeholder={this.state.applicant.checker_name} /></td>
