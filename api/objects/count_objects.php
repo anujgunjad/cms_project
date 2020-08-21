@@ -48,6 +48,39 @@
             $this->conn = $db;
         }
 
+        function readCountry() {
+            //query
+            $query = "SELECT * from $this->country";
+            //Prepare query statement
+            $stmt = $this->conn->prepare($query);              
+            // execute query
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
+        function readState($id) {
+            //query
+            $query = "SELECT * from $this->state WHERE country_id = '$id'";
+            //Prepare query statement
+            $stmt = $this->conn->prepare($query);              
+            // execute query
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
+        function readCity($id) {
+            //query
+            $query = "SELECT * from $this->city WHERE state_id = '$id'";
+            //Prepare query statement
+            $stmt = $this->conn->prepare($query);              
+            // execute query
+            $stmt->execute();
+        
+            return $stmt;
+        }
+
         function genderCount() {
             //query
             $query_male = "SELECT * from $this->complainee_table where ap_gender = '1'";

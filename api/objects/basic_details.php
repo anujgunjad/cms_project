@@ -10,22 +10,22 @@
         private $complainee_table = "basic_details";
         private $suspect_table = "suspect_details";
 
-            //Suspect Number Info Tables
+        //Suspect Number Info Tables
         private $suspect_number_table = "suspect_numbers";
         private $suspect_number_cdr_table = "suspect_number_cdr_info";
         private $suspect_number_ipdr_table = "suspect_number_ipdr_info";
         private $suspect_number_upi_table = "suspect_number_upi_info";
 
-            //Suspect Account Info Tables
+        //Suspect Account Info Tables
         private $suspect_account_table = "suspect_bank_accounts";
         private $suspect_account_atm_table = "bank_accounts_atm";
         private $suspect_account_iplogs_table = "bank_accounts_iplogs";
         private $suspect_account_pan_table = "suspect_pan_info";
 
-            //Suspect E-wallet table
+        //Suspect E-wallet table
         private $suspect_ewallet_table = "suspect_ewallet_info";
 
-            //Suspect Website table
+        //Suspect Website table
         private $suspect_website_table = "suspect_website_info";
 
         //Objects Properties
@@ -41,10 +41,8 @@
         private $state = "states";
         private $city = "cities";
         private $gender_table = "genders";
-
         private $complaint_sub_type_table = "sub_complaint_type";
         private $complaint_type_table = "complaint_type";
-
 
         //Update Basic Variables
         public $complaint_id_basic; 
@@ -81,7 +79,7 @@
             $query = "UPDATE $this->complainee_table SET complaint_no = :complaint_no_basic, ap_name= :ap_name_basic, ap_age = :ap_age_basic,ap_gender= :ap_gender_basic,ap_mob = :ap_mob_basic,ap_address = :ap_address_basic,ap_country = :ap_country_basic,ap_state = :ap_state_basic, ap_city = :ap_city_basic, ap_pin_code = :ap_pin_code_basic, ap_adhar = :ap_adhar_basic, complaint_type = :complaint_type_basic, sub_complaint_type = :sub_complaint_type_basic, it_act = :it_act_basic, bh_dv = :bh_dv_basic, crime_date = :crime_date_basic, crime_time = :crime_time_basic , amount = :amount_basic, freeze_amount = :freeze_amount_basic, checker_name = :checker_name_basic, created_date = :created_date_basic, last_updated = :last_update_basic, complaint_status = :complaint_status_basic, user_id = 'user123' WHERE complaint_id = :complaint_id_basic";
 
             $stmt = $this->conn->prepare($query);
-
+            
             $this->complaint_no_basic = htmlspecialchars(strip_tags($this->complaint_no_basic));
             $this->ap_name_basic = htmlspecialchars(strip_tags($this->ap_name_basic));
             $this->ap_age_basic = htmlspecialchars(strip_tags( $this->ap_age_basic));
