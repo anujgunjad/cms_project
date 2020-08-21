@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../dependencies/fontawesome/css/all.css">
     <!--External CSS-->
     <link rel="stylesheet" href="style/userDashStyle.css" />
+    <link rel="stylesheet" href="style/mainForm.css" /> 
     <title>CMS | User Dashboard</title>
 </head>
 <body>
+ 

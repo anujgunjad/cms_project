@@ -1,5 +1,4 @@
 <?php include("header.php")?>
-<?php //include("sidenav-header.php")?>
 <link href="css/sidenav.css" rel="stylesheet" />
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
@@ -24,5 +23,4 @@
     </div>
     <!-- 'include' for React File  -->
     <?php include("react-admin/show-complaint-react.php")?>
-    <?php //include("sidenav-footer.php")?>
     <?php include("footer.php")?>
