@@ -19,6 +19,9 @@ const timeDateFormatter = (arry) => {
                     realDate = reverseArray.join("-"); 
                 return realDate;
             }
+const updateBasicDetails = () => {
+    alert("updateclicked");
+}
   class Applicant extends React.Component {
     state = {
           applicant: {},
@@ -117,7 +120,7 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत दर्ज की दिनांक</h4>{this.state.createdDate?this.state.createdDate:"अभी तक दर्ज नहीं है"}</td>
-                                    <td><button class="ui button update-button py-3 px-5">Update</button></td>
+                                    <td><button class="ui button update-button py-3 px-5" onclick="updateBasicDetails()">Update</button></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
