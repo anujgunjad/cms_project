@@ -5,23 +5,9 @@ $database = new Database();
 $db = $database->getConnection();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--Semantic UI-->
-    <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
-    <!--Bootstrap-->
-    <link rel="stylesheet" type="text/css" href="../dependencies/bootstrap/dist/css/bootstrap.min.css" />
-    <!--External CSS-->
-    <link rel="stylesheet" href="style/mainForm.css" />
-    <link rel="stylesheet" href="style/userDashStyle.css" />
-    <title>CMS | USER</title>
-</head>
-
+<?php include('user-header.php'); ?>
+ <!--Semantic UI-->
+ <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
 <body>
     <!---NAVIGATION BAR------->
     <nav class="navbar navbar-expand-lg">

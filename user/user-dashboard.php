@@ -23,22 +23,8 @@ if (isset($_GET['logout'])) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--Bootstrap-->
-    <link rel="stylesheet" type="text/css" href="../dependencies/bootstrap/dist/css/bootstrap.min.css">
-    <!--fontawesome-->
-    <link rel="stylesheet" href="../dependencies/fontawesome/css/all.css">
-    <!--External CSS-->
-    <link rel="stylesheet" href="style/userDashStyle.css" />
-    <title>CMS | User Dashboard</title>
-</head>
-<body>
 
+<?php include('user-header.php')?>
 
     <div class="main-dash container-fluid">
         <div class="side-bar">
@@ -86,7 +72,7 @@ if (isset($_GET['logout'])) {
                             <td>".$row['ap_name']."</td>
                             <td>
                                 <div class='field'>
-                                    <button class='btn btn-success' name='number_form'>Edit</button>
+                                    <a style='color:#fff' class='btn btn-success' href='update-complaint.php?complaint_id=".$row['complaint_id']."' name='number_form'>Edit</a>
                                     <button type='button' class='btn btn-danger'>Delete</button>
                                 </div>
                             </td>
@@ -102,6 +88,4 @@ if (isset($_GET['logout'])) {
             </div>
         </div>
     </div>
-</body>
-
-</html>
+<?php include('user-footer.php')?>

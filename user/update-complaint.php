@@ -1,12 +1,16 @@
-<?php include("header.php")?>
-<link href="css/sidenav.css" rel="stylesheet" />
+<?php include("../server.php") ?>
+<?php include('user-header.php')?>
+<link rel="stylesheet" href="../admin/CSS/sidenav.css">
+<link rel="stylesheet" href="../admin/CSS/styles-admin.css">
+ <!--Semantic UI-->
+ <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-        <h1 class="nav-head mt-1 ml-5">Complaint Details</h1>
+        <h1 class="nav-head mt-1 ml-5"> Update complaint</h1>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link admin-name" href="#">Welcome Admin<span class="sr-only">(current)</span></a>
+                    <a class="nav-link admin-name" href="#">WELCOME <?php echo $_SESSION['name']?></a>
                 </li>
 
             </ul>
@@ -21,5 +25,5 @@
         </div>
     </div>
     <!-- 'include' for React File  -->
-    <?php include("react-admin/show-complaint-react.php")?>
-    <?php include("footer.php")?>
+    <?php include("react-user/update-complaint-react.php")?>
+<?php include('user-footer.php')?>
