@@ -54,6 +54,7 @@ const timeDateFormatter = (arry) => {
         getCities = () => {
             let s_dd = document.getElementById("states"),
                 s_id = s_dd.options[s_dd.selectedIndex].value;
+                console.log(s_id);
             fetch(`../api/data/read_city.php?state_id=${s_id}`)
             .then(res => res.json())
             .then((data) => {
@@ -133,7 +134,7 @@ const timeDateFormatter = (arry) => {
                                         </select>
                                     </td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>
-                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states">
+                                        <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states" onChange={this.getCities}>
                                             <option value="">{this.state.applicant.ap_state}</option>
                                             {
                                                 this.state.newstates.map((state) => <option value={state.id}>{state.name}</option>)
