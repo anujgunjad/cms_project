@@ -72,7 +72,7 @@ if (isset($_GET['logout'])) {
                             <td>".$row['ap_name']."</td>
                             <td>
                                 <div class='field'>
-                                    <a class='btn btn-success' href='update-complaint.php?".$row['complaint_id']."' name='number_form'>Edit</a>
+                                    <a style='color:#fff' class='btn btn-success' href='update-complaint.php?".$row['complaint_id']."' name='number_form'>Edit</a>
                                     <button type='button' class='btn btn-danger'>Delete</button>
                                 </div>
                             </td>
