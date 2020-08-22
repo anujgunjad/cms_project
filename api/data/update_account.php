@@ -19,6 +19,7 @@ $basic = new Basic($db);
   
     // get id of product to be edited
         $data = json_decode(file_get_contents("php://input")); 
+
         $basic->complaint_id_acc = $data->complaint_id_acc; 
         // set product property values 
         $basic->acc_id_acc = $data->acc_id_acc;
@@ -27,7 +28,7 @@ $basic = new Basic($db);
         $basic->state_acc = $data->state_acc;
         $basic->branch_name_acc = $data->branch_name_acc;
         $basic->mail_date_acc = $data->mail_date_acc;
-        $basic->mail_recieved_acc = $data->mail_recieved_acc;
+        $basic->mail_received_acc = $data->mail_received_acc;
         $basic->freeze_amount_acc = $data->freeze_amount_acc;
         $basic->kyc_name_acc = $data->kyc_name_acc;
         $basic->address_acc = $data->address_acc;

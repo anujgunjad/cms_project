@@ -164,17 +164,17 @@
          //Update Account Function
          function updateAcc() 
          {
-             $query = "UPDATE $this->suspect_account_table SET complaint_id = :complaint_id_acc, acc_id= :acc_id_acc, acc_number = :acc_number_acc,bank_name= :bank_name_acc,state = :state_acc,branch_name = :branch_name_acc,mail_date = :mail_date_acc,mail_recieved = :mail_recieved_acc, freeze_amount = :freeze_amount_acc, kyc_name = :kyc_name_acc, address = :address_acc, city = :city_acc, state_twice = :state_twice_acc, alternate_number = :altername_number_acc, profit_acc = :profit_acc_acc, internet_banking = :internet_banking_acc, bank_manager_name = :bank_manager_name_acc , bank_manager_number = :bank_manager_number_acc,kyc_pdf =:kyc_pdf_acc,bank_statement_file =:bank_statement_file_acc , created_date = :created_date_acc ,last_updated =:last_updated_acc WHERE acc_id = :acc_id_acc";
+             $query = "UPDATE $this->suspect_account_table SET acc_number = :acc_number_acc, bank_name= :bank_name_acc, state = :state_acc, branch_name = :branch_name_acc, mail_date = :mail_date_acc, mail_received = :mail_received_acc, freeze_amount = :freeze_amount_acc, kyc_name = :kyc_name_acc, address = :address_acc, city = :city_acc, state_twice = :state_twice_acc, alternate_number = :altername_number_acc, profit_acc = :profit_acc_acc, internet_banking = :internet_banking_acc, bank_manager_name = :bank_manager_name_acc , bank_manager_number = :bank_manager_number_acc, kyc_pdf =:kyc_pdf_acc, bank_statement_file = :bank_statement_file_acc , created_date = :created_date_acc, last_updated = :last_updated_acc WHERE complaint_id = :complaint_id_acc AND  acc_id = :acc_id_acc";
              
              $stmt = $this->conn->prepare($query);
-             $this->complaint_id_acc = htmlspecialchars(strip_tags($this->complaint_id_acc));
+             
              $this->acc_id_acc = htmlspecialchars(strip_tags($this->acc_id_acc));
              $this->acc_number_acc = htmlspecialchars(strip_tags( $this->acc_number_acc));
              $this->bank_name_acc = htmlspecialchars(strip_tags($this->bank_name_acc));
              $this->state_acc = htmlspecialchars(strip_tags($this->state_acc));
              $this->branch_name_acc = htmlspecialchars(strip_tags($this->branch_name_acc));
              $this->mail_date_acc = htmlspecialchars(strip_tags($this->mail_date_acc));
-             $this->mail_recieved_acc = htmlspecialchars(strip_tags($this->mail_recieved_acc));
+             $this->mail_received_acc = htmlspecialchars(strip_tags($this->mail_received_acc));
              $this->freeze_amount_acc = htmlspecialchars(strip_tags($this->freeze_amount_acc));
              $this->kyc_name_acc = htmlspecialchars(strip_tags($this->kyc_name_acc));
              $this->address_acc = htmlspecialchars(strip_tags($this->address_acc));
@@ -189,7 +189,9 @@
              $this->bank_statement_file_acc = htmlspecialchars(strip_tags($this->bank_statement_file_acc));
              $this->created_date_acc = htmlspecialchars(strip_tags($this->created_date_acc));
              $this->last_updated_acc = htmlspecialchars(strip_tags($this->last_updated_acc));
-             
+             $this->complaint_id_acc = htmlspecialchars(strip_tags($this->complaint_id_acc));
+             $this->acc_id_acc = htmlspecialchars(strip_tags($this->acc_id_acc));
+
              $stmt->bindParam(':complaint_id_acc', $this->complaint_id_acc);
              $stmt->bindParam(':acc_id_acc', $this->acc_id_acc);
              $stmt->bindParam(':acc_number_acc', $this->acc_number_acc);
@@ -197,7 +199,7 @@
              $stmt->bindParam(':state_acc', $this->state_acc);
              $stmt->bindParam(':branch_name_acc', $this->branch_name_acc);
              $stmt->bindParam(':mail_date_acc', $this->mail_date_acc);
-             $stmt->bindParam(':mail_recieved_acc', $this->mail_recieved_acc);
+             $stmt->bindParam(':mail_received_acc', $this->mail_received_acc);
              $stmt->bindParam(':freeze_amount_acc', $this->freeze_amount_acc);
              $stmt->bindParam(':kyc_name_acc', $this->kyc_name_acc);
              $stmt->bindParam(':address_acc', $this->address_acc);
@@ -507,4 +509,5 @@
     // $stmt = $read_suspect->readMax_Amount();
     // echo $stmt->rowCount();
     
+    // SELECT c.complaint_id, c.complaint_no, c.ap_name, c.ap_age, g.gender as ap_gender, g.id as gender_id, c.ap_mob, c.ap_address, co.name as ap_country, co.id as country_id, s.name as ap_state, s.id as state_id, ci.name as ap_city, ci.id as city_id, c.ap_pin_code, c.ap_adhar, ct.type as complaint_type, ct.type_id as complaint_type_id, cst.sub_type as sub_complaint_type, cst.sub_complaint_type_id as sub_complaint_type_id, c.it_act, c.bh_dv, c.crime_date, c.crime_time, c.amount, c.freeze_amount, c.checker_name, c.created_date, c.last_updated, c.complaint_status from basic_details c INNER JOIN genders as g ON g.id = c.ap_gender INNER JOIN countries co ON co.id = c.ap_country INNER JOIN states s ON s.id = c.ap_state INNER JOIN cities ci ON ci.id = c.ap_city INNER JOIN complaint_type ct ON ct.type_id = c.complaint_type INNER JOIN sub_complaint_type cst ON cst.sub_complaint_type_id = c.sub_complaint_type WHERE c.complaint_status = '1' AND c.complaint_id = '104'
 ?>
