@@ -70,6 +70,30 @@
         public $last_update_basic; 
         public $complaint_status_basic;
 
+         //Update Account Variables
+         public $complaint_id_acc; 
+         public $acc_id_acc;
+         public $acc_number_acc;
+         public $bank_name_acc;
+         public $state_acc;
+         public $branch_name_acc;
+         public $mail_date_acc;
+         public $mail_recieved_acc;
+         public $freeze_amount_acc;
+         public $kyc_name_acc;
+         public $address_acc;
+         public $city_acc;
+         public $state_twice_acc;
+         public $altername_number_acc;
+         public $profit_acc_acc;
+         public $internet_banking_acc;
+         public $bank_manager_name_acc;
+         public $bank_manager_number_acc;
+         public $kyc_pdf_acc;
+         public $bank_statement_file_acc;
+         public $created_date_acc;
+         public $last_updated_acc;
+
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -103,8 +127,8 @@
             $this->complaint_id_basic = htmlspecialchars(strip_tags($this->complaint_id_basic));
             $this->created_date_basic = htmlspecialchars(strip_tags($this->created_date_basic));
             $this->last_update_basic = htmlspecialchars(strip_tags($this->last_update_basic));
-            $this->complaint_status_basic = htmlspecialchars(strip_tags($this->complaint_status_basic));
-
+            $this->complaint_status_basic = htmlspecialchars(strip_tags($this->complaint_status_basic)); 
+            
             $stmt->bindParam(':complaint_id_basic', $this->complaint_id_basic);
             $stmt->bindParam(':complaint_no_basic', $this->complaint_no_basic);
             $stmt->bindParam(':ap_name_basic', $this->ap_name_basic);
@@ -137,6 +161,65 @@
   
             return false;
         }
+         //Update Account Function
+         function updateAcc() 
+         {
+             $query = "UPDATE $this->suspect_account_table SET complaint_id = :complaint_id_acc, acc_id= :acc_id_acc, acc_number = :acc_number_acc,bank_name= :bank_name_acc,state = :state_acc,branch_name = :branch_name_acc,mail_date = :mail_date_acc,mail_recieved = :mail_recieved_acc, freeze_amount = :freeze_amount_acc, kyc_name = :kyc_name_acc, address = :address_acc, city = :city_acc, state_twice = :state_twice_acc, alternate_number = :altername_number_acc, profit_acc = :profit_acc_acc, internet_banking = :internet_banking_acc, bank_manager_name = :bank_manager_name_acc , bank_manager_number = :bank_manager_number_acc,kyc_pdf =:kyc_pdf_acc,bank_statement_file =:bank_statement_file_acc , created_date = :created_date_acc ,last_updated =:last_updated_acc WHERE acc_id = :acc_id_acc";
+             
+             $stmt = $this->conn->prepare($query);
+             $this->complaint_id_acc = htmlspecialchars(strip_tags($this->complaint_id_acc));
+             $this->acc_id_acc = htmlspecialchars(strip_tags($this->acc_id_acc));
+             $this->acc_number_acc = htmlspecialchars(strip_tags( $this->acc_number_acc));
+             $this->bank_name_acc = htmlspecialchars(strip_tags($this->bank_name_acc));
+             $this->state_acc = htmlspecialchars(strip_tags($this->state_acc));
+             $this->branch_name_acc = htmlspecialchars(strip_tags($this->branch_name_acc));
+             $this->mail_date_acc = htmlspecialchars(strip_tags($this->mail_date_acc));
+             $this->mail_recieved_acc = htmlspecialchars(strip_tags($this->mail_recieved_acc));
+             $this->freeze_amount_acc = htmlspecialchars(strip_tags($this->freeze_amount_acc));
+             $this->kyc_name_acc = htmlspecialchars(strip_tags($this->kyc_name_acc));
+             $this->address_acc = htmlspecialchars(strip_tags($this->address_acc));
+             $this->city_acc = htmlspecialchars(strip_tags($this->city_acc));
+             $this->state_twice_acc = htmlspecialchars(strip_tags($this->state_twice_acc));
+             $this->altername_number_acc = htmlspecialchars(strip_tags($this->altername_number_acc));
+             $this->profit_acc_acc = htmlspecialchars(strip_tags($this->profit_acc_acc));
+             $this->internet_banking_acc = htmlspecialchars(strip_tags($this->internet_banking_acc));
+             $this->bank_manager_name_acc = htmlspecialchars(strip_tags($this->bank_manager_name_acc));
+             $this->bank_manager_number_acc = htmlspecialchars(strip_tags($this->bank_manager_number_acc));
+             $this->kyc_pdf_acc = htmlspecialchars(strip_tags($this->kyc_pdf_acc));
+             $this->bank_statement_file_acc = htmlspecialchars(strip_tags($this->bank_statement_file_acc));
+             $this->created_date_acc = htmlspecialchars(strip_tags($this->created_date_acc));
+             $this->last_updated_acc = htmlspecialchars(strip_tags($this->last_updated_acc));
+             
+             $stmt->bindParam(':complaint_id_acc', $this->complaint_id_acc);
+             $stmt->bindParam(':acc_id_acc', $this->acc_id_acc);
+             $stmt->bindParam(':acc_number_acc', $this->acc_number_acc);
+             $stmt->bindParam(':bank_name_acc', $this->bank_name_acc);
+             $stmt->bindParam(':state_acc', $this->state_acc);
+             $stmt->bindParam(':branch_name_acc', $this->branch_name_acc);
+             $stmt->bindParam(':mail_date_acc', $this->mail_date_acc);
+             $stmt->bindParam(':mail_recieved_acc', $this->mail_recieved_acc);
+             $stmt->bindParam(':freeze_amount_acc', $this->freeze_amount_acc);
+             $stmt->bindParam(':kyc_name_acc', $this->kyc_name_acc);
+             $stmt->bindParam(':address_acc', $this->address_acc);
+             $stmt->bindParam(':city_acc', $this->city_acc);
+             $stmt->bindParam(':state_twice_acc', $this->state_twice_acc);
+             $stmt->bindParam(':altername_number_acc', $this->altername_number_acc);
+             $stmt->bindParam(':profit_acc_acc', $this->profit_acc_acc);
+             $stmt->bindParam(':internet_banking_acc', $this->internet_banking_acc);
+             $stmt->bindParam(':bank_manager_name_acc', $this->bank_manager_name_acc);
+             $stmt->bindParam(':bank_manager_number_acc', $this->bank_manager_number_acc);
+             $stmt->bindParam(':kyc_pdf_acc', $this->kyc_pdf_acc);
+             $stmt->bindParam(':bank_statement_file_acc', $this->bank_statement_file_acc);
+             $stmt->bindParam(':created_date_acc', $this->created_date_acc);
+             $stmt->bindParam(':last_updated_acc', $this->last_updated_acc);
+
+             // execute the query
+             if($stmt->execute()){
+                 return true;
+             }
+   
+             return false;
+         }
 
         function readAll_complainee(){
 
