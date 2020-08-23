@@ -70,29 +70,64 @@
         public $last_update_basic; 
         public $complaint_status_basic;
 
-         //Update Account Variables
-         public $complaint_id_acc; 
-         public $acc_id_acc;
-         public $acc_number_acc;
-         public $bank_name_acc;
-         public $state_acc;
-         public $branch_name_acc;
-         public $mail_date_acc;
-         public $mail_recieved_acc;
-         public $freeze_amount_acc;
-         public $kyc_name_acc;
-         public $address_acc;
-         public $city_acc;
-         public $state_twice_acc;
-         public $altername_number_acc;
-         public $profit_acc_acc;
-         public $internet_banking_acc;
-         public $bank_manager_name_acc;
-         public $bank_manager_number_acc;
-         public $kyc_pdf_acc;
-         public $bank_statement_file_acc;
-         public $created_date_acc;
-         public $last_updated_acc;
+        //Update Account Variables
+        public $complaint_id_acc; 
+        public $acc_id_acc;
+        public $acc_number_acc;
+        public $bank_name_acc;
+        public $state_acc;
+        public $branch_name_acc;
+        public $mail_date_acc;
+        public $mail_recieved_acc;
+        public $freeze_amount_acc;
+        public $kyc_name_acc;
+        public $address_acc;
+        public $city_acc;
+        public $state_twice_acc;
+        public $altername_number_acc;
+        public $profit_acc_acc;
+        public $internet_banking_acc;
+        public $bank_manager_name_acc;
+        public $bank_manager_number_acc;
+        public $kyc_pdf_acc;
+        public $bank_statement_file_acc;
+        public $created_date_acc;
+        public $last_updated_acc;
+        
+        //update account atm variables
+        public $complaint_id_atm;
+        public $acc_id_atm;
+        public $atm_footage_id_atm;
+        public $atm_footage_atm;
+        public $email_sent_atm;
+        public $email_received_atm;
+        public $created_date_atm;
+        public $last_updated_atm;
+        
+        //update account pan variables
+        public $complaint_id_pan;
+        public $acc_id_pan;
+        public $pan_info_id_pan;
+        public $pan_pan;
+        public $pan_verified_pan;
+        public $pan_username_pan;
+        public $adhar_number_pan;
+        public $income_tax_pan;
+        public $gst_in_pan;
+        public $tin_pan;
+        public $sales_tax_pan;
+        public $created_date_pan;
+        public $last_updated_pan;
+        
+        //updated account iplog variables
+        public $complaint_id_iplog;
+        public $acc_id_iplog;
+        public $iplog_id_iplog;
+        public $iplog_iplog;
+        public $email_sent_iplog;
+        public $email_received_iplog;
+        public $created_date_iplog;
+        public $last_updated_iplog;
 
         // constructor with $db as database connection
         public function __construct($db){
@@ -128,7 +163,7 @@
             $this->created_date_basic = htmlspecialchars(strip_tags($this->created_date_basic));
             $this->last_update_basic = htmlspecialchars(strip_tags($this->last_update_basic));
             $this->complaint_status_basic = htmlspecialchars(strip_tags($this->complaint_status_basic)); 
-            
+
             $stmt->bindParam(':complaint_id_basic', $this->complaint_id_basic);
             $stmt->bindParam(':complaint_no_basic', $this->complaint_no_basic);
             $stmt->bindParam(':ap_name_basic', $this->ap_name_basic);
@@ -222,7 +257,109 @@
    
              return false;
          }
+         //account atm function
+        function updateAcc_atm(){
+            $query = "UPDATE $this->suspect_account_atm_table SET complaint_id = :complaint_id_atm, acc_id= :acc_id_atm, atm_footage_id = :atm_footage_id_atm, atm_footage = :atm_footage_atm, email_sent = :email_sent_atm, email_received = :email_received_atm, created_date = :created_date_atm, last_updated = :last_updated_atm WHERE complaint_id = :complaint_id_atm AND  acc_id = :acc_id_atm AND atm_footage_id=:atm_footage_id_atm";
+        
+            $stmt = $this->conn->prepare($query);
 
+            $this->complaint_id_atm = htmlspecialchars(strip_tags($this->complaint_id_atm));
+            $this->acc_id_atm = htmlspecialchars(strip_tags($this->acc_id_atm));
+            $this->atm_footage_id_atm = htmlspecialchars(strip_tags( $this->atm_footage_id_atm));
+            $this->atm_footage_atm = htmlspecialchars(strip_tags($this->atm_footage_atm));
+            $this->email_sent_atm = htmlspecialchars(strip_tags($this->email_sent_atm));
+            $this->email_received_atm = htmlspecialchars(strip_tags($this->email_received_atm));
+            $this->created_date_atm = htmlspecialchars(strip_tags($this->created_date_atm));
+            $this->last_updated_atm = htmlspecialchars(strip_tags($this->last_updated_atm));
+
+            $stmt->bindParam(':complaint_id_atm', $this->complaint_id_atm);
+            $stmt->bindParam(':acc_id_atm', $this->acc_id_atm);
+            $stmt->bindParam(':atm_footage_id_atm', $this->atm_footage_id_atm);
+            $stmt->bindParam(':atm_footage_atm', $this->atm_footage_atm);
+            $stmt->bindParam(':email_sent_atm', $this->email_sent_atm);
+            $stmt->bindParam(':email_received_atm', $this->email_received_atm);
+            $stmt->bindParam(':created_date_atm', $this->created_date_atm);
+            $stmt->bindParam(':last_updated_atm', $this->last_updated_atm);
+
+             // execute the query
+             if($stmt->execute()){
+                return true;
+            }
+  
+            return false;
+
+        }  
+        function updateAcc_pan(){
+            $query = "UPDATE $this->suspect_account_pan_table SET complaint_id=:complaint_id_pan,acc_id=:acc_id_pan,pan_info_id=:pan_info_id_pan,pan=:pan_pan,pan_verified=:pan_verified_pan,pan_username=:pan_username_pan,adhar_number=:adhar_number_pan,income_tax=:income_tax_pan,gst_in=:gst_in_pan,tin=:tin_pan,sales_tax=:sales_tax_pan,created_date=:created_date_pan,last_updated=:last_updated_pan WHERE complaint_id=:complaint_id_pan and acc_id=:acc_id_pan and pan_info_id=:pan_info_id_pan";
+             
+            $stmt = $this->conn->prepare($query);
+
+            $this->complaint_id_pan = htmlspecialchars(strip_tags($this->complaint_id_pan));
+            $this->acc_id_pan = htmlspecialchars(strip_tags($this->acc_id_pan));
+            $this->pan_info_id_pan = htmlspecialchars(strip_tags( $this->pan_info_id_pan));
+            $this->pan_pan = htmlspecialchars(strip_tags($this->pan_pan));
+            $this->pan_verified_pan = htmlspecialchars(strip_tags($this->pan_verified_pan));
+            $this->pan_username_pan = htmlspecialchars(strip_tags($this->pan_username_pan));
+            $this->adhar_number_pan = htmlspecialchars(strip_tags($this->adhar_number_pan));
+            $this->income_tax_pan = htmlspecialchars(strip_tags($this->income_tax_pan));
+            $this->gst_in_pan = htmlspecialchars(strip_tags($this->gst_in_pan));
+            $this->tin_pan = htmlspecialchars(strip_tags($this->tin_pan));
+            $this->sales_tax_pan = htmlspecialchars(strip_tags($this->sales_tax_pan));
+            $this->created_date_pan = htmlspecialchars(strip_tags($this->created_date_pan));
+            $this->last_updated_pan = htmlspecialchars(strip_tags($this->last_updated_pan));
+            $stmt->bindParam(':complaint_id_pan', $this->complaint_id_pan);
+            $stmt->bindParam(':acc_id_pan', $this->acc_id_pan);
+            $stmt->bindParam(':pan_info_id_pan', $this->pan_info_id_pan);
+            $stmt->bindParam(':pan_pan', $this->pan_pan);
+            $stmt->bindParam(':pan_verified_pan', $this->pan_verified_pan);
+            $stmt->bindParam(':pan_username_pan', $this->pan_username_pan);
+            $stmt->bindParam(':adhar_number_pan', $this->adhar_number_pan);
+            $stmt->bindParam(':income_tax_pan', $this->income_tax_pan);
+            $stmt->bindParam(':gst_in_pan', $this->gst_in_pan);
+            $stmt->bindParam(':tin_pan', $this->tin_pan);
+            $stmt->bindParam(':sales_tax_pan', $this->sales_tax_pan);
+            $stmt->bindParam(':created_date_pan', $this->created_date_pan);
+            $stmt->bindParam(':last_updated_pan', $this->last_updated_pan);
+
+             // execute the query
+             if($stmt->execute()){
+                return true;
+            }
+  
+            return false;
+
+        } 
+        function updateAcc_iplog(){
+            $query = "UPDATE $this->suspect_account_iplogs_table SET complaint_id = :complaint_id_iplog, acc_id= :acc_id_iplog, iplog_id = :iplog_id_iplog, iplog = :iplog_iplog, email_sent = :email_sent_iplog, email_received = :email_received_iplog, created_date = :created_date_iplog, last_updated = :last_updated_iplog WHERE complaint_id = :complaint_id_iplog AND  acc_id = :acc_id_iplog And iplog_id=:iplog_id_iplog";
+         
+            $stmt = $this->conn->prepare($query);
+
+            $this->complaint_id_iplog = htmlspecialchars(strip_tags($this->complaint_id_iplog));
+            $this->acc_id_iplog = htmlspecialchars(strip_tags($this->acc_id_iplog));
+            $this->iplog_id_iplog = htmlspecialchars(strip_tags( $this->iplog_id_iplog));
+            $this->iplog_iplog = htmlspecialchars(strip_tags($this->iplog_iplog));
+            $this->email_sent_iplog = htmlspecialchars(strip_tags($this->email_sent_iplog));
+            $this->email_received_iplog = htmlspecialchars(strip_tags($this->email_received_iplog));
+            $this->created_date_iplog = htmlspecialchars(strip_tags($this->created_date_iplog));
+            $this->last_updated_iplog = htmlspecialchars(strip_tags($this->last_updated_iplog));
+
+            $stmt->bindParam(':complaint_id_iplog', $this->complaint_id_iplog);
+            $stmt->bindParam(':acc_id_iplog', $this->acc_id_iplog);
+            $stmt->bindParam(':iplog_id_iplog', $this->iplog_id_iplog);
+            $stmt->bindParam(':iplog_iplog', $this->iplog_iplog);
+            $stmt->bindParam(':email_sent_iplog', $this->email_sent_iplog);
+            $stmt->bindParam(':email_received_iplog', $this->email_received_iplog);
+            $stmt->bindParam(':created_date_iplog', $this->created_date_iplog);
+            $stmt->bindParam(':last_updated_iplog', $this->last_updated_iplog);
+
+             // execute the query
+             if($stmt->execute()){
+                return true;
+            }
+  
+            return false;
+
+        } 
         function readAll_complainee(){
 
             //Select All Query
