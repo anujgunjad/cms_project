@@ -212,6 +212,114 @@ $db = $database->getConnection();
                 <h1 class="main-head">संदेहियों की जानकारी</h1>
             </div>
             <div class="ui blue segment">
+
+            <!--ADD SUSPECT-->
+            <div class = "card my-4">
+                <div class="card-header">
+                    <div class="text-center">
+                        <h1 class="sub-head">संदेही की जानकारी</h1>
+                    </div>
+                </div>
+                <!--Card Body-->
+                <div class="card-body">
+                    <button type="button" class="add-suspect-btn ui button my-3" data-toggle="collapse"
+                            data-target="#suspect_details" id="btn_addsuspect">
+                            Add Suspect
+                    </button>
+                    <div class="collapse" id="suspect_details" class="suspect details">
+                        <form id="suspect_detailform" class="suspect-detail-form ui blue segment form" method="POST"
+                                action="insertFiles/insert_suspectForm.php">
+                            <div class="two fields">
+                                <div class="seven wide field">
+                                    <label> संदिग्ध का नाम </label>
+                                    <input type="text" name="suspect_name" placeholder="नाम">
+                                </div>
+                                <div class="ten wide field">
+                                    <label>संदिग्ध का पता</label>
+                                    <input type="text" name="address" placeholder="संदिग्ध का पता">
+                                </div>
+                            </div>
+                            <div class="three fields">
+                                <div class="six wide field">
+                                    <label>पहला मोबाइल नंबर</label>
+                                    <input type="tel" name="first_sus_number" placeholder="पहला मोबाइल नंबर">
+                                </div>
+                                <div class="six wide field">
+                                    <label>दूसरा मोबाइल नंबर</label>
+                                    <input type="tel" name="sec_sus_number" placeholder="दूसरा मोबाइल नंबर">
+                                </div>
+                                <div class="six wide field">
+                                    <label>खाता क्रमांक</label>
+                                    <input type="number" name="account_number" placeholder="खाता क्रमांक">
+                                </div>
+                            </div>
+                            <div class="three fields">
+                                <div class="six wide field">
+                                    <label>आई टी ऐक्ट धारा</label>
+                                    <input type="text" name="it_act" placeholder="आई टी ऐक्ट धारा">
+                                </div>
+                                <div class="six wide field">
+                                    <label>ईमेल आईडी</label>
+                                    <input type="text" name="sus_emailid" placeholder="ईमेल आईडी">
+                                </div>
+                                <div class="six wide field">
+                                    <label>डोमेन नेम </label>
+                                    <input type="text" name="domain_name" placeholder="डोमेन नेम">
+                                </div>
+                            </div>
+                            <div class="four fields">
+                                <div class="six wide field">
+                                    <label>यु पी आई फोन नंबर</label>
+                                    <input type="tel" name="upi_phone_number" placeholder="यु पी आई फोन नंबर">
+                                </div>
+                                <div class="six wide field">
+                                    <label>यु पी आई व्ही पी ए</label>
+                                    <input type="text" name="upi_vpa" placeholder="यु पी आई व्ही पी ए">
+                                </div>
+                                <div class="six wide field">
+                                    <label>वॉलेट का नाम</label>
+                                    <input type="text" name="wallet_name" placeholder="वॉलेट का नाम">
+                                </div>
+                                <div class="six wide field">
+                                    <label>मोबाइल ऐप/सॉफ्टवेयर</label>
+                                    <input type="text" name="app_soft" placeholder="मोबाइल ऐप/सॉफ्टवेयर">
+                                </div>
+                            </div> 
+                            <div class="field text-center">
+                                <button class="ui button  form-btn " id="result-basic" type="submit" name="result"
+                                value="Submit">
+                                Submit
+                                </button>
+                            </div>
+                        </form>    
+                    </div>
+                    <!--Collaps Class End-->
+                     <!--------------TABLE----------->
+                    <div id="suspect_table_main">
+                        <table class="table table-bordered p-0 m-0">
+                            <thead>
+                                <tr id="table-head">
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Phone numbers</th>
+                                    <th scope="col">Update/Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="suspect_num_table_old_row">
+                                    <td>No Number Added Yet</td>
+                                    <td>No Number Added Yet</td>
+                                    <td>No Number Added Yet</td>
+                                </tr>
+                                </tbody>
+                            <tbody id="new-row"></tbody>
+                        </table>
+                    </div>
+                    <!-----TABLE ENDS-->
+                </div>
+                <!--Close Card Body-->
+            </div>
+            <!--Close ADD SUSPECT-->
+
                 <!---------ADD NUMBER------->
                 <div class="card my-4">
                     <div class="card-header">
@@ -1337,7 +1445,7 @@ $db = $database->getConnection();
 
                 <script>
                 $(document).ready(function() {
-                    $("#SuspectFormDiv").hide();
+                    //$("#SuspectFormDiv").hide();
                     $(document).on('click', 'button[name="next_button"]', function() {
                         $("#basicFormDiv").fadeOut();
                         $("#SuspectFormDiv").fadeIn();
