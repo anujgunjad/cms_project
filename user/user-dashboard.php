@@ -27,7 +27,7 @@ if (isset($_GET['logout'])) {
 <?php include('user-header.php')?>
 
     <div class="main-dash container-fluid">
-        <div class="side-bar">
+        <div class="side-bar ">
 
         </div>
         <div class="main-body">

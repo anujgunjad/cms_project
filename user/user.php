@@ -241,33 +241,23 @@ $db = $database->getConnection();
                             </div>
                             <div class="three fields">
                                 <div class="six wide field">
-                                    <label>पहला मोबाइल नंबर</label>
-                                    <input type="tel" name="first_sus_number" placeholder="पहला मोबाइल नंबर">
-                                </div>
-                                <div class="six wide field">
-                                    <label>दूसरा मोबाइल नंबर</label>
-                                    <input type="tel" name="sec_sus_number" placeholder="दूसरा मोबाइल नंबर">
+                                    <label>मोबाइल नंबर</label>
+                                    <input type="tel" name="sus_number" placeholder="मोबाइल नंबर">
                                 </div>
                                 <div class="six wide field">
                                     <label>खाता क्रमांक</label>
                                     <input type="number" name="account_number" placeholder="खाता क्रमांक">
                                 </div>
+                                <div class="six wide field">
+                                    <label>ईमेल आई डी</label>
+                                    <input type="number" name="email_id" placeholder="ईमेल आई डी">
+                                </div>
                             </div>
                             <div class="three fields">
-                                <div class="six wide field">
-                                    <label>आई टी ऐक्ट धारा</label>
-                                    <input type="text" name="it_act" placeholder="आई टी ऐक्ट धारा">
-                                </div>
-                                <div class="six wide field">
-                                    <label>ईमेल आईडी</label>
-                                    <input type="text" name="sus_emailid" placeholder="ईमेल आईडी">
-                                </div>
                                 <div class="six wide field">
                                     <label>डोमेन नेम </label>
                                     <input type="text" name="domain_name" placeholder="डोमेन नेम">
                                 </div>
-                            </div>
-                            <div class="four fields">
                                 <div class="six wide field">
                                     <label>यु पी आई फोन नंबर</label>
                                     <input type="tel" name="upi_phone_number" placeholder="यु पी आई फोन नंबर">
@@ -276,20 +266,38 @@ $db = $database->getConnection();
                                     <label>यु पी आई व्ही पी ए</label>
                                     <input type="text" name="upi_vpa" placeholder="यु पी आई व्ही पी ए">
                                 </div>
-                                <div class="six wide field">
+                            </div>
+                            <div class="two fields">
+                                <div class="eight wide field">
                                     <label>वॉलेट का नाम</label>
                                     <input type="text" name="wallet_name" placeholder="वॉलेट का नाम">
                                 </div>
-                                <div class="six wide field">
+                                <div class="eight wide field">
                                     <label>मोबाइल ऐप/सॉफ्टवेयर</label>
                                     <input type="text" name="app_soft" placeholder="मोबाइल ऐप/सॉफ्टवेयर">
                                 </div>
+                               
                             </div> 
-                            <div class="field text-center">
-                                <button class="ui button  form-btn " id="result-basic" type="submit" name="result"
-                                value="Submit">
-                                Submit
-                                </button>
+                            <div class="two fields">
+                                <div class="eight wide field">
+                                    <label>शिकायत में की गई कार्यवाही </label>
+                                    <input type="text" name="complaint_action" placeholder="शिकायत में की गई कार्यवाही ">
+                                </div>
+                                <div class="eight wide field">
+                                    <label>लंबित रहने का कारण </label>
+                                    <input type="text" name="panding_reason" placeholder="लंबित रहने का कारण">
+                                </div>
+                            </div> 
+                            <div class="field">
+                                <div class="sixteen wide field">
+                                    <label>रिमार्क</label>
+                                    <input type="text" name="remark" placeholder="रिमार्क ">
+                                </div>
+                            </div> 
+                            <div class="field">
+                                    <button class="ui button form-btn" name="suspect_form" type="submit">
+                                        Submit
+                                    </button>
                             </div>
                         </form>    
                     </div>
@@ -300,12 +308,12 @@ $db = $database->getConnection();
                             <thead>
                                 <tr id="table-head">
                                     <th scope="col">S.No</th>
-                                    <th scope="col">Phone numbers</th>
+                                    <th scope="col">Suspect Name</th>
                                     <th scope="col">Update/Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="suspect_num_table_old_row">
+                                <tr id="suspect_table_old_row">
                                     <td>No Number Added Yet</td>
                                     <td>No Number Added Yet</td>
                                     <td>No Number Added Yet</td>
@@ -1419,6 +1427,9 @@ $db = $database->getConnection();
             <!---blue segment end-->
             <div class="text-center p-4">
                 <button class="ui button nexte-btn" name="back_button">Back</button>
+                <button class="ui button  form-btn" id = "done__btn" type="submit" name="Done">
+                  Done
+                </button>
             </div>
             <div>
                 <!---------------------------------->
