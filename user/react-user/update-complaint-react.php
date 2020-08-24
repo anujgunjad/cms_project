@@ -450,19 +450,19 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4>{account.acc_number?account.acc_number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4>{account.bank_name?account.bank_name : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{account.state?account.state : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4>{account.branch_name?account.branch_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_num" type="number" placeholder={account.acc_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_name" type="text" placeholder={account.bank_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state" type="text" placeholder={account.state} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_branch_name" type="text" placeholder={account.branch_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td class={dateFormatter(account.mail_date)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_date)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(account.mail_date)!="00-00-0000"?dateFormatter(account.mail_date):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(account.mail_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(account.mail_received)!="00-00-0000"?dateFormatter(account.mail_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4>{account.freeze_amount?account.freeze_amount : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4>{account.kyc_name?account.kyc_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_date" type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_recieved" type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id="acc_freeze_amount" type="number" placeholder={account.freeze_amount} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_kyc_name" type="text" placeholder={account.kyc_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4>{account.address?account.address : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4><input class="rounded py-2 mt-1 px-2" id="acc_address" type="text" placeholder={account.address} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{account.city?account.city : "अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4>{account.state_twice?account.state_twice : "अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4>{account.alternate_number?account.alternate_number : "अभी तक दर्ज नहीं है"}</td>
