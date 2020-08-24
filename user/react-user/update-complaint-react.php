@@ -431,26 +431,26 @@ const timeDateFormatter = (arry) => {
         updateAccountDetails = (account_id) => {
             let id = idFetcher(); 
             const account = this.state.accounts.filter(account => account.acc_id == account_id);
-            // console.log(account);
-            // fetch("../api/data/update_account.php", { 
-            //     // Adding method type 
-            //     method: "POST", 
-            //     // Adding body or contents to send 
-            //     body: JSON.stringify({ 
+            
+            fetch("../api/data/update_account.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
                   
-            //     })
-            // }) 
-            //     // update done
-            //     .then(
-            //         swal({
-            //             title: 'Updated Successfuly',
-            //             icon: 'success',
-            //             button: 'Next',
-            //         })
-            //         .then(() => {
-            //             location.reload();
-            //         })
-            //         ); 
+                })
+            }) 
+                // update done
+                .then(
+                    swal({
+                        title: 'Updated Successfuly',
+                        icon: 'success',
+                        button: 'Next',
+                    })
+                    .then(() => {
+                        location.reload();
+                    })
+                    ); 
         }
         render(){
             const pdfButtonStyle = {
