@@ -430,7 +430,8 @@ const timeDateFormatter = (arry) => {
         }
         updateAccountDetails = (account_id) => {
             let id = idFetcher(); 
-            const account = this.state.accounts.filter(account => account.acc_id == account_id);
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
             let complaint_id_acc = id,
                 acc_id_acc = account.acc_id,
                 acc_number_acc = document.getElementById("acc_number").value?document.getElementById("acc_number").value : account.acc_number,
@@ -449,9 +450,9 @@ const timeDateFormatter = (arry) => {
                 internet_banking_acc = document.getElementById("acc_internet_banking").value?document.getElementById("acc_internet_banking").value : account.internet_banking,
                 bank_manager_name_acc = document.getElementById("acc_bank_manager_name").value?document.getElementById("acc_bank_manager_name").value : account.bank_manager_name,
                 bank_manager_number_acc = account.bank_manager_number,
-                kyc_pdf_acc = account.kyc_pdf_acc,
-                bank_statement_file_acc = account.bank_statement_file_acc,
-                created_date_acc = account.created_date_acc,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
             fetch("../api/data/update_account.php", { 
                 // Adding method type 
@@ -484,14 +485,14 @@ const timeDateFormatter = (arry) => {
             }) 
                 // update done
                 .then(
-                    swal({
-                        title: 'Updated Successfuly',
-                        icon: 'success',
-                        button: 'Next',
-                    })
-                    .then(() => {
-                        location.reload();
-                    })
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
                     ); 
         }
         render(){
