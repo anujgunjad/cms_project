@@ -438,13 +438,13 @@ const timeDateFormatter = (arry) => {
                 state_acc = document.getElementById("acc_state").value?document.getElementById("acc_state").value : account.state,
                 branch_name_acc = document.getElementById("acc_branch_name").value?document.getElementById("acc_branch_name").value : account.branch_name,
                 mail_date_acc = document.getElementById("acc_mail_date").value?document.getElementById("acc_mail_date").value : account.mail_date,
-                mail_received_acc = document.getElementById("acc_mail_received").value?document.getElementById("acc_mail_received").value : account.mail_received,
+                mail_received_acc = document.getElementById("acc_mail_recieved").value?document.getElementById("acc_mail_recieved").value : account.mail_received,
                 freeze_amount_acc = document.getElementById("acc_freeze_amount").value?document.getElementById("acc_freeze_amount").value : account.freeze_amount,
                 kyc_name_acc = document.getElementById("acc_kyc_name").value?document.getElementById("acc_kyc_name").value : account.kyc_name,
                 address_acc = document.getElementById("acc_address").value?document.getElementById("acc_address").value : account.address,
                 city_acc = document.getElementById("acc_city").value?document.getElementById("acc_city").value : account.city,
                 state_twice_acc = document.getElementById("acc_state_twice").value?document.getElementById("acc_state_twice").value : account.state_twice,
-                altername_number_acc = document.getElementById("acc_altername_number").value?document.getElementById("acc_altername_number").value : account.altername_number,
+                altername_number_acc = document.getElementById("acc_alternate_number").value?document.getElementById("acc_alternate_number").value : account.alternate_number,
                 profit_acc_acc = document.getElementById("acc_profit_acc").value?document.getElementById("acc_profit_acc").value : account.profit_acc,
                 internet_banking_acc = document.getElementById("acc_internet_banking").value?document.getElementById("acc_internet_banking").value : account.internet_banking,
                 bank_manager_name_acc = document.getElementById("acc_bank_manager_name").value?document.getElementById("acc_bank_manager_name").value : account.bank_manager_name,
@@ -452,8 +452,7 @@ const timeDateFormatter = (arry) => {
                 kyc_pdf_acc = account.kyc_pdf_acc,
                 bank_statement_file_acc = account.bank_statement_file_acc,
                 created_date_acc = account.created_date_acc,
-                last_updated_acc = Date().toLocaleString(),
-
+                last_updated_acc = Date().toLocaleString();
             fetch("../api/data/update_account.php", { 
                 // Adding method type 
                 method: "POST", 
