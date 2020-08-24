@@ -108,7 +108,7 @@ const timeDateFormatter = (arry) => {
                 freeze_amount_basic = document.getElementById("freeze_amount").value?document.getElementById("freeze_amount").value : this.state.applicant.freeze_amount,
                 checker_name_basic = document.getElementById("checker_name").value?document.getElementById("checker_name").value : this.state.applicant.checker_name,
                 created_date_basic =  this.state.applicant.created_date,
-                last_update_basic =  this.state.applicant.last_updated,
+                last_update_basic =  Date.toLocaleString(),
                 complaint_status_basic =  this.state.applicant.complaint_status;
             fetch("../api/data/update_basic.php", { 
                 // Adding method type 
@@ -431,13 +431,57 @@ const timeDateFormatter = (arry) => {
         updateAccountDetails = (account_id) => {
             let id = idFetcher(); 
             const account = this.state.accounts.filter(account => account.acc_id == account_id);
-            
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number").value?document.getElementById("acc_number").value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name").value?document.getElementById("acc_bank_name").value : account.bank_name,
+                state_acc = document.getElementById("acc_state").value?document.getElementById("acc_state").value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name").value?document.getElementById("acc_branch_name").value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date").value?document.getElementById("acc_mail_date").value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_received").value?document.getElementById("acc_mail_received").value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount").value?document.getElementById("acc_freeze_amount").value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name").value?document.getElementById("acc_kyc_name").value : account.kyc_name,
+                address_acc = document.getElementById("acc_address").value?document.getElementById("acc_address").value : account.address,
+                city_acc = document.getElementById("acc_city").value?document.getElementById("acc_city").value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice").value?document.getElementById("acc_state_twice").value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_altername_number").value?document.getElementById("acc_altername_number").value : account.altername_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc").value?document.getElementById("acc_profit_acc").value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking").value?document.getElementById("acc_internet_banking").value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name").value?document.getElementById("acc_bank_manager_name").value : account.bank_manager_name,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf_acc,
+                bank_statement_file_acc = account.bank_statement_file_acc,
+                created_date_acc = account.created_date_acc,
+                last_updated_acc = Date().toLocaleString(),
+
             fetch("../api/data/update_account.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                  
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,
+                     
+    "branch_name_acc": "देवघर ",
+    "mail_date_acc": "2019-04-05",
+    "mail_received_acc": "2019-04-15",
+    "freeze_amount_acc": "50000",
+    "kyc_name_acc": "सुरेश सिंग ",
+    "address_acc": "सेक्टर 5 ",
+    "city_acc": "जामतारा ",
+    "state_twice_acc": "झारखण्ड ",
+    "altername_number_acc": "8824460011",
+    "profit_acc_acc": "",
+    "internet_banking_acc": "नही ",
+    "bank_manager_name_acc": "रामकुमार ",
+    "bank_manager_number_acc": "7588242000",
+    "kyc_pdf_acc": "",
+    "bank_statement_file_acc": "files\\bank_statement\\Night.jpg",
+    "created_date_acc": "2020-06-23 18:31:38",
+    "last_updated_acc": "2020-06-23 18:33:26"
                 })
             }) 
                 // update done
