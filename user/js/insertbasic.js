@@ -36,36 +36,45 @@ $(document).ready(function () {
     });
   });
 
-  // $('#suspectform').on('submit', function (e) {
-  //   e.preventDefault();
-  //   $.ajax({
-  //     url: '../insertFiles/insert_suspectForm.php',
-  //     type: 'POST',
-  //     data: new FormData(this),
-  //     contentType: false,
-  //     cache: false,
-  //     processData: false,
-  //     success: function (data) {
-  //       console.log(data);
-  //       swal({
-  //         title: 'Inserted Successfuly',
-  //         icon: 'success',
-  //         button: 'Next',
-  //       }).then(() => {
-  //         var xmlhttp = new XMLHttpRequest();
-  //         xmlhttp.onreadystatechange = function () {
-  //           if (this.readyState == 4 && this.status == 200) {
-  //             document.getElementById('txttwo').innerHTML = this.responseText;
-  //           }
-  //           $('#suspectFormDiv').replaceWith($('#txttwo'));
-  //         };
-  //         xmlhttp.open('GET', '../displayFiles/displaySuspect.php', true);
-  //         xmlhttp.send();
-  //       });
-  //     },
-  //     error: function () {},
-  //   });
-  // });
+  $('#suspect_detailform').on('submit', function (e) {
+     e.preventDefault();
+     $.ajax({
+       url: '../insertFiles/insert_suspectForm.php',
+       type: 'POST',
+       data: new FormData(this),
+       contentType: false,
+       cache: false,
+       processData: false,
+       success: function (data) {
+         console.log(data);
+         swal({
+           title: 'Inserted Successfuly',
+           icon: 'success',
+           button: 'Next',
+         }).then(() => {
+           console.log('done');
+           console.log('DONE');
+            document.getElementById('wallet_detailform').reset();
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById(
+                'suspect_table_main'
+              ).innerHTML = this.responseText;
+            }
+            $('#suspect_table_main').css('display', 'inline');
+            };
+            xmlhttp.open(
+            'GET',
+            '../displayFiles/display.php?suspectdetailform="1"',
+            true
+          );
+          xmlhttp.send();
+         });
+       },
+       error: function () {},
+     });
+   });
 
   $('#num_detailform').on('submit', function (e) {
     e.preventDefault();
@@ -424,23 +433,6 @@ $(document).ready(function () {
           icon: 'success',
           button: 'Next',
         }).then(() => {
-          console.log('DONE');
-          document.getElementById('wallet_detailform').reset();
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              document.getElementById(
-                'suspect_ewallet_table_main'
-              ).innerHTML = this.responseText;
-            }
-            $('#suspect_ewallet_table_main').css('display', 'inline');
-          };
-          xmlhttp.open(
-            'GET',
-            '../displayFiles/display.php?ewalletdetailform="1"',
-            true
-          );
-          xmlhttp.send();
         });
       },
       error: function () {},
@@ -480,6 +472,25 @@ $(document).ready(function () {
             true
           );
           xmlhttp.send();
+        });
+      },
+      error: function () {},
+    });
+  });
+
+  //Remove Session
+  $(document).on('click', "button[name='Done']", function () {
+    $.ajax({
+      url: './destroy_session.php',
+      success: function (data) {
+        console.log(data);
+        swal({
+          title: 'Inserted Successfuly',
+          icon: 'success',
+          button: 'Next',
+        }).then(() => {
+          console.log('DONE');
+          window.open("./user-dashboard.php","_self");
         });
       },
       error: function () {},

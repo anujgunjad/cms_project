@@ -70,3 +70,8 @@ select {
   color: #fff !important;
   width: 190px;
 }
+.add-suspect-btn {
+  background-color: rgb(221, 0, 0) !important;
+  color: #fff !important;
+  width: 190px;
+}

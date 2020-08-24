@@ -42,26 +42,11 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 </div>
                 <div class='four wide field'>
                     <label>Country</label>
-                    <select class='form-text ui dropdown' name = 'ap__country' id = 'ap__country' disabled = 'disabled'  required>";
-                            
-                    $stmt = $conn->query("SELECT * from countries");
-                    $num = $stmt->rowCount();
-                    echo "<option value=''>Select Country</option>";
-                    if($num > 0)
-                    {   
-                        while($rowcont = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo  "<option value=".$rowcont['id'].">".$rowcont['name']."</option>";
-                        }   
-                    }
-
-                    echo "
-                    </select>
+                    <input class='form-text' id = 'ap__country'  value = '".$row['ap_country']."' disabled = 'disabled'  />
                 </div>
                 <div class='four wide field'>
                     <label>State</label>
-                    <select id='ap__state' name='ap__state' class='form-text ui dropdown' required>
-                        <option value=''>Select State</option>
-                    </select>
+                    <input class='form-text' id = 'ap__country'  value = '".$row['ap_state']."' disabled = 'disabled'  />
                 </div>
             </div>
 
@@ -125,10 +110,6 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 </div>
             </div>
             <div id = 'done' class='field text-center'>
-
-            <button class='ui button update-btn' id='update-display' type = 'button' name = 'update_basic'>
-                Update
-            </button>
             <button class='ui button nexte-btn' type='button' id='next_button'  name='next_button'>
                 Next
             </button>

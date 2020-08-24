@@ -129,6 +129,30 @@
         public $created_date_iplog;
         public $last_updated_iplog;
 
+        //Update Number Variables 
+         public $complaint_id_num;
+         public $number_id_num;
+         public $number_one_num;
+         public $company_num;
+         public $files_num;
+         public $email_sent_num;
+         public $email_received_num;
+         public $suspect_name_num;
+         public $suspect_address_num;
+         public $city_num;
+         public $state_num;
+         public $retailer_name_num;
+         public $uid_num_num;
+         public $other_num_num;
+         public $pdf_num;
+         public $confirmation_num;
+         public $remark_num;
+         public $remainder_num;
+         public $mail_id_num;
+         public $caf_id_num;
+         public $created_date_num;
+         public $last_updated_num;
+
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -360,6 +384,66 @@
             return false;
 
         } 
+
+        function updateNumber(){
+            //Query
+            $query = "UPDATE $this->suspect_number_table SET  number_one = :number_one, company = :company, files = :files, email_sent = :email_sent, email_received = :email_received, suspect_name = :suspect_name, suspect_address = :suspect_address, city = :city, state = :state, retailer_name = :retailer_name, uid_num = :uid_num, other_num = :other_num, pdf = :pdf, confirmation = :confirmation, remark = :remark, reminder = :reminder, mail_id = :mail_id, caf_date = :caf_date, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND number_id = :number_id";
+
+            $stmt = $this->conn->prepare($query);
+            
+        
+            // $this->complaint_id_num = htmlspecialchars(strip_tags($this->complaint_id_num));
+            // $this->number_id_num = htmlspecialchars(strip_tags($this->number_id_num));
+            // $this->number_one_num = htmlspeialchars(strip_tags($this->number_one_num));
+            // $this->company_num = htmlspecialchars(strip_tags( $this->company_num));
+            // $this->files_num = htmlspecialchars(strip_tags($this->files_num));
+            // $this->email_sent_num = htmlspecialchars(strip_tags($this->email_sent_num));
+            // $this->email_received_num = htmlspecialchars(strip_tags($this->email_received_num));
+            // $this->suspect_name_num = htmlspecialchars(strip_tags($this->suspect_name_num));
+            // $this->suspect_address_num = htmlspecialchars(strip_tags($this->suspect_address_num));
+            // $this->city_num = htmlspeialchars(strip_tags($this->city_num));
+            // $this->state_num = htmlspecialchars(strip_tags( $this->state_num));
+            // $this->retailer_name_num = htmlspecialchars(strip_tags($this->retailer_name_num));
+            // $this->uid_num_num = htmlspecialchars(strip_tags($this->uid_num_num));
+            // $this->other_num_num = htmlspecialchars(strip_tags($this->other_num_num));
+            // $this->pdf_num = htmlspecialchars(strip_tags($this->pdf_num));
+            // $this->confirmation_num = htmlspecialchars(strip_tags($this->confirmation_num));
+            // $this->remark_num = htmlspecialchars(strip_tags( $this->remark_num));
+            // $this->remainder_num = htmlspecialchars(strip_tags($this->remainder_num));
+            // $this->mail_id_num = htmlspecialchars(strip_tags($this->mail_id_num));
+            // $this->caf_id_num = htmlspecialchars(strip_tags($this->caf_id_num));
+            // $this->created_date_num = htmlspecialchars(strip_tags($this->created_date_num));
+            // $this->last_updated_num = htmlspecialchars(strip_tags($this->last_updated_num));
+
+            $stmt->bindParam(':complaint_id', $this->complaint_id_num);
+            $stmt->bindParam(':number_id', $this->number_id_num);
+            $stmt->bindParam(':number_one', $this->number_one_num);
+            $stmt->bindParam(':company', $this->company_num);
+            $stmt->bindParam(':files', $this->files_num);
+            $stmt->bindParam(':email_sent', $this->email_sent_num);
+            $stmt->bindParam(':email_received', $this->email_received_num);
+            $stmt->bindParam(':suspect_name', $this->suspect_name_num);
+            $stmt->bindParam(':suspect_address', $this->suspect_address_num);
+            $stmt->bindParam(':city', $this->city_num);
+            $stmt->bindParam(':state', $this->state_num);
+            $stmt->bindParam(':retailer_name', $this->retailer_name_num);
+            $stmt->bindParam(':uid_num', $this->uid_num_num);
+            $stmt->bindParam(':other_num', $this->other_num_num);
+            $stmt->bindParam(':pdf', $this->pdf_num);
+            $stmt->bindParam(':confirmation', $this->confirmation_num);
+            $stmt->bindParam(':remark', $this->remark_num);
+            $stmt->bindParam(':remainder', $this->remainder_num);
+            $stmt->bindParam(':mail_id', $this->mail_id_num);
+            $stmt->bindParam(':caf_id', $this->caf_id_num);
+            $stmt->bindParam(':created_date', $this->created_date_num);
+            $stmt->bindParam(':last_updated', $this->last_updated_num);
+
+            // execute the query
+            if($stmt->execute()){
+                return true;
+            }
+            return false;
+        }
         function readAll_complainee(){
 
             //Select All Query

@@ -73,14 +73,6 @@
             $this->conn = $db;
         }
         
-        updateNumber(){
-
-            //Query
-            $query = "UPDATE $this->suspect_number_table SET complaint_id = :complaint_id, number_id = :number_id, number_one = :number_one, company = :company, files = :files, email_sent = :email_sent, email_received = :email_received, suspect_name = :suspect_name, suspect_address = :suspect_address, city = :city, state = :state, retailer_name = :retailer_name, uid_num = :uid_num, other_num = :other_num, pdf = :pdf, confirmation = :confirmation, remark = :remark, reminder = :reminder, mail_id = :mail_id, caf_date = :caf_date, created_date = :created_date, last_updated = :last_updated WHERE 1";
-
-            $stmt = $this->conn->prepare($query);
-            
-            
-        }
+      
     }
 ?>

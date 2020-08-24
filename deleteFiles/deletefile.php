@@ -294,6 +294,17 @@ if(isset($_POST['website_id']))
         echo "Deletion Failed!!!";  
     }
 }
-
+if(isset($_POST['suspect_id']))
+{
+    $suspect_id =$_POST['suspect_id'];
+    $stmt = $conn->prepare("DELETE FROM suspect_details WHERE suspect_id='$suspect_id'");
+    $execution = $stmt->execute();
+    if($execution == true){
+        echo "Deleted Successfully!!!";
+    }
+    else {
+        echo "Deletion Failed!!!";  
+    }
+}
 
 ?>

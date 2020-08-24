@@ -135,6 +135,56 @@ $conn = $database->getConnection();
         }
     }
  }
+ //suspect table
+ if(isset($_REQUEST['suspectdetailform']))
+{   
+    $query = "SELECT * from suspect_details where 	
+    complaint_id = '".$_SESSION['key']."'";
+     $result2 = $conn->prepare($query);
+     $result2->execute();
+     $i = 1;
+     echo "<table class='table table-bordered p-0 m-0'>
+     <thead>
+         <tr id='table-head'>
+             <th scope='col'>S.No</th>
+             <th scope='col'>Suspect Name</th>
+             <th scope='col'>Update/Delete</th>
+         </tr>
+     </thead>
+     <tbody>";
+    
+     if($result2->rowCount() >0){
+         while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
+             echo "
+                 <tr>
+                 <td>".$i."</td>
+                 <td>".$row['suspect_name']."</td>
+                 <td><a class='ui mini button green' href='#'>Update</a>
+                     <button type='button' name='delete_suspect' id='delete_suspect' value='".$row['suspect_id']."' href='#'
+                         class='ui mini red button delete'>
+                         Delete
+                     </button>
+                 </td>
+                 </tr>          
+         "; 
+             $i=$i+1;
+         
+         }
+         echo "</tbody>
+         </table>";
+        
+         } 
+     else {
+         echo "<tr>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         <td>No Number Added Yet</td>
+         </tr>";
+         
+     }
+     echo "</tbody>
+     </table>";
+}
  //num details form
  if(isset($_REQUEST['numdetailform']))
  {  
