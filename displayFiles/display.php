@@ -155,14 +155,12 @@ $conn = $database->getConnection();
     
      if($result2->rowCount() >0){
          while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
-         
              echo "
-             
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['suspect_name']."</td>
                  <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_suspect' id='delete_suspect' value='".$row['suspect_id']."' href='#'
+                     <button type='button' name='delete_suspect' id='delete_suspect' value='".$row['suspect_id']."' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>

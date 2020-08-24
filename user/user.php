@@ -6,6 +6,18 @@ $db = $database->getConnection();
 ?>
 
 <?php include('user-header.php'); ?>
+<?php
+    function generate_IdNum(){
+        $characters = '1234567890';
+        $length = 6;
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        echo $randomString;
+    }
+?>
  <!--Semantic UI-->
  <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
 <body>
@@ -41,8 +53,7 @@ $db = $database->getConnection();
                     <div class="one fields">
                         <div class="four wide field">
                             <label><span class="complaint-field">शिकायत क्रमांक *</span></label>
-                            <input class="complaint-num-box" type="text" name="complaint_no"
-                                placeholder="शिकायत क्रमांक" required />
+                            <input class="complaint-num-box" type="number" name="complaint_no" value = "<?php generate_IdNum() ?>" autocomplete="off" readonly />
                         </div>
                     </div>
                     <hr />
@@ -1456,7 +1467,7 @@ $db = $database->getConnection();
 
                 <script>
                 $(document).ready(function() {
-                    //$("#SuspectFormDiv").hide();
+                    $("#SuspectFormDiv").hide();
                     $(document).on('click', 'button[name="next_button"]', function() {
                         $("#basicFormDiv").fadeOut();
                         $("#SuspectFormDiv").fadeIn();
