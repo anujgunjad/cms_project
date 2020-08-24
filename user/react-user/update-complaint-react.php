@@ -428,78 +428,29 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
-        updateAccountDetails = () => {
-            let complaint_id_acc = this.state.account.complaint_id,
-                complaint_no_basic = this.state.applicant.complaint_no,
-                ap_name_basic = document.getElementById("ap_name").value?document.getElementById("ap_name").value : this.state.applicant.ap_name,
-                ap_age_basic = document.getElementById("ap_age").value?document.getElementById("ap_age").value : this.state.applicant.ap_age,
-                ap_gender_basic = 1,
-                ap_mob_basic = document.getElementById("ap_mob").value?document.getElementById("ap_mob").value : this.state.applicant.ap_mob,
-                ap_address_basic = document.getElementById("ap_address").value?document.getElementById("ap_address").value : this.state.applicant.ap_address,
-                c_dd = document.getElementById("country"),
-                ap_country_basic = c_dd.options[c_dd.selectedIndex].value,
-                s_dd = document.getElementById("states"),
-                ap_state_basic = s_dd.options[s_dd.selectedIndex].value,
-                ci_dd = document.getElementById("city"),
-                ap_city_basic = ci_dd.options[ci_dd.selectedIndex].value,
-                ap_pin_code_basic = document.getElementById("ap_pin_code").value?document.getElementById("ap_pin_code").value : this.state.applicant.ap_pin_code,
-                ap_adhar_basic = document.getElementById("ap_adhar").value?document.getElementById("ap_adhar").value : this.state.applicant.ap_adhar,
-                ctdd = document.getElementById("complaint_type"),
-                complaint_type_basic = ctdd.options[ctdd.selectedIndex].value,
-                sctdd = document.getElementById("complaint_type"),
-                sub_complaint_type_basic = sctdd.options[sctdd.selectedIndex].value,
-                it_act_basic = document.getElementById("it_act").value?document.getElementById("it_act").value : this.state.applicant.it_act,
-                bh_dv_basic = document.getElementById("bh_dv").value?document.getElementById("bh_dv").value : this.state.applicant.bh_dv,
-                crime_date_basic = document.getElementById("crime_date").value?document.getElementById("crime_date").value : this.state.applicant.crime_date,
-                crime_time_basic = document.getElementById("crime_time").value?document.getElementById("crime_time").value : this.state.applicant.crime_time,
-                amount_basic = document.getElementById("amount").value?document.getElementById("amount").value : this.state.applicant.amount,
-                freeze_amount_basic = document.getElementById("freeze_amount").value?document.getElementById("freeze_amount").value : this.state.applicant.freeze_amount,
-                checker_name_basic = document.getElementById("checker_name").value?document.getElementById("checker_name").value : this.state.applicant.checker_name,
-                created_date_basic =  this.state.applicant.created_date,
-                last_update_basic =  this.state.applicant.last_updated,
-                complaint_status_basic =  this.state.applicant.complaint_status;
-            fetch("../api/data/update_basic.php", { 
-                // Adding method type 
-                method: "POST", 
-                // Adding body or contents to send 
-                body: JSON.stringify({ 
-                    complaint_id_basic, 
-                    complaint_no_basic, 
-                    ap_name_basic, 
-                    ap_age_basic, 
-                    ap_gender_basic, 
-                    ap_mob_basic, 
-                    ap_address_basic, 
-                    ap_country_basic, 
-                    ap_state_basic, 
-                    ap_city_basic, 
-                    ap_pin_code_basic, 
-                    ap_adhar_basic, 
-                    complaint_type_basic, 
-                    sub_complaint_type_basic, 
-                    it_act_basic, 
-                    bh_dv_basic, 
-                    crime_date_basic, 
-                    crime_time_basic, 
-                    amount_basic, 
-                    freeze_amount_basic, 
-                    checker_name_basic, 
-                    created_date_basic, 
-                    last_update_basic, 
-                    complaint_status_basic, 
-                })
-            }) 
-                // update done
-                .then(
-                    swal({
-                        title: 'Updated Successfuly',
-                        icon: 'success',
-                        button: 'Next',
-                    })
-                    .then(() => {
-                        location.reload();
-                    })
-                    ); 
+        updateAccountDetails = (account_id) => {
+            let id = idFetcher(); 
+            const account = this.state.accounts.filter(account => account.acc_id == account_id);
+            // console.log(account);
+            // fetch("../api/data/update_account.php", { 
+            //     // Adding method type 
+            //     method: "POST", 
+            //     // Adding body or contents to send 
+            //     body: JSON.stringify({ 
+                  
+            //     })
+            // }) 
+            //     // update done
+            //     .then(
+            //         swal({
+            //             title: 'Updated Successfuly',
+            //             icon: 'success',
+            //             button: 'Next',
+            //         })
+            //         .then(() => {
+            //             location.reload();
+            //         })
+            //         ); 
         }
         render(){
             const pdfButtonStyle = {
@@ -522,7 +473,7 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_num" type="number" placeholder={account.acc_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_number" type="number" placeholder={account.acc_number} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_name" type="text" placeholder={account.bank_name} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state" type="text" placeholder={account.state} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_branch_name" type="text" placeholder={account.branch_name} /></td>
@@ -543,7 +494,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4><input class="rounded py-2 mt-1 px-2" id="acc_profit_acc" type="text" placeholder={account.profit_acc} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4><input class="rounded py-2 mt-1 px-2" id="acc_internet_banking" type="text" placeholder={account.internet_banking} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_manager_name" type="text" placeholder={account.bank_manager_name} /></td>
-                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={this.updateAccountDetails}>Update</button></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateAccountDetails(account.acc_id)}>Update</button></td>
                                 </tr>
                                 <tr>
                                     <th colspan="4">
