@@ -17,7 +17,14 @@ header("Content-Type: application/json; charset= UTF-8");
   //initialize Object
   $data = new Basic($db);
 
-  $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
+  if(isset($_GET['complaint_id'])){
+    $data->complaint_id = isset($_GET['complaint_id']) ?  $_GET['complaint_id'] : die();
+  }
+  else {
+    $data->complaint_no = isset($_GET['complaint_no']) ?  $_GET['complaint_no'] : die();
+  }
+ 
+
  //Query
  $stmt = $data->read_complainee();
    
@@ -26,7 +33,6 @@ if($num > 0) {
     
     $data_arr = array(); 
     $data_arr["complainee"] = array();
-    
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $data_items = array(

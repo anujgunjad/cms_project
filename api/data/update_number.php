@@ -45,7 +45,7 @@ $basic = new Basic($db);
     if($basic->updateNumber()){
         // set response code - 200 ok
         http_response_code(200);
-  
+
         // tell the user
         echo json_encode(array("message" => "Product was updated."));
     }
