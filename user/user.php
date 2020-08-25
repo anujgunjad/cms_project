@@ -25,13 +25,13 @@ $db = $database->getConnection();
     <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="navbar-brand text-white" href="#">User Dashboard</a>
+                        <a class="navbar-brand text-white" href="#">User Dashboard |</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="navbar-brand" href="user-dashboard.php">Dashboard</a>
+                        <a class="navbar-brand text-white" href="user-dashboard.php">Dashboard</a>
                     </li>
                 </ul>
-                <p style="color:#fff" class="pr-2">WELCOME <?php echo $_SESSION['name']?></p>
+                <p style="color:#fff" class="pr-3 pt-3">WELCOME <?php echo $_SESSION['name']?></p>
                 
                 <a href="user-dashboard.php?logout='1'" >
                     <button type="button" class="btn btn-outline-light">Log Out</button>
@@ -257,11 +257,11 @@ $db = $database->getConnection();
                                 </div>
                                 <div class="six wide field">
                                     <label>खाता क्रमांक</label>
-                                    <input type="number" name="account_number" placeholder="खाता क्रमांक">
+                                    <input type="text" name="account_number" placeholder="खाता क्रमांक">
                                 </div>
                                 <div class="six wide field">
                                     <label>ईमेल आई डी</label>
-                                    <input type="number" name="email_id" placeholder="ईमेल आई डी">
+                                    <input type="text" name="email_id" placeholder="ईमेल आई डी">
                                 </div>
                             </div>
                             <div class="three fields">

@@ -27,9 +27,6 @@ if (isset($_GET['logout'])) {
 <?php include('user-header.php')?>
 
     <div class="main-dash container-fluid">
-        <div class="side-bar ">
-
-        </div>
         <div class="main-body">
             <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav mr-auto">
@@ -37,7 +34,7 @@ if (isset($_GET['logout'])) {
                         <a class="navbar-brand text-white" href="#">User Dashboard</a>
                     </li>
                 </ul>
-                <p style="color:#fff" class="pr-2">WELCOME <?php echo $_SESSION['name']?></p>
+                <p style="color:#fff" class="pr-4 pt-3">WELCOME <?php echo $_SESSION['name']?></p>
                 
                 <a href="user-dashboard.php?logout='1'" >
                     <button type="button" class="btn btn-outline-light">Log Out</button>
@@ -73,7 +70,7 @@ if (isset($_GET['logout'])) {
                             <td>
                                 <div class='field'>
                                     <a style='color:#fff' class='btn btn-success' href='update-complaint.php?complaint_id=".$row['complaint_id']."' name='number_form'>Edit</a>
-                                    <button type='button' class='btn btn-danger'>Delete</button>
+                                    <a class='btn btn-danger'  id= 'delete_complaint' href='delete-complaint.php?complaint_id=".$row['complaint_id']."' name='delete_complaint'>Delete</a>
                                 </div>
                             </td>
                             </tr>";
