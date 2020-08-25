@@ -1,5 +1,8 @@
-<?php include("header.php")?>
-<?php include("sidenav-header.php")?>
+
+<?php
+include("header.php");
+include("sidenav-header.php");
+?>
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
         <h1 class="nav-head">Generate Excel File</h1>
@@ -16,47 +19,32 @@
     <div class="ui form pl-3 mt-2">
             <div class=" four fields">
                     <div class="field">
-                        <label>Complaint Id</label>
+                        <label>Complaint No</label>
                     </div>
                     <div class="field"> 
                     </div>
                 </div>
                 <div class=" four fields">
                     <div class="field">
-                        <input type="number" name="genfile_compliaint_id" id="genfile_compliaint_id" placeholder="Enter complaint id" >
+                        <input type="text" name="genfile_compliaint_no" id="genfile_compliaint_no" placeholder="Enter complaint no" >
                     </div>
                     <div class="field">
-                      <button class="ui blue button" id="generate_btn" >Download Basic details</button>
+                      <button class="ui blue button" id="generate_btn">Download Basic details</button>
+                    </div>
+                    <div class="field">
+                      <button class="ui blue button" id="generate_all_btn" >Download all details</button>
                     </div>
                 </div>
     </div>
     <div id="data_fetch"></div>
-    <?php
-    if(isset($_GET['basicdownload_id']))
-    {  $basicdownload_id = $_GET['basicdownload_id'];
-         $file = 'basicdetails_'.$basicdownload_id.'.xlsx';
-        $mime ='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-        ob_end_clean(); // this is solution
-        header('Content-Description: File Transfer');
-        header('Content-Type: ' . $mime);
-        header("Content-Transfer-Encoding: Binary");
-        header("Content-disposition: attachment; filename=\"" . basename($file) . "\"");
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        readfile($file);
-        unlink($file);
-        exit;
-    }
-    ?>
+    
 </div>
 <script src="../dependencies/jquery/jquery.min.js"></script>
 <script src='../dependencies/sweetalert/sweetalert.min.js'></script>
 <script>
     $("#generate_btn").click(function(){
-      var gen_complaint_id =  $("#genfile_compliaint_id").val();
-      if(gen_complaint_id=="" || gen_complaint_id==null)
+      var gen_complaint_no =  $("#genfile_compliaint_no").val();
+      if(gen_complaint_no=="" || gen_complaint_no==null)
       {
         swal({
               title: 'OOPs',
@@ -68,7 +56,7 @@
             });
       }
       else{
-        fetch(`http://localhost/cms_project/api/data/read_complainee.php?complaint_id=`+gen_complaint_id)
+        fetch(`http://localhost/cms_project/api/data/read_complainee.php?complaint_no=`+gen_complaint_no)
 			.then((result)=> {
 				return result.json();
 			})
@@ -82,10 +70,158 @@
                     data:{sendbasic:sendbasic},
                     type:"POST",
                     success:function(response){
-                        window.location = 'generate_file.php?basicdownload_id='+gen_complaint_id;
+                        window.location = 'download_excel.php?file_name='+response;
                         }
                     });
                     }
+                    else{
+                        swal({
+                            title: 'OOPs',
+                            text:'No complainee Found',
+                            icon: 'error',
+                            button: 'ok',
+                            }).then(() => {
+                                console.log('alert');
+                        });
+                        }
+
+                });
+         
+        }
+   
+    
+    
+    });
+    $("#generate_all_btn").click(function(){
+      var gen_complaint_no =  $("#genfile_compliaint_no").val();
+      if(gen_complaint_no=="" || gen_complaint_no==null)
+      {
+        swal({
+              title: 'OOPs',
+              text:'Please enter complaint number',
+              icon: 'warning',
+              button: 'ok',
+            }).then(() => {
+                console.log('alert');
+            });
+      }
+      else{
+        fetch(`http://localhost/cms_project/api/data/read_complainee.php?complaint_no=`+gen_complaint_no)
+			.then((result)=> {
+				return result.json();
+			})
+			.then((data)=> {
+                  
+                    if(!data.message)
+                    {
+                        var sendbasic =data.complainee[0];  
+                        var complainee_num =sendbasic.complaint_id;
+                        console.log(complainee_num);
+                        ///number FETCH
+                        fetch(`http://localhost/cms_project/api/data/read_suspect_number.php?complaint_id=`+complainee_num)
+                        .then((result)=> {
+                            return result.json();
+                        })
+                        .then((numres)=> { 
+                            if(!numres.message)
+                            {
+                                var numbersbasic =numres.numbers;  
+                                var count_number = Object.keys(numres.numbers).length;
+                                console.log(numres);
+                            }
+                            else{
+                                var numbersbasic ='empty';  
+                            }
+                               ///Accounts FETCH
+                            fetch(`http://localhost/cms_project/api/data/read_bank_account.php?complaint_id=`+complainee_num)
+                            .then((result)=> {
+                                return result.json();
+                                
+                            })
+                            .then((accres)=> { 
+                                console.log(accres);
+                                if(!accres.message)
+                                {
+                                    var accountsbasic =accres.accounts;  
+                                    var count_accounts = Object.keys(accres.accounts).length;
+                                
+                                }
+                                else{
+                                    var accountsbasic ='empty';  
+                                }
+                                  ///SUSPECTS FETCH
+                                    fetch(`http://localhost/cms_project/api/data/read_suspects.php?complaint_id=`+complainee_num)
+                                    .then((result)=> {
+                                        return result.json();
+                                    })
+                                    .then((susres)=> { 
+                                        console.log(susres);
+                                        if(!susres.message)
+                                        {
+                                            var suspectsbasic =susres.suspects;  
+                                            var count_suspects = Object.keys(susres.suspects).length;
+                                        
+                                        }
+                                        else{
+                                            var suspectsbasic ='empty';  
+                                        }
+                                               ///EWALLET FETCH
+                                                fetch(`http://localhost/cms_project/api/data/read_suspect_ewallet.php?complaint_id=`+complainee_num)
+                                                .then((result)=> {
+                                                    return result.json();
+                                                })
+                                                .then((ewallres)=> { 
+                                                    console.log(ewallres);
+                                                    if(!ewallres.message)
+                                                    {
+                                                        var ewalletbasic =ewallres.ewallet;  
+                                                        var count_ewallet = Object.keys(ewallres.ewallet).length;
+                                                    
+                                                    }
+                                                    else{
+                                                        var ewalletbasic ='empty';  
+                                                    }
+                                                       ///WEBSITE FETCH
+                                                        fetch(`http://localhost/cms_project/api/data/read_suspect_website.php?complaint_id=`+complainee_num)
+                                                        .then((result)=> {
+                                                            return result.json();
+                                                        })
+                                                        .then((webres)=> { 
+                                                            console.log(webres);
+                                                            if(!webres.message)
+                                                            {
+                                                                var websitebasic =webres.website;  
+                                                                var count_website = Object.keys(webres.website).length;
+                                                            
+                                                            }
+                                                            else{
+                                                                var websitebasic ='empty';  
+                                                            }
+                                                        //    window.location ='generate_all_file.php?sendbasic='+sendbasic+'&numbersbasic='+numbersbasic+'&accountsbasic='+accountsbasic+'&suspectsbasic='+suspectsbasic+'&ewalletbasic='+ewalletbasic+'&websitebasic='+websitebasic;
+                                                             $.ajax({
+                                                                url:'generate_all_file.php',
+                                                                type:"POST",
+                                                                data:{sendbasic:sendbasic,numbersbasic:numbersbasic,accountsbasic:accountsbasic,suspectsbasic:suspectsbasic,ewalletbasic:ewalletbasic,websitebasic:websitebasic},
+                                                                success:function(result_excel)
+                                                                {  
+                                                                  console.log(result_excel);  
+                                                                 window.location = 'download_excel.php?file_name='+result_excel;
+                                                                }
+                                                                });
+                                                        });
+                                                });
+                                    });
+                            });
+                       
+                        });
+                   
+                        
+                   
+                       
+                      
+                     
+                    }
+                
                     else{
                         swal({
                             title: 'OOPs',

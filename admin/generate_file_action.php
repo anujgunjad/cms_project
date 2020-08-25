@@ -81,10 +81,10 @@
     $sheet->setCellValue('W1', 'Complaint Status');
     $sheet->setCellValue('W2', $complaint_status); 
     $writer = new Xlsx($spreadsheet);
-    $writer->save('basicdetails_'.$complaint_id.'.xlsx');
-    
+    $writer->save('basicdetails_'.$complaint_no.'.xlsx');
+    echo 'basicdetails_'.$complaint_no.'.xlsx';
    
-    unlink($file);
+  
     ?>
  
 
