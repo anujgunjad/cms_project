@@ -108,7 +108,7 @@ const timeDateFormatter = (arry) => {
                 freeze_amount_basic = document.getElementById("freeze_amount").value?document.getElementById("freeze_amount").value : this.state.applicant.freeze_amount,
                 checker_name_basic = document.getElementById("checker_name").value?document.getElementById("checker_name").value : this.state.applicant.checker_name,
                 created_date_basic =  this.state.applicant.created_date,
-                last_update_basic =  this.state.applicant.last_updated,
+                last_update_basic =  Date.toLocaleString(),
                 complaint_status_basic =  this.state.applicant.complaint_status;
             fetch("../api/data/update_basic.php", { 
                 // Adding method type 
@@ -428,7 +428,73 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
-        
+        updateAccountDetails = (account_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number").value?document.getElementById("acc_number").value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name").value?document.getElementById("acc_bank_name").value : account.bank_name,
+                state_acc = document.getElementById("acc_state").value?document.getElementById("acc_state").value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name").value?document.getElementById("acc_branch_name").value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date").value?document.getElementById("acc_mail_date").value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_recieved").value?document.getElementById("acc_mail_recieved").value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount").value?document.getElementById("acc_freeze_amount").value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name").value?document.getElementById("acc_kyc_name").value : account.kyc_name,
+                address_acc = document.getElementById("acc_address").value?document.getElementById("acc_address").value : account.address,
+                city_acc = document.getElementById("acc_city").value?document.getElementById("acc_city").value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice").value?document.getElementById("acc_state_twice").value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_alternate_number").value?document.getElementById("acc_alternate_number").value : account.alternate_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc").value?document.getElementById("acc_profit_acc").value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking").value?document.getElementById("acc_internet_banking").value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name").value?document.getElementById("acc_bank_manager_name").value : account.bank_manager_name,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+            fetch("../api/data/update_account.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    mail_date_acc,
+                    mail_received_acc,
+                    freeze_amount_acc,
+                    kyc_name_acc,
+                    address_acc,
+                    city_acc,
+                    state_twice_acc,
+                    altername_number_acc,
+                    profit_acc_acc,
+                    internet_banking_acc,
+                    bank_manager_name_acc,
+                    bank_manager_number_acc,
+                    kyc_pdf_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         render(){
             const pdfButtonStyle = {
                 background:"#C50202",
@@ -450,35 +516,32 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4>{account.acc_number?account.acc_number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4>{account.bank_name?account.bank_name : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{account.state?account.state : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4>{account.branch_name?account.branch_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_number" type="number" placeholder={account.acc_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_name" type="text" placeholder={account.bank_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state" type="text" placeholder={account.state} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_branch_name" type="text" placeholder={account.branch_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td class={dateFormatter(account.mail_date)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_date)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(account.mail_date)!="00-00-0000"?dateFormatter(account.mail_date):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(account.mail_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(account.mail_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(account.mail_received)!="00-00-0000"?dateFormatter(account.mail_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4>{account.freeze_amount?account.freeze_amount : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4>{account.kyc_name?account.kyc_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_date" type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_recieved" type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id="acc_freeze_amount" type="number" placeholder={account.freeze_amount} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_kyc_name" type="text" placeholder={account.kyc_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4>{account.address?account.address : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{account.city?account.city : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4>{account.state_twice?account.state_twice : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4>{account.alternate_number?account.alternate_number : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4><input class="rounded py-2 mt-1 px-2" id="acc_address" type="text" placeholder={account.address} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id="acc_city" type="text" placeholder={account.city} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state_twice" type="text" placeholder={account.state_twice} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_alternate_number" type="number" placeholder={account.alternate_number} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4>{account.profit_acc?account.profit_acc : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4>{account.internet_banking?account.internet_banking : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4>{account.bank_manager_name?account.bank_manager_name : "अभी तक दर्ज नहीं है"}</td>
-                                      <td></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4><input class="rounded py-2 mt-1 px-2" id="acc_profit_acc" type="text" placeholder={account.profit_acc} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4><input class="rounded py-2 mt-1 px-2" id="acc_internet_banking" type="text" placeholder={account.internet_banking} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_manager_name" type="text" placeholder={account.bank_manager_name} /></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateAccountDetails(account.acc_id)}>Update</button></td>
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                        
                                          <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>More Info</a> 
-                                           <a style={{color:"#fff"},pdfButtonStyle} class={account.kyc_pdf?"ui small button pdf-button mr-2":"ui disabled small button pdf-button mr-r"} href={account.kyc_pdf ?"../insertFiles/" + account.kyc_pdf : ""} download><i class="fa fa-download fa-fw" aria-hidden="true"></i> Download KYC PDF</a> 
-                                           <a style={{color:"#fff"},pdfButtonStyle} class={account.bank_statement_file?"ui small button pdf-button":"ui disabled small button pdf-button"} href={account.bank_statement_file ?"../insertFiles/" + account.bank_statement_file : ""} download><i class="fa fa-download fa-fw" aria-hidden="true"></i> Bank Statement File</a> 
                                     </th>
                                 </tr>
                            </tbody>
