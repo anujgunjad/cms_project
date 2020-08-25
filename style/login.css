@@ -4,7 +4,7 @@ body {
 .head-one {
   margin-top: 3vh !important;
   margin-left: 37vw;
-  font-size: 3.5rem;
+  font-size: 3.7rem;
   font-weight: 900;
   color: #fff;
 }
@@ -21,4 +21,7 @@ body {
   margin-top: 1vh !important;
   height: 7vh;
   width: 100% !important;
+}
+.footer-copyright {
+  color: white;
 }

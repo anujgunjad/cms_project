@@ -3,17 +3,16 @@
 <link rel="stylesheet" href="style/login.css">
 <style>
 .form {
-    margin-left: 30vw !important;
-    padding: 4vh 4vw 4vh 4vw;
+    margin-left: 31vw !important;
+    padding: 5vw;
     width: 35vw;
 }
 
 .head-one {
-
-    margin-left: 41vw;
+    margin-left: 42.5vw;
 }
 </style>
-<h2 class="head-one">Log In</h2>
+<h2 class="head-one">LOG IN</h2>
 
 <form class="ui form my-form" method="post" action="login.php">
     <?php include('errors.php'); ?>

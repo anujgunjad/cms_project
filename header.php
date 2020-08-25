@@ -15,3 +15,9 @@
     <title>Complaint Management System </title>
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="images/logo.png" width="60" height="60" alt="">
+    <span class = "m-2" style = "font-size:20px;">COMPLAINT MANAGEMENT SYSTEM</span>
+  </a>
+</nav>
