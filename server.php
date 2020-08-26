@@ -78,32 +78,6 @@ if (isset($_POST['login_user'])) {
     }
   }
 
-// VERIFY ID
-if (isset($_POST['insert_eid'])) {
-    // receive all input values from the form
-    $eid = mysqli_real_escape_string($db, $_POST['eid']);
-    $role = mysqli_real_escape_string($db, $_POST['role']);
-  
-    // first check the database to make sure 
-    // a user does not already exist with the same username and/or email
-    $user_check_query = "SELECT * FROM `verify_eid` WHERE `eid`='$eid' LIMIT 1";
-    $result = mysqli_query($db, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
-    
-    if ($user) { // if user exists
-      if ($user['eid'] === $eid) {
-        array_push($errors, "Employee ID already exists");
-      }
-    }
-  
-    // Finally, register user if there are no errors in the form
-    if (count($errors) == 0) {
-        $query = "INSERT INTO `verify_eid` ( `eid`, `role`) 
-                  VALUES('$eid', '$role')";
-        mysqli_query($db, $query);
-    }
-    header('location: accounts.php');
-  }
 ?>
 
 
