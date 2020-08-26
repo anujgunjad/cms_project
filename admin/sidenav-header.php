@@ -12,8 +12,7 @@
             <a href="complaints-category.php" id="second-a-sub-dropdown" class="list-group-item list-group-item-action bg-light">Filter By Category <i class="fa fa-filter fa-fw" aria-hidden="true"></i></a>
           </div>
           <a href="generate_file.php" id="admin-panel-a" style="border-top:none" class="list-group-item list-group-item-action bg-light">Generate Excel File <i class="fa fa-table fa-fw" aria-hidden="true"></i></a>
-          <a href="#" id="admin-panel-a" style="border-top:none" class="list-group-item list-group-item-action bg-light">Admins Panel <i class="fa fa-cogs fa-fw" aria-hidden="true"></i></a>
-          <a href="#" class="list-group-item list-group-item-action bg-light">Users Panel <i class="fa fa-cog fa-fw" aria-hidden="true"></i></a>
+          <a href="accounts.php" id="admin-panel-a" style="border-top:none" class="list-group-item list-group-item-action bg-light">Accounts Panel <i class="fa fa-cogs fa-fw" aria-hidden="true"></i></a>
           <a href="#" class="list-group-item list-group-item-action bg-light"></a>
         </div>
       </div>

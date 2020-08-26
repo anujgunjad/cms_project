@@ -50,7 +50,7 @@
   
 </div>
   <!-- 'include' for React File  -->
-  <?php include("react-admin/dashboard-react.php")?>  
- <?php include("sidenav-footer.php")?>
- <?php include("footer.php")?>
+<?php include("react-admin/dashboard-react.php")?>  
+<?php include("sidenav-footer.php")?>
+<?php include("footer.php")?>
    
