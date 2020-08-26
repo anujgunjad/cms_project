@@ -20,3 +20,6 @@ const showAgeDropdown = () => {
   let element = document.querySelector("#age");
   element.classList.toggle("show-category-dropdown");
 };
+	function checkDelete(){
+		return confirm('Are you sure you want to Delete?');
+	}

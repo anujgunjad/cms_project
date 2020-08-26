@@ -15,14 +15,14 @@
         <label class="labels">Full Name*</label>
         <input type="text" name="name" required>
   	</div>
-    <div class="field">
+    <!-- <div class="field">
       <label>User Role</label>
       <select class="ui fluid dropdown" name="role">
         <option value="">User Role</option>
 		<option value="0">Admin</option>
 		<option value="1">User</option>
       </select>
-    </div>
+    </div> -->
 	<div class="fields">
   	<div class="fifteen wide field">
   	  <label class="labels">Password*</label>
