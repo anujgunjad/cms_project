@@ -16,7 +16,7 @@
         </nav>
 
  <div class="container pt-4">
- <form method="post" action="accounts.php" class="ui form">
+ <form method="post" action="admin-server.php" class="ui form">
     <?php include('errors.php'); ?>
     <div class="fields">
       <div class="six wide field mt-1">
@@ -60,7 +60,7 @@
                     
                     echo "<tr><td>".$row["eid"]."</td><td>".$role."</td>
                     <td>
-                    <form method='post' action='accounts.php' class='ui form delete'>
+                    <form method='post' action='admin-server.php' class='ui form delete'>
                                 <button style='background-color:004BA8; color: #fff' onclick='return checkDelete()' type='submit' name='delete_two' value='".$row['id']."' id='delete' class='ui button delete'>
                                     Delete <i class='fa fa-trash ml-1' aria-hidden='true'></i>
                                 </button>
@@ -76,38 +76,5 @@
  </div>
 </div>
 <?php include("sidenav-footer.php")?>
-<?php 
-   if (isset($_POST['insert_eid'])) {
-    // receive all input values from the form
-    $eid = mysqli_real_escape_string($db, $_POST['eid']);
-    $role = mysqli_real_escape_string($db, $_POST['role']);
-  
-    // first check the database to make sure 
-    // a user does not already exist with the same username and/or email
-    $user_check_query = "SELECT * FROM `verify_eid` WHERE `eid`='$eid' LIMIT 1";
-    $result = mysqli_query($db, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
-    
-    if ($user) { // if user exists
-      if ($user['eid'] === $eid) {
-        array_push($errors, "Employee ID already exists");
-      }
-    }
-  
-    // Finally, register user if there are no errors in the form
-    if (count($errors) == 0) {
-        $query = "INSERT INTO `verify_eid` ( `eid`, `role`) 
-                  VALUES('$eid', '$role')";
-        mysqli_query($db, $query);
-    }
-    header("Refresh:0");
-  }
-  if(isset($_POST['delete_two'])) 
-  {    
-    $id = mysqli_real_escape_string($db, $_POST['delete_two']);
-    $id=number_format($id);
-    $query = "DELETE FROM `verify_eid` WHERE `id` = $id";
-    mysqli_query($db, $query);
-  }  
-?>
+
  <?php include("footer.php")?>
