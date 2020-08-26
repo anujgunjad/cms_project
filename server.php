@@ -20,22 +20,32 @@ if ($conn->connect_error) {
 //REGISTER USER
 if (isset($_POST['reg_user'])) {
     $name = $_POST['name'];
-    $user_id = $_POST['user_id'];
-    $role = $_POST['role'];
+    $eid = $_POST['user_id'];
+    // $role = $_POST['role'];
     $password_1 = $_POST['password_1'];
     $password_2 = $_POST['password_2'];
 
-    if (empty($user_id)) { array_push($errors, "User ID is required"); }
-    if (empty($role)) { array_push($errors, "User Role is required"); }
+    if (empty($eid)) { array_push($errors, "User ID is required"); }
+    // if (empty($role)) { array_push($errors, "User Role is required"); }
     if (empty($password_1)) { array_push($errors, "Password is required"); }
     if ($password_1 != $password_2) {
       array_push($errors, "The two passwords do not match");
+    }
+    $ID_check_query = "SELECT * FROM `verify_eid` WHERE `eid`='$eid' LIMIT 1";
+    $result = mysqli_query($db, $ID_check_query);
+    $eidf = mysqli_fetch_assoc($result);
+    if($result-> num_rows > 0)
+      {
+          $role = $eidf['role'];
+      }
+    else {
+        array_push($errors, "You are not authorized for registering");
     }
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
   
         $query = "INSERT INTO users (`name`, `userid`, `role`,`password`) 
-                  VALUES('$name', '$user_id', '$role', '$password')";
+                  VALUES('$name', '$eid', '$role', '$password')";
         mysqli_query($conn, $query);
         header('location: login.php');
     }
