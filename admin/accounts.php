@@ -16,7 +16,7 @@
         </nav>
 
  <div class="container pt-4">
- <form method="post" action="account.php" class="ui form">
+ <form method="post" action="server.php" class="ui form">
     <?php include('errors.php'); ?>
     <div class="fields">
       <div class="six wide field mt-1">
@@ -25,14 +25,14 @@
       </div>
       <div class="six wide field mt-1">
         <label class="account-form-label">Role</label>
-            <select class="ui fluid dropdown" name="designation" required>
+            <select class="ui fluid dropdown" name="role" required>
                 <option value="">Role</option>
                 <option value="0">Admin</option>
                 <option value="1">User</option>
             </select>
       </div>
       <div class="field">
-		  <button id="insert-btn" type="submit" class="ui button" id="insert-id" name="insert_tid">Insert</button>
+		  <button id="insert-btn" type="submit" class="ui button" id="insert-id" name="insert_eid">Insert</button>
 	  </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
                     if ($row["role"] == 0) {
                         $role = "Admin";
                     } else {
-                        $role = "user";
+                        $role = "User";
                     }
                     
                     echo "<tr><td>".$row["eid"]."</td><td>".$role."</td>
@@ -76,4 +76,7 @@
  </div>
 </div>
 <?php include("sidenav-footer.php")?>
+<?php 
+
+?>
  <?php include("footer.php")?>
