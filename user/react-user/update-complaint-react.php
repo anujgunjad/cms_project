@@ -285,16 +285,16 @@ const timeDateFormatter = (arry) => {
                                 <table class="ui celled table">
                                 <tbody>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> संदिग्ध का नाम</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{suspect.suspect_address?suspect.suspect_address:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4>{suspect.email_id?suspect.email_id:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4>{suspect.domin_name?suspect.domin_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> संदिग्ध का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_name_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_name} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_address_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_address} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4><input class="rounded py-2 mt-1 px-2" id={"sus_email_id_" + suspect.suspect_id } type="text" placeholder={suspect.email_id} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_domain_name_" + suspect.suspect_id } type="text" placeholder={suspect.domain_name} /></td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4>{suspect.upi_phone_no?suspect.upi_phone_no:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4>{suspect.upivpa?suspect.upivpa:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4>{suspect.software_name?suspect.software_name:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4>{suspect.complaint_action?suspect.complaint_action:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"sus_upi_phone_no_" + suspect.suspect_id } type="number" placeholder={suspect.upi_phone_no} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4><input class="rounded py-2 mt-1 px-2" id={"sus_upivpa_" + suspect.suspect_id } type="text" placeholder={suspect.upivpa} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_software_name_" + suspect.suspect_id } type="text" placeholder={suspect.software_name} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_name_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_name} /></td>
                                     </tr>
                                     <tr>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4>{suspect.pending_reason?suspect.pending_reason:"अभी तक दर्ज नहीं है"}</td>
