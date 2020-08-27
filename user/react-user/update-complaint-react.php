@@ -663,21 +663,21 @@ const timeDateFormatter = (arry) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_upi_name_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.upi_name} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number?ewallet.mob_number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id?ewallet.vpa_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement?ewallet.statement : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_mob_number_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.mob_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_vpa_id_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.vpa_id} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_statement_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.statement} /></td>
                                 </tr>
                                 <tr>
-                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-0000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ewallet.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-0000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account?ewallet.linked_account : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address?ewallet.ip_address : "अभी तक दर्ज नहीं है"}</td>
+                                <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_sent_" + ewallet.suspect_ewallet_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_received_" + ewallet.suspect_ewallet_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_linked_account_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.linked_account} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_address_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_address} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number?ewallet.ip_add_number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id?ewallet.device_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise?ewallet.merchandise : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount?ewallet.hold_amount : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_add_number_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_add_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_device_id_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.device_id} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_merchandise_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.merchandise} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{"ewallet_merchandise_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.merchandise} /></td>
                                 </tr>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number?ewallet.number : "अभी तक दर्ज नहीं है"}</td>
