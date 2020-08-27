@@ -35,4 +35,13 @@
     header("Location: accounts.php");
 
   }  
+  if(isset($_POST['delete_user'])) 
+  {    
+    $id = mysqli_real_escape_string($db, $_POST['delete_user']);
+    $id = number_format($id);
+    $query = "DELETE FROM `users` WHERE `id` = $id";
+    mysqli_query($db, $query);
+    header("Location: users.php");
+
+  }  
 ?>

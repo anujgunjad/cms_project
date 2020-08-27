@@ -16,7 +16,7 @@
         </nav>
 
  <div class="container pt-4">
- <form method="get" action="admin-server.php" class="ui form">
+ <form method="get" action="users.php" class="ui form">
     <?php include('errors.php'); ?>
     <div class="fields">
       <div class="six wide field mt-1">
@@ -24,7 +24,7 @@
         <input placeholder="Employee ID" name="eid" type="text" required>
       </div>
       <div class="field">
-		  <button id="search-user" type="submit" name="search-user" class="ui button">Search</button>
+		  <button id="search-user" type="submit" class="ui button">Search</button>
 	  </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
                     echo "<tr><td>".$row["userid"]."</td><td>".$row["name"]."</td><td>".$role."</td>
                     <td>
                     <form method='post' action='admin-server.php' class='ui form delete'>
-                                <button style='background-color:004BA8; color: #fff' onclick='return checkDelete()' type='submit' name='delete_two' value='".$row['id']."' id='delete' class='ui button delete'>
+                                <button style='background-color:004BA8; color: #fff' onclick='return checkDelete()' type='submit' name='delete_user' value='".$row['id']."' id='delete' class='ui button delete'>
                                     Delete <i class='fa fa-trash ml-1' aria-hidden='true'></i>
                                 </button>
                             </form>   
