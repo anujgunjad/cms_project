@@ -677,7 +677,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_add_number_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_add_number} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_device_id_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.device_id} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_merchandise_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.merchandise} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{"ewallet_merchandise_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.merchandise} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_hold_amount_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.hold_amount} /></td>
                                 </tr>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number?ewallet.number : "अभी तक दर्ज नहीं है"}</td>
