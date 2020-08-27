@@ -386,7 +386,7 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>More Info</a> 
+                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                         <a style={{color:"#fff"},pdfButtonStyle} class={number.pdf?"ui small button pdf-button":"ui disabled small button pdf-button"} href={number.pdf ?"../insertFiles/" + number.pdf : ""} download><i class="fa fa-download fa-fw" aria-hidden="true"></i> Download PDF</a> 
                                     </th>
                                 </tr>
@@ -541,7 +541,7 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>More Info</a> 
+                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
                                 </tr>
                            </tbody>
