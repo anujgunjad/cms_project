@@ -339,6 +339,74 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
+        updateNumbertDetails = (number_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_recieved_" + account_id).value?document.getElementById("acc_mail_recieved_" + account_id).value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount_" + account_id).value?document.getElementById("acc_freeze_amount_" + account_id).value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name_" + account_id).value?document.getElementById("acc_kyc_name_" + account_id).value : account.kyc_name,
+                address_acc = document.getElementById("acc_address_" + account_id).value?document.getElementById("acc_address_" + account_id).value : account.address,
+                city_acc = document.getElementById("acc_city_" + account_id).value?document.getElementById("acc_city_" + account_id).value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice_" + account_id).value?document.getElementById("acc_state_twice_" + account_id).value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_alternate_number_" + account_id).value?document.getElementById("acc_alternate_number_" + account_id).value : account.alternate_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc_" + account_id).value?document.getElementById("acc_profit_acc_" + account_id).value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking_" + account_id).value?document.getElementById("acc_internet_banking_" + account_id).value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name_" + account_id).value?document.getElementById("acc_bank_manager_name_" + account_id).value : account.bank_manager_name,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
+            fetch("../api/data/update_account.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    mail_date_acc,
+                    mail_received_acc,
+                    freeze_amount_acc,
+                    kyc_name_acc,
+                    address_acc,
+                    city_acc,
+                    state_twice_acc,
+                    altername_number_acc,
+                    profit_acc_acc,
+                    internet_banking_acc,
+                    bank_manager_name_acc,
+                    bank_manager_number_acc,
+                    kyc_pdf_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         
         render(){
             const pdfButtonStyle = {
@@ -385,7 +453,8 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"num_caf_date_" + number.number_id } type="date" /></td>
                                 </tr>
                                 <tr>
-                                    <th colspan="4">
+                                <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateNumbertDetails(number.number_id)}>Update</button></td>
+                                    <th colspan="3">
                                         <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
                                 </tr>
@@ -593,7 +662,7 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI का नाम</h4>{ewallet.upi_name?ewallet.upi_name : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_upi_name_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.upi_name} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number?ewallet.mob_number : "अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id?ewallet.vpa_id : "अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement?ewallet.statement : "अभी तक दर्ज नहीं है"}</td>
