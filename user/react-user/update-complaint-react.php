@@ -273,7 +273,55 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
-        
+        updateSuspectDetails = (suspect_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
+            fetch("../api/data/update_account.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    mail_date_acc,
+                    bank_manager_number_acc,
+                    kyc_pdf_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
+                
         render(){
             return(
                 <div>
@@ -294,12 +342,12 @@ const timeDateFormatter = (arry) => {
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"sus_upi_phone_no_" + suspect.suspect_id } type="number" placeholder={suspect.upi_phone_no} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4><input class="rounded py-2 mt-1 px-2" id={"sus_upivpa_" + suspect.suspect_id } type="text" placeholder={suspect.upivpa} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_software_name_" + suspect.suspect_id } type="text" placeholder={suspect.software_name} /></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_name_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_name} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.somplaint_action} /></td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4>{suspect.pending_reason?suspect.pending_reason:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{suspect.remark?suspect.remark:"अभी तक दर्ज नहीं है"}</td>
-                                        <td></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4><input class="rounded py-2 mt-1 px-2" id={"sus_pending_reason_" + suspect.suspect_id } type="text" placeholder={suspect.pending_reason} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"sus_remark_" + suspect.suspect_id } type="text" placeholder={suspect.remark} /></td>
+                                        <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateSuspectDetails(suspect.suspect_id)}>Update</button></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -339,7 +387,7 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
-        updateNumbertDetails = (number_id) => {
+        updateNumberDetails = (number_id) => {
             let id = idFetcher(); 
             const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
             const account = accountArry[0];
@@ -453,7 +501,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"num_caf_date_" + number.number_id } type="date" /></td>
                                 </tr>
                                 <tr>
-                                <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateNumbertDetails(number.number_id)}>Update</button></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateNumberDetails(number.number_id)}>Update</button></td>
                                     <th colspan="3">
                                         <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
