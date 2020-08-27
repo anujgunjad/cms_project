@@ -20,6 +20,8 @@ const showAgeDropdown = () => {
   let element = document.querySelector("#age");
   element.classList.toggle("show-category-dropdown");
 };
-	function checkDelete(){
-		return confirm('Are you sure you want to Delete?');
-	}
+function checkDelete() {
+  return confirm("Are you sure you want to Delete?");
+}
+
+document.getElementById("myAnchor").href = "http://www.cnn.com/";

@@ -153,18 +153,29 @@ input[type="number"] {
 }
 
 /* ACCOUNTS */
-#insert-btn{
+#insert-btn {
   margin-top: 4.5vh;
-  background-color: #004BA8 !important;
+  background-color: #004ba8 !important;
   color: #fff;
-  border: 2px solid #004BA8;
+  border: 2px solid #004ba8;
 }
-#insert-btn:hover{
+#insert-btn:hover {
   background-color: #fff !important;
-  color: #004BA8;
+  color: #004ba8;
 }
-.account-form-label{
-  color: #004BA8 !important;
+.account-form-label {
+  color: #004ba8 !important;
   font-size: 16px !important;
   margin-bottom: 1vh !important;
+}
+/* Users */
+#search-user {
+  margin-top: 4.5vh;
+  background-color: #004ba8 !important;
+  color: #fff;
+  border: 2px solid #004ba8;
+}
+#search-user:hover {
+  background-color: #fff !important;
+  color: #004ba8;
 }

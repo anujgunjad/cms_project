@@ -24,7 +24,7 @@
         <input placeholder="Employee ID" name="eid" type="text" required>
       </div>
       <div class="field">
-		  <button id="insert-btn" type="submit" class="ui button" id="insert-id" name="insert_eid">Search</button>
+		  <a href="" id="search-user" type="submit" class="ui button">Search</a>
 	  </div>
     </div>
 </div>
@@ -34,13 +34,21 @@
                 <thead>
                     <tr id="table-head">
                         <th scope="col" >Empolyee ID</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Role</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-            $sql = "SELECT * FROM `verify_eid` WHERE 1";
+                $eid = $_GET['eid'];
+                if ($eid == "") {
+                    $sub_sql = " 1";
+                } else {
+                    $sub_sql = " `userid` = '$eid'";
+                }
+                
+            $sql = "SELECT * FROM `users` WHERE ".$sub_sql;
             $result = $db-> query($sql);
             if($result-> num_rows > 0){	
                 while ($row = $result-> fetch_assoc()) {
@@ -50,7 +58,7 @@
                         $role = "User";
                     }
                     
-                    echo "<tr><td>".$row["eid"]."</td><td>".$role."</td>
+                    echo "<tr><td>".$row["userid"]."</td><td>".$row["name"]."</td><td>".$role."</td>
                     <td>
                     <form method='post' action='admin-server.php' class='ui form delete'>
                                 <button style='background-color:004BA8; color: #fff' onclick='return checkDelete()' type='submit' name='delete_two' value='".$row['id']."' id='delete' class='ui button delete'>
