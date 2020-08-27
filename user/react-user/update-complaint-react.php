@@ -373,16 +373,16 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id={"num_city_" + number.number_id } type="text" placeholder={number.city} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{number.state?number.state:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4>{number.retailer_name?number.retailer_name:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4>{number.uid_num?number.uid_num:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4>{number.other_num?number.other_num:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id={"num_state_" + number.number_id } type="text" placeholder={number.state} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"num_retailer_name_" + number.number_id } type="text" placeholder={number.retailer_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"num_uid_num_" + number.number_id } type="number" placeholder={number.uid_num} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"num_other_num_" + number.number_id } type="number" placeholder={number.other_num} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4>{number.confirmation?number.confirmation:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{number.remark?number.remark : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4>{number.mail_id?number.mail_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4>{dateFormatter(number.caf_date)?dateFormatter(number.caf_date) : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4><input class="rounded py-2 mt-1 px-2" id={"num_confirmation_" + number.number_id } type="text" placeholder={number.confirmation} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"num_remark_" + number.number_id } type="text" placeholder={number.remark} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4><input class="rounded py-2 mt-1 px-2" id={"num_mail_id_" + number.number_id } type="text" placeholder={number.mail_id} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"num_caf_date_" + number.number_id } type="date" /></td>
                                 </tr>
                                 <tr>
                                     <th colspan="4">
