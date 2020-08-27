@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<?php include("alternate-header.php")?>
 <link href="css/sidenav.css" rel="stylesheet" />
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
