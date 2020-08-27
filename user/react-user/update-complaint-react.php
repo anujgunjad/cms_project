@@ -541,7 +541,7 @@ const timeDateFormatter = (arry) => {
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
+                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"update-more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
                                 </tr>
                            </tbody>
