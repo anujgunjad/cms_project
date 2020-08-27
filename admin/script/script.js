@@ -24,4 +24,7 @@ function checkDelete() {
   return confirm("Are you sure you want to Delete?");
 }
 
-document.getElementById("myAnchor").href = "http://www.cnn.com/";
+// document.getElementById("myAnchor").href = "http://www.cnn.com/";
+const searchUser = () => {
+  alert("searched");
+};

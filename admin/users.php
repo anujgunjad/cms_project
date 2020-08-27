@@ -16,7 +16,7 @@
         </nav>
 
  <div class="container pt-4">
- <form method="post" action="admin-server.php" class="ui form">
+ <form method="get" action="admin-server.php" class="ui form">
     <?php include('errors.php'); ?>
     <div class="fields">
       <div class="six wide field mt-1">
@@ -24,7 +24,7 @@
         <input placeholder="Employee ID" name="eid" type="text" required>
       </div>
       <div class="field">
-		  <a href="" id="search-user" type="submit" class="ui button">Search</a>
+		  <button id="search-user" type="submit" name="search-user" class="ui button">Search</button>
 	  </div>
     </div>
 </div>
