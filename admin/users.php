@@ -2,7 +2,7 @@
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-        <h1 class="nav-head">ID Panel</h1>
+        <h1 class="nav-head">Users Panel</h1>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -23,16 +23,8 @@
         <label class="account-form-label">Employee ID</label>
         <input placeholder="Employee ID" name="eid" type="text" required>
       </div>
-      <div class="six wide field mt-1">
-        <label class="account-form-label">Role</label>
-            <select class="ui fluid dropdown" name="role" required>
-                <option value="">Role</option>
-                <option value="0">Admin</option>
-                <option value="1">User</option>
-            </select>
-      </div>
       <div class="field">
-		  <button id="insert-btn" type="submit" class="ui button" id="insert-id" name="insert_eid">Insert</button>
+		  <button id="insert-btn" type="submit" class="ui button" id="insert-id" name="insert_eid">Search</button>
 	  </div>
     </div>
 </div>
