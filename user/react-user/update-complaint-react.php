@@ -361,7 +361,7 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4>{number.number?number.number:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id="num_number" type="text" placeholder={number.number} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4>{number.company?number.company:"अभी तक दर्ज नहीं है"}</td>
                                     <td class={dateFormatter(number.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(number.email_sent)!="00-00-0000"?dateFormatter(number.email_sent):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(number.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(number.email_received)!="00-00-0000"?dateFormatter(number.email_received):"मेल अभी तक नहीं मिला "}</td>
@@ -387,7 +387,6 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <th colspan="4">
                                         <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
-                                        <a style={{color:"#fff"},pdfButtonStyle} class={number.pdf?"ui small button pdf-button":"ui disabled small button pdf-button"} href={number.pdf ?"../insertFiles/" + number.pdf : ""} download><i class="fa fa-download fa-fw" aria-hidden="true"></i> Download PDF</a> 
                                     </th>
                                 </tr>
                            </tbody>
@@ -434,26 +433,27 @@ const timeDateFormatter = (arry) => {
             const account = accountArry[0];
             let complaint_id_acc = id,
                 acc_id_acc = account.acc_id,
-                acc_number_acc = document.getElementById("acc_number").value?document.getElementById("acc_number").value : account.acc_number,
-                bank_name_acc = document.getElementById("acc_bank_name").value?document.getElementById("acc_bank_name").value : account.bank_name,
-                state_acc = document.getElementById("acc_state").value?document.getElementById("acc_state").value : account.state,
-                branch_name_acc = document.getElementById("acc_branch_name").value?document.getElementById("acc_branch_name").value : account.branch_name,
-                mail_date_acc = document.getElementById("acc_mail_date").value?document.getElementById("acc_mail_date").value : account.mail_date,
-                mail_received_acc = document.getElementById("acc_mail_recieved").value?document.getElementById("acc_mail_recieved").value : account.mail_received,
-                freeze_amount_acc = document.getElementById("acc_freeze_amount").value?document.getElementById("acc_freeze_amount").value : account.freeze_amount,
-                kyc_name_acc = document.getElementById("acc_kyc_name").value?document.getElementById("acc_kyc_name").value : account.kyc_name,
-                address_acc = document.getElementById("acc_address").value?document.getElementById("acc_address").value : account.address,
-                city_acc = document.getElementById("acc_city").value?document.getElementById("acc_city").value : account.city,
-                state_twice_acc = document.getElementById("acc_state_twice").value?document.getElementById("acc_state_twice").value : account.state_twice,
-                altername_number_acc = document.getElementById("acc_alternate_number").value?document.getElementById("acc_alternate_number").value : account.alternate_number,
-                profit_acc_acc = document.getElementById("acc_profit_acc").value?document.getElementById("acc_profit_acc").value : account.profit_acc,
-                internet_banking_acc = document.getElementById("acc_internet_banking").value?document.getElementById("acc_internet_banking").value : account.internet_banking,
-                bank_manager_name_acc = document.getElementById("acc_bank_manager_name").value?document.getElementById("acc_bank_manager_name").value : account.bank_manager_name,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_recieved_" + account_id).value?document.getElementById("acc_mail_recieved_" + account_id).value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount_" + account_id).value?document.getElementById("acc_freeze_amount_" + account_id).value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name_" + account_id).value?document.getElementById("acc_kyc_name_" + account_id).value : account.kyc_name,
+                address_acc = document.getElementById("acc_address_" + account_id).value?document.getElementById("acc_address_" + account_id).value : account.address,
+                city_acc = document.getElementById("acc_city_" + account_id).value?document.getElementById("acc_city_" + account_id).value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice_" + account_id).value?document.getElementById("acc_state_twice_" + account_id).value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_alternate_number_" + account_id).value?document.getElementById("acc_alternate_number_" + account_id).value : account.alternate_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc_" + account_id).value?document.getElementById("acc_profit_acc_" + account_id).value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking_" + account_id).value?document.getElementById("acc_internet_banking_" + account_id).value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name_" + account_id).value?document.getElementById("acc_bank_manager_name_" + account_id).value : account.bank_manager_name,
                 bank_manager_number_acc = account.bank_manager_number,
                 kyc_pdf_acc = account.kyc_pdf,
                 bank_statement_file_acc = account.bank_statement_file,
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
             fetch("../api/data/update_account.php", { 
                 // Adding method type 
                 method: "POST", 
@@ -516,27 +516,27 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_number" type="number" placeholder={account.acc_number} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_name" type="text" placeholder={account.bank_name} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state" type="text" placeholder={account.state} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_branch_name" type="text" placeholder={account.branch_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"acc_number_" + account.acc_id } type="number" placeholder={account.acc_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_bank_name_" + account.acc_id } type="text" placeholder={account.bank_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id={"acc_state_" + account.acc_id } type="text" placeholder={account.state} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_branch_name_" + account.acc_id } type="text" placeholder={account.branch_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_date" type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_recieved" type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id="acc_freeze_amount" type="number" placeholder={account.freeze_amount} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_kyc_name" type="text" placeholder={account.kyc_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"acc_mail_date_" + account.acc_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"acc_mail_recieved_" + account.acc_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id={"acc_freeze_amount_" + account.acc_id } type="number" placeholder={account.freeze_amount} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_kyc_name_" + account.acc_id } type="text" placeholder={account.kyc_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4><input class="rounded py-2 mt-1 px-2" id="acc_address" type="text" placeholder={account.address} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id="acc_city" type="text" placeholder={account.city} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state_twice" type="text" placeholder={account.state_twice} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_alternate_number" type="number" placeholder={account.alternate_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4><input class="rounded py-2 mt-1 px-2" id={"acc_address_" + account.acc_id } type="text" placeholder={account.address} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id={"acc_city_" + account.acc_id } type="text" placeholder={account.city} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4><input class="rounded py-2 mt-1 px-2" id={"acc_state_twice_" + account.acc_id } type="text" placeholder={account.state_twice} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"acc_alternate_number_" + account.acc_id } type="number" placeholder={account.alternate_number} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4><input class="rounded py-2 mt-1 px-2" id="acc_profit_acc" type="text" placeholder={account.profit_acc} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4><input class="rounded py-2 mt-1 px-2" id="acc_internet_banking" type="text" placeholder={account.internet_banking} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_manager_name" type="text" placeholder={account.bank_manager_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4><input class="rounded py-2 mt-1 px-2" id={"acc_profit_acc_" + account.acc_id } type="text" placeholder={account.profit_acc} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4><input class="rounded py-2 mt-1 px-2" id={"acc_internet_banking_" + account.acc_id } type="text" placeholder={account.internet_banking} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_bank_manager_name_" + account.acc_id } type="text" placeholder={account.bank_manager_name} /></td>
                                     <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateAccountDetails(account.acc_id)}>Update</button></td>
                                 </tr>
                                 <tr>
