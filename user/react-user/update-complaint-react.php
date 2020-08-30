@@ -273,7 +273,55 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
-        
+        updateSuspectDetails = (suspect_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
+            fetch(, { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    mail_date_acc,
+                    bank_manager_number_acc,
+                    kyc_pdf_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
+                
         render(){
             return(
                 <div>
@@ -285,21 +333,21 @@ const timeDateFormatter = (arry) => {
                                 <table class="ui celled table">
                                 <tbody>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> संदिग्ध का नाम</h4>{suspect.suspect_name?suspect.suspect_name:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{suspect.suspect_address?suspect.suspect_address:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4>{suspect.email_id?suspect.email_id:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4>{suspect.domin_name?suspect.domin_name:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> संदिग्ध का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_name_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_name} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_address_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_address} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4><input class="rounded py-2 mt-1 px-2" id={"sus_email_id_" + suspect.suspect_id } type="text" placeholder={suspect.email_id} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_domain_name_" + suspect.suspect_id } type="text" placeholder={suspect.domain_name} /></td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4>{suspect.upi_phone_no?suspect.upi_phone_no:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4>{suspect.upivpa?suspect.upivpa:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4>{suspect.software_name?suspect.software_name:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4>{suspect.complaint_action?suspect.complaint_action:"अभी तक दर्ज नहीं है"}</td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"sus_upi_phone_no_" + suspect.suspect_id } type="number" placeholder={suspect.upi_phone_no} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4><input class="rounded py-2 mt-1 px-2" id={"sus_upivpa_" + suspect.suspect_id } type="text" placeholder={suspect.upivpa} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_software_name_" + suspect.suspect_id } type="text" placeholder={suspect.software_name} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.somplaint_action} /></td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4>{suspect.pending_reason?suspect.pending_reason:"अभी तक दर्ज नहीं है"}</td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{suspect.remark?suspect.remark:"अभी तक दर्ज नहीं है"}</td>
-                                        <td></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4><input class="rounded py-2 mt-1 px-2" id={"sus_pending_reason_" + suspect.suspect_id } type="text" placeholder={suspect.pending_reason} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"sus_remark_" + suspect.suspect_id } type="text" placeholder={suspect.remark} /></td>
+                                        <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateSuspectDetails(suspect.suspect_id)}>Update</button></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -339,6 +387,74 @@ const timeDateFormatter = (arry) => {
                 })
                 .catch(console.log)
         }
+        updateNumberDetails = (number_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_recieved_" + account_id).value?document.getElementById("acc_mail_recieved_" + account_id).value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount_" + account_id).value?document.getElementById("acc_freeze_amount_" + account_id).value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name_" + account_id).value?document.getElementById("acc_kyc_name_" + account_id).value : account.kyc_name,
+                address_acc = document.getElementById("acc_address_" + account_id).value?document.getElementById("acc_address_" + account_id).value : account.address,
+                city_acc = document.getElementById("acc_city_" + account_id).value?document.getElementById("acc_city_" + account_id).value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice_" + account_id).value?document.getElementById("acc_state_twice_" + account_id).value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_alternate_number_" + account_id).value?document.getElementById("acc_alternate_number_" + account_id).value : account.alternate_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc_" + account_id).value?document.getElementById("acc_profit_acc_" + account_id).value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking_" + account_id).value?document.getElementById("acc_internet_banking_" + account_id).value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name_" + account_id).value?document.getElementById("acc_bank_manager_name_" + account_id).value : account.bank_manager_name,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
+            fetch(, { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    mail_date_acc,
+                    mail_received_acc,
+                    freeze_amount_acc,
+                    kyc_name_acc,
+                    address_acc,
+                    city_acc,
+                    state_twice_acc,
+                    altername_number_acc,
+                    profit_acc_acc,
+                    internet_banking_acc,
+                    bank_manager_name_acc,
+                    bank_manager_number_acc,
+                    kyc_pdf_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         
         render(){
             const pdfButtonStyle = {
@@ -361,33 +477,33 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4>{number.number?number.number:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4>{number.company?number.company:"अभी तक दर्ज नहीं है"}</td>
-                                    <td class={dateFormatter(number.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(number.email_sent)!="00-00-0000"?dateFormatter(number.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(number.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(number.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(number.email_received)!="00-00-0000"?dateFormatter(number.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"num_number_" + number.number_id } type="number" placeholder={number.number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कंपनी</h4><input class="rounded py-2 mt-1 px-2" id={"num_company_" + number.number_id } type="text" placeholder={number.company} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"num_email_sent_" + number.number_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"num_email_received_" + number.number_id } type="date" /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">दस्तावेज़</h4>{number.files?number.files:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4>{number.suspect_name?number.suspect_name:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4>{number.suspect_address?number.number:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4>{number.city?number.city:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">दस्तावेज़</h4><input class="rounded py-2 mt-1 px-2" id={"num_files_" + number.number_id } type="text" placeholder={number.files} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"num_suspect_name_" + number.number_id } type="text" placeholder={number.suspect_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4><input class="rounded py-2 mt-1 px-2" id={"num_suspect_address_" + number.number_id } type="text" placeholder={number.suspect_address} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id={"num_city_" + number.number_id } type="text" placeholder={number.city} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4>{number.state?number.state:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4>{number.retailer_name?number.retailer_name:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4>{number.uid_num?number.uid_num:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4>{number.other_num?number.other_num:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id={"num_state_" + number.number_id } type="text" placeholder={number.state} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रिटेलर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"num_retailer_name_" + number.number_id } type="text" placeholder={number.retailer_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UID नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"num_uid_num_" + number.number_id } type="number" placeholder={number.uid_num} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अन्य फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"num_other_num_" + number.number_id } type="number" placeholder={number.other_num} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4>{number.confirmation?number.confirmation:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4>{number.remark?number.remark : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4>{number.mail_id?number.mail_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4>{dateFormatter(number.caf_date)?dateFormatter(number.caf_date) : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पुष्टीकरण</h4><input class="rounded py-2 mt-1 px-2" id={"num_confirmation_" + number.number_id } type="text" placeholder={number.confirmation} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"num_remark_" + number.number_id } type="text" placeholder={number.remark} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मेल आई.डी.</h4><input class="rounded py-2 mt-1 px-2" id={"num_mail_id_" + number.number_id } type="text" placeholder={number.mail_id} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">CAF तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"num_caf_date_" + number.number_id } type="date" /></td>
                                 </tr>
                                 <tr>
-                                    <th colspan="4">
-                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>More Info</a> 
-                                        <a style={{color:"#fff"},pdfButtonStyle} class={number.pdf?"ui small button pdf-button":"ui disabled small button pdf-button"} href={number.pdf ?"../insertFiles/" + number.pdf : ""} download><i class="fa fa-download fa-fw" aria-hidden="true"></i> Download PDF</a> 
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateNumberDetails(number.number_id)}>Update</button></td>
+                                    <th colspan="3">
+                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
                                 </tr>
                            </tbody>
@@ -434,26 +550,27 @@ const timeDateFormatter = (arry) => {
             const account = accountArry[0];
             let complaint_id_acc = id,
                 acc_id_acc = account.acc_id,
-                acc_number_acc = document.getElementById("acc_number").value?document.getElementById("acc_number").value : account.acc_number,
-                bank_name_acc = document.getElementById("acc_bank_name").value?document.getElementById("acc_bank_name").value : account.bank_name,
-                state_acc = document.getElementById("acc_state").value?document.getElementById("acc_state").value : account.state,
-                branch_name_acc = document.getElementById("acc_branch_name").value?document.getElementById("acc_branch_name").value : account.branch_name,
-                mail_date_acc = document.getElementById("acc_mail_date").value?document.getElementById("acc_mail_date").value : account.mail_date,
-                mail_received_acc = document.getElementById("acc_mail_recieved").value?document.getElementById("acc_mail_recieved").value : account.mail_received,
-                freeze_amount_acc = document.getElementById("acc_freeze_amount").value?document.getElementById("acc_freeze_amount").value : account.freeze_amount,
-                kyc_name_acc = document.getElementById("acc_kyc_name").value?document.getElementById("acc_kyc_name").value : account.kyc_name,
-                address_acc = document.getElementById("acc_address").value?document.getElementById("acc_address").value : account.address,
-                city_acc = document.getElementById("acc_city").value?document.getElementById("acc_city").value : account.city,
-                state_twice_acc = document.getElementById("acc_state_twice").value?document.getElementById("acc_state_twice").value : account.state_twice,
-                altername_number_acc = document.getElementById("acc_alternate_number").value?document.getElementById("acc_alternate_number").value : account.alternate_number,
-                profit_acc_acc = document.getElementById("acc_profit_acc").value?document.getElementById("acc_profit_acc").value : account.profit_acc,
-                internet_banking_acc = document.getElementById("acc_internet_banking").value?document.getElementById("acc_internet_banking").value : account.internet_banking,
-                bank_manager_name_acc = document.getElementById("acc_bank_manager_name").value?document.getElementById("acc_bank_manager_name").value : account.bank_manager_name,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_recieved_" + account_id).value?document.getElementById("acc_mail_recieved_" + account_id).value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount_" + account_id).value?document.getElementById("acc_freeze_amount_" + account_id).value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name_" + account_id).value?document.getElementById("acc_kyc_name_" + account_id).value : account.kyc_name,
+                address_acc = document.getElementById("acc_address_" + account_id).value?document.getElementById("acc_address_" + account_id).value : account.address,
+                city_acc = document.getElementById("acc_city_" + account_id).value?document.getElementById("acc_city_" + account_id).value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice_" + account_id).value?document.getElementById("acc_state_twice_" + account_id).value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_alternate_number_" + account_id).value?document.getElementById("acc_alternate_number_" + account_id).value : account.alternate_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc_" + account_id).value?document.getElementById("acc_profit_acc_" + account_id).value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking_" + account_id).value?document.getElementById("acc_internet_banking_" + account_id).value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name_" + account_id).value?document.getElementById("acc_bank_manager_name_" + account_id).value : account.bank_manager_name,
                 bank_manager_number_acc = account.bank_manager_number,
                 kyc_pdf_acc = account.kyc_pdf,
                 bank_statement_file_acc = account.bank_statement_file,
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
             fetch("../api/data/update_account.php", { 
                 // Adding method type 
                 method: "POST", 
@@ -516,32 +633,32 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_number" type="number" placeholder={account.acc_number} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_name" type="text" placeholder={account.bank_name} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state" type="text" placeholder={account.state} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_branch_name" type="text" placeholder={account.branch_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> खाता नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"acc_number_" + account.acc_id } type="number" placeholder={account.acc_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_bank_name_" + account.acc_id } type="text" placeholder={account.bank_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">राज्य</h4><input class="rounded py-2 mt-1 px-2" id={"acc_state_" + account.acc_id } type="text" placeholder={account.state} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शाखा का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_branch_name_" + account.acc_id } type="text" placeholder={account.branch_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_date" type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id="acc_mail_recieved" type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id="acc_freeze_amount" type="number" placeholder={account.freeze_amount} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_kyc_name" type="text" placeholder={account.kyc_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"acc_mail_date_" + account.acc_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"acc_mail_recieved_" + account.acc_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ्रीज राशि</h4><input class="rounded py-2 mt-1 px-2" id={"acc_freeze_amount_" + account.acc_id } type="number" placeholder={account.freeze_amount} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">KYC में नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_kyc_name_" + account.acc_id } type="text" placeholder={account.kyc_name} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4><input class="rounded py-2 mt-1 px-2" id="acc_address" type="text" placeholder={account.address} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id="acc_city" type="text" placeholder={account.city} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4><input class="rounded py-2 mt-1 px-2" id="acc_state_twice" type="text" placeholder={account.state_twice} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id="acc_alternate_number" type="number" placeholder={account.alternate_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">पता</h4><input class="rounded py-2 mt-1 px-2" id={"acc_address_" + account.acc_id } type="text" placeholder={account.address} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शहर</h4><input class="rounded py-2 mt-1 px-2" id={"acc_city_" + account.acc_id } type="text" placeholder={account.city} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">द्वितीय राज्य</h4><input class="rounded py-2 mt-1 px-2" id={"acc_state_twice_" + account.acc_id } type="text" placeholder={account.state_twice} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वैकल्पिक फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"acc_alternate_number_" + account.acc_id } type="number" placeholder={account.alternate_number} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4><input class="rounded py-2 mt-1 px-2" id="acc_profit_acc" type="text" placeholder={account.profit_acc} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4><input class="rounded py-2 mt-1 px-2" id="acc_internet_banking" type="text" placeholder={account.internet_banking} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4><input class="rounded py-2 mt-1 px-2" id="acc_bank_manager_name" type="text" placeholder={account.bank_manager_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभ खाता</h4><input class="rounded py-2 mt-1 px-2" id={"acc_profit_acc_" + account.acc_id } type="text" placeholder={account.profit_acc} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">इंटरनेट बैंकिंग</h4><input class="rounded py-2 mt-1 px-2" id={"acc_internet_banking_" + account.acc_id } type="text" placeholder={account.internet_banking} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">बैंक मैनेजर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"acc_bank_manager_name_" + account.acc_id } type="text" placeholder={account.bank_manager_name} /></td>
                                     <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateAccountDetails(account.acc_id)}>Update</button></td>
                                 </tr>
                                 <tr>
                                     <th colspan="4">
-                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>More Info</a> 
+                                         <a style={{color:"#fff"},infoButtonStyle} class="info-button ui right floated small btn btn-primary button ml-2" href={"update-more-info-bank.php?acc_id=" + account.acc_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
                                 </tr>
                            </tbody>
@@ -582,6 +699,74 @@ const timeDateFormatter = (arry) => {
                 .catch(console.log)
         }
         
+        updateEwalletsDetails = (suspect_ewallet_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
+                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
+                mail_received_acc = document.getElementById("acc_mail_recieved_" + account_id).value?document.getElementById("acc_mail_recieved_" + account_id).value : account.mail_received,
+                freeze_amount_acc = document.getElementById("acc_freeze_amount_" + account_id).value?document.getElementById("acc_freeze_amount_" + account_id).value : account.freeze_amount,
+                kyc_name_acc = document.getElementById("acc_kyc_name_" + account_id).value?document.getElementById("acc_kyc_name_" + account_id).value : account.kyc_name,
+                address_acc = document.getElementById("acc_address_" + account_id).value?document.getElementById("acc_address_" + account_id).value : account.address,
+                city_acc = document.getElementById("acc_city_" + account_id).value?document.getElementById("acc_city_" + account_id).value : account.city,
+                state_twice_acc = document.getElementById("acc_state_twice_" + account_id).value?document.getElementById("acc_state_twice_" + account_id).value : account.state_twice,
+                altername_number_acc = document.getElementById("acc_alternate_number_" + account_id).value?document.getElementById("acc_alternate_number_" + account_id).value : account.alternate_number,
+                profit_acc_acc = document.getElementById("acc_profit_acc_" + account_id).value?document.getElementById("acc_profit_acc_" + account_id).value : account.profit_acc,
+                internet_banking_acc = document.getElementById("acc_internet_banking_" + account_id).value?document.getElementById("acc_internet_banking_" + account_id).value : account.internet_banking,
+                bank_manager_name_acc = document.getElementById("acc_bank_manager_name_" + account_id).value?document.getElementById("acc_bank_manager_name_" + account_id).value : account.bank_manager_name,
+                bank_manager_number_acc = account.bank_manager_number,
+                kyc_pdf_acc = account.kyc_pdf,
+                bank_statement_file_acc = account.bank_statement_file,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
+            fetch(, { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    mail_date_acc,
+                    mail_received_acc,
+                    freeze_amount_acc,
+                    kyc_name_acc,
+                    address_acc,
+                    city_acc,
+                    state_twice_acc,
+                    altername_number_acc,
+                    profit_acc_acc,
+                    internet_banking_acc,
+                    bank_manager_name_acc,
+                    bank_manager_number_acc,
+                    kyc_pdf_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         render(){
             return(
                 <div>
@@ -593,26 +778,26 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI का नाम</h4>{ewallet.upi_name?ewallet.upi_name : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4>{ewallet.mob_number?ewallet.mob_number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4>{ewallet.vpa_id?ewallet.vpa_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4>{ewallet.statement?ewallet.statement : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_upi_name_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.upi_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मोबाइल नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_mob_number_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.mob_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">VPA ID</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_vpa_id_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.vpa_id} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">कथन (Statement)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_statement_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.statement} /></td>
                                 </tr>
                                 <tr>
-                                    <td class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-0000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(ewallet.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-0000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account?ewallet.linked_account : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4>{ewallet.ip_address?ewallet.ip_address : "अभी तक दर्ज नहीं है"}</td>
+                                <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_sent_" + ewallet.suspect_ewallet_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_received_" + ewallet.suspect_ewallet_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_linked_account_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.linked_account} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_address_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_address} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4>{ewallet.ip_add_number?ewallet.ip_add_number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4>{ewallet.device_id?ewallet.device_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4>{ewallet.merchandise?ewallet.merchandise : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4>{ewallet.hold_amount?ewallet.hold_amount : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_add_number_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_add_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_device_id_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.device_id} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_merchandise_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.merchandise} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_hold_amount_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.hold_amount} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4>{ewallet.number?ewallet.number : "अभी तक दर्ज नहीं है"}</td>
-                                    <td></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_number_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.number} /></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateEwalletsDetails(ewallet.suspect_ewallet_id)}>Update</button></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -655,6 +840,46 @@ const timeDateFormatter = (arry) => {
                 .catch(console.log)
         }
         
+        updateWebsiteDetails = (website_id) => {
+            let id = idFetcher(); 
+            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const account = accountArry[0];
+            let complaint_id_acc = id,
+                acc_id_acc = account.acc_id,
+                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
+                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
+                created_date_acc = account.created_date,
+                last_updated_acc = Date().toLocaleString();
+                console.log(acc_number_acc);
+            fetch(, { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_acc,
+                    acc_id_acc,
+                    acc_number_acc,
+                    bank_name_acc,
+                    state_acc,          
+                    branch_name_acc,
+                    bank_statement_file_acc,
+                    created_date_acc,
+                    last_updated_acc,
+                })
+            }) 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         render(){
             return(
                 <div>
@@ -666,10 +891,14 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> वेबसाइट का नाम</h4>{website.website_name?website.website_name : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का डोमेन</h4>{website.website_domain?website.website_domain : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल आईडी</h4>{website.mail_id?website.mail_id : "अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4>{website.website_mobile_number?website.website_mobile_number : "अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> वेबसाइट का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_name_" + website.website_id } type="text" placeholder={website.website_name } /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का डोमेन</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_domain_" + website.website_id } type="text" placeholder={website.website_domain } /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल आईडी</h4><input class="rounded py-2 mt-1 px-2" id={"web_mail_id_" + website.website_id } type="text" placeholder={website.mail_id } /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_mobile_number_" + website.website_id } type="number" placeholder={website.website_mobile_number } /></td>
+                                </tr>
+                                <tr>
+                                <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateWebsiteDetails(website.website_id)}>Update</button></td>
+                                <td colspan="3"></td>
                                 </tr>
                            </tbody>
                         </table>

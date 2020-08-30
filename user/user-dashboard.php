@@ -69,6 +69,7 @@ if (isset($_GET['logout'])) {
                             <td>".$row['ap_name']."</td>
                             <td>
                                 <div class='field'>
+                                    <a style='color:#fff' class='btn btn-primary' href='../admin/show-complaint.php?complaint_id=".$row['complaint_id']."'>View</a>
                                     <a style='color:#fff' class='btn btn-success' href='update-complaint.php?complaint_id=".$row['complaint_id']."' name='number_form'>Edit</a>
                                     <a class='btn btn-danger'  id= 'delete_complaint' href='delete-complaint.php?complaint_id=".$row['complaint_id']."' name='delete_complaint'>Delete</a>
                                 </div>

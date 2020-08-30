@@ -1,21 +1,26 @@
-<?php include("alternate-header.php")?>
-<link href="css/sidenav.css" rel="stylesheet" />
+<?php include("../server.php") ?>
+<?php include('user-header.php')?>
+<link rel="stylesheet" href="../admin/CSS/sidenav.css">
+<link rel="stylesheet" href="../admin/CSS/styles-admin.css">
+ <!--Semantic UI-->
+ <link rel="stylesheet" type="text/css" href="../dependencies/semantic/dist/semantic.min.css" />
 <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-        <h1 class="nav-head mt-1 ml-5">More Information</h1>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-            <a class="nav-link admin-name" href="#">WELCOME <?php echo $_SESSION['name']?><span class="sr-only">(current)</span></a>
-            </li>
-           
-          </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
+        <h1 class="nav-head mt-1 ml-5"> Update More Info Bank</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link admin-name" href="#">WELCOME <?php echo $_SESSION['name']?></a>
+                </li>
+
+            </ul>
         </div>
-             <a href="javascript:history.back()" class="btn my-2 my-sm-0 btn-theme-color px-4 mx-2" type="submit">Back</a>
-             <a href="dashboard.php?logout='1'" >
-              <button class="btn btn-outline-light my-2 my-sm-0 " type="submit">Log Out</button>
-            </a>
-        </nav>
+        <a href="javascript:history.back()" class="btn my-2 my-sm-0 btn-theme-color px-4 mx-2" type="submit">Back</a>
+        <a href="user-dashboard.php?logout='1'" >
+                <button type="button" class="btn btn-outline-light">Log Out</button>
+        </a>
+    </nav>
+
 
 <div class="container-fluid">
   <div id="show-bank-account-info">
@@ -239,5 +244,5 @@ const timeDateFormatter = (arry) => {
   ReactDOM.render(<MoreDetailsBank />, document.getElementById('show-bank-account-info'))
 
 </script>
- <?php include("footer.php")?>
+ <?php include("user-footer.php")?>
    

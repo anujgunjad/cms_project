@@ -2,7 +2,7 @@
 <?php include("sidenav-header.php")?>
 <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom navbar-admin-blue">
-        <h1 class="nav-head">ID Panel</h1>
+        <h1 class="nav-head">Users Panel</h1>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -16,23 +16,15 @@
         </nav>
 
  <div class="container pt-4">
- <form method="post" action="admin-server.php" class="ui form">
+ <form method="get" action="users.php" class="ui form">
     <?php include('errors.php'); ?>
     <div class="fields">
       <div class="six wide field mt-1">
         <label class="account-form-label">Employee ID</label>
         <input placeholder="Employee ID" name="eid" type="text" required>
       </div>
-      <div class="six wide field mt-1">
-        <label class="account-form-label">Role</label>
-            <select class="ui fluid dropdown" name="role" required>
-                <option value="">Role</option>
-                <option value="0">Admin</option>
-                <option value="1">User</option>
-            </select>
-      </div>
       <div class="field">
-		  <button id="insert-btn" type="submit" class="ui button" id="insert-id" name="insert_eid">Insert</button>
+		  <button id="search-user" type="submit" class="ui button">Search</button>
 	  </div>
     </div>
 </div>
@@ -42,13 +34,21 @@
                 <thead>
                     <tr id="table-head">
                         <th scope="col" >Empolyee ID</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Role</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-            $sql = "SELECT * FROM `verify_eid` WHERE 1";
+                $eid = $_GET['eid'];
+                if ($eid == "") {
+                    $sub_sql = " 1";
+                } else {
+                    $sub_sql = " `userid` = '$eid'";
+                }
+                
+            $sql = "SELECT * FROM `users` WHERE ".$sub_sql;
             $result = $db-> query($sql);
             if($result-> num_rows > 0){	
                 while ($row = $result-> fetch_assoc()) {
@@ -58,10 +58,10 @@
                         $role = "User";
                     }
                     
-                    echo "<tr><td>".$row["eid"]."</td><td>".$role."</td>
+                    echo "<tr><td>".$row["userid"]."</td><td>".$row["name"]."</td><td>".$role."</td>
                     <td>
                     <form method='post' action='admin-server.php' class='ui form delete'>
-                                <button style='background-color:004BA8; color: #fff' onclick='return checkDelete()' type='submit' name='delete_two' value='".$row['id']."' id='delete' class='ui button delete'>
+                                <button style='background-color:004BA8; color: #fff' onclick='return checkDelete()' type='submit' name='delete_user' value='".$row['id']."' id='delete' class='ui button delete'>
                                     Delete <i class='fa fa-trash ml-1' aria-hidden='true'></i>
                                 </button>
                             </form>   
