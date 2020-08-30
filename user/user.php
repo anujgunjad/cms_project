@@ -458,6 +458,7 @@ $db = $database->getConnection();
                             <!---------------------------------->
                             <!--Suspect number detail form end-->
                             <!---------------------------------->
+                        <label id="label_number"></label><br>
                             <!-------------------------->
                             <!--------CDR details------->
                             <!-------------------------->
@@ -716,19 +717,7 @@ $db = $database->getConnection();
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm">
-                                                        <label>UPI Link</label>
-                                                        <select name="upi_link" class="ui dropdown" required>
-                                                            <option type="radio" value="" name="upi_link_confirm">
-                                                                UPI
-                                                                Link
-                                                            </option>
-                                                            <option type="radio" value="हाँ" name="upi_link_confirm">हाँ
-                                                            </option>
-                                                            <option type="radio" value="नही" name="upi_link_confirm">नही
-                                                            </option>
-                                                        </select>
-                                                    </div>
+                                                   
                                                     <div class="col-sm">
                                                         <label>UPI name</label>
                                                         <input type="text" name="upi_name" placeholder="UPI name " />
@@ -779,6 +768,8 @@ $db = $database->getConnection();
                             </div>
                             <br>
                         </div>
+                   
+
                         <!---collapse class end-->
                         <!--------------TABLE----------->
                         <div id="suspect_num_table_main">
@@ -916,6 +907,7 @@ $db = $database->getConnection();
                                     Submit
                                 </button>
                             </form>
+                            <label id="label_acc"></label><br>
                             <!----------------------------->
                             <!-------Pan Details----------->
                             <!----------------------------->

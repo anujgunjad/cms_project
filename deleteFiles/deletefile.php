@@ -8,10 +8,10 @@ if(isset($_POST['cdr_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_number_cdr_info WHERE cdr_id='$cdr_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "cdr Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "cdr Deletion Failed!!!";  
     }
 }
 if(isset($_POST['ipdr_id']))
@@ -20,10 +20,10 @@ if(isset($_POST['ipdr_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_number_ipdr_info WHERE ipdr_id='$ipdr_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "ipdr Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "ipdr Deletion Failed!!!";  
     }
 }
 if(isset($_POST['upi_id']))
@@ -32,10 +32,10 @@ if(isset($_POST['upi_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_number_upi_info WHERE upi_id='$upi_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "upi Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "upi Deletion Failed!!!";  
     }
 }
 if(isset($_POST['pan_id']))
@@ -44,10 +44,10 @@ if(isset($_POST['pan_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_pan_info WHERE pan_info_id='$pan_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "pan Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "pan Deletion Failed!!!";  
     }
 }
 if(isset($_POST['atm_id']))
@@ -56,10 +56,10 @@ if(isset($_POST['atm_id']))
     $stmt = $conn->prepare("DELETE FROM bank_accounts_atm WHERE atm_footage_id='$atm_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "atm Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "atm Deletion Failed!!!";  
     }
 }
 if(isset($_POST['iplog_id']))
@@ -68,10 +68,10 @@ if(isset($_POST['iplog_id']))
     $stmt = $conn->prepare("DELETE FROM bank_accounts_iplogs WHERE iplog_id='$iplog_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "iplog Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "iplog Deletion Failed!!!";  
     }
 }
 if(isset($_POST['num_id']))
@@ -109,14 +109,7 @@ if(isset($_POST['num_id']))
     else {
         $msg .= " upi Deletion Failed!!!";  
     } 
-    if($num_id == $_SESSION['numberkey'])
-    {
-        unset($_SESSION['numberkey']);
-        $sessiondata = 2;
-    }
-    else{
-        $sessiondata = 0;
-    }
+   
     $resetcdr = "<table class='table table-bordered p-0 m-0'>
     <thead>
         <tr id='table-head'>
@@ -169,7 +162,7 @@ if(isset($_POST['num_id']))
     $data['resetipdr'] =$resetipdr;
     $data['resetupi'] = $resetupi;
     $data['msg'] = $msg;
-    $data['sessiondata'] = $sessiondata;
+
     echo json_encode($data);
 }
 if(isset($_POST['acc_id']))
@@ -276,10 +269,10 @@ if(isset($_POST['ewallet_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_ewallet_info WHERE suspect_ewallet_id='$ewallet_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo " ewallet Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo "ewallet Deletion Failed!!!";  
     }
 }
 if(isset($_POST['website_id']))
@@ -288,10 +281,10 @@ if(isset($_POST['website_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_website_info WHERE website_id='$website_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo "website Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo " website Deletion Failed!!!";  
     }
 }
 if(isset($_POST['suspect_id']))
@@ -300,10 +293,10 @@ if(isset($_POST['suspect_id']))
     $stmt = $conn->prepare("DELETE FROM suspect_details WHERE suspect_id='$suspect_id'");
     $execution = $stmt->execute();
     if($execution == true){
-        echo "Deleted Successfully!!!";
+        echo " suspect Deleted Successfully!!!";
     }
     else {
-        echo "Deletion Failed!!!";  
+        echo " suspect Deletion Failed!!!";  
     }
 }
 

@@ -105,9 +105,14 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+              var res = JSON.parse(this.responseText); 
               document.getElementById(
                 "suspect_num_table_main"
-              ).innerHTML = this.responseText;
+              ).innerHTML = res.htmladd;
+              document.getElementById(
+                "label_number"
+              ).innerHTML = res.number_one;
+              
             }
             $("#suspect_num_table_main").css("display", "inline");
           };
@@ -275,9 +280,14 @@ $(document).ready(function () {
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+              var res = JSON.parse(this.responseText); 
               document.getElementById(
                 "suspect_acc_table_main"
-              ).innerHTML = this.responseText;
+              ).innerHTML = res.htmladd;
+              document.getElementById(
+                "label_acc"
+              ).innerHTML = res.acc_num;
+              
             }
             $("#suspect_acc_table_main").css("display", "inline");
           };

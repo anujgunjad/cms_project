@@ -148,7 +148,7 @@ $conn = $database->getConnection();
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>Suspect Name</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -159,8 +159,8 @@ $conn = $database->getConnection();
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['suspect_name']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='button' name='delete_suspect' id='delete_suspect' value='".$row['suspect_id']."' href='#'
+                 <td>
+                     <button type='button' name='delete_suspect' id='".$row['suspect_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -192,24 +192,23 @@ $conn = $database->getConnection();
      complaint_id = '".$_SESSION['key']."'";
      $result = $conn->query($query);
      $i = 1;
-     echo "<table class='table table-bordered p-0 m-0'>
+     $html = "<table class='table table-bordered p-0 m-0'>
      <thead>
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>Phone numbers</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
      if($result->rowCount()> 0){
          while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-         
-             echo "             
+            $html .= "             
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['number_one']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit'  name='delete_num' id='delete_num' value='".$row['number_id']."' href='#'
+                 <td>
+                     <button type='submit'  name='delete_num' id='".$row['number_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -217,20 +216,34 @@ $conn = $database->getConnection();
                  </tr>          
          "; 
              $i=$i+1;
+             $_SESSION['number_id'] = $row['number_id'];
+             $number_one ="Number:-".$row['number_one'];
          
          }
-         echo "</tbody>
+         $html .= "</tbody>
          </table>";
+         $session = 1;
+     
         
          } 
      else {
-         echo "<tr>
+        $html .= "<tr>
          <td>No Number Added Yet</td>
          <td>No Number Added Yet</td>
          <td>No Number Added Yet</td>
          </tr>";
+         $session = 2;
+         unset($_SESSION['number_id']);
+         $number_one ="";
          
      }
+
+    
+     $res['htmladd'] = $html;
+     $res['sessiondata'] = $session;
+     $res['number_one'] =$number_one;
+
+     echo json_encode($res);
  }
 //cdr details form
 if(isset($_REQUEST['cdrdetailform']))
@@ -247,7 +260,7 @@ if(isset($_REQUEST['cdrdetailform']))
              <tr id='table-head'>
                  <th scope='col'>S.No</th>
                  <th scope='col'>CDR numbers</th>
-                 <th scope='col'>Update/Delete</th>
+                 <th scope='col'>Delete</th>
              </tr>
          </thead>
          <tbody>";
@@ -260,8 +273,8 @@ if(isset($_REQUEST['cdrdetailform']))
                      <tr>
                      <td>".$i."</td>
                      <td>".$row['cdr']."</td>
-                     <td><a class='ui mini button green' href='#'>Update</a>
-                         <button type='submit'id='delete_cdr'  name='delete_cdr' value='".$row['cdr_id']."' href='#'
+                     <td>
+                         <button type='submit' name='delete_cdr'  id='".$row['cdr_id']."' value='' href='#'
                              class='ui mini red button delete'>
                              Delete
                          </button>
@@ -298,7 +311,7 @@ if(isset($_REQUEST['ipdrdetailform']))
             <tr id='table-head'>
                 <th scope='col'>S.No</th>
                 <th scope='col'>IPDR numbers</th>
-                <th scope='col'>Update/Delete</th>
+                <th scope='col'>Delete</th>
             </tr>
         </thead>
         <tbody>";
@@ -310,8 +323,8 @@ if(isset($_REQUEST['ipdrdetailform']))
                     <tr>
                     <td>".$i."</td>
                     <td>".$row['ipdr']."</td>
-                    <td><a class='ui mini button green' href='#'>Update</a>
-                        <button type='submit' name='delete_ipdr' id='delete_ipdr' value='".$row['ipdr_id']."' href='#'
+                    <td>
+                        <button type='submit' name='delete_ipdr' id='".$row['ipdr_id']."' value='' href='#'
                             class='ui mini red button delete'>
                             Delete
                         </button>
@@ -347,7 +360,7 @@ if(isset($_REQUEST['upidetailform']))
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>UPI Id</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -360,8 +373,8 @@ if(isset($_REQUEST['upidetailform']))
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['upi']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' id='delete_upi' name='delete_upi' value='".$row['upi_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_upi' id='".$row['upi_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -393,12 +406,12 @@ if(isset($_REQUEST['accdetailform']))
      $result2 = $conn->prepare($query);
      $result2->execute();
      $i = 1;
-     echo "<table class='table table-bordered p-0 m-0'>
+     $htmladd= "<table class='table table-bordered p-0 m-0'>
      <thead>
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>Account Number</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -406,13 +419,13 @@ if(isset($_REQUEST['accdetailform']))
      if($result2->rowCount() >0){
          while($row = $result2->fetch(PDO::FETCH_ASSOC)) {
          
-             echo "
+            $htmladd .=  "
              
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['acc_number']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_acc' id='delete_acc' value='".$row['acc_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_acc' id='".$row['acc_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -420,21 +433,31 @@ if(isset($_REQUEST['accdetailform']))
                  </tr>          
          "; 
              $i=$i+1;
+             $_SESSION['acc_id'] = $row['acc_id'];
+             $acc_num ="Account Number:-".$row['acc_number'];
          
          }
         
-        
+         $session = 1;
          } 
      else {
-         echo "<tr>
+        $htmladd .= "<tr>
          <td>No Number Added Yet</td>
          <td>No Number Added Yet</td>
          <td>No Number Added Yet</td>
          </tr>";
+         $session = 2;
          
      }
-     echo "</tbody>
+     $htmladd .= "</tbody>
      </table>";
+
+     $res['htmladd'] = $htmladd;
+     $res['sessiondata'] = $session;
+     $res['acc_num'] =$acc_num;
+
+     echo json_encode($res);
+    
 }
 // pan details form
 if(isset($_REQUEST['pandetailform']))
@@ -449,7 +472,7 @@ if(isset($_REQUEST['pandetailform']))
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>PAN Number</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -462,8 +485,8 @@ if(isset($_REQUEST['pandetailform']))
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['pan']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_pan' id='delete_pan' value='".$row['pan_info_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_pan' id='".$row['pan_info_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -497,7 +520,7 @@ if(isset($_REQUEST['atmdetailform']))
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>Atm footage</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -510,8 +533,8 @@ if(isset($_REQUEST['atmdetailform']))
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['atm_footage']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_atm' id='delete_atm' value='".$row['atm_footage_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_atm' id='".$row['atm_footage_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -548,7 +571,7 @@ if(isset($_REQUEST['iplogdetailform']))
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>iplog</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -561,8 +584,8 @@ if(isset($_REQUEST['iplogdetailform']))
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['iplog']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_iplog' id='delete_iplog' value='".$row['iplog_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_iplog' id='".$row['iplog_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -598,7 +621,7 @@ if(isset($_REQUEST['ewalletdetailform']))
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>Ewallets</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -611,8 +634,8 @@ if(isset($_REQUEST['ewalletdetailform']))
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['upi_name']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_ewallet' id='delete_ewallet' value='".$row['suspect_ewallet_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_ewallet' id='".$row['suspect_ewallet_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
@@ -650,7 +673,7 @@ if(isset($_REQUEST['websitedetailform']))
          <tr id='table-head'>
              <th scope='col'>S.No</th>
              <th scope='col'>Website</th>
-             <th scope='col'>Update/Delete</th>
+             <th scope='col'>Delete</th>
          </tr>
      </thead>
      <tbody>";
@@ -663,8 +686,8 @@ if(isset($_REQUEST['websitedetailform']))
                  <tr>
                  <td>".$i."</td>
                  <td>".$row['website_name']."</td>
-                 <td><a class='ui mini button green' href='#'>Update</a>
-                     <button type='submit' name='delete_website' id='delete_website' value='".$row['website_id']."' href='#'
+                 <td>
+                     <button type='submit' name='delete_website' id='".$row['website_id']."' value='' href='#'
                          class='ui mini red button delete'>
                          Delete
                      </button>
