@@ -290,7 +290,7 @@ const timeDateFormatter = (arry) => {
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
                 console.log(acc_number_acc);
-            fetch("../api/data/update_account.php", { 
+            fetch(, { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
@@ -414,7 +414,7 @@ const timeDateFormatter = (arry) => {
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
                 console.log(acc_number_acc);
-            fetch("../api/data/update_account.php", { 
+            fetch(, { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
@@ -726,7 +726,7 @@ const timeDateFormatter = (arry) => {
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
                 console.log(acc_number_acc);
-            fetch("../api/data/update_account.php", { 
+            fetch(, { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
