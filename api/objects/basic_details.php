@@ -153,6 +153,67 @@
          public $created_date_num;
          public $last_updated_num;
 
+        //Update CDR Variable
+        public $complaint_id_cdr;
+        public $number_id_cdr;
+        public $cdr_id_cdr;
+        public $cdr_cdr;
+        public $email_sent_cdr;
+        public $email_received_cdr;
+        public $imei_cdr;
+        public $imsi_cdr;
+        public $location_cdr;
+        public $location_date_cdr;
+        public $location_time_cdr;
+        public $night_loc_cdr;
+        public $service_name_cdr;
+        public $suspect_number_cdr;
+        public $cdr_pdf_cdr;
+        public $created_date_cdr;
+        public $last_updated_cdr;
+
+        //ipdr Varibles
+        public  $complaint_id_ipdr;
+        public  $number_id_ipdr;
+        public  $ipdr_id_ipdr;
+        public  $ipdr_ipdr;
+        public  $email_sent_ipdr;
+        public  $email_received_ipdr;
+        public  $location_ipdr;
+        public  $website_ipdr;
+        public  $created_date_ipdr;
+        public  $last_updated_ipdr;
+
+        //UPI Update
+        public $complaint_id_upi;
+        public $number_id_upi;
+        public $upi_id_upi;
+        public $upi_upi;
+        public $upi_name_upi;
+        public $upi_link_upi;
+        public $created_date_upi;
+        public $last_updated_upi;
+
+        //Update Ewallet
+        public    $complaint_number_e;
+        public   $suspect_ewallet_e;
+        public   $upi_name_e;
+        public   $mob_number_e;
+        public   $vpa_id_e;
+        public   $statement_e;
+        public   $email_sent_e;
+        public   $email_received_e;
+        public  $linked_account_e;
+        public $beneficiary_e;
+        public    $ip_address_e;
+        public   $ip_add_number_e;
+        public    $device_id_e;
+        public   $merchandise_e;
+        public   $hold_amount_e;
+        public   $number_e;
+        public    $created_date_e;
+        public   $last_updated_e;
+            
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -444,6 +505,111 @@
             }
             return false;
         }
+        function updateNumberCDR(){
+            //Select ALl Query
+            $query = "UPDATE $this->suspect_number_cdr_table SET cdr = :cdr, email_sent = :email_sent, email_received = :email_received, imei = :imei, imsi = :imsi, location = :location, location_date = :location_date, location_time = :location_time, night_loc = :night_loc, service_name = :service_name, suspect_number = :suspect_number, cdr_pdf = :cdr_pdf, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND number_id = :number_id AND cdr_id = :cdr_id";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':cdr', $this->cdr_cdr);
+            $stmt->bindParam(':email_sent', $this->email_sent_cdr);
+            $stmt->bindParam(':email_received', $this->email_received_cdr);
+            $stmt->bindParam(':imei', $this->imei_cdr);
+            $stmt->bindParam(':imsi', $this->imsi_cdr);
+            $stmt->bindParam(':location', $this->location_cdr);
+            $stmt->bindParam(':location_date', $this->location_date_cdr);
+            $stmt->bindParam(':location_time', $this->location_time_cdr);
+            $stmt->bindParam(':night_loc', $this->night_loc_cdr);
+            $stmt->bindParam(':service_name', $this->service_name_cdr);
+            $stmt->bindParam(':suspect_number', $this->suspect_number_cdr);
+            $stmt->bindParam(':cdr_pdf', $this->cdr_pdf_cdr);
+            $stmt->bindParam(':created_date', $this->created_date_cdr);
+            $stmt->bindParam(':last_updated', $this->last_updated_cdr);
+            $stmt->bindParam(':complaint_id', $this->complaint_id_cdr);
+            $stmt->bindParam(':number_id', $this->number_id_cdr);
+            $stmt->bindParam(':cdr_id', $this->cdr_id_cdr);
+            // execute the query
+            if($stmt->execute()){
+                return true;
+            }
+            return false;
+        }
+
+        function updateNumberIPDR() {
+            //Select ALl Query
+            $query = "UPDATE $this->suspect_number_ipdr_table SET ipdr = :ipdr, email_sent = :email_sent, email_received = :email_received, location = :location, website = :website, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND number_id = :number_id AND ipdr_id = :ipdr_id";
+                
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':ipdr', $this->ipdr_ipdr);
+            $stmt->bindParam(':email_sent', $this->email_sent_ipdr);
+            $stmt->bindParam(':email_received', $this->email_received_ipdr);
+            $stmt->bindParam(':location', $this->location_ipdr);
+            $stmt->bindParam(':website', $this->website_ipdr);
+            $stmt->bindParam(':created_date', $this->created_date_ipdr);
+            $stmt->bindParam(':last_updated', $this->last_updated_ipdr);
+            $stmt->bindParam(':complaint_id', $this->complaint_id_ipdr);
+            $stmt->bindParam(':number_id', $this->number_id_ipdr);
+            $stmt->bindParam(':ipdr_id', $this->ipdr_id_ipdr);
+             // execute the query
+             if($stmt->execute()){
+                return true;
+            }
+            return false;
+        }
+
+        function updateNumberUPI() {
+            //Select ALl Query
+            $query = "UPDATE  $this->suspect_number_upi_table  SET upi = :upi, upi_name = :upi_name, upi_link = :upi_link, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND number_id = :number_id AND upi_id = :upi_id";
+                
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':upi', $this->upi_upi);
+            $stmt->bindParam(':upi_name', $this->upi_name_upi);
+            $stmt->bindParam(':upi_link', $this->upi_link_upi);
+            $stmt->bindParam(':created_date', $this->created_date_upi);
+            $stmt->bindParam(':last_updated', $this->last_updated_upi);
+            $stmt->bindParam(':complaint_id', $this->complaint_id_upi);
+            $stmt->bindParam(':number_id', $this->number_id_upi);
+            $stmt->bindParam(':upi_id', $this->upi_id_upi);
+             // execute the query
+             if($stmt->execute()){
+                return true;
+            }
+            return false;
+        }
+        function updateEwallet() {
+             //Select ALl Query
+             $query = "UPDATE $this->suspect_ewallet_table SET `upi_name` = :upi_name,`mob_number` = :mob_number,`vpa_id` = :vpa_id,`statement`= :statement,`email_sent`= :email_sent,`email_received` = :email_received,`linked_account` = :linked_account,`beneficiary` = :beneficiary,`ip_address` = :ip_address,`ip_add_number` = :ip_add_number,`device_id`= :device_id,`merchandise`= :merchandise,`hold_amount` = :hold_amount,`number`= :number,`created_date` = :created_date,`last_updated` = :last_updated WHERE complaint_id = :complaint_id AND suspect_ewallet_id = :suspect_ewallet_id";
+
+             $stmt = $this->conn->prepare($query);
+
+             $stmt->bindParam(':complaint_id', $this->complaint_number_e);
+             $stmt->bindParam(':suspect_ewallet_id', $this->suspect_ewallet_e);
+             $stmt->bindParam(':upi_name', $this->upi_name_e);
+             $stmt->bindParam(':mob_number', $this->mob_number_e);
+             $stmt->bindParam(':vpa_id', $this->vpa_id_e);
+             $stmt->bindParam(':statement', $this->statement_e);
+             $stmt->bindParam(':email_sent', $this->email_sent_e);
+             $stmt->bindParam(':email_received', $this->email_received_e);
+             $stmt->bindParam(':linked_account', $this->linked_account_e);
+             $stmt->bindParam(':beneficiary', $this->beneficiary_e);
+             $stmt->bindParam(':ip_address', $this->ip_address_e);
+             $stmt->bindParam(':ip_add_number', $this->ip_add_number_e);
+             $stmt->bindParam(':device_id', $this->device_id_e);
+             $stmt->bindParam(':merchandise', $this->merchandise_e);
+             $stmt->bindParam(':hold_amount', $this->hold_amount_e);
+             $stmt->bindParam(':number', $this->number_e);
+             $stmt->bindParam(':created_date', $this->created_date_e);
+             $stmt->bindParam(':last_updated', $this->last_updated_e);
+
+            // execute the query
+            if($stmt->execute()){
+                return true;
+            }
+            return false;
+        } 
+        
         function readAll_complainee(){
 
             //Select All Query
