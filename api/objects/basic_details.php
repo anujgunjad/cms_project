@@ -203,17 +203,26 @@
         public   $statement_e;
         public   $email_sent_e;
         public   $email_received_e;
-        public  $linked_account_e;
-        public $beneficiary_e;
-        public    $ip_address_e;
+        public   $linked_account_e;
+        public   $beneficiary_e;
+        public   $ip_address_e;
         public   $ip_add_number_e;
-        public    $device_id_e;
+        public   $device_id_e;
         public   $merchandise_e;
         public   $hold_amount_e;
         public   $number_e;
-        public    $created_date_e;
+        public   $created_date_e;
         public   $last_updated_e;
             
+        //Update Website
+        public  $complaint_id_web;
+        public  $website_id_web;
+        public  $website_name_web;
+        public  $website_domain_web;
+        public  $mail_id_web;
+        public  $website_mobile_number_web;
+        public  $created_date_web;
+        public  $last_updated_web;
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -639,6 +648,32 @@
              return false;  
             }
         } 
+
+        function updateWebsite(){
+             //Select ALl Query
+             $query = "UPDATE $this->suspect_website_table SET website_name = :website_name, website_domain = :website_domain, mail_id = :mail_id, website_mobile_number = :website_mobile_number, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND website_id = :website_id";
+
+             $stmt = $this->conn->prepare($query);
+
+             $stmt->bindParam(':complaint_id', $this->complaint_id_web);
+             $stmt->bindParam(':website_id', $this->website_id_web);
+             $stmt->bindParam(':website_name', $this->website_name_web);
+             $stmt->bindParam(':website_domain', $this->website_domain_web);
+             $stmt->bindParam(':mail_id', $this->mail_id_web);
+             $stmt->bindParam(':website_mobile_number', $this->website_mobile_number);
+             $stmt->bindParam(':created_date', $this->created_date_web);
+             $stmt->bindParam(':last_updated', $this->last_updated_web);
+            
+             $stmt->execute();
+             $count = $stmt->rowCount(); 
+           
+             // execute the query
+             if ( $count > 0 ) {
+                 return true; 
+            } else {
+             return false;  
+            }
+        }
         
         function readAll_complainee(){
 
