@@ -195,7 +195,7 @@
         public $last_updated_upi;
 
         //Update Ewallet
-        public    $complaint_number_e;
+        public    $complaint_id_e;
         public   $suspect_ewallet_e;
         public   $upi_name_e;
         public   $mob_number_e;
@@ -273,13 +273,15 @@
             $stmt->bindParam(':created_date_basic', $this->created_date_basic);
             $stmt->bindParam(':last_update_basic', $this->last_update_basic);
             $stmt->bindParam(':complaint_status_basic', $this->complaint_status_basic);
-
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
             // execute the query
-            if($stmt->execute()){
-                return true;
-            }
-  
-            return false;
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         }
          //Update Account Function
          function updateAcc() 
@@ -335,12 +337,15 @@
              $stmt->bindParam(':created_date_acc', $this->created_date_acc);
              $stmt->bindParam(':last_updated_acc', $this->last_updated_acc);
 
+             $stmt->execute();
+             $count = $stmt->rowCount(); 
+           
              // execute the query
-             if($stmt->execute()){
-                 return true;
-             }
-   
-             return false;
+             if ( $count > 0 ) {
+                 return true; 
+            } else {
+             return false;  
+            }
          }
          //account atm function
         function updateAcc_atm(){
@@ -366,13 +371,15 @@
             $stmt->bindParam(':created_date_atm', $this->created_date_atm);
             $stmt->bindParam(':last_updated_atm', $this->last_updated_atm);
 
-             // execute the query
-             if($stmt->execute()){
-                return true;
-            }
-  
-            return false;
-
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
+            // execute the query
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         }  
         function updateAcc_pan(){
             $query = "UPDATE $this->suspect_account_pan_table SET complaint_id=:complaint_id_pan,acc_id=:acc_id_pan,pan_info_id=:pan_info_id_pan,pan=:pan_pan,pan_verified=:pan_verified_pan,pan_username=:pan_username_pan,adhar_number=:adhar_number_pan,income_tax=:income_tax_pan,gst_in=:gst_in_pan,tin=:tin_pan,sales_tax=:sales_tax_pan,created_date=:created_date_pan,last_updated=:last_updated_pan WHERE complaint_id=:complaint_id_pan and acc_id=:acc_id_pan and pan_info_id=:pan_info_id_pan";
@@ -405,17 +412,18 @@
             $stmt->bindParam(':sales_tax_pan', $this->sales_tax_pan);
             $stmt->bindParam(':created_date_pan', $this->created_date_pan);
             $stmt->bindParam(':last_updated_pan', $this->last_updated_pan);
-
-             // execute the query
-             if($stmt->execute()){
-                return true;
-            }
-  
-            return false;
-
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
+            // execute the query
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         } 
         function updateAcc_iplog(){
-            $query = "UPDATE $this->suspect_account_iplogs_table SET complaint_id = :complaint_id_iplog, acc_id= :acc_id_iplog, iplog_id = :iplog_id_iplog, iplog = :iplog_iplog, email_sent = :email_sent_iplog, email_received = :email_received_iplog, created_date = :created_date_iplog, last_updated = :last_updated_iplog WHERE complaint_id = :complaint_id_iplog AND  acc_id = :acc_id_iplog And iplog_id=:iplog_id_iplog";
+            $query = "UPDATE $this->suspect_account_iplogs_table SET complaint_id = :complaint_id_iplog, acc_id= :acc_id_iplog, iplog_id = :iplog_id_iplog, iplog = :iplog_iplog, email_sent = :email_sent_iplog, email_received = :email_received_iplog, created_date = :created_date_iplog, last_updated = :last_updated_iplog WHERE complaint_id = :complaint_id_iplog AND  acc_id = :acc_id_iplog And iplog_id = :iplog_id_iplog";
          
             $stmt = $this->conn->prepare($query);
 
@@ -437,12 +445,15 @@
             $stmt->bindParam(':created_date_iplog', $this->created_date_iplog);
             $stmt->bindParam(':last_updated_iplog', $this->last_updated_iplog);
 
-             // execute the query
-             if($stmt->execute()){
-                return true;
-            }
-  
-            return false;
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
+            // execute the query
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
 
         } 
 
@@ -498,12 +509,15 @@
             $stmt->bindParam(':caf_id', $this->caf_id_num);
             $stmt->bindParam(':created_date', $this->created_date_num);
             $stmt->bindParam(':last_updated', $this->last_updated_num);
-
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
             // execute the query
-            if($stmt->execute()){
-                return true;
-            }
-            return false;
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         }
         function updateNumberCDR(){
             //Select ALl Query
@@ -528,11 +542,15 @@
             $stmt->bindParam(':complaint_id', $this->complaint_id_cdr);
             $stmt->bindParam(':number_id', $this->number_id_cdr);
             $stmt->bindParam(':cdr_id', $this->cdr_id_cdr);
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
             // execute the query
-            if($stmt->execute()){
-                return true;
-            }
-            return false;
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         }
 
         function updateNumberIPDR() {
@@ -551,11 +569,15 @@
             $stmt->bindParam(':complaint_id', $this->complaint_id_ipdr);
             $stmt->bindParam(':number_id', $this->number_id_ipdr);
             $stmt->bindParam(':ipdr_id', $this->ipdr_id_ipdr);
-             // execute the query
-             if($stmt->execute()){
-                return true;
-            }
-            return false;
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
+            // execute the query
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         }
 
         function updateNumberUPI() {
@@ -572,19 +594,23 @@
             $stmt->bindParam(':complaint_id', $this->complaint_id_upi);
             $stmt->bindParam(':number_id', $this->number_id_upi);
             $stmt->bindParam(':upi_id', $this->upi_id_upi);
-             // execute the query
-             if($stmt->execute()){
-                return true;
-            }
-            return false;
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+          
+            // execute the query
+            if ( $count > 0 ) {
+                return true; 
+           } else {
+            return false;  
+           }
         }
         function updateEwallet() {
              //Select ALl Query
-             $query = "UPDATE $this->suspect_ewallet_table SET `upi_name` = :upi_name,`mob_number` = :mob_number,`vpa_id` = :vpa_id,`statement`= :statement,`email_sent`= :email_sent,`email_received` = :email_received,`linked_account` = :linked_account,`beneficiary` = :beneficiary,`ip_address` = :ip_address,`ip_add_number` = :ip_add_number,`device_id`= :device_id,`merchandise`= :merchandise,`hold_amount` = :hold_amount,`number`= :number,`created_date` = :created_date,`last_updated` = :last_updated WHERE complaint_id = :complaint_id AND suspect_ewallet_id = :suspect_ewallet_id";
+             $query = "UPDATE $this->suspect_ewallet_table SET upi_name = :upi_name, mob_number = :mob_number, vpa_id = :vpa_id, statement = :statement, email_sent = :email_sent, email_received  = :email_received, linked_account = :linked_account, beneficiary = :beneficiary, ip_address = :ip_address, ip_add_number = :ip_add_number, device_id = :device_id, merchandise = :merchandise, hold_amount  = :hold_amount, number = :number, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND suspect_ewallet_id = :suspect_ewallet_id";
 
              $stmt = $this->conn->prepare($query);
 
-             $stmt->bindParam(':complaint_id', $this->complaint_number_e);
+             $stmt->bindParam(':complaint_id', $this->complaint_id_e);
              $stmt->bindParam(':suspect_ewallet_id', $this->suspect_ewallet_e);
              $stmt->bindParam(':upi_name', $this->upi_name_e);
              $stmt->bindParam(':mob_number', $this->mob_number_e);
@@ -603,11 +629,15 @@
              $stmt->bindParam(':created_date', $this->created_date_e);
              $stmt->bindParam(':last_updated', $this->last_updated_e);
 
-            // execute the query
-            if($stmt->execute()){
-                return true;
+             $stmt->execute();
+             $count = $stmt->rowCount(); 
+           
+             // execute the query
+             if ( $count > 0 ) {
+                 return true; 
+            } else {
+             return false;  
             }
-            return false;
         } 
         
         function readAll_complainee(){
