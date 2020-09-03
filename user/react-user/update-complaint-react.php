@@ -99,7 +99,7 @@ const timeDateFormatter = (arry) => {
                 ctdd = document.getElementById("complaint_type"),
                 complaint_type_basic = ctdd.options[ctdd.selectedIndex].value ? ctdd.options[ctdd.selectedIndex].value : this.state.applicant.complaint_type_id,
                 sctdd = document.getElementById("complaint_type"),
-                sub_complaint_type_basic = sctdd.options[sctdd.selectedIndex].value ? sctdd.options[sctdd.selectedIndex].value : tihs.state.applicant.sub_complaint_type_id,
+                sub_complaint_type_basic = sctdd.options[sctdd.selectedIndex].value ? sctdd.options[sctdd.selectedIndex].value : this.state.applicant.sub_complaint_type_id,
                 it_act_basic = document.getElementById("it_act").value?document.getElementById("it_act").value : this.state.applicant.it_act,
                 bh_dv_basic = document.getElementById("bh_dv").value?document.getElementById("bh_dv").value : this.state.applicant.bh_dv,
                 crime_date_basic = document.getElementById("crime_date").value?document.getElementById("crime_date").value : this.state.applicant.crime_date,
