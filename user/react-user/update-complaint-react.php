@@ -714,38 +714,27 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({ewallets: data.ewallet});
+                    console.log(data.ewallet);
                 })
                 .catch(console.log)
         }
         
         updateEwalletsDetails = (suspect_ewallet_id) => {
             let id = idFetcher(); 
-            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
-            const account = accountArry[0];
-            let complaint_id_acc = id,
-                acc_id_acc = account.acc_id,
-                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
-                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
-                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
-                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
-                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
-                mail_received_acc = document.getElementById("acc_mail_recieved_" + account_id).value?document.getElementById("acc_mail_recieved_" + account_id).value : account.mail_received,
-                freeze_amount_acc = document.getElementById("acc_freeze_amount_" + account_id).value?document.getElementById("acc_freeze_amount_" + account_id).value : account.freeze_amount,
-                kyc_name_acc = document.getElementById("acc_kyc_name_" + account_id).value?document.getElementById("acc_kyc_name_" + account_id).value : account.kyc_name,
-                address_acc = document.getElementById("acc_address_" + account_id).value?document.getElementById("acc_address_" + account_id).value : account.address,
-                city_acc = document.getElementById("acc_city_" + account_id).value?document.getElementById("acc_city_" + account_id).value : account.city,
-                state_twice_acc = document.getElementById("acc_state_twice_" + account_id).value?document.getElementById("acc_state_twice_" + account_id).value : account.state_twice,
-                altername_number_acc = document.getElementById("acc_alternate_number_" + account_id).value?document.getElementById("acc_alternate_number_" + account_id).value : account.alternate_number,
-                profit_acc_acc = document.getElementById("acc_profit_acc_" + account_id).value?document.getElementById("acc_profit_acc_" + account_id).value : account.profit_acc,
-                internet_banking_acc = document.getElementById("acc_internet_banking_" + account_id).value?document.getElementById("acc_internet_banking_" + account_id).value : account.internet_banking,
-                bank_manager_name_acc = document.getElementById("acc_bank_manager_name_" + account_id).value?document.getElementById("acc_bank_manager_name_" + account_id).value : account.bank_manager_name,
-                bank_manager_number_acc = account.bank_manager_number,
-                kyc_pdf_acc = account.kyc_pdf,
-                bank_statement_file_acc = account.bank_statement_file,
-                created_date_acc = account.created_date,
-                last_updated_acc = Date().toLocaleString();
-                console.log(acc_number_acc);
-            fetch("", { 
+            const ewalletArry = this.state.ewallets.filter(ewallet => ewallet.suspect_ewallet_id == suspect_ewallet_id);
+            const ewallet = ewalletArry[0];
+            let complaint_id_e = id,
+                suspect_ewallet_e = ewallet.suspect_ewallet_id,
+                upi_name_e = document.getElementById("ewallet_upi_name_" + suspect_ewallet_id).value?document.getElementById("ewallet_upi_name_" + suspect_ewallet_id).value : ewallet.upi_name,
+                mob_number_e = document.getElementById("ewallet_mob_number_" + suspect_ewallet_id).value?document.getElementById("ewallet_mob_number_" + suspect_ewallet_id).value : ewallet.mob_number,
+                vpa_id_e = document.getElementById("ewallet_vpa_id_" + suspect_ewallet_id).value?document.getElementById("ewallet_vpa_id_" + suspect_ewallet_id).value : ewallet.vpa_id,
+                statement_e = document.getElementById("ewallet_statement_" + suspect_ewallet_id).value?document.getElementById("ewallet_statement_" + suspect_ewallet_id).value : ewallet.statement,
+                email_sent_e = document.getElementById("ewallet_email_sent_" + suspect_ewallet_id).value?document.getElementById("ewallet_email_sent_" + suspect_ewallet_id).value : ewallet.email_sent,
+                email_received_e = document.getElementById("ewallet_email_received_" + suspect_ewallet_id).value?document.getElementById("ewallet_email_received_" + suspect_ewallet_id).value : ewallet.email_received,
+                linked_account_e = document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value?document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value : ewallet.linked_account,
+                beneficiary_e = document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value?document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value : ewallet.linked_account,
+                
+            fetch("../api/data/update_ewallet.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
@@ -805,19 +794,19 @@ const currentDate = (date) => {
                                 <tr>
                                 <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_sent_" + ewallet.suspect_ewallet_id } type="date" /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_received_" + ewallet.suspect_ewallet_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभार्थी (Beneficiary)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_beneficiary_" + ewallet.suspect_ewallet_id } type="text" placeholder={} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_linked_account_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.linked_account} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_address_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_address} /></td>
                                 </tr>
                                 <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_address_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_address} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Address नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_ip_add_number_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.ip_add_number} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">डिवाइस आईडी</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_device_id_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.device_id} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">व्यापार (Merchandise)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_merchandise_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.merchandise} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_hold_amount_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.hold_amount} /></td>
                                 </tr>
                                 <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">मौजूद राशि</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_hold_amount_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.hold_amount} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_number_" + ewallet.suspect_ewallet_id } type="number" placeholder={ewallet.number} /></td>
                                     <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateEwalletsDetails(ewallet.suspect_ewallet_id)}>Update</button></td>
-                                    <td></td>
                                     <td></td>
                                 </tr>
                                
