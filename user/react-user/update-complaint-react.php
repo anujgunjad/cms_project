@@ -270,16 +270,17 @@ const timeDateFormatter = (arry) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({suspects: data.suspects});
+                    console.log(data.suspects);
                 })
                 .catch(console.log)
         }
         updateSuspectDetails = (suspect_id) => {
             let id = idFetcher(); 
-            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
+            const suspectArry = this.state.accounts.filter(suspect => suspect.suspect_id == suspect_id);
             const account = accountArry[0];
-            let complaint_id_acc = id,
-                acc_id_acc = account.acc_id,
-                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
+            let complaint_id_suspect = id,
+                suspect_id_suspect = account.suspect_id,
+                suspect_name_suspect = document.getElementById("sus_suspect_name_" + suspect_id).value?document.getElementById("sus_suspect_name_" + suspect_id).value : suspect.suspect_name,
                 bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
                 state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
                 branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
