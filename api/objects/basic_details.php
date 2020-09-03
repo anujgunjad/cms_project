@@ -147,7 +147,7 @@
          public $pdf_num;
          public $confirmation_num;
          public $remark_num;
-         public $remainder_num;
+         public $reminder_num;
          public $mail_id_num;
          public $caf_id_num;
          public $created_date_num;
@@ -486,33 +486,9 @@
 
         function updateNumber(){
             //Query
-            $query = "UPDATE $this->suspect_number_table SET  number_one = :number_one, company = :company, files = :files, email_sent = :email_sent, email_received = :email_received, suspect_name = :suspect_name, suspect_address = :suspect_address, city = :city, state = :state, retailer_name = :retailer_name, uid_num = :uid_num, other_num = :other_num, pdf = :pdf, confirmation = :confirmation, remark = :remark, reminder = :reminder, mail_id = :mail_id, caf_date = :caf_date, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND number_id = :number_id";
+            $query = "UPDATE $this->suspect_number_table SET number_one = :number_one, company = :company, files = :files, email_sent = :email_sent, email_received = :email_received, suspect_name = :suspect_name, suspect_address = :suspect_address, city = :city, state = :state, retailer_name = :retailer_name, uid_num = :uid_num, other_num = :other_num, pdf = :pdf, confirmation = :confirmation, remark = :remark, reminder = :reminder, mail_id = :mail_id, caf_date = :caf_date, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND number_id = :number_id";
 
             $stmt = $this->conn->prepare($query);
-            
-        
-            // $this->complaint_id_num = htmlspecialchars(strip_tags($this->complaint_id_num));
-            // $this->number_id_num = htmlspecialchars(strip_tags($this->number_id_num));
-            // $this->number_one_num = htmlspeialchars(strip_tags($this->number_one_num));
-            // $this->company_num = htmlspecialchars(strip_tags( $this->company_num));
-            // $this->files_num = htmlspecialchars(strip_tags($this->files_num));
-            // $this->email_sent_num = htmlspecialchars(strip_tags($this->email_sent_num));
-            // $this->email_received_num = htmlspecialchars(strip_tags($this->email_received_num));
-            // $this->suspect_name_num = htmlspecialchars(strip_tags($this->suspect_name_num));
-            // $this->suspect_address_num = htmlspecialchars(strip_tags($this->suspect_address_num));
-            // $this->city_num = htmlspeialchars(strip_tags($this->city_num));
-            // $this->state_num = htmlspecialchars(strip_tags( $this->state_num));
-            // $this->retailer_name_num = htmlspecialchars(strip_tags($this->retailer_name_num));
-            // $this->uid_num_num = htmlspecialchars(strip_tags($this->uid_num_num));
-            // $this->other_num_num = htmlspecialchars(strip_tags($this->other_num_num));
-            // $this->pdf_num = htmlspecialchars(strip_tags($this->pdf_num));
-            // $this->confirmation_num = htmlspecialchars(strip_tags($this->confirmation_num));
-            // $this->remark_num = htmlspecialchars(strip_tags( $this->remark_num));
-            // $this->remainder_num = htmlspecialchars(strip_tags($this->remainder_num));
-            // $this->mail_id_num = htmlspecialchars(strip_tags($this->mail_id_num));
-            // $this->caf_id_num = htmlspecialchars(strip_tags($this->caf_id_num));
-            // $this->created_date_num = htmlspecialchars(strip_tags($this->created_date_num));
-            // $this->last_updated_num = htmlspecialchars(strip_tags($this->last_updated_num));
 
             $stmt->bindParam(':complaint_id', $this->complaint_id_num);
             $stmt->bindParam(':number_id', $this->number_id_num);
@@ -531,9 +507,9 @@
             $stmt->bindParam(':pdf', $this->pdf_num);
             $stmt->bindParam(':confirmation', $this->confirmation_num);
             $stmt->bindParam(':remark', $this->remark_num);
-            $stmt->bindParam(':remainder', $this->remainder_num);
+            $stmt->bindParam(':reminder', $this->reminder_num);
             $stmt->bindParam(':mail_id', $this->mail_id_num);
-            $stmt->bindParam(':caf_id', $this->caf_id_num);
+            $stmt->bindParam(':caf_date', $this->caf_id_num);
             $stmt->bindParam(':created_date', $this->created_date_num);
             $stmt->bindParam(':last_updated', $this->last_updated_num);
             $stmt->execute();
@@ -787,7 +763,7 @@
         function read_suspect(){
 
             //Select Query
-            $query = "Select c.complaint_no as complaint_number, s.suspect_id, s.suspect_name, s.suspect_address, s.email_id, s.domain_name, s.upi_phone_no, s.upivpa, s.software_name, s.complaint_action, s.pending_reason, s.remark, s.created_date, s.last_updated from $this->suspect_table s LEFT JOIN $this->complainee_table c ON s.complaint_id = c.complaint_id WHERE s.complaint_id = ?";
+            $query = "Select c.complaint_no as complaint_number, s.suspect_id, s.suspect_name, s.suspect_address, s.suspect_mob, s.email_id, s.domain_name, s.upi_phone_no, s.upivpa, s.software_name, s.complaint_action, s.pending_reason, s.remark, s.created_date, s.last_updated from $this->suspect_table s LEFT JOIN $this->complainee_table c ON s.complaint_id = c.complaint_id WHERE s.complaint_id = ?";
             
             //Prepare query statement
             $stmt = $this->conn->prepare($query);
