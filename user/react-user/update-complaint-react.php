@@ -851,36 +851,39 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({websites: data.website});
+                    console.log("websites");
+                    console.log(data.website);
                 })
                 .catch(console.log)
         }
         
         updateWebsiteDetails = (website_id) => {
             let id = idFetcher(); 
-            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
-            const account = accountArry[0];
-            let complaint_id_acc = id,
-                acc_id_acc = account.acc_id,
-                acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
-                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
-                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
-                created_date_acc = account.created_date,
-                last_updated_acc = Date().toLocaleString();
-                console.log(acc_number_acc);
-            fetch("", { 
+            const websiteArry = this.state.websites.filter(website => website.website_id == website_id);
+            const website = websiteArry[0];
+            let complaint_id_web = id,
+                website_id_web = website.website_id,
+                website_name_web = document.getElementById("web_website_name_" + website_id).value?document.getElementById("web_website_name_" + website_id).value : website.website_name,
+                website_domain_web = document.getElementById("web_website_domain_" + website_id).value?document.getElementById("web_website_domain_" + website_id).value : website.website_domain,
+                mail_id_web = document.getElementById("web_mail_id_" + website_id).value?document.getElementById("web_mail_id_" + website_id).value : website.mail_id,
+                website_mobile_number = document.getElementById("web_website_mobile_number_" + website_id).value?document.getElementById("web_website_mobile_number_" + website_id).value : website.website_mobile_number,
+                created_date_web = website.created_date,
+                suspect_websites_date = new Date(),
+                last_updated_web = currentDate(suspect_websites_date);
+               
+            fetch("../api/data/update_website.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                    complaint_id_acc,
-                    acc_id_acc,
-                    acc_number_acc,
-                    bank_name_acc,
-                    state_acc,          
-                    branch_name_acc,
-                    bank_statement_file_acc,
-                    created_date_acc,
-                    last_updated_acc,
+                    complaint_id_web,
+                    website_id_web,
+                    website_name_web,
+                    website_domain_web,
+                    mail_id_web,          
+                    website_mobile_number,
+                    created_date_web,
+                    last_updated_web,
                 })
             }) 
                 // update done
@@ -909,7 +912,7 @@ const currentDate = (date) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> वेबसाइट का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_name_" + website.website_id } type="text" placeholder={website.website_name } /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट का डोमेन</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_domain_" + website.website_id } type="text" placeholder={website.website_domain } /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल आईडी</h4><input class="rounded py-2 mt-1 px-2" id={"web_mail_id_" + website.website_id } type="text" placeholder={website.mail_id } /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_mobile_number_" + website.website_id } type="number" placeholder={website.website_mobile_number } /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट मोबाइल नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"web_website_mobile_number_" + website.website_id } type="number" placeholder={website.website_mobile_number} /></td>
                                 </tr>
                                 <tr>
                                 <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateWebsiteDetails(website.website_id)}>Update</button></td>
