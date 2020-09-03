@@ -28,9 +28,6 @@ const currentDate = (date) => {
                 return (date.getFullYear()) + "-" + date.getMonth() + "-" + date.getDate() + " " + strTime;
             }
 
-
-
-console.log(e);
   class Applicant extends React.Component {
     state = {
           applicant: {},
@@ -119,9 +116,8 @@ console.log(e);
                 freeze_amount_basic = document.getElementById("freeze_amount").value?document.getElementById("freeze_amount").value : this.state.applicant.freeze_amount,
                 checker_name_basic = document.getElementById("checker_name").value?document.getElementById("checker_name").value : this.state.applicant.checker_name,
                 created_date_basic =  this.state.applicant.created_date,
-                // last_update_basic =  Date.toLocaleString(),
                 basic_details_date = new Date(),
-                last_update_basic = currentDate(basic_details_date);
+                last_update_basic = currentDate(basic_details_date),
                 complaint_status_basic =  this.state.applicant.complaint_status;
                 
             fetch("../api/data/update_basic.php", { 
@@ -307,25 +303,28 @@ console.log(e);
                 pending_reason_suspect = document.getElementById("sus_pending_reason_" + suspect_id).value?document.getElementById("sus_pending_reason_" + suspect_id).value : suspect.pending_reason,
                 remark_suspect = document.getElementById("sus_remark_" + suspect_id).value?document.getElementById("sus_remark_" + suspect_id).value : suspect.remark,
                 created_date_suspect = suspect.created_date,
-                last_updated_acc = Date().toLocaleString();
-                console.log(acc_number_acc);
+                suspect_details_date = new Date(),
+                last_updated_suspect = currentDate(suspect_details_date);
             fetch("", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                    complaint_id_acc,
-                    acc_id_acc,
-                    acc_number_acc,
-                    bank_name_acc,
-                    state_acc,          
-                    branch_name_acc,
-                    mail_date_acc,
-                    bank_manager_number_acc,
-                    kyc_pdf_acc,
-                    bank_statement_file_acc,
-                    created_date_acc,
-                    last_updated_acc,
+                    complaint_id_suspect,
+                    suspect_id_suspect,
+                    suspect_name_suspect,
+                    suspect_address_suspect,
+                    suspect_mob_suspect,
+                    email_id_suspect,
+                    domain_name_suspect,
+                    upi_phone_no_suspect,
+                    upivpa_suspect,
+                    software_name_suspect,
+                    complaint_action_suspect,
+                    pending_reason_suspect,
+                    remark_suspect,
+                    created_date_suspect,
+                    last_updated_suspect,
                 })
             }) 
                 // update done
