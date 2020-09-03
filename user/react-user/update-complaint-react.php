@@ -82,7 +82,7 @@ const currentDate = (date) => {
                 let crimeDateRev = applicant[0].crime_date,
                     crimeDate = dateFormatter(crimeDateRev);
                 this.setState({ crimeDate: crimeDate});
-                console.log(applicant);
+                // console.log(applicant);
                 console.log(document.getElementById("ap_name").value);
                 })
                 .catch(console.log)
@@ -280,8 +280,7 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({suspects: data.suspects});
-                    console.log("hiadfhsdkjf");
-                    console.log(data.suspects);
+                    // console.log(data.suspects);
                 })
                 .catch(console.log)
         }
@@ -401,16 +400,17 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({numbers: data.numbers});
+                    console.log("numbers");
                     console.log(this.state.numbers);
                 })
                 .catch(console.log)
         }
         updateNumberDetails = (number_id) => {
             let id = idFetcher(); 
-            const accountArry = this.state.accounts.filter(account => account.acc_id == account_id);
-            const account = accountArry[0];
-            let complaint_id_acc = id,
-                acc_id_acc = account.acc_id,
+            const numberArry = this.state.numbers.filter(number => number.number_id == number_id);
+            const number = numberArry[0];
+            let complaint_id_num = id,
+                number_id_num = number.number_id,
                 acc_number_acc = document.getElementById("acc_number_" + account_id).value?document.getElementById("acc_number_" + account_id).value : account.acc_number,
                 bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
                 state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
@@ -432,7 +432,7 @@ const currentDate = (date) => {
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
                 console.log(acc_number_acc);
-            fetch("", { 
+            fetch("../api/data/update_number.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
@@ -558,7 +558,7 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({accounts: data.accounts});
-                    console.log(this.state.accounts);
+                    // console.log(this.state.accounts);
                 })
                 .catch(console.log)
         }
