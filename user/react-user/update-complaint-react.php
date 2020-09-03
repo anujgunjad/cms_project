@@ -732,7 +732,8 @@ const currentDate = (date) => {
                 statement_e = document.getElementById("ewallet_statement_" + suspect_ewallet_id).value?document.getElementById("ewallet_statement_" + suspect_ewallet_id).value : ewallet.statement,
                 email_sent_e = document.getElementById("ewallet_email_sent_" + suspect_ewallet_id).value?document.getElementById("ewallet_email_sent_" + suspect_ewallet_id).value : ewallet.email_sent,
                 email_received_e = document.getElementById("ewallet_email_received_" + suspect_ewallet_id).value?document.getElementById("ewallet_email_received_" + suspect_ewallet_id).value : ewallet.email_received,
-                beneficiary_e = document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value?document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value : ewallet.beneficiary,
+                // beneficiary_e = document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value?document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value : ewallet.beneficiary,
+                beneficiary_e = "",
                 linked_account_e = document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value?document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value : ewallet.linked_account,
                 ip_address_e = document.getElementById("ewallet_ip_address_" + suspect_ewallet_id).value?document.getElementById("ewallet_ip_address_" + suspect_ewallet_id).value : ewallet.ip_address,
                 ip_add_number_e = document.getElementById("ewallet_ip_add_number_" + suspect_ewallet_id).value?document.getElementById("ewallet_ip_add_number_" + suspect_ewallet_id).value : ewallet.ip_add_number,
@@ -765,9 +766,8 @@ const currentDate = (date) => {
                     merchandise_e,
                     hold_amount_e,
                     number_e,
-                    created_date_e = ewallet.created_date,
-                suspect_ewallets_date = new Date(),
-                last_updated_e = currentDate(suspect_ewallets_date);
+                    created_date_e,
+                    last_updated_e,
                 })
             }) 
                 // update done
