@@ -223,6 +223,24 @@
         public  $website_mobile_number_web;
         public  $created_date_web;
         public  $last_updated_web;
+
+        //Suspect Website
+        public  $suspect_name_suspect;
+        public  $suspect_address_suspect;
+        public  $suspect_mob_suspect;
+        public  $email_id_suspect;
+        public  $domain_name_suspect;
+        public  $upi_phone_no_suspect;
+        public  $upivpa_suspect;
+        public  $software_name_suspect;
+        public  $complaint_action_suspect;
+        public  $pending_reason_suspect;
+        public  $remark_suspect;  
+        public  $created_date_suspect;  
+        public  $last_updated_suspect; 
+        public  $complaint_id_suspect; 
+        public  $suspect_id_suspect;
+
         // constructor with $db as database connection
         public function __construct($db){
             $this->conn = $db;
@@ -668,13 +686,45 @@
              $count = $stmt->rowCount(); 
            
              // execute the query
-             if ( $count > 0 ) {
+            if ( $count > 0 ) {
                  return true; 
             } else {
              return false;  
             }
         }
         
+        function updateSuspect(){
+            //Select ALl Query
+            $query = "UPDATE $this->suspect_table SET suspect_name = :suspect_name, suspect_address = :suspect_address, suspect_mob = :suspect_mob, email_id = :email_id, domain_name = :domain_name, upi_phone_no = :upi_phone_no, upivpa = :upivpa, software_name = :software_name, complaint_action = :complaint_action, pending_reason = :pending_reason, remark = :remark, created_date = :created_date, last_updated = :last_updated WHERE complaint_id = :complaint_id AND suspect_id = :suspect_id";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':suspect_name', $this->suspect_name_suspect);
+            $stmt->bindParam(':suspect_address', $this->suspect_address_suspect);
+            $stmt->bindParam(':suspect_mob', $this->suspect_mob_suspect);
+            $stmt->bindParam(':email_id', $this->email_id_suspect);
+            $stmt->bindParam(':domain_name', $this->domain_name_suspect);
+            $stmt->bindParam(':upi_phone_no', $this->upi_phone_no_suspect);
+            $stmt->bindParam(':upivpa', $this->upivpa_suspect);
+            $stmt->bindParam(':software_name', $this->software_name_suspect);
+            $stmt->bindParam(':complaint_action', $this->complaint_action_suspect);
+            $stmt->bindParam(':pending_reason', $this->pending_reason_suspect);
+            $stmt->bindParam(':remark', $this->remark_suspect);  
+            $stmt->bindParam(':created_date', $this->created_date_suspect);  
+            $stmt->bindParam(':last_updated', $this->last_updated_suspect); 
+            $stmt->bindParam(':complaint_id', $this->complaint_id_suspect); 
+            $stmt->bindParam(':suspect_id', $this->suspect_id_suspect);   
+            
+            $stmt->execute();
+            $count = $stmt->rowCount(); 
+           
+            //execute the query
+            if ( $count > 0 ) {
+                return true; 
+            } else {
+                return false;  
+            }
+        }
         function readAll_complainee(){
 
             //Select All Query
