@@ -32,7 +32,6 @@ const timeDateFormatter = (arry) => {
         }
         componentDidMount(){
             this.getCountries();
-            this.getStates();
             this.fetchApplicantData();
         }
         getCountries(){
@@ -44,7 +43,7 @@ const timeDateFormatter = (arry) => {
         }
         getStates = () => {
             let c_dd = document.getElementById("country"),
-                c_id = c_dd.options[c_dd.selectedIndex].value;
+                c_id = c_dd.options[c_dd.selectedIndex].value ? c_dd.options[c_dd.selectedIndex].value : this.state.applicant.country_id;
             fetch(`../api/data/read_state.php?country_id=${c_id}`)
             .then(res => res.json())
             .then((data) => {
@@ -53,7 +52,7 @@ const timeDateFormatter = (arry) => {
         }
         getCities = () => {
             let s_dd = document.getElementById("states"),
-                s_id = s_dd.options[s_dd.selectedIndex].value;
+                s_id = s_dd.options[s_dd.selectedIndex].value ? s_dd.options[s_dd.selectedIndex].value : this.state.applicant.state_id;
                 console.log(s_id);
             fetch(`../api/data/read_city.php?state_id=${s_id}`)
             .then(res => res.json())
@@ -98,9 +97,9 @@ const timeDateFormatter = (arry) => {
                 ap_pin_code_basic = document.getElementById("ap_pin_code").value?document.getElementById("ap_pin_code").value : this.state.applicant.ap_pin_code,
                 ap_adhar_basic = document.getElementById("ap_adhar").value?document.getElementById("ap_adhar").value : this.state.applicant.ap_adhar,
                 ctdd = document.getElementById("complaint_type"),
-                complaint_type_basic = ctdd.options[ctdd.selectedIndex].value,
+                complaint_type_basic = ctdd.options[ctdd.selectedIndex].value ? ctdd.options[ctdd.selectedIndex].value : this.state.applicant.complaint_type_id,
                 sctdd = document.getElementById("complaint_type"),
-                sub_complaint_type_basic = sctdd.options[sctdd.selectedIndex].value,
+                sub_complaint_type_basic = sctdd.options[sctdd.selectedIndex].value ? sctdd.options[sctdd.selectedIndex].value : tihs.state.applicant.sub_complaint_type_id,
                 it_act_basic = document.getElementById("it_act").value?document.getElementById("it_act").value : this.state.applicant.it_act,
                 bh_dv_basic = document.getElementById("bh_dv").value?document.getElementById("bh_dv").value : this.state.applicant.bh_dv,
                 crime_date_basic = document.getElementById("crime_date").value?document.getElementById("crime_date").value : this.state.applicant.crime_date,
