@@ -289,9 +289,10 @@ const timeDateFormatter = (arry) => {
                 upi_phone_no_suspect = document.getElementById("sus_upi_phone_no_" + suspect_id).value?document.getElementById("sus_upi_phone_no_" + suspect_id).value : suspect.upi_phone_no,
                 upivpa_suspect = document.getElementById("sus_upivpa_" + suspect_id).value?document.getElementById("sus_upivpa_" + suspect_id).value : suspect.upivpa,
                 software_name_suspect = document.getElementById("sus_software_name_" + suspect_id).value?document.getElementById("sus_software_name_" + suspect_id).value : suspect.software_name,
-                complaint_action_suspect = document.getElementById("sus_software_name_" + suspect_id).value?document.getElementById("sus_software_name_" + suspect_id).value : suspect.software_name,
-                
-                created_date_acc = account.created_date,
+                complaint_action_suspect = document.getElementById("sus_complaint_action_" + suspect_id).value?document.getElementById("sus_complaint_action_" + suspect_id).value : suspect.complaint_action,
+                pending_reason_suspect = document.getElementById("sus_pending_reason_" + suspect_id).value?document.getElementById("sus_pending_reason_" + suspect_id).value : suspect.pending_reason,
+                remark_suspect = document.getElementById("sus_remark_" + suspect_id).value?document.getElementById("sus_remark_" + suspect_id).value : suspect.remark,
+                created_date_suspect = suspect.created_date,
                 last_updated_acc = Date().toLocaleString();
                 console.log(acc_number_acc);
             fetch("", { 
@@ -349,7 +350,7 @@ const timeDateFormatter = (arry) => {
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_software_name_" + suspect.suspect_id } type="text" placeholder={suspect.software_name} /></td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.complaint_action} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_complaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.complaint_action} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4><input class="rounded py-2 mt-1 px-2" id={"sus_pending_reason_" + suspect.suspect_id } type="text" placeholder={suspect.pending_reason} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"sus_remark_" + suspect.suspect_id } type="text" placeholder={suspect.remark} /></td>
                                         <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateSuspectDetails(suspect.suspect_id)}>Update</button></td>
