@@ -85,15 +85,16 @@ const timeDateFormatter = (arry) => {
                 complaint_no_basic = this.state.applicant.complaint_no,
                 ap_name_basic = document.getElementById("ap_name").value?document.getElementById("ap_name").value : this.state.applicant.ap_name,
                 ap_age_basic = document.getElementById("ap_age").value?document.getElementById("ap_age").value : this.state.applicant.ap_age,
-                ap_gender_basic = 1,
+                gdd = document.getElementById("gender"),
+                ap_gender_basic = gdd.options[gdd.selectedIndex].value?gdd.options[gdd.selectedIndex].value : this.state.applicant.gender_id,
                 ap_mob_basic = document.getElementById("ap_mob").value?document.getElementById("ap_mob").value : this.state.applicant.ap_mob,
                 ap_address_basic = document.getElementById("ap_address").value?document.getElementById("ap_address").value : this.state.applicant.ap_address,
                 c_dd = document.getElementById("country"),
-                ap_country_basic = c_dd.options[c_dd.selectedIndex].value,
+                ap_country_basic = c_dd.options[c_dd.selectedIndex].value ? c_dd.options[c_dd.selectedIndex].value : this.state.applicant.country_id,
                 s_dd = document.getElementById("states"),
-                ap_state_basic = s_dd.options[s_dd.selectedIndex].value,
+                ap_state_basic = s_dd.options[s_dd.selectedIndex].value ? s_dd.options[s_dd.selectedIndex].value : this.state.applicant.state_id,
                 ci_dd = document.getElementById("city"),
-                ap_city_basic = ci_dd.options[ci_dd.selectedIndex].value,
+                ap_city_basic = ci_dd.options[ci_dd.selectedIndex].value ? ci_dd.options[ci_dd.selectedIndex].value : this.state.applicant.city_id,
                 ap_pin_code_basic = document.getElementById("ap_pin_code").value?document.getElementById("ap_pin_code").value : this.state.applicant.ap_pin_code,
                 ap_adhar_basic = document.getElementById("ap_adhar").value?document.getElementById("ap_adhar").value : this.state.applicant.ap_adhar,
                 ctdd = document.getElementById("complaint_type"),
@@ -172,7 +173,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का लिंग</h4><select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="gender" id="gender"><option value="">{this.state.applicant.ap_gender}</option><option value="1">Male</option><option value="2">Female</option></select></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का देश</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="country" id="country" onChange={this.getStates}>
-                                            <option value="101">{this.state.applicant.ap_country}</option>
+                                            <option value="">{this.state.applicant.ap_country}</option>
                                             {
                                                 this.state.countries.map((country) => <option value={country.id}>{country.name}</option>)
                                             }
@@ -180,7 +181,7 @@ const timeDateFormatter = (arry) => {
                                     </td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का राज्य</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="states" id="states" onChange={this.getCities}>
-                                            <option value="21">{this.state.applicant.ap_state}</option>
+                                            <option value="">{this.state.applicant.ap_state}</option>
                                             {
                                                 this.state.newstates.map((state) => <option value={state.id}>{state.name}</option>)
                                             }
@@ -190,7 +191,7 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आवेदक का शहर</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="city" id="city">
-                                            <option value="21">{this.state.applicant.ap_city}</option>
+                                            <option value="">{this.state.applicant.ap_city}</option>
                                             {
                                                 this.state.cities.map((city) => <option value={city.id}>{city.name}</option>)
                                             }
@@ -200,7 +201,7 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">आधार क्रमांक</h4><input class="rounded py-2 mt-1 px-2" id="ap_adhar" type="number"  placeholder={this.state.applicant.ap_adhar} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का प्रकार</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="complaint-type" id="complaint_type">
-                                            <option value="1">{this.state.applicant.complaint_type}</option>
+                                            <option value="">{this.state.applicant.complaint_type}</option>
                                             <option value="1">सोशल मीडिया</option>
                                             <option value="2">ऑनलाइन ठगी</option>
                                             <option value="3">साइबर आतंकवाद</option>
@@ -211,7 +212,7 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">अपराध का तरीका</h4>
                                         <select style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" name="sub_complaint_type" id="sub_complaint_type">
-                                            <option value="1">{this.state.applicant.sub_complaint_type}</option>
+                                            <option value="">{this.state.applicant.sub_complaint_type}</option>
                                             <option value="1">Online Bank Fraud</option>
                                             <option value="2">Job Fraud</option>
                                             <option value="3">OLX Fraud</option>
