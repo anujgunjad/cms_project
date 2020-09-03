@@ -34,6 +34,7 @@
                 "suspect_id" => $suspect_id,
                 "suspect_name" => $suspect_name,
                 "suspect_address" => $suspect_address,
+                "suspect_mob" => $suspect_mob,
                 "email_id" => $email_id,
                 "domain_name" => $domain_name,
                 "upi_phone_no" => $upi_phone_no,
