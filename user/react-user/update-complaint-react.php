@@ -347,7 +347,6 @@ const timeDateFormatter = (arry) => {
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4><input class="rounded py-2 mt-1 px-2" id={"sus_pending_reason_" + suspect.suspect_id } type="text" placeholder={suspect.pending_reason} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"sus_remark_" + suspect.suspect_id } type="text" placeholder={suspect.remark} /></td>
                                         <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateSuspectDetails(suspect.suspect_id)}>Update</button></td>
-                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
