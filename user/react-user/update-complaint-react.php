@@ -19,7 +19,18 @@ const timeDateFormatter = (arry) => {
                     realDate = reverseArray.join("-"); 
                 return realDate;
             }
+const currentDate = (date) => {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var secs = date.getSeconds();
+                minutes = minutes < 10 ? '0'+ minutes : minutes;
+                var strTime = hours + ':' + minutes + ':' + secs;
+                return (date.getFullYear()) + "-" + date.getMonth() + "-" + date.getDate() + " " + strTime;
+            }
 
+
+
+console.log(e);
   class Applicant extends React.Component {
     state = {
           applicant: {},
@@ -108,8 +119,11 @@ const timeDateFormatter = (arry) => {
                 freeze_amount_basic = document.getElementById("freeze_amount").value?document.getElementById("freeze_amount").value : this.state.applicant.freeze_amount,
                 checker_name_basic = document.getElementById("checker_name").value?document.getElementById("checker_name").value : this.state.applicant.checker_name,
                 created_date_basic =  this.state.applicant.created_date,
-                last_update_basic =  Date.toLocaleString(),
+                // last_update_basic =  Date.toLocaleString(),
+                basic_details_date = new Date(),
+                last_update_basic = currentDate(basic_details_date);
                 complaint_status_basic =  this.state.applicant.complaint_status;
+                
             fetch("../api/data/update_basic.php", { 
                 // Adding method type 
                 method: "POST", 
