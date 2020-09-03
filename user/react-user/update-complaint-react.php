@@ -287,10 +287,10 @@ const currentDate = (date) => {
         }
         updateSuspectDetails = (suspect_id) => {
             let id = idFetcher(); 
-            const suspectArry = this.state.accounts.filter(suspect => suspect.suspect_id == suspect_id);
-            const account = accountArry[0];
+            const suspectArry = this.state.suspects.filter(suspect => suspect.suspect_id == suspect_id);
+            const suspect = suspectArry[0];
             let complaint_id_suspect = id,
-                suspect_id_suspect = account.suspect_id,
+                suspect_id_suspect = suspect.suspect_id,
                 suspect_name_suspect = document.getElementById("sus_suspect_name_" + suspect_id).value?document.getElementById("sus_suspect_name_" + suspect_id).value : suspect.suspect_name,
                 suspect_address_suspect = document.getElementById("sus_suspect_address_" + suspect_id).value?document.getElementById("sus_suspect_address_" + suspect_id).value : suspect.suspect_address,
                 suspect_mob_suspect = document.getElementById("sus_suspect_mob_" + suspect_id).value?document.getElementById("sus_suspect_mob_" + suspect_id).value : suspect.suspect_mob,
@@ -305,7 +305,7 @@ const currentDate = (date) => {
                 created_date_suspect = suspect.created_date,
                 suspect_details_date = new Date(),
                 last_updated_suspect = currentDate(suspect_details_date);
-            fetch("", { 
+            fetch("../api/data/update_suspect.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
