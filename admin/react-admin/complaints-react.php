@@ -65,7 +65,7 @@ const timeDateFormatter = (arry) => {
                 </thead>
                 <tbody>
                     {
-                      this.state.complaints ? this.state.complaints.slice(-10).map((complaint) => (    
+                      this.state.complaints ? this.state.complaints.map((complaint) => (    
                             <tr>
                             <td style={textStyle}>{complaint.complaint_no}</td>
                               <td style={textStyle}>{complaint.ap_name}</td>

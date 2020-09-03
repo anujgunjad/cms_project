@@ -359,6 +359,7 @@ const timeDateFormatter = (arry) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({ewallets: data.ewallet});
+                    console.log(data.ewallet);
                 })
                 .catch(console.log)
         }
