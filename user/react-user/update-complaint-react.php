@@ -283,7 +283,13 @@ const timeDateFormatter = (arry) => {
                 suspect_id_suspect = account.suspect_id,
                 suspect_name_suspect = document.getElementById("sus_suspect_name_" + suspect_id).value?document.getElementById("sus_suspect_name_" + suspect_id).value : suspect.suspect_name,
                 suspect_address_suspect = document.getElementById("sus_suspect_address_" + suspect_id).value?document.getElementById("sus_suspect_address_" + suspect_id).value : suspect.suspect_address,
-                suspect_mob_suspect = document.getElementById("sus_suspect_address_" + suspect_id).value?document.getElementById("sus_suspect_address_" + suspect_id).value : suspect.suspect_address,
+                suspect_mob_suspect = document.getElementById("sus_suspect_mob_" + suspect_id).value?document.getElementById("sus_suspect_mob_" + suspect_id).value : suspect.suspect_mob,
+                email_id_suspect = document.getElementById("sus_email_id_" + suspect_id).value?document.getElementById("sus_email_id_" + suspect_id).value : suspect.email_id,
+                domain_name_suspect = document.getElementById("sus_domain_name_" + suspect_id).value?document.getElementById("sus_domain_name_" + suspect_id).value : suspect.domain_name,
+                upi_phone_no_suspect = document.getElementById("sus_upi_phone_no_" + suspect_id).value?document.getElementById("sus_upi_phone_no_" + suspect_id).value : suspect.upi_phone_no,
+                upivpa_suspect = document.getElementById("sus_upivpa_" + suspect_id).value?document.getElementById("sus_upivpa_" + suspect_id).value : suspect.upivpa,
+                software_name_suspect = document.getElementById("sus_software_name_" + suspect_id).value?document.getElementById("sus_software_name_" + suspect_id).value : suspect.software_name,
+                complaint_action_suspect = document.getElementById("sus_software_name_" + suspect_id).value?document.getElementById("sus_software_name_" + suspect_id).value : suspect.software_name,
                 
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
@@ -343,7 +349,7 @@ const timeDateFormatter = (arry) => {
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_software_name_" + suspect.suspect_id } type="text" placeholder={suspect.software_name} /></td>
                                     </tr>
                                     <tr>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.somplaint_action} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.complaint_action} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4><input class="rounded py-2 mt-1 px-2" id={"sus_pending_reason_" + suspect.suspect_id } type="text" placeholder={suspect.pending_reason} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"sus_remark_" + suspect.suspect_id } type="text" placeholder={suspect.remark} /></td>
                                         <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateSuspectDetails(suspect.suspect_id)}>Update</button></td>
