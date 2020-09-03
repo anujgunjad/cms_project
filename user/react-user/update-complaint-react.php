@@ -270,6 +270,7 @@ const timeDateFormatter = (arry) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({suspects: data.suspects});
+                    console.log("hiadfhsdkjf");
                     console.log(data.suspects);
                 })
                 .catch(console.log)
@@ -281,13 +282,9 @@ const timeDateFormatter = (arry) => {
             let complaint_id_suspect = id,
                 suspect_id_suspect = account.suspect_id,
                 suspect_name_suspect = document.getElementById("sus_suspect_name_" + suspect_id).value?document.getElementById("sus_suspect_name_" + suspect_id).value : suspect.suspect_name,
-                bank_name_acc = document.getElementById("acc_bank_name_" + account_id).value?document.getElementById("acc_bank_name_" + account_id).value : account.bank_name,
-                state_acc = document.getElementById("acc_state_" + account_id).value?document.getElementById("acc_state_" + account_id).value : account.state,
-                branch_name_acc = document.getElementById("acc_branch_name_" + account_id).value?document.getElementById("acc_branch_name_" + account_id).value : account.branch_name,
-                mail_date_acc = document.getElementById("acc_mail_date_" + account_id).value?document.getElementById("acc_mail_date_" + account_id).value : account.mail_date,
-                bank_manager_number_acc = account.bank_manager_number,
-                kyc_pdf_acc = account.kyc_pdf,
-                bank_statement_file_acc = account.bank_statement_file,
+                suspect_address_suspect = document.getElementById("sus_suspect_address_" + suspect_id).value?document.getElementById("sus_suspect_address_" + suspect_id).value : suspect.suspect_address,
+                suspect_mob_suspect = document.getElementById("sus_suspect_address_" + suspect_id).value?document.getElementById("sus_suspect_address_" + suspect_id).value : suspect.suspect_address,
+                
                 created_date_acc = account.created_date,
                 last_updated_acc = Date().toLocaleString();
                 console.log(acc_number_acc);
@@ -336,16 +333,17 @@ const timeDateFormatter = (arry) => {
                                     <tr>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> संदिग्ध का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_name_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_name} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का पता</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_address_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_address} /></td>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"sus_suspect_mob_" + suspect.suspect_id } type="text" placeholder={suspect.suspect_mob} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का ईमेल</h4><input class="rounded py-2 mt-1 px-2" id={"sus_email_id_" + suspect.suspect_id } type="text" placeholder={suspect.email_id} /></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_domain_name_" + suspect.suspect_id } type="text" placeholder={suspect.domain_name} /></td>
                                     </tr>
                                     <tr>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध का डोमेन नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_domain_name_" + suspect.suspect_id } type="text" placeholder={suspect.domain_name} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI फोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"sus_upi_phone_no_" + suspect.suspect_id } type="number" placeholder={suspect.upi_phone_no} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI VPA </h4><input class="rounded py-2 mt-1 px-2" id={"sus_upivpa_" + suspect.suspect_id } type="text" placeholder={suspect.upivpa} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सॉफ्टवेयर का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"sus_software_name_" + suspect.suspect_id } type="text" placeholder={suspect.software_name} /></td>
-                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.somplaint_action} /></td>
                                     </tr>
                                     <tr>
+                                        <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">शिकायत की कार्रवाई</h4><input class="rounded py-2 mt-1 px-2" id={"sus_somplaint_action_" + suspect.suspect_id } type="text" placeholder={suspect.somplaint_action} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लंबित का कारण</h4><input class="rounded py-2 mt-1 px-2" id={"sus_pending_reason_" + suspect.suspect_id } type="text" placeholder={suspect.pending_reason} /></td>
                                         <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">टिप्पणी</h4><input class="rounded py-2 mt-1 px-2" id={"sus_remark_" + suspect.suspect_id } type="text" placeholder={suspect.remark} /></td>
                                         <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateSuspectDetails(suspect.suspect_id)}>Update</button></td>
