@@ -90,9 +90,30 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
             $data_items = array(
-                "complaint_id" => $complaint_id,
-                "complaint_no" => $complaint_no,
-                "applicant_name" => $ap_name
+            "complaint_id" => $complaint_id,
+            "complaint_no" => $complaint_no,
+            "ap_name" => $ap_name,
+            "ap_age" => $ap_age,
+            "ap_gender" => $ap_gender,
+            "ap_mob" => $ap_mob,
+            "ap_address" => $ap_address,
+            "ap_country" => $ap_country,
+            "ap_state" => $ap_state,
+            "ap_city" => $ap_city,
+            "ap_pin_code" => $ap_pin_code,
+            "ap_adhar" => $ap_adhar,
+            "complaint_type" => $complaint_type,
+            "sub_complaint_type" => $sub_complaint_type,
+            "it_act" => $it_act,
+            "bh_dv" => $bh_dv,
+            "crime_date" => $crime_date,
+            "crime_time" => $crime_time,
+            "amount" => $amount,
+            "freeze_amount" => $freeze_amount,
+            "checker_name" => $checker_name,
+            "created_date" => $created_date,
+            "last_updated" => $last_updated,
+            "complaint_status" => $complaint_status	
             );
             array_push($data_arr["applicant"], $data_items);
         }
