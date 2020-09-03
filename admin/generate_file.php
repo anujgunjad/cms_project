@@ -13,13 +13,14 @@ include("sidenav-header.php");
                 </li>
             </ul>
         </div>
-        <button class="btn btn-outline-info my-2 my-sm-0 btn-theme-color" onclick="changeComponent();" type="submit">Log
-            Out</button>
+            <a href="dashboard.php?logout='1'" >
+              <button class="btn btn-outline-light my-2 my-sm-0 " type="submit">Log Out</button>
+            </a>
     </nav>
     <div class="ui form pl-3 mt-2">
             <div class=" four fields">
                     <div class="field">
-                        <label>Complaint No</label>
+                        <h2 style="color:#004ba8" class="mb-0 mt-3">Complaint No</h2>
                     </div>
                     <div class="field"> 
                     </div>
@@ -28,11 +29,11 @@ include("sidenav-header.php");
                     <div class="field">
                         <input type="text" name="genfile_compliaint_no" id="genfile_compliaint_no" placeholder="Enter complaint no" >
                     </div>
-                    <div class="field">
-                      <button class="ui blue button" id="generate_btn">Download Basic details</button>
+                    <div style="width:fit-content" class="field">
+                      <button style="background-color:#004ba8; color:#fff" class="ui button" id="generate_btn">Download Basic details</button>
                     </div>
-                    <div class="field">
-                      <button class="ui blue button" id="generate_all_btn" >Download all details</button>
+                    <div style="width:fit-content;" class="field">
+                      <button style="background-color:#004ba8; color:#fff" class="ui button" id="generate_all_btn" >Download all details</button>
                     </div>
                 </div>
     </div>
