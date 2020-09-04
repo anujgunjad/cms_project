@@ -3,18 +3,13 @@
 <link rel="stylesheet" href="style/login.css">
 <style>
 .form {
-    margin-left: 31vw !important;
-    padding: 5vw;
+    margin: 0 auto !important;
+    margin-top: 10vh !important;
     width: 35vw;
 }
-
-.head-one {
-    margin-left: 42.5vw;
-}
 </style>
-<h2 class="head-one">LOG IN</h2>
-
 <form class="ui form my-form" method="post" action="login.php">
+    <h2 class="head-one">Log In</h2>
     <?php include('errors.php'); ?>
     <?php 
 	if ($_GET['logout'] == 1) { ?>

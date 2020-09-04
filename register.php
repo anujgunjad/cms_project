@@ -3,9 +3,16 @@
 <?php include('header.php') ?>
 <div class="overlay">
 </div>
+<style>
+.form {
+    margin: 0 auto !important;
+    margin-top: 7vh !important;
+    width: 35vw;
+}
+</style>
 <div class="container">     
-    <h2 class="head-one">Sign Up</h2>
   <form method="post" action="register.php" class="ui form my-form">
+    <h2 class="head-one">Sign Up</h2>
 	  <?php include('errors.php'); ?>
   	<div class="field">
   	  <label class="labels">User ID*</label>
@@ -15,14 +22,6 @@
         <label class="labels">Full Name*</label>
         <input type="text" name="name" required>
   	</div>
-    <!-- <div class="field">
-      <label>User Role</label>
-      <select class="ui fluid dropdown" name="role">
-        <option value="">User Role</option>
-		<option value="0">Admin</option>
-		<option value="1">User</option>
-      </select>
-    </div> -->
 	<div class="fields">
   	<div class="fifteen wide field">
   	  <label class="labels">Password*</label>
