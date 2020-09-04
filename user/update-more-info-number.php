@@ -337,29 +337,25 @@ const currentDate = (date) => {
             let complaint_id_upi = comId,
                 number_id_upi = numId,
                 upi_id_upi = upi_id,
-                ipdr_ipdr = document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id).value : ipdr.ipdr,
-                email_sent_ipdr = document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id).value : ipdr.email_sent,
-                email_received_ipdr = document.getElementById("ipdr_email_received_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_received_" + ipdr.ipdr_id).value : ipdr.email_received,
-                location_ipdr = document.getElementById("ipdr_location_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_location_" + ipdr.ipdr_id).value : ipdr.location,
-                website_ipdr = document.getElementById("ipdr_website_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_website_" + ipdr.ipdr_id).value : ipdr.website,
-                created_date_ipdr = ipdr.created_date,
-                ipdr_update_date = new Date(),
-                last_updated_ipdr = currentDate(ipdr_update_date);
-            fetch("../api/data/update_num_ipdr.php", { 
+                upi_upi = document.getElementById("upi_upi_" + upi.upi_id ).value?document.getElementById("upi_upi_" + upi.upi_id).value : upi.upi,
+                upi_name_upi = document.getElementById("upi_upi_name_" + upi.upi_id ).value?document.getElementById("upi_upi_name_" + upi.upi_id).value : upi.upi_name,
+                upi_link_upi = document.getElementById("upi_upi_link_" + upi.upi_id ).value?document.getElementById("upi_upi_link_" + upi.upi_id).value : upi.upi_link,
+                created_date_upi = upi.created_date,
+                upi_update_date = new Date(),
+                last_updated_upi = currentDate(upi_update_date);
+            fetch("../api/data/update_num_upi.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                    complaint_id_ipdr,
-                    number_id_ipdr,
-                    ipdr_id_ipdr,
-                    ipdr_ipdr,
-                    email_sent_ipdr,
-                    email_received_ipdr,
-                    location_ipdr,
-                    website_ipdr,
-                    created_date_ipdr,
-                    last_updated_ipdr,
+                    complaint_id_upi,
+                    number_id_upi,
+                    upi_id_upi,
+                    upi_upi,
+                    upi_name_upi,
+                    upi_link_upi,
+                    created_date_upi,
+                    last_updated_upi,
                 })
             })
             
