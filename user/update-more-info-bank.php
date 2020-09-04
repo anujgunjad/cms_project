@@ -88,7 +88,7 @@ const currentDate = (date) => {
             const panArry = this.state.pans.filter(pan => pan.pan_info_id == pan_id);
             const pan = panArry[0];
             let complaint_id_pan = comId,
-                acc_id_pan = pan.numId,
+                acc_id_pan = numId,
                 pan_info_id_pan = pan.pan_info_id,
                 pan_pan = document.getElementById("pan_" + pan_id).value?document.getElementById("pan_" + pan_id).value : pan.pan,
                 pan_verified_pan = document.getElementById("pan_verified_" + pan_id).value?document.getElementById("pan_verified_" + pan_id).value : pan.pan_verified,
@@ -102,33 +102,24 @@ const currentDate = (date) => {
                 pan_info_date = new Date(),
                 last_updated_pan = currentDate(pan_info_date);
                 
-            fetch("../api/data/update_number.php", { 
+            fetch("../api/data/update_account_pan.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                    complaint_id_num,
-                    number_id_num,
-                    number_one_num,
-                    company_num,
-                    files_num,
-                    email_sent_num,
-                    email_received_num,
-                    suspect_name_num,
-                    suspect_address_num,
-                    city_num,
-                    state_num,
-                    retailer_name_num,
-                    uid_num_num,
-                    other_num_num,
-                    pdf_num,
-                    confirmation_num,
-                    remark_num,
-                    reminder_num,
-                    mail_id_num,
-                    caf_date_num,
-                    created_date_num,
-                    last_updated_num,
+                    complaint_id_pan,
+                    acc_id_pan,
+                    pan_info_id_pan,
+                    pan_pan,
+                    pan_verified_pan,
+                    pan_username_pan,
+                    adhar_number_pan,
+                    income_tax_pan,
+                    gst_in_pan,
+                    tin_pan,
+                    sales_tax_pan,
+                    created_date_pan,
+                    last_updated_pan,
                 })
             }) 
                 // update done
@@ -208,10 +199,55 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({atms: data.atm});
-                    // console.log(this.state.atm);
+                    console.log(data.atm);
                 })
         }
+        updateAtmInfo = (atm_id) => {
+            let ids = idsFetcher(),
+                    numId = ids[0],
+                    comId = ids[1];
+            const atmArry = this.state.atms.filter(atm => atm.atm_footage_id == atm_id);
+            const atm = atmArry[0];
+            let complaint_id_atm = comId,
+                acc_id_atm = numId,
+                atm_footage_id_atm = atm_id,
+                atm_footage_atm = document.getElementById("atm_footage_" + atm.atm_footage_id ).value?document.getElementById("atm_footage_" + atm.atm_footage_id).value : atm.atm_footage,
+                email_sent_atm = document.getElementById("atm_email_sent_" + atm.atm_footage_id ).value?document.getElementById("atm_email_sent_" + atm.atm_footage_id).value : atm.email_sent,
+                email_received_atm = document.getElementById("atm_email_received_" + atm.atm_footage_id ).value?document.getElementById("atm_email_received_" + atm.atm_footage_id).value : atm.email_received,
+                created_date_atm = atm.created_date,
+                atm_update_date = new Date(),
+                last_updated_atm = currentDate(atm_update_date);
+                
+            fetch("../api/data/update_account_atm.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_atm ,
+                    acc_id_atm,
+                    atm_footage_id_atm,
+                    atm_footage_atm,
+                    email_sent_atm,
+                    email_received_atm,
+                    created_date_atm,
+                    last_updated_atm ,
+                })
+            })
+            
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         
+                
         render(){
             return(
                 <div>
@@ -225,10 +261,16 @@ const currentDate = (date) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"> <span style={{color:"red"}}>[{i+1}]</span> Complaint Number</h4>{atm.complaint_number?atm.complaint_number:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ATM Footage</h4>{atm.atm_footage?atm.atm_footage:"अभी तक दर्ज नहीं है"}</td>
-                                    <td class={dateFormatter(atm.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(atm.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(atm.email_sent)!="00-00-0000"?dateFormatter(atm.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(atm.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(atm.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(atm.email_received)!="00-00-0000"?dateFormatter(atm.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                </tr>                                   
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ATM Footage</h4><input class="rounded py-2 mt-1 px-2" id={"atm_footage_" + atm.atm_footage_id } type="text" placeholder={atm.atm_footage} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"atm_email_sent_" + atm.atm_footage_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"atm_email_received_" + atm.atm_footage_id } type="date" /></td>
+                                </tr>  
+                                <tr>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateAtmInfo(atm.atm_footage_id)}>Update</button></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>                                 
                            </tbody>
                         </table>
                         ))
@@ -264,8 +306,52 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({iplogs: data.iplogs});
-                    // console.log(this.state.upi);
+                    console.log(data.iplogs);
                 })
+        }
+        updateIplogInfo = (iplog_id) => {
+            let ids = idsFetcher(),
+                    numId = ids[0],
+                    comId = ids[1];
+            const atmArry = this.state.atms.filter(atm => atm.atm_footage_id == atm_id);
+            const atm = atmArry[0];
+            let complaint_id_iplog = comId,
+                acc_id_iplog = numId,
+                iplog_id_iplog = iplog_id,
+                atm_footage_atm = document.getElementById("atm_footage_" + atm.atm_footage_id ).value?document.getElementById("atm_footage_" + atm.atm_footage_id).value : atm.atm_footage,
+                email_sent_atm = document.getElementById("atm_email_sent_" + atm.atm_footage_id ).value?document.getElementById("atm_email_sent_" + atm.atm_footage_id).value : atm.email_sent,
+                email_received_atm = document.getElementById("atm_email_received_" + atm.atm_footage_id ).value?document.getElementById("atm_email_received_" + atm.atm_footage_id).value : atm.email_received,
+                created_date_atm = atm.created_date,
+                iplog_update_date = new Date(),
+                last_updated_iplog = currentDate(iplog_update_date);
+                
+            fetch("../api/data/update_account_atm.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_atm ,
+                    acc_id_atm,
+                    atm_footage_id_atm,
+                    atm_footage_atm,
+                    email_sent_atm,
+                    email_received_atm,
+                    created_date_atm,
+                    last_updated_atm ,
+                })
+            })
+            
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
         }
         
         render(){
@@ -281,9 +367,9 @@ const currentDate = (date) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> Complaint Number</h4>{iplog.complaint_number?iplog.complaint_number:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">iplog </h4>{iplog.iplog?iplog.iplog:"अभी तक दर्ज नहीं है"}</td>
-                                    <td class={dateFormatter(iplog.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(iplog.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(iplog.email_sent)!="00-00-0000"?dateFormatter(iplog.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(iplog.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(iplog.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(iplog.email_received)!="00-00-0000"?dateFormatter(iplog.email_received):"मेल अभी तक नहीं मिला "}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">iplog </h4><input class="rounded py-2 mt-1 px-2" id={"iplog_iplog" + iplog.iplog_id } type="text" placeholder={iplog.iplog} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"iplog_email_sent_" + iplog.iplog_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"iplog_email_received_" + iplog.iplog_id } type="date" /></td>
                                 </tr>                                   
                            </tbody>
                         </table>
