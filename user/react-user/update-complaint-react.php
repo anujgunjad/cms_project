@@ -522,7 +522,7 @@ const currentDate = (date) => {
                                 <tr>
                                     <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateNumberDetails(number.number_id)}>Update</button></td>
                                     <th colspan="3">
-                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
+                                        <a style={{color:"#fff"},infoButtonStyle} class="ui right floated small btn btn-primary button ml-2 info-button" href={"update-more-info-number.php?num_id=" + number.number_id + "&com_id=" + idFetcher()}>Edit More Info</a> 
                                     </th>
                                 </tr>
                            </tbody>

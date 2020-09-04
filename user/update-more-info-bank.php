@@ -159,10 +159,10 @@ const currentDate = (date) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Sales Tax</h4><input class="rounded py-2 mt-1 px-2" id={"pan_sales_tax_" + pan.pan_info_id } type="text" placeholder={pan.sales_tax} /></td>
                                 </tr>  
                                 <tr>
-                                <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updatePanInfo(pan.pan_info_id)}>Update</button></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updatePanInfo(pan.pan_info_id)}>Update</button></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>                 
                            </tbody>
                         </table>
