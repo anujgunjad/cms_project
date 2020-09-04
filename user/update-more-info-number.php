@@ -71,11 +71,54 @@ const timeDateFormatter = (arry) => {
                 .then((data) => {
                     this.setState({cdr: data.cdr});
                     this.setState({num: data.cdr[0].cdr})
-                    // console.log(this.state.cdr);
+                    console.log(data.cdr);
                 })
                 .catch(console.log)
         }
-        
+        updateCdrInfo = (cdr_id) => {
+            let ids = idsFetcher(),
+                    numId = ids[0],
+                    comId = ids[1];
+            const cdrArry = this.state.cdr.filter(cdr => cdr.cdr_id == cdr_id);
+            const cdr = cdrArry[0];
+            let complaint_id_cdr = comId,
+                number_id_cdr = numId,
+                cdr_id_cdr = cdr_id,
+                cdr_cdr = document.getElementById("cdr_cdr_" + cdr.cdr_id ).value?document.getElementById("cdr_cdr_" + cdr.cdr_id).value : cdr.cdr,
+                email_sent_cdr = document.getElementById("cdr_email_sent_" + cdr.cdr_id ).value?document.getElementById("cdr_email_sent_" + cdr.cdr_id).value : cdr.email_sent,
+                email_received_cdr = document.getElementById("cdr_email_received_" + cdr.cdr_id ).value?document.getElementById("cdr_email_received_" + cdr.cdr_id).value : cdr.email_received,
+                created_date_atm = atm.created_date,
+                atm_update_date = new Date(),
+                last_updated_atm = currentDate(atm_update_date);
+                
+            fetch("../api/data/update_account_atm.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_atm ,
+                    acc_id_atm,
+                    atm_footage_id_atm,
+                    atm_footage_atm,
+                    email_sent_atm,
+                    email_received_atm,
+                    created_date_atm,
+                    last_updated_atm,
+                })
+            })
+            
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }
         render(){
             const pdfButtonStyle = {
                 background:"#C50202",
@@ -85,7 +128,7 @@ const timeDateFormatter = (arry) => {
             return(
                 <div>
                 <center>
-                <h1 class="mt-3 h1-complaint">इस नंबर <span style={{color:"red"}}>{ this.state.num}</span> की अधिक जानकारी</h1>
+                <h1 class="mt-3 h1-complaint">इस नंबर <span style={{color:"red"}}>{this.state.num}</span> की अधिक जानकारी</h1>
                 <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">Call Detail Records</h1>                
                         {
@@ -93,21 +136,21 @@ const timeDateFormatter = (arry) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4>{cdr.cdr?cdr.cdr:"अभी तक दर्ज नहीं है"}</td>
-                                    <td class={dateFormatter(cdr.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(cdr.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(cdr.email_sent)!="00-00-0000"?dateFormatter(cdr.email_sent):"मेल नहीं भेजा गया"}</td>
-                                    <td class={dateFormatter(cdr.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(cdr.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(cdr.email_received)!="00-00-0000"?dateFormatter(cdr.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMEI नंबर</h4>{cdr.imei?cdr.imei:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_cdr_" + cdr.cdr_id} type="text" placeholder={cdr.cdr} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"cdr_email_sent_" + cdr.cdr_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"cdr_email_received_" + cdr.cdr_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMEI नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_imei_" + cdr.cdr_id} type="text" placeholder={cdr.imei} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMSI नंबर</h4>{cdr.imsi?cdr.imsi:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान (Location)</h4>{cdr.location?cdr.location:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान तारीख (Location Date)</h4>{cdr.location_date?cdr.location_date:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रात्रि स्थान (Night Location)</h4>{cdr.night_loc?cdr.night_loc:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMSI नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_imsi_" + cdr.cdr_id} type="text" placeholder={cdr.imsi} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान (Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_location_" + cdr.cdr_id} type="text" placeholder={cdr.location} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान तारीख (Location Date)</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"cdr_location_date_" + cdr.cdr_id } type="date" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रात्रि स्थान (Night Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_night_loc_" + cdr.cdr_id} type="text" placeholder={cdr.night_loc} /></td>
                                 </tr>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सर्विस का नाम</h4>{cdr.service_name?cdr.service_name:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध नंबर</h4>{cdr.suspect_number?cdr.suspect_number:"अभी तक दर्ज नहीं है"}</td>
-                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updatePanInfo(pan.pan_info_id)}>Update</button></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सर्विस का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_service_name_" + cdr.cdr_id} type="text" placeholder={cdr.service_name} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_suspect_number_" + cdr.suspect_number} type="text" placeholder={cdr.suspect_number} /></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateCdrInfo(cdr.cdr_id)}>Update</button></td>
                                     <td></td>
                                 </tr>                         
                            </tbody>
