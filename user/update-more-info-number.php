@@ -51,6 +51,14 @@ const timeDateFormatter = (arry) => {
                     realDate = reverseArray.join("-"); 
                 return realDate;
             }
+const currentDate = (date) => {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var secs = date.getSeconds();
+                minutes = minutes < 10 ? '0'+ minutes : minutes;
+                var strTime = hours + ':' + minutes + ':' + secs;
+                return (date.getFullYear()) + "-" + date.getMonth() + "-" + date.getDate() + " " + strTime;
+            }
 
     
     class CallDetailRecords extends React.Component {
@@ -88,37 +96,54 @@ const timeDateFormatter = (arry) => {
                 email_sent_cdr = document.getElementById("cdr_email_sent_" + cdr.cdr_id ).value?document.getElementById("cdr_email_sent_" + cdr.cdr_id).value : cdr.email_sent,
                 email_received_cdr = document.getElementById("cdr_email_received_" + cdr.cdr_id ).value?document.getElementById("cdr_email_received_" + cdr.cdr_id).value : cdr.email_received,
                 imei_cdr = document.getElementById("cdr_imei_" + cdr.cdr_id ).value?document.getElementById("cdr_imei_" + cdr.cdr_id).value : cdr.imei,
-                created_date_atm = atm.created_date,
-                atm_update_date = new Date(),
-                last_updated_atm = currentDate(atm_update_date);
-                
-            fetch("../api/data/update_account_atm.php", { 
-                // Adding method type 
-                method: "POST", 
-                // Adding body or contents to send 
-                body: JSON.stringify({ 
-                    complaint_id_atm ,
-                    acc_id_atm,
-                    atm_footage_id_atm,
-                    atm_footage_atm,
-                    email_sent_atm,
-                    email_received_atm,
-                    created_date_atm,
-                    last_updated_atm,
-                })
-            })
+                imsi_cdr = document.getElementById("cdr_imsi_" + cdr.cdr_id ).value?document.getElementById("cdr_imsi_" + cdr.cdr_id).value : cdr.imsi,
+                location_cdr = document.getElementById("cdr_location_" + cdr.cdr_id ).value?document.getElementById("cdr_location_" + cdr.cdr_id).value : cdr.location,
+                location_date_cdr = document.getElementById("cdr_location_date_" + cdr.cdr_id ).value?document.getElementById("cdr_location_date_" + cdr.cdr_id).value : cdr.location_date,
+                location_time_cdr = document.getElementById("cdr_location_time_" + cdr.cdr_id ).value?document.getElementById("cdr_location_time_" + cdr.cdr_id).value : cdr.location_date,
+                night_loc_cdr = document.getElementById("cdr_night_loc_" + cdr.cdr_id ).value?document.getElementById("cdr_night_loc_" + cdr.cdr_id).value : cdr.night_loc,
+                service_name_cdr = document.getElementById("cdr_service_name_" + cdr.cdr_id ).value?document.getElementById("cdr_service_name_" + cdr.cdr_id).value : cdr.service_name,
+                suspect_number_cdr = document.getElementById("cdr_suspect_number_" + cdr.cdr_id ).value?document.getElementById("cdr_suspect_number_" + cdr.cdr_id).value : cdr.suspect_number,
+                cdr_pdf_cdr = cdr.cdr_pdf,
+                created_date_cdr = cdr.created_date,
+                cdr_update_date = new Date(),
+                last_updated_cdr = currentDate(cdr_update_date);
+                console.log(suspect_number_cdr);
+            // fetch("../api/data/update_number_cdr.php", { 
+            //     // Adding method type 
+            //     method: "POST", 
+            //     // Adding body or contents to send 
+            //     body: JSON.stringify({ 
+            //         complaint_id_cdr ,
+            //         number_id_cdr,
+            //         cdr_id_cdr,
+            //         cdr_cdr,
+            //         email_sent_cdr,
+            //         email_received_cdr,
+            //         imei_cdr,
+            //         imsi_cdr,
+            //         location_cdr,
+            //         location_date_cdr,
+            //         location_time_cdr,
+            //         night_loc_cdr,
+            //         service_name_cdr,
+            //         suspect_number_cdr,
+            //         cdr_pdf_cdr,
+            //         created_date_cdr,
+            //         last_updated_cdr,
+            //     })
+            // })
             
-                // update done
-                .then(
-                        swal({
-                            title: 'Updated Successfuly',
-                            icon: 'success',
-                            button: 'Next',
-                        })
-                        .then(() => {
-                            location.reload();
-                        })
-                    ); 
+            //     // update done
+            //     .then(
+            //             swal({
+            //                 title: 'Updated Successfuly',
+            //                 icon: 'success',
+            //                 button: 'Next',
+            //             })
+            //             .then(() => {
+            //                 location.reload();
+            //             })
+            //         ); 
         }
         render(){
             const pdfButtonStyle = {
@@ -146,13 +171,13 @@ const timeDateFormatter = (arry) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMSI नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_imsi_" + cdr.cdr_id} type="text" placeholder={cdr.imsi} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान (Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_location_" + cdr.cdr_id} type="text" placeholder={cdr.location} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान तारीख (Location Date)</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"cdr_location_date_" + cdr.cdr_id } type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रात्रि स्थान (Night Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_night_loc_" + cdr.cdr_id} type="text" placeholder={cdr.night_loc} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान समय (Location Time)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_location_time_" + cdr.cdr_id} type="text" placeholder={cdr.location} /></td>
                                 </tr>
                                 <tr>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रात्रि स्थान (Night Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_night_loc_" + cdr.cdr_id} type="text" placeholder={cdr.night_loc} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सर्विस का नाम</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_service_name_" + cdr.cdr_id} type="text" placeholder={cdr.service_name} /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_suspect_number_" + cdr.suspect_number} type="text" placeholder={cdr.suspect_number} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_suspect_number_" + cdr.cdr_id} type="text" placeholder={cdr.suspect_number} /></td>
                                     <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateCdrInfo(cdr.cdr_id)}>Update</button></td>
-                                    <td></td>
                                 </tr>                         
                            </tbody>
                         </table>
