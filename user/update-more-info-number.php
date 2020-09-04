@@ -16,8 +16,8 @@
           </ul>
         </div>
              <a href="javascript:history.back()" class="btn my-2 my-sm-0 btn-theme-color px-4 mx-2" type="submit">Back</a>
-             <a href="dashboard.php?logout='1'" >
-              <button class="btn btn-outline-light my-2 my-sm-0 " type="submit">Log Out</button>
+             <a href="user-dashboard.php?logout='1'" >
+                <button type="button" class="btn btn-outline-light">Log Out</button>
             </a>
         </nav>
 
