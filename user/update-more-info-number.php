@@ -89,11 +89,11 @@ const timeDateFormatter = (arry) => {
                 <div class="ui segment blue mt-4 mb-5">
                 <h1 class=" h1 h2-complaint">Call Detail Records</h1>                
                         {
-                            this.state.cdr ? this.state.cdr.map((cdr) => (    
+                            this.state.cdr ? this.state.cdr.map((cdr, i) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">फ़ोन नंबर</h4>{cdr.cdr?cdr.cdr:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> फ़ोन नंबर</h4>{cdr.cdr?cdr.cdr:"अभी तक दर्ज नहीं है"}</td>
                                     <td class={dateFormatter(cdr.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(cdr.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(cdr.email_sent)!="00-00-0000"?dateFormatter(cdr.email_sent):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(cdr.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(cdr.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(cdr.email_received)!="00-00-0000"?dateFormatter(cdr.email_received):"मेल अभी तक नहीं मिला "}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMEI नंबर</h4>{cdr.imei?cdr.imei:"अभी तक दर्ज नहीं है"}</td>
@@ -158,11 +158,11 @@ const timeDateFormatter = (arry) => {
                 <h1 class=" h1 h2-complaint">IP Detail Records</h1>                
                              
                         {
-                            this.state.ipdr ? this.state.ipdr.map((ipdr) => (    
+                            this.state.ipdr ? this.state.ipdr.map((ipdr, i) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IP Adress</h4>{ipdr.ipdr?ipdr.ipdr:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> IP Adress</h4>{ipdr.ipdr?ipdr.ipdr:"अभी तक दर्ज नहीं है"}</td>
                                     <td class={dateFormatter(ipdr.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ipdr.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ipdr.email_sent)!="00-00-0000"?dateFormatter(ipdr.email_sent):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(ipdr.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ipdr.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ipdr.email_received)!="00-00-0000"?dateFormatter(ipdr.email_received):"मेल अभी तक नहीं मिला "}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">Location</h4>{ipdr.location?ipdr.location:"अभी तक दर्ज नहीं है"}</td>
@@ -219,11 +219,11 @@ const timeDateFormatter = (arry) => {
                 <h1 class=" h1 h2-complaint">UPI Information</h1>                
                              
                         {
-                            this.state.upi ? this.state.upi.map((upi) => (    
+                            this.state.upi ? this.state.upi.map((upi, i) => (    
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI</h4>{upi.upi?upi.upi:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI</h4>{upi.upi?upi.upi:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI ID</h4>{upi.upi_id?upi.upi_id:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Link</h4>{upi.upi_link?upi.upi_link:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Name</h4>{upi.upi_name?upi.upi_name:"अभी तक दर्ज नहीं है"}</td>
