@@ -1,13 +1,7 @@
 <?php include('server.php') ?>
 <?php include('header.php') ?>
 <link rel="stylesheet" href="style/login.css">
-<style>
-.form {
-    margin: 0 auto !important;
-    margin-top: 10vh !important;
-    width: 35vw;
-}
-</style>
+
 <form class="ui form my-form" method="post" action="login.php">
     <h2 class="head-one">Log In</h2>
     <?php include('errors.php'); ?>

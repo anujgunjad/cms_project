@@ -8,8 +8,9 @@ body {
 }
 .form {
   background: #fff;
-  margin-left: 25vw !important;
-  margin-top: -0.5vh !important;
+  margin: 0 auto !important;
+  margin-top: 10vh !important;
+  width: 35vw;
   padding: 4vh 4vw 4vh 4vw;
   width: 38vw;
 }

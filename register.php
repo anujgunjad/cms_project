@@ -3,13 +3,6 @@
 <?php include('header.php') ?>
 <div class="overlay">
 </div>
-<style>
-.form {
-    margin: 0 auto !important;
-    margin-top: 7vh !important;
-    width: 35vw;
-}
-</style>
 <div class="container">     
   <form method="post" action="register.php" class="ui form my-form">
     <h2 class="head-one">Sign Up</h2>
