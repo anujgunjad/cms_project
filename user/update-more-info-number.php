@@ -217,15 +217,15 @@ const currentDate = (date) => {
                     console.log(this.state.ipdr);
                 })
         }
-        updateCdrInfo = (cdr_id) => {
+        updateIpdrInfo = (ipdr_id) => {
             let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];
-            const cdrArry = this.state.cdr.filter(cdr => cdr.cdr_id == cdr_id);
-            const cdr = cdrArry[0];
-            let complaint_id_cdr = comId,
-                number_id_cdr = numId,
-                cdr_id_cdr = cdr_id,
+            const ipdrArry = this.state.ipdr.filter(ipdr => ipdr.ipdr_id == ipdr_id);
+            const ipdr = ipdrArry[0];
+            let complaint_id_ipdr = comId,
+                number_id_ipdr = numId,
+                ipdr_id_ipdr = ipdr_id,
                 cdr_cdr = document.getElementById("cdr_cdr_" + cdr.cdr_id ).value?document.getElementById("cdr_cdr_" + cdr.cdr_id).value : cdr.cdr,
                 email_sent_cdr = document.getElementById("cdr_email_sent_" + cdr.cdr_id ).value?document.getElementById("cdr_email_sent_" + cdr.cdr_id).value : cdr.email_sent,
                 email_received_cdr = document.getElementById("cdr_email_received_" + cdr.cdr_id ).value?document.getElementById("cdr_email_received_" + cdr.cdr_id).value : cdr.email_received,
@@ -297,8 +297,7 @@ const currentDate = (date) => {
                                 </tr>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">वेबसाइट</h4><input class="rounded py-2 mt-1 px-2" id={"ipdr_website_" + ipdr.ipdr_id} type="text" placeholder={ipdr.website} /></td>
-                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateIpInfo(ipdr.ipdr_id)}>Update</button></td>
-                                
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateIpdrInfo(ipdr.ipdr_id)}>Update</button></td>
                                 </tr>
                                
                                     
