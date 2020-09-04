@@ -52,8 +52,15 @@ const timeDateFormatter = (arry) => {
                     realDate = reverseArray.join("-"); 
                 return realDate;
             }
+const currentDate = (date) => {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var secs = date.getSeconds();
+                minutes = minutes < 10 ? '0'+ minutes : minutes;
+                var strTime = hours + ':' + minutes + ':' + secs;
+                return (date.getFullYear()) + "-" + date.getMonth() + "-" + date.getDate() + " " + strTime;
+            }
 
-    
     class PAN extends React.Component {
         state = {
            pans:[],
@@ -75,32 +82,25 @@ const timeDateFormatter = (arry) => {
                 .catch(console.log)
         }
         updatePanInfo = (pan_id) => {
-            let id = idFetcher(); 
-            const numberArry = this.state.numbers.filter(number => number.number_id == number_id);
-            const number = numberArry[0];
-            let complaint_id_num = id,
-                number_id_num = number.number_id,
-                number_one_num = document.getElementById("num_number_" + number_id).value?document.getElementById("num_number_" + number_id).value : number.number,
-                company_num = document.getElementById("num_company_" + number_id).value?document.getElementById("num_company_" + number_id).value : number.company,
-                files_num = document.getElementById("num_files_" + number_id).value?document.getElementById("num_files_" + number_id).value : number.files,
-                email_sent_num = document.getElementById("num_email_sent_" + number_id).value?document.getElementById("num_email_sent_" + number_id).value : number.email_sent,
-                email_received_num = document.getElementById("num_email_received_" + number_id).value?document.getElementById("num_email_received_" + number_id).value : number.email_received,
-                suspect_name_num = document.getElementById("num_suspect_name_" + number_id).value?document.getElementById("num_suspect_name_" + number_id).value : number.suspect_name,
-                suspect_address_num = document.getElementById("num_suspect_address_" + number_id).value?document.getElementById("num_suspect_address_" + number_id).value : number.suspect_address,
-                city_num = document.getElementById("num_city_" + number_id).value?document.getElementById("num_city_" + number_id).value : number.city,
-                state_num = document.getElementById("num_state_" + number_id).value?document.getElementById("num_state_" + number_id).value : number.state,
-                retailer_name_num = document.getElementById("num_retailer_name_" + number_id).value?document.getElementById("num_retailer_name_" + number_id).value : number.retailer_name,
-                uid_num_num = document.getElementById("num_uid_num_" + number_id).value?document.getElementById("num_uid_num_" + number_id).value : number.uid_num,
-                other_num_num = document.getElementById("num_other_num_" + number_id).value?document.getElementById("num_other_num_" + number_id).value : number.other_num,
-                pdf_num = number.pdf,
-                confirmation_num = document.getElementById("num_confirmation_" + number_id).value?document.getElementById("num_confirmation_" + number_id).value : number.confirmation,
-                remark_num = document.getElementById("num_remark_" + number_id).value?document.getElementById("num_remark_" + number_id).value : number.remark,
-                reminder_num = number.reminder,
-                mail_id_num = document.getElementById("num_mail_id_" + number_id).value?document.getElementById("num_mail_id_" + number_id).value : number.mail_id,
-                caf_date_num = document.getElementById("num_caf_date_" + number_id).value?document.getElementById("num_caf_date_" + number_id).value : number.caf_date,
-                created_date_num = number.created_date,
-                suspect_numbers_date = new Date(),
-                last_updated_num = currentDate(suspect_numbers_date);
+            let ids = idsFetcher(),
+                    numId = ids[0],
+                    comId = ids[1];
+            const panArry = this.state.pans.filter(pan => pan.pan_info_id == pan_id);
+            const pan = panArry[0];
+            let complaint_id_pan = comId,
+                acc_id_pan = pan.numId,
+                pan_info_id_pan = pan.pan_info_id,
+                pan_pan = document.getElementById("pan_" + pan_id).value?document.getElementById("pan_" + pan_id).value : pan.pan,
+                pan_verified_pan = document.getElementById("pan_verified_" + pan_id).value?document.getElementById("pan_verified_" + pan_id).value : pan.pan_verified,
+                pan_username_pan = document.getElementById("pan_username_" + pan_id).value?document.getElementById("pan_username_" + pan_id).value : pan.pan_username,
+                adhar_number_pan = document.getElementById("pan_adhar_number_" + pan_id).value?document.getElementById("pan_adhar_number_" + pan_id).value : pan.adhar_number,
+                income_tax_pan = document.getElementById("pan_income_tax_" + pan_id).value?document.getElementById("pan_income_tax_" + pan_id).value : pan.income_tax,
+                gst_in_pan = document.getElementById("pan_gst_in_" + pan_id).value?document.getElementById("pan_gst_in_" + pan_id).value : pan.gst_in,
+                tin_pan = document.getElementById("pan_tin_" + pan_id).value?document.getElementById("pan_tin_" + pan_id).value : pan.tin,
+                sales_tax_pan = document.getElementById("pan_sales_tax_" + pan_id).value?document.getElementById("pan_sales_tax_" + pan_id).value : pan.sales_tax,
+                created_date_pan = pan.created_date,
+                pan_info_date = new Date(),
+                last_updated_pan = currentDate(pan_info_date);
                 
             fetch("../api/data/update_number.php", { 
                 // Adding method type 
