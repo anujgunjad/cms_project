@@ -38,6 +38,7 @@
                 "email_sent" => $email_sent,
                 "email_received" => $email_received,
                 "linked_account" => $linked_account,
+                "beneficiary" => $beneficiary,
                 "ip_address" => $ip_address,
                 "ip_add_number" => $ip_add_number,
                 "device_id" => $device_id,

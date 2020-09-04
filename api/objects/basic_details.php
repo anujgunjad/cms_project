@@ -920,7 +920,7 @@
 
          function read_suspect_ewallet(){
             //Select Query
-            $query = "SELECT c.complaint_no as complaint_number, e.suspect_ewallet_id, e.upi_name, e.mob_number, e.vpa_id, e.statement, e.email_sent, e.email_received, e.linked_account, e.ip_address, e.ip_add_number, e.device_id, e.merchandise, e.hold_amount, e.number, e.created_date, e.last_updated FROM $this->suspect_ewallet_table e INNER JOIN $this->complainee_table c on c.complaint_id = e.complaint_id WHERE c.complaint_id = ?";
+            $query = "SELECT c.complaint_no as complaint_number, e.suspect_ewallet_id, e.upi_name, e.mob_number, e.vpa_id, e.statement, e.email_sent, e.email_received, e.linked_account, e.ip_address, e.ip_add_number, e.device_id, e.merchandise, e.beneficiary, e.hold_amount, e.number, e.created_date, e.last_updated FROM $this->suspect_ewallet_table e INNER JOIN $this->complainee_table c on c.complaint_id = e.complaint_id WHERE c.complaint_id = ?";
 
             //Prepare query statement
             $stmt = $this->conn->prepare($query);

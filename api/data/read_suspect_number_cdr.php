@@ -44,6 +44,7 @@
                 "imsi" => $imsi,
                 "location" => $location,
                 "location_date" => $location_date,
+                "location_time" => $location_time,
                 "night_loc" => $night_loc,
                 "service_name" => $service_name,
                 "suspect_number" => $suspect_number,
