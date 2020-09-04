@@ -733,8 +733,7 @@ const currentDate = (date) => {
                 statement_e = document.getElementById("ewallet_statement_" + suspect_ewallet_id).value?document.getElementById("ewallet_statement_" + suspect_ewallet_id).value : ewallet.statement,
                 email_sent_e = document.getElementById("ewallet_email_sent_" + suspect_ewallet_id).value?document.getElementById("ewallet_email_sent_" + suspect_ewallet_id).value : ewallet.email_sent,
                 email_received_e = document.getElementById("ewallet_email_received_" + suspect_ewallet_id).value?document.getElementById("ewallet_email_received_" + suspect_ewallet_id).value : ewallet.email_received,
-                // beneficiary_e = document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value?document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value : ewallet.beneficiary,
-                beneficiary_e = "",
+                beneficiary_e = document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value?document.getElementById("ewallet_beneficiary_" + suspect_ewallet_id).value : ewallet.beneficiary,
                 linked_account_e = document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value?document.getElementById("ewallet_linked_account_" + suspect_ewallet_id).value : ewallet.linked_account,
                 ip_address_e = document.getElementById("ewallet_ip_address_" + suspect_ewallet_id).value?document.getElementById("ewallet_ip_address_" + suspect_ewallet_id).value : ewallet.ip_address,
                 ip_add_number_e = document.getElementById("ewallet_ip_add_number_" + suspect_ewallet_id).value?document.getElementById("ewallet_ip_add_number_" + suspect_ewallet_id).value : ewallet.ip_add_number,
@@ -802,7 +801,7 @@ const currentDate = (date) => {
                                 <tr>
                                 <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_sent_" + ewallet.suspect_ewallet_id } type="date" /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"ewallet_email_received_" + ewallet.suspect_ewallet_id } type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभार्थी (Beneficiary)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_beneficiary_" + ewallet.suspect_ewallet_id } type="text" /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभार्थी (Beneficiary)</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_beneficiary_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.beneficiary}/></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4><input class="rounded py-2 mt-1 px-2" id={"ewallet_linked_account_" + ewallet.suspect_ewallet_id } type="text" placeholder={ewallet.linked_account} /></td>
                                 </tr>
                                 <tr>

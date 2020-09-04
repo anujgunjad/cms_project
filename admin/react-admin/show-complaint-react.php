@@ -383,8 +383,7 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_sent)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल भेजने की तारीख</h4>{dateFormatter(ewallet.email_sent)!="00-00-0000"?dateFormatter(ewallet.email_sent):"मेल नहीं भेजा गया"}</td>
                                     <td class={dateFormatter(ewallet.email_received)!="00-00-0000"?"success-text":"danger-text"} style={{fontSize:"1.11rem"}}><h4 class={dateFormatter(ewallet.email_received)!="00-00-0000"?"ui header mb-1 mt-1 success-text":"ui header mb-1 mt-1 danger-text"}>ईमेल प्राप्त करने की तारीख</h4>{dateFormatter(ewallet.email_received)!="00-00-0000"?dateFormatter(ewallet.email_received):"मेल अभी तक नहीं मिला "}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभार्थी (Beneficiary)</h4></td>
-                                    {/*<td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभार्थी (Beneficiary)</h4>{ewallet.beneficiary?ewallet.beneficiary : "अभी तक दर्ज नहीं है"}</td>*/}
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">लाभार्थी (Beneficiary)</h4>{ewallet.beneficiary?ewallet.beneficiary : "अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">जुड़ा हुआ खाता</h4>{ewallet.linked_account?ewallet.linked_account : "अभी तक दर्ज नहीं है"}</td>
                                 </tr>
                                 <tr>
