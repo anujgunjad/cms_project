@@ -409,7 +409,7 @@
            }
         }  
         function updateAcc_pan(){
-            $query = "UPDATE $this->suspect_account_pan_table SET complaint_id=:complaint_id_pan,acc_id=:acc_id_pan,pan_info_id=:pan_info_id_pan,pan=:pan_pan,pan_verified=:pan_verified_pan,pan_username=:pan_username_pan,adhar_number=:adhar_number_pan,income_tax=:income_tax_pan,gst_in=:gst_in_pan,tin=:tin_pan,sales_tax=:sales_tax_pan,created_date=:created_date_pan,last_updated=:last_updated_pan WHERE complaint_id=:complaint_id_pan and acc_id=:acc_id_pan and pan_info_id=:pan_info_id_pan";
+            $query = "UPDATE $this->suspect_account_pan_table SET pan = :pan_pan, pan_verified = :pan_verified_pan, pan_username = :pan_username_pan, adhar_number = :adhar_number_pan, income_tax = :income_tax_pan, gst_in = :gst_in_pan,tin = :tin_pan, sales_tax = :sales_tax_pan, created_date = :created_date_pan, last_updated = :last_updated_pan WHERE complaint_id = :complaint_id_pan AND pan_info_id = :pan_info_id_pan AND  acc_id = :acc_id_pan";
              
             $stmt = $this->conn->prepare($query);
 
