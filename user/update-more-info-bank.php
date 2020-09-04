@@ -313,31 +313,31 @@ const currentDate = (date) => {
             let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];
-            const atmArry = this.state.atms.filter(atm => atm.atm_footage_id == atm_id);
-            const atm = atmArry[0];
+            const iplogArry = this.state.iplogs.filter(iplog => iplog.iplog_id == iplog_id);
+            const iplog = iplogArry[0];
             let complaint_id_iplog = comId,
                 acc_id_iplog = numId,
                 iplog_id_iplog = iplog_id,
-                atm_footage_atm = document.getElementById("atm_footage_" + atm.atm_footage_id ).value?document.getElementById("atm_footage_" + atm.atm_footage_id).value : atm.atm_footage,
-                email_sent_atm = document.getElementById("atm_email_sent_" + atm.atm_footage_id ).value?document.getElementById("atm_email_sent_" + atm.atm_footage_id).value : atm.email_sent,
-                email_received_atm = document.getElementById("atm_email_received_" + atm.atm_footage_id ).value?document.getElementById("atm_email_received_" + atm.atm_footage_id).value : atm.email_received,
-                created_date_atm = atm.created_date,
+                iplog_iplog = document.getElementById("iplog_iplog_" + iplog.iplog_id ).value?document.getElementById("iplog_iplog_" + iplog.iplog_id ).value : iplog.iplog,
+                email_sent_iplog = document.getElementById("iplog_email_sent_" + iplog.iplog_id  ).value?document.getElementById("iplog_email_sent_" + iplog.iplog_id ).value : iplog.email_sent,
+                email_received_iplog = document.getElementById("iplog_email_received_" + iplog.iplog_id  ).value?document.getElementById("iplog_email_received_" + iplog.iplog_id ).value : iplog.email_received,
+                created_date_iplog = iplog.created_date,
                 iplog_update_date = new Date(),
                 last_updated_iplog = currentDate(iplog_update_date);
                 
-            fetch("../api/data/update_account_atm.php", { 
+            fetch("../api/data/update_account_iplogs.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                    complaint_id_atm ,
-                    acc_id_atm,
-                    atm_footage_id_atm,
-                    atm_footage_atm,
-                    email_sent_atm,
-                    email_received_atm,
-                    created_date_atm,
-                    last_updated_atm ,
+                    complaint_id_iplog,
+                    acc_id_iplog,
+                    iplog_id_iplog,
+                    iplog_iplog,
+                    email_sent_iplog,
+                    email_received_iplog,
+                    created_date_iplog,
+                    last_updated_iplog ,
                 })
             })
             
@@ -367,9 +367,15 @@ const currentDate = (date) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> Complaint Number</h4>{iplog.complaint_number?iplog.complaint_number:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">iplog </h4><input class="rounded py-2 mt-1 px-2" id={"iplog_iplog" + iplog.iplog_id } type="text" placeholder={iplog.iplog} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">iplog </h4><input class="rounded py-2 mt-1 px-2" id={"iplog_iplog_" + iplog.iplog_id } type="text" placeholder={iplog.iplog} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल भेजने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"iplog_email_sent_" + iplog.iplog_id } type="date" /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">ईमेल प्राप्त करने की तारीख</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"iplog_email_received_" + iplog.iplog_id } type="date" /></td>
+                                </tr>
+                                <tr>
+                                <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateIplogInfo(iplog.iplog_id)}>Update</button></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 </tr>                                   
                            </tbody>
                         </table>
