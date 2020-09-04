@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img src="images/logo.png" width="60" height="60" alt="">
-    <span class = "m-2" style = "font-size:20px;">COMPLAINT MANAGEMENT SYSTEM</span>
+    <img src="images/logo.png" width="70" height="70" alt="">
+    <span class = "mt-5 ml-3 header-text">COMPLAINT MANAGEMENT SYSTEM</span>
   </a>
 </nav>

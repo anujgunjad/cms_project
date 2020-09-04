@@ -16,7 +16,12 @@
 .button:hover {
   color: white;
 }
-
+.header-text {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem !important;
+  color: #004ba8;
+}
 /* ERROR PAGE */
 #error-wrapper {
   width: 100vw;
