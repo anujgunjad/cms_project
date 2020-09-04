@@ -107,12 +107,9 @@ const timeDateFormatter = (arry) => {
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">सर्विस का नाम</h4>{cdr.service_name?cdr.service_name:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">संदिग्ध नंबर</h4>{cdr.suspect_number?cdr.suspect_number:"अभी तक दर्ज नहीं है"}</td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updatePanInfo(pan.pan_info_id)}>Update</button></td>
                                     <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                   <td></td>
-                                </tr>                            
+                                </tr>                         
                            </tbody>
                         </table>
                         ))
