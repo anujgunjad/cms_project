@@ -87,6 +87,7 @@ const timeDateFormatter = (arry) => {
                 cdr_cdr = document.getElementById("cdr_cdr_" + cdr.cdr_id ).value?document.getElementById("cdr_cdr_" + cdr.cdr_id).value : cdr.cdr,
                 email_sent_cdr = document.getElementById("cdr_email_sent_" + cdr.cdr_id ).value?document.getElementById("cdr_email_sent_" + cdr.cdr_id).value : cdr.email_sent,
                 email_received_cdr = document.getElementById("cdr_email_received_" + cdr.cdr_id ).value?document.getElementById("cdr_email_received_" + cdr.cdr_id).value : cdr.email_received,
+                imei_cdr = document.getElementById("cdr_imei_" + cdr.cdr_id ).value?document.getElementById("cdr_imei_" + cdr.cdr_id).value : cdr.imei,
                 created_date_atm = atm.created_date,
                 atm_update_date = new Date(),
                 last_updated_atm = currentDate(atm_update_date);
