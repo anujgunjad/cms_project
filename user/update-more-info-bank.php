@@ -56,9 +56,10 @@ const currentDate = (date) => {
                 var hours = date.getHours();
                 var minutes = date.getMinutes();
                 var secs = date.getSeconds();
-                minutes = minutes < 10 ? '0'+ minutes : minutes;
+                var month = date.getMonth() + 1;
+                minutes = minutes < 10 ? '0'+minutes : minutes;
                 var strTime = hours + ':' + minutes + ':' + secs;
-                return (date.getFullYear()) + "-" + date.getMonth() + "-" + date.getDate() + " " + strTime;
+                return (date.getFullYear()) + "-" + month + "-" + date.getDate() + " " + strTime;
             }
 
     class PAN extends React.Component {

@@ -55,9 +55,10 @@ const currentDate = (date) => {
                 var hours = date.getHours();
                 var minutes = date.getMinutes();
                 var secs = date.getSeconds();
-                minutes = minutes < 10 ? '0'+ minutes : minutes;
+                var month = date.getMonth() + 1;
+                minutes = minutes < 10 ? '0'+minutes : minutes;
                 var strTime = hours + ':' + minutes + ':' + secs;
-                return (date.getFullYear()) + "-" + date.getMonth() + "-" + date.getDate() + " " + strTime;
+                return (date.getFullYear()) + "-" + month + "-" + date.getDate() + " " + strTime;
             }
 
     
@@ -226,43 +227,29 @@ const currentDate = (date) => {
             let complaint_id_ipdr = comId,
                 number_id_ipdr = numId,
                 ipdr_id_ipdr = ipdr_id,
-                cdr_cdr = document.getElementById("cdr_cdr_" + cdr.cdr_id ).value?document.getElementById("cdr_cdr_" + cdr.cdr_id).value : cdr.cdr,
-                email_sent_cdr = document.getElementById("cdr_email_sent_" + cdr.cdr_id ).value?document.getElementById("cdr_email_sent_" + cdr.cdr_id).value : cdr.email_sent,
-                email_received_cdr = document.getElementById("cdr_email_received_" + cdr.cdr_id ).value?document.getElementById("cdr_email_received_" + cdr.cdr_id).value : cdr.email_received,
-                imei_cdr = document.getElementById("cdr_imei_" + cdr.cdr_id ).value?document.getElementById("cdr_imei_" + cdr.cdr_id).value : cdr.imei,
-                imsi_cdr = document.getElementById("cdr_imsi_" + cdr.cdr_id ).value?document.getElementById("cdr_imsi_" + cdr.cdr_id).value : cdr.imsi,
-                location_cdr = document.getElementById("cdr_location_" + cdr.cdr_id ).value?document.getElementById("cdr_location_" + cdr.cdr_id).value : cdr.location,
-                location_date_cdr = document.getElementById("cdr_location_date_" + cdr.cdr_id ).value?document.getElementById("cdr_location_date_" + cdr.cdr_id).value : cdr.location_date,
-                location_time_cdr = document.getElementById("cdr_location_time_" + cdr.cdr_id ).value?document.getElementById("cdr_location_time_" + cdr.cdr_id).value : cdr.location_date,
-                night_loc_cdr = document.getElementById("cdr_night_loc_" + cdr.cdr_id ).value?document.getElementById("cdr_night_loc_" + cdr.cdr_id).value : cdr.night_loc,
-                service_name_cdr = document.getElementById("cdr_service_name_" + cdr.cdr_id ).value?document.getElementById("cdr_service_name_" + cdr.cdr_id).value : cdr.service_name,
-                suspect_number_cdr = document.getElementById("cdr_suspect_number_" + cdr.cdr_id ).value?document.getElementById("cdr_suspect_number_" + cdr.cdr_id).value : cdr.suspect_number,
-                cdr_pdf_cdr = cdr.cdr_pdf,
-                created_date_cdr = cdr.created_date,
-                cdr_update_date = new Date(),
-                last_updated_cdr = currentDate(cdr_update_date);
-            fetch("../api/data/update_number_cdr.php", { 
+                ipdr_ipdr = document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id).value : ipdr.ipdr,
+                email_sent_ipdr = document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id).value : ipdr.email_sent,
+                email_received_ipdr = document.getElementById("ipdr_email_received_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_received_" + ipdr.ipdr_id).value : ipdr.email_received,
+                location_ipdr = document.getElementById("ipdr_location_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_location_" + ipdr.ipdr_id).value : ipdr.location,
+                website_ipdr = document.getElementById("ipdr_website_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_website_" + ipdr.ipdr_id).value : ipdr.website,
+                created_date_ipdr = ipdr.created_date,
+                ipdr_update_date = new Date(),
+                last_updated_ipdr = currentDate(ipdr_update_date);
+            fetch("../api/data/update_num_ipdr.php", { 
                 // Adding method type 
                 method: "POST", 
                 // Adding body or contents to send 
                 body: JSON.stringify({ 
-                    complaint_id_cdr ,
-                    number_id_cdr,
-                    cdr_id_cdr,
-                    cdr_cdr,
-                    email_sent_cdr,
-                    email_received_cdr,
-                    imei_cdr,
-                    imsi_cdr,
-                    location_cdr,
-                    location_date_cdr,
-                    location_time_cdr,
-                    night_loc_cdr,
-                    service_name_cdr,
-                    suspect_number_cdr,
-                    cdr_pdf_cdr,
-                    created_date_cdr,
-                    last_updated_cdr,
+                    complaint_id_ipdr,
+                    number_id_ipdr,
+                    ipdr_id_ipdr,
+                    ipdr_ipdr,
+                    email_sent_ipdr,
+                    email_received_ipdr,
+                    location_ipdr,
+                    website_ipdr,
+                    created_date_ipdr,
+                    last_updated_ipdr,
                 })
             })
             
@@ -341,7 +328,53 @@ const currentDate = (date) => {
                     // console.log(this.state.upi);
                 })
         }
-        
+        updateUpiInfo = (ipdr_id) => {
+            let ids = idsFetcher(),
+                    numId = ids[0],
+                    comId = ids[1];
+            const ipdrArry = this.state.ipdr.filter(ipdr => ipdr.ipdr_id == ipdr_id);
+            const ipdr = ipdrArry[0];
+            let complaint_id_ipdr = comId,
+                number_id_ipdr = numId,
+                ipdr_id_ipdr = ipdr_id,
+                ipdr_ipdr = document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id).value : ipdr.ipdr,
+                email_sent_ipdr = document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id).value : ipdr.email_sent,
+                email_received_ipdr = document.getElementById("ipdr_email_received_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_received_" + ipdr.ipdr_id).value : ipdr.email_received,
+                location_ipdr = document.getElementById("ipdr_location_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_location_" + ipdr.ipdr_id).value : ipdr.location,
+                website_ipdr = document.getElementById("ipdr_website_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_website_" + ipdr.ipdr_id).value : ipdr.website,
+                created_date_ipdr = ipdr.created_date,
+                ipdr_update_date = new Date(),
+                last_updated_ipdr = currentDate(ipdr_update_date);
+            fetch("../api/data/update_num_ipdr.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_ipdr,
+                    number_id_ipdr,
+                    ipdr_id_ipdr,
+                    ipdr_ipdr,
+                    email_sent_ipdr,
+                    email_received_ipdr,
+                    location_ipdr,
+                    website_ipdr,
+                    created_date_ipdr,
+                    last_updated_ipdr,
+                })
+            })
+            
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
+        }    
         render(){
             return(
                 <div>
