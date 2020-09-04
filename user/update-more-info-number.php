@@ -107,43 +107,42 @@ const currentDate = (date) => {
                 created_date_cdr = cdr.created_date,
                 cdr_update_date = new Date(),
                 last_updated_cdr = currentDate(cdr_update_date);
-                console.log(suspect_number_cdr);
-            // fetch("../api/data/update_number_cdr.php", { 
-            //     // Adding method type 
-            //     method: "POST", 
-            //     // Adding body or contents to send 
-            //     body: JSON.stringify({ 
-            //         complaint_id_cdr ,
-            //         number_id_cdr,
-            //         cdr_id_cdr,
-            //         cdr_cdr,
-            //         email_sent_cdr,
-            //         email_received_cdr,
-            //         imei_cdr,
-            //         imsi_cdr,
-            //         location_cdr,
-            //         location_date_cdr,
-            //         location_time_cdr,
-            //         night_loc_cdr,
-            //         service_name_cdr,
-            //         suspect_number_cdr,
-            //         cdr_pdf_cdr,
-            //         created_date_cdr,
-            //         last_updated_cdr,
-            //     })
-            // })
+            fetch("../api/data/update_number_cdr.php", { 
+                // Adding method type 
+                method: "POST", 
+                // Adding body or contents to send 
+                body: JSON.stringify({ 
+                    complaint_id_cdr ,
+                    number_id_cdr,
+                    cdr_id_cdr,
+                    cdr_cdr,
+                    email_sent_cdr,
+                    email_received_cdr,
+                    imei_cdr,
+                    imsi_cdr,
+                    location_cdr,
+                    location_date_cdr,
+                    location_time_cdr,
+                    night_loc_cdr,
+                    service_name_cdr,
+                    suspect_number_cdr,
+                    cdr_pdf_cdr,
+                    created_date_cdr,
+                    last_updated_cdr,
+                })
+            })
             
-            //     // update done
-            //     .then(
-            //             swal({
-            //                 title: 'Updated Successfuly',
-            //                 icon: 'success',
-            //                 button: 'Next',
-            //             })
-            //             .then(() => {
-            //                 location.reload();
-            //             })
-            //         ); 
+                // update done
+                .then(
+                        swal({
+                            title: 'Updated Successfuly',
+                            icon: 'success',
+                            button: 'Next',
+                        })
+                        .then(() => {
+                            location.reload();
+                        })
+                    ); 
         }
         render(){
             const pdfButtonStyle = {
