@@ -225,9 +225,9 @@ const timeDateFormatter = (arry) => {
                                 <tbody>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI</h4>{upi.upi?upi.upi:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI ID</h4>{upi.upi_id?upi.upi_id:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Link</h4>{upi.upi_link?upi.upi_link:"अभी तक दर्ज नहीं है"}</td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Name</h4>{upi.upi_name?upi.upi_name:"अभी तक दर्ज नहीं है"}</td>
+                                    <td></td>
                                 </tr>                                 
                            </tbody>
                         </table>

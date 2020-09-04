@@ -325,18 +325,18 @@ const currentDate = (date) => {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({upi: data.upi});
-                    // console.log(this.state.upi);
+                    console.log(this.state.upi);
                 })
         }
-        updateUpiInfo = (ipdr_id) => {
+        updateUpiInfo = (upi_id) => {
             let ids = idsFetcher(),
                     numId = ids[0],
                     comId = ids[1];
-            const ipdrArry = this.state.ipdr.filter(ipdr => ipdr.ipdr_id == ipdr_id);
-            const ipdr = ipdrArry[0];
-            let complaint_id_ipdr = comId,
-                number_id_ipdr = numId,
-                ipdr_id_ipdr = ipdr_id,
+            const upiArry = this.state.upi.filter(upi => upi.upi_id == upi_id);
+            const upi = upiArry[0];
+            let complaint_id_upi = comId,
+                number_id_upi = numId,
+                upi_id_upi = upi_id,
                 ipdr_ipdr = document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_ipdr_" + ipdr.ipdr_id).value : ipdr.ipdr,
                 email_sent_ipdr = document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_sent_" + ipdr.ipdr_id).value : ipdr.email_sent,
                 email_received_ipdr = document.getElementById("ipdr_email_received_" + ipdr.ipdr_id ).value?document.getElementById("ipdr_email_received_" + ipdr.ipdr_id).value : ipdr.email_received,
@@ -387,10 +387,10 @@ const currentDate = (date) => {
                             <table class="ui celled table">   
                                 <tbody>
                                 <tr>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI</h4>{upi.upi?upi.upi:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI ID</h4>{upi.upi_id?upi.upi_id:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Link</h4>{upi.upi_link?upi.upi_link:"अभी तक दर्ज नहीं है"}</td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Name</h4>{upi.upi_name?upi.upi_name:"अभी तक दर्ज नहीं है"}</td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1"><span style={{color:"red"}}>[{i+1}]</span> UPI</h4><input class="rounded py-2 mt-1 px-2" id={"upi_upi_" + upi.upi_id} type="text" placeholder={upi.upi} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Link</h4><input class="rounded py-2 mt-1 px-2" id={"upi_upi_link_" + upi.upi_id} type="text" placeholder={upi.upi_link} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">UPI Name</h4><input class="rounded py-2 mt-1 px-2" id={"upi_upi_name_" + upi.upi_id} type="text" placeholder={upi.upi_name} /></td>
+                                    <td><button class="ui button update-button mt-2 py-3 px-5" onClick={() => this.updateUpiInfo(upi.upi_id)}>Update</button></td>
                                 </tr>                                 
                            </tbody>
                         </table>
