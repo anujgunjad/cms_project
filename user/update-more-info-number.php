@@ -100,7 +100,7 @@ const currentDate = (date) => {
                 imsi_cdr = document.getElementById("cdr_imsi_" + cdr.cdr_id ).value?document.getElementById("cdr_imsi_" + cdr.cdr_id).value : cdr.imsi,
                 location_cdr = document.getElementById("cdr_location_" + cdr.cdr_id ).value?document.getElementById("cdr_location_" + cdr.cdr_id).value : cdr.location,
                 location_date_cdr = document.getElementById("cdr_location_date_" + cdr.cdr_id ).value?document.getElementById("cdr_location_date_" + cdr.cdr_id).value : cdr.location_date,
-                location_time_cdr = document.getElementById("cdr_location_time_" + cdr.cdr_id ).value?document.getElementById("cdr_location_time_" + cdr.cdr_id).value : cdr.location_date,
+                location_time_cdr = document.getElementById("cdr_location_time_" + cdr.cdr_id ).value?document.getElementById("cdr_location_time_" + cdr.cdr_id).value : cdr.location_time,
                 night_loc_cdr = document.getElementById("cdr_night_loc_" + cdr.cdr_id ).value?document.getElementById("cdr_night_loc_" + cdr.cdr_id).value : cdr.night_loc,
                 service_name_cdr = document.getElementById("cdr_service_name_" + cdr.cdr_id ).value?document.getElementById("cdr_service_name_" + cdr.cdr_id).value : cdr.service_name,
                 suspect_number_cdr = document.getElementById("cdr_suspect_number_" + cdr.cdr_id ).value?document.getElementById("cdr_suspect_number_" + cdr.cdr_id).value : cdr.suspect_number,
@@ -171,7 +171,7 @@ const currentDate = (date) => {
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">IMSI नंबर</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_imsi_" + cdr.cdr_id} type="text" placeholder={cdr.imsi} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान (Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_location_" + cdr.cdr_id} type="text" placeholder={cdr.location} /></td>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान तारीख (Location Date)</h4><input class="rounded py-2 mt-1 pl-2 pr-5" id={"cdr_location_date_" + cdr.cdr_id } type="date" /></td>
-                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान समय (Location Time)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_location_time_" + cdr.cdr_id} type="text" placeholder={cdr.location} /></td>
+                                    <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">स्थान समय (Location Time)</h4><input style={{width:"16vw"}} class="rounded py-2 mt-1 pl-2 pr-5" id={"cdr_location_time_" + cdr.cdr_id} type="time" placeholder={cdr.location_time} /></td>
                                 </tr>
                                 <tr>
                                     <td style={{fontSize:"1.11rem"}}><h4 class="ui header theme-color mb-1 mt-1">रात्रि स्थान (Night Location)</h4><input class="rounded py-2 mt-1 px-2" id={"cdr_night_loc_" + cdr.cdr_id} type="text" placeholder={cdr.night_loc} /></td>
