@@ -19,7 +19,6 @@ $basic = new Basic($db);
 // get id of product to be edited
             $data = json_decode(file_get_contents("php://input"));
             
-            $basic->complaint_id_basic = $data->complaint_id_basic;
             $basic->complaint_no_basic = $data->complaint_no_basic;
             $basic->ap_name_basic = $data->ap_name_basic;
             $basic->ap_age_basic = $data->ap_age_basic;
