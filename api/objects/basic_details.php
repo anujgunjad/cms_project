@@ -1,6 +1,7 @@
 <?php
  //include Files
  include_once '../../includes/config.php';
+ 
  //initialize Database
  $database = new Database();
  $db = $database->getConnection();
@@ -246,8 +247,8 @@
             $this->conn = $db;
         }
         
-        function updateBasic() {
-            $query = "UPDATE $this->complainee_table SET complaint_no = :complaint_no_basic, ap_name= :ap_name_basic, ap_age = :ap_age_basic,ap_gender= :ap_gender_basic,ap_mob = :ap_mob_basic,ap_address = :ap_address_basic,ap_country = :ap_country_basic,ap_state = :ap_state_basic, ap_city = :ap_city_basic, ap_pin_code = :ap_pin_code_basic, ap_adhar = :ap_adhar_basic, complaint_type = :complaint_type_basic, sub_complaint_type = :sub_complaint_type_basic, it_act = :it_act_basic, bh_dv = :bh_dv_basic, crime_date = :crime_date_basic, crime_time = :crime_time_basic , amount = :amount_basic, freeze_amount = :freeze_amount_basic, checker_name = :checker_name_basic, created_date = :created_date_basic, last_updated = :last_update_basic, complaint_status = :complaint_status_basic, user_id = 'user123' WHERE complaint_id = :complaint_id_basic";
+        function updateBasic($UpdateUserId) {
+            $query = "UPDATE $this->complainee_table SET complaint_no = :complaint_no_basic, ap_name= :ap_name_basic, ap_age = :ap_age_basic,ap_gender= :ap_gender_basic,ap_mob = :ap_mob_basic,ap_address = :ap_address_basic,ap_country = :ap_country_basic,ap_state = :ap_state_basic, ap_city = :ap_city_basic, ap_pin_code = :ap_pin_code_basic, ap_adhar = :ap_adhar_basic, complaint_type = :complaint_type_basic, sub_complaint_type = :sub_complaint_type_basic, it_act = :it_act_basic, bh_dv = :bh_dv_basic, crime_date = :crime_date_basic, crime_time = :crime_time_basic , amount = :amount_basic, freeze_amount = :freeze_amount_basic, checker_name = :checker_name_basic, created_date = :created_date_basic, last_updated = :last_update_basic, complaint_status = :complaint_status_basic, user_id = '$UpdateUserId' WHERE complaint_id = :complaint_id_basic";
 
             $stmt = $this->conn->prepare($query);
             

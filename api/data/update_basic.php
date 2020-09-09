@@ -1,4 +1,6 @@
 <?php
+session_start();
+$UpdateUserId = $_SESSION['user_id'];
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -18,7 +20,7 @@ $db = $database->getConnection();
 $basic = new Basic($db);
 // get id of product to be edited
             $data = json_decode(file_get_contents("php://input"));
-            
+            $basic->complaint_id_basic = $data->complaint_id_basic;
             $basic->complaint_no_basic = $data->complaint_no_basic;
             $basic->ap_name_basic = $data->ap_name_basic;
             $basic->ap_age_basic = $data->ap_age_basic;
@@ -44,7 +46,7 @@ $basic = new Basic($db);
             $basic->last_update_basic = $data->last_update_basic; ; 
             $basic->complaint_status_basic  = $data->complaint_status_basic;
 
-    if($basic->updateBasic()){
+    if($basic->updateBasic($UpdateUserId)){
         // set response code - 200 ok
         http_response_code(200);
   
